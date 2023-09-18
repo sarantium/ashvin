@@ -5,3 +5,103 @@ plugins:
   - blog
   - tags:
       tags_file: tags.md
+# site_name: Grid
+# site_url: https://grid.sarantium.dev
+# site_description: Grid - A positioning framework for product development
+# repo_url: https://github.com/sarantium/grid
+# repo_name: sarantium/grid
+
+# theme:
+#   name: material
+#   custom_dir: docs/overrides
+#   icon:
+#     logo: material/view-grid-plus
+#   favicon: assets/view-grid-plus-outline-dark.png
+#   palette:
+#     - scheme: default
+#       primary: teal
+#       accent: amber
+#       toggle:
+#         icon: material/lightbulb
+#         name: Switch to dark mode
+#     - scheme: slate
+#       primary: teal
+#       accent: amber
+#       toggle:
+#         icon: material/lightbulb-outline
+#         name: Switch to light mode
+#   features:
+#     - navigation.tracking
+#     - search.highlight
+#     - search.share
+#     - content.code.copy
+#     - navigation.footer
+#     - navigation.top
+
+# extra:
+#   social:
+#     - icon: fontawesome/brands/github
+#       link: https://github.com/sarantium/grid
+#     - icon: fontawesome/brands/linkedin
+#       link: https://www.linkedin.com/in/ashvinparameswaran
+#     - icon: fontawesome/solid/file-pdf
+#       link: /assets/ashvin_parameswaran_curriculum_vitae_2023.pdf
+#       name: curriculum vitae
+#   analytics:
+#     provider: google
+#     property: G-KKL5FCE0BT
+#     feedback:
+#       title: Was this page helpful?
+#       ratings:
+#         - icon: material/emoticon-happy-outline
+#           name: This page was helpful
+#           data: 1
+#           note: >-
+#             Thanks for your feedback!
+#         - icon: material/emoticon-sad-outline
+#           name: This page could be improved
+#           data: 0
+#           note: >-
+#             Thanks for your feedback! Help us improve this page by
+#             <a href="https://github.com/sarantium/grid/issues/new/?title=[Feedback]+{title}+-+{url}" target="_blank" rel="noopener">telling us what you're missing</a>.
+
+# copyright: Copyright &copy; 2022 - 2023 Ashvin Parameswaran
+# edit_uri: ""
+
+# markdown_extensions:
+#   - abbr
+#   - attr_list
+#   - pymdownx.emoji:
+#       emoji_index: !!python/name:materialx.emoji.twemoji
+#       emoji_generator: !!python/name:materialx.emoji.to_svg
+#   - tables
+#   - def_list
+#   - admonition
+#   - pymdownx.details
+#   - pymdownx.superfences:
+#       custom_fences:
+#         - name: mermaid
+#           class: mermaid
+#           format: !!python/name:pymdownx.superfences.fence_code_format
+#   - pymdownx.tasklist:
+#       custom_checkbox: true
+#   - toc:
+#       permalink: ⚓︎
+#   - md_in_html
+
+# extra_css:
+#   - stylesheets/extra.css
+
+# plugins:
+#   - search
+
+# nav:
+#   - Grid: README.md
+#   - Framework: framework.md
+#   - App: "https://gridpm.streamlit.app"
+#   - Concepts:
+#       - Positioning: positioning-concepts.md
+#       - Generating: generating-concepts.md
+#   - Reading List: reading-list.md
+#   - Release Notes: release-notes.md
+#   - License: license.md
