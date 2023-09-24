@@ -5,7 +5,6 @@ import os
 
 dotenv_path = Path(r"C:\Storage\python_projects\ashvin\.env")
 load_dotenv(dotenv_path=dotenv_path)
-
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 
@@ -48,11 +47,33 @@ from langchain.chains import LLMChain
 # print(output)
 
 # example five : use of basic LLM with a list of prompts
-from langchain.llms import OpenAI
+# from langchain.llms import OpenAI
 
-llm = OpenAI()
-prompt_list = ["tell me a joke", "tell me a lie"]
-output = llm.generate(prompts=prompt_list)
-print(type(output))
-print(output.generations[0][0])
-print(type(output.generations[0][0]))
+# llm = OpenAI()
+# prompt_list = ["tell me a joke", "tell me a lie"]
+# output = llm.generate(prompts=prompt_list)
+# print(type(output))
+# print(output.generations[0][0])
+# print(type(output.generations[0][0]))
+
+# example six : use of alternate PromptTemplate format
+# from langchain.prompts import PromptTemplate
+
+# prompt_template = PromptTemplate(
+#     input_variables=["number", "type", "filter"],
+#     template="List the top {number} {type} by {filter}",
+# )
+
+# print(prompt_template.format(number=10, type="cities", filter="population"))
+
+# example seven A : use of alternate PromptTemplate format with error from unspecificed input variable
+from langchain.prompts import PromptTemplate
+
+prompt_template = PromptTemplate(
+    input_variables=["number", "type"],
+    template="List the top {number} {type} by wealth",
+)
+
+print(prompt_template.format(number=10, type="cities", filter="wealth"))
+
+# * in both cases above in example 7 it gives a keyError

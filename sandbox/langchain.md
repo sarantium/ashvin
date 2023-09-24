@@ -36,7 +36,7 @@ Output :
 
 Input :
 
-This is an alternative, basic way of generating the Prompt Template and is seen in alot of the older tutorials available online. If you do it this way, then if the input variables don't match the template variables, it will raise an exception.
+This is an alternative, basic way of generating the Prompt Template and is seen in alot of the older tutorials available online. If you do it this way, then if the input variables don't match the template variables, it will raise an exception. This happens both if there is no variable and you try one or if there is a variable and you omit it.
 
 ```python
 from langchain.prompts import PromptTemplate
