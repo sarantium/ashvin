@@ -29,7 +29,7 @@ plugins:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/sarantium/grid
+      link: https://github.com/sarantium/ashvin
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/ashvinparameswaran
     - icon: fontawesome/solid/file-pdf
@@ -37,31 +37,11 @@ extra:
       name: resume
 
 copyright: Copyright &copy; 2023 Ashvin Parameswaran
-#* site_name: Grid
-#* site_url: https://grid.sarantium.dev
-#* site_description: Grid - A positioning framework for product development
-#* repo_url: https://github.com/sarantium/grid
-#* repo_name: sarantium/grid
-
 # theme:
 #*   name: material
 #   custom_dir: docs/overrides
 #*   icon:
-#*     logo: material/view-grid-plus
-#*   favicon: assets/view-grid-plus-outline-dark.png
-#*   palette:
-#*     - scheme: default
-#*       primary: teal
-#*       accent: amber
-#*      toggle:
-#*         icon: material/lightbulb
-#*         name: Switch to dark mode
-#*     - scheme: slate
-#*       primary: teal
-#*       accent: amber
-#*       toggle:
-#*         icon: material/lightbulb-outline
-#*         name: Switch to light mode
+
 #   features:
 #     - navigation.tracking
 #     - search.highlight
@@ -97,7 +77,6 @@ copyright: Copyright &copy; 2023 Ashvin Parameswaran
 #             Thanks for your feedback! Help us improve this page by
 #             <a href="https://github.com/sarantium/grid/issues/new/?title=[Feedback]+{title}+-+{url}" target="_blank" rel="noopener">telling us what you're missing</a>.
 
-#* copyright: Copyright &copy; 2022 - 2023 Ashvin Parameswaran
 # edit_uri: ""
 
 # markdown_extensions:

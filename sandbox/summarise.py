@@ -4,6 +4,7 @@ import os
 from langchain.chat_models import ChatOpenAI
 from langchain.document_loaders import WebBaseLoader, PyPDFLoader
 from langchain.chains.summarize import load_summarize_chain
+from langchain.prompts import PromptTemplate
 
 dotenv_path = Path(r"C:\Storage\python_projects\ashvin\.env")
 load_dotenv(dotenv_path=dotenv_path)
@@ -22,6 +23,7 @@ loader = PyPDFLoader(
 docs = loader.load()
 llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo-16k")
 chain = load_summarize_chain(llm, chain_type="stuff")
+chain1 = load_summarize_chain()
 
 output = chain.run(docs)
 print(output)
