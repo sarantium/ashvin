@@ -79,27 +79,26 @@ copyright: Copyright &copy; 2023 Ashvin Parameswaran
 
 # edit_uri: ""
 
-# markdown_extensions:
-#   - abbr
-#   - attr_list
-#   - pymdownx.emoji:
-#       emoji_index: !!python/name:materialx.emoji.twemoji
-#       emoji_generator: !!python/name:materialx.emoji.to_svg
-#   - tables
-#   - def_list
-#   - admonition
-#   - pymdownx.details
-#   - pymdownx.superfences:
-#       custom_fences:
-#         - name: mermaid
-#           class: mermaid
-#           format: !!python/name:pymdownx.superfences.fence_code_format
-#   - pymdownx.tasklist:
-#       custom_checkbox: true
-#   - toc:
-#       permalink: ⚓︎
-#   - md_in_html
-
+markdown_extensions:
+  - abbr
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - tables
+  - def_list
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - toc:
+      permalink: ⚓︎
+  - md_in_html
 # extra_css:
 #   - stylesheets/extra.css
 
