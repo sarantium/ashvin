@@ -51,14 +51,6 @@ copyright: Copyright &copy; 2023 Ashvin Parameswaran
 #     - navigation.top
 
 # extra:
-#*   social:
-#*     - icon: fontawesome/brands/github
-#*       link: https://github.com/sarantium/grid
-#*     - icon: fontawesome/brands/linkedin
-#*       link: https://www.linkedin.com/in/ashvinparameswaran
-#*     - icon: fontawesome/solid/file-pdf
-#*       link: /assets/ashvin_parameswaran_curriculum_vitae_2023.pdf
-#*       name: curriculum vitae
 #   analytics:
 #     provider: google
 #     property: G-KKL5FCE0BT
@@ -105,8 +97,9 @@ markdown_extensions:
 # plugins:
 #   - search
 
-# nav:
-#   - Grid: README.md
+nav:
+  - Grid: README.md
+  - Blog: blog
 #   - Framework: framework.md
 #   - App: "https://gridpm.streamlit.app"
 #   - Concepts:

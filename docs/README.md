@@ -2,7 +2,7 @@
   <a><img src="assets\icon-teal-300px.png" alt="Grid"></a>
 </p>
 <p align="center">
-    <em>Grid is a minimalist <b>positioning framework</b> and <b>generative app</b> for <b>digital product development</b></em>
+    <em><b>Generative Agents</b> for <b>AI Product Managers</b></em>
 </p>
 
 ---
@@ -15,7 +15,27 @@
 
 ---
 
-**_Positioning_** is a [framework](framework.md) that increases individual certainty and improves group collaboration by providing a precise, shared language for speaking about and connecting the essential activities in the end-to-end product development lifecycle.
+All product managers want to deliver value faster. AI products face additional challenges because the domain is new and the result is often non-deterministic.
+
+This increases uncertainty of inputs and outputs by making it harder to manage, de-risk and control the already chaotic product development lifecycle.
+
+!!! tip
+
+    **Grid** helps **AI product managers** use **agents** to create **optimised artifacts** faster
+
+reduce or embrace uncertainty in order to speed up outcomes.
+
+Grid is a shared language and generative app but it also **embraces the uncertainty and creativity**.....uncertainty is a feature not a bug. riffing off hallucinations are a feature..
+
+- face two additional challenges : domain uncertainty and result uncertainty.
+
+**_Domain Uncertainty_**
+
+Uncertainty makes this harder, and most pro
+
+With AI features and products, there is exponentially more domain uncertainty
+
+increases individual certainty and improves group collaboration by providing a precise language for connecting essential product outputs.
 
 **_Generating_** is an [app](https://gridpm.streamlit.app) that increases individual creativity and introduces unpredictability by providing a machine learning interface to explore and draft a wide variety of product artifacts.
 
