@@ -1,6 +1,6 @@
-site_name: Grid
+site_name: Kiln
 site_url: https://ashvin.au
-site_description: Grid - A positioning framework for product development
+site_description: Kiln - Generative agents for AI product managers
 repo_url: https://github.com/sarantium/ashvin/
 repo_name: sarantium/ashvin
 theme:
