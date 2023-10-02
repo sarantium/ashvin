@@ -2,7 +2,7 @@
   <a><img src="assets\icon-teal-300px.png" alt="Grid"></a>
 </p>
 <p align="center">
-    <em><b>Generative Agents</b> for <b>AI Product Managers</b></em>
+    <em><b>Generative Agents</b> for <b>Digital Twins</b></em>
 </p>
 
 ---
@@ -15,13 +15,15 @@
 
 ---
 
-All product managers want to deliver value faster. AI products face additional challenges because the domain is new and the result is often non-deterministic.
+Digital twins are software representations of things. These things can be an object, person, process or system. For example, cars, influencers, transactions, or supply chains can all have digital twins.
 
-This increases uncertainty of inputs and outputs by making it harder to manage, de-risk and control the already chaotic product development lifecycle.
+Less commonly understood is that digital twins can also exist for purely digital things - NPCs, codebases, bots - with no physical counterpart. Like lego or fractals, digital twins can also have infinite complexity. For example, fleet twins can be composed of car twins which are composed of parts twins, which are all interconnected in a complex automotive ecosystem of insurer twins and mechanic twins.
+
+At its core a digital twin is both a record of a thing's past and a guide to its future. More than a static ledger, the promise of a twin that makes it different from a copy or a clone is that it has intent and evolves.
 
 !!! tip
 
-    **Grid** helps **AI product managers** use **agents** to create **optimised artifacts** faster
+    **Digital twins** have **intent** and **evolve**
 
 reduce or embrace uncertainty in order to speed up outcomes.
 
