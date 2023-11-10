@@ -32,7 +32,7 @@ def get_new_uuid() -> str:
     return str(uuid.uuid4())
 
 
-@dataclass(kw_only=True)
+@dataclass
 class Tool:
     name: str
     function: Callable
@@ -46,6 +46,24 @@ class Golem:
     id: str = field(default_factory=get_new_uuid)
     timestamp: datetime = field(default_factory=datetime.utcnow)
     tools: list[Tool] = field(default_factory=list)
+
+    def add_tool(self, tool: Tool) -> None:
+        """
+        Adds a tool to the golem's tools list.
+
+        Parameters:
+        - tool (Tool): A Tool instance to be added to the golem's tools.
+        """
+        self.tools.append(tool)
+
+    def get_tools(self):
+        """
+        Retrieves all tools of the golem.
+
+        Returns:
+        - list[Tool]: A list of Tool instances associated with the golem.
+        """
+        return self.tools
 
 
 @dataclass
@@ -63,6 +81,24 @@ class Twin:
     id: str = field(default_factory=get_new_uuid)
     timestamp: datetime = field(default_factory=datetime.utcnow)
     events: list[Event] = field(default_factory=list)
+
+    def add_event(self, event: Event) -> None:
+        """
+        Adds an event to the twin's event list.
+
+        Parameters:
+        - event (Event): An Event instance to be added to the twin's events.
+        """
+        self.events.append(event)
+
+    def get_events(self):
+        """
+        Retrieves all events of the twin.
+
+        Returns:
+        - list[Event]: A list of Event instances associated with the twin.
+        """
+        return self.events
 
 
 @dataclass

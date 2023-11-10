@@ -98,8 +98,9 @@ markdown_extensions:
 #   - search
 
 nav:
-  - Grid: README.md
+  - Kiln: README.md
   - Blog: blog
+  - Test: test.md
 #   - Framework: framework.md
 #   - App: "https://gridpm.streamlit.app"
 #   - Concepts:

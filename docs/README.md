@@ -1,29 +1,37 @@
 <p align="center">
-  <a><img src="assets\icon-teal-300px.png" alt="Grid"></a>
+  <a><img src="assets\car_1.jpg" alt="Kiln"></a>
 </p>
 <p align="center">
-    <em><b>Generative Agents</b> for <b>Digital Twins</b></em>
+    <em><b>Digital Twins</b> for <b>Product Managers</b></em>
 </p>
 
----
+Digital twins are software representations of things. These things can be objects, people, processes or systems. For example, cars, influencers, manufacturing, and cities can all have digital twins.
 
-:material-file-document-arrow-right-outline: **Documentation**: <a href="https://ashvin.au" target="_blank">https://ashvin.au</a>
+Less commonly understood is that digital twins can also exist for purely digital things - NPCs, codebases, bots - with no physical counterpart.
 
-:material-code-tags: **Source**: <a href="https://github.com/sarantium/ashvin" target="_blank">https://github.com/sarantium/ashvin</a>
+Like lego or fractals, digital twins have depth and complexity. For example, fleet twins can be composed of car twins which are composed of parts twins, which are all interconnected in a complex automotive ecosystem of user (dealer, buyer) and process (sales, service, insurance) twins.
 
-:material-robot-outline: **App**: <a href="https://gridpm.streamlit.app" target="_blank">https://gridpm.streamlit.app</a>
-
----
-
-Digital twins are software representations of things. These things can be an object, person, process or system. For example, cars, influencers, transactions, or supply chains can all have digital twins.
-
-Less commonly understood is that digital twins can also exist for purely digital things - NPCs, codebases, bots - with no physical counterpart. Like lego or fractals, digital twins can also have infinite complexity. For example, fleet twins can be composed of car twins which are composed of parts twins, which are all interconnected in a complex automotive ecosystem of insurer twins and mechanic twins.
-
-At its core a digital twin is both a record of a thing's past and a guide to its future. More than a static ledger, the promise of a twin that makes it different from a copy or a clone is that it has intent and evolves.
+At its core a digital twin is both a record of a thing's past and a guide to its future. More than a static ledger, the promise of a twin that makes it different from a copy or clone is that it has intent and evolves.
 
 !!! tip
 
     **Digital twins** have **intent** and **evolve**
+
+![Agents](assets/clones_1.jpg)
+
+Agents are autonomous, decision making entities. They focus on task objectives - planning, searching, organising, communicating - act based on decision models and have access to specific tools.
+
+Agents work for twins. If a twin is a startup, an agent is a skilled contractor employed to get stuff done. Generative agents have far more freedom to choose what to work on and how to execute than traditional rules based bots.
+
+!!! tip
+
+    **Digital twins** are **startups** that employ **generative agents** as **contractors**
+
+A fuzzy but useful analogy is to think of twins as startups that employ specialised agents as employees to get things done.
+
+that digital twins can use to get things done. Think of agents as a sort of specialised employee with a limited lifespan.
+
+The key difference between rules-based bots and agents, is that agents have autonomy
 
 reduce or embrace uncertainty in order to speed up outcomes.
 
