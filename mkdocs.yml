@@ -1,6 +1,6 @@
 site_name: Kiln
 site_url: https://ashvin.au
-site_description: Kiln - Generative agents for AI product managers
+site_description: Kiln - Digital twins for product managers
 repo_url: https://github.com/sarantium/ashvin/
 repo_name: sarantium/ashvin
 theme:
@@ -22,9 +22,7 @@ theme:
         icon: material/lightbulb-outline
         name: Switch to light mode
 plugins:
-  - blog
-  - tags:
-      tags_file: tags.md
+  - search
 
 extra:
   social:
@@ -99,13 +97,8 @@ markdown_extensions:
 
 nav:
   - Kiln: README.md
-  - Blog: blog
-  - Test: test.md
-#   - Framework: framework.md
-#   - App: "https://gridpm.streamlit.app"
-#   - Concepts:
-#       - Positioning: positioning-concepts.md
-#       - Generating: generating-concepts.md
+  - GIST: gist.md
+  # - Blog: blog
 #   - Reading List: reading-list.md
 #   - Release Notes: release-notes.md
 #   - License: license.md
