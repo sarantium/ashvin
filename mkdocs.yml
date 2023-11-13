@@ -89,15 +89,23 @@ markdown_extensions:
   - toc:
       permalink: ⚓︎
   - md_in_html
-# extra_css:
-#   - stylesheets/extra.css
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+
+extra_css:
+  - stylesheets/extra.css
 
 # plugins:
 #   - search
 
 nav:
-  - Kiln: README.md
-  - GIST: gist.md
+  - Twins and Agents: README.md
+  - Patterns and Plays: concepts.md
+  - Beauty and Utility: gallery.md
+  - Release Notes: release-notes.md
   # - Blog: blog
 #   - Reading List: reading-list.md
 #   - Release Notes: release-notes.md
