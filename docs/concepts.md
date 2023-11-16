@@ -18,17 +18,6 @@ GIST has a variety of tools available - quantitative metrics, idea banks and ICE
 
 Design thinking is a convenient way to categorise different stages of product planning and execution. Kiln uses a specific flavour of design thinking, assigning a single document output to each stage.
 
-??? Replace table with post-its ???
-
-| Category | Purpose                         | Document                  |
-| -------- | ------------------------------- | ------------------------- |
-| Strategy | High level choices              | Strategy Table            |
-| Discover | Identify users' needs           | Opportunity Solution Tree |
-| Define   | Business model experiments      | Lean Canvas               |
-| Design   | Explore and derisk possibiities | Prototype                 |
-| Develop  | Execute the build               | Roadmap                   |
-| Deliver  | Launch to users                 | Go-To-Market Plan         |
+![designthinking](assets/designthinking_1.png)
 
 These output documents are live artifacts that help product managers improve their thinking and communicate current planning and execution states to other stakeholders.
-
-## Stack

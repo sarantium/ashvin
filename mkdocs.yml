@@ -104,7 +104,8 @@ extra_css:
 nav:
   - Twins and Agents: README.md
   - Loops and Documents: concepts.md
-  - Portfolio: portfolio.md
+  # - Architecture and Origami: stack.md
+  # - Portfolio: portfolio.md
   # - Blog: blog
 #   - Reading List: reading-list.md
 #   - Release Notes: release-notes.md
