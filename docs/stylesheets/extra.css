@@ -1,3 +1,10 @@
+@media {
+  .md-button--stretch {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 th td {
   text-align: center;
 }

@@ -1,45 +1,34 @@
 ![Hero](assets/hero_1.png)
 
-## Build-Measure-Learn
+Where product managers end up is not where they start. _Build-measure-learn_ and _design thinking_ are two powerful ways to accelerate value creation and capture. Kiln uses these concepts - loops and documents - as foundational schemas in implementation.
 
-A shared product management language underpins the Kiln app. This language is an opinionated blend of design thinking, GIST, and a variety of related lean product development techniques that have been popularised over the last two decades. All of these techniques are variations of rapid iteration and the build-measure-learn loop.
+## Loops
 
-##
+![Step](assets/hero_4.png)
 
-an opinionated version of the build-measure-learn cycle popularised over two decades of lean product development techniques.
+GIST is a modern approach to learning loops; it stands for **G**oals, **I**deas, **S**teps and **T**asks. The underlying theory advocates rapid experimentation to increase confidence that ideas deliver measurable value.
 
-Good product managers iterate rapidly in order to learn fast. Kiln is based on a shared
+> goals define what we wish to achieve, ideas are hypothetical ways to achieve the goals, steps are mini-projects that implement an idea in parts while validating it, and tasks are the day-to-day activities that implement a step^[1](https://itamargilad.com/book-evidence-guided/)^
 
-Why not Miro for prototyping?
-Why not ChatGPT for apps?
+GIST has a variety of tools available - quantitative metrics, idea banks and ICE scores - to structure loops and is often depicted as a sequential whiteboard with sticky notes.
 
-Product managers try to accelerate value creation and capture by changing and communicating choices.
+![GIST](assets/gist_1.jpg)
 
-I prefer this framing of product practice over any other because
+## Documents
 
-In the messy, chaotic realities of organisational decision-making,
+Design thinking is a convenient way to categorise different stages of product planning and execution. Kiln uses a specific flavour of design thinking, assigning a single document output to each stage.
 
-This is difficult to explain in theory and even harder to execute in practice because the path is nonlinear and the future is murky.
+??? Replace table with post-its ???
 
-messy, chaotic realities of organisational decision-making, the line between hero and villain is thin, an
+| Category | Purpose                         | Document                  |
+| -------- | ------------------------------- | ------------------------- |
+| Strategy | High level choices              | Strategy Table            |
+| Discover | Identify users' needs           | Opportunity Solution Tree |
+| Define   | Business model experiments      | Lean Canvas               |
+| Design   | Explore and derisk possibiities | Prototype                 |
+| Develop  | Execute the build               | Roadmap                   |
+| Deliver  | Launch to users                 | Go-To-Market Plan         |
 
-Kiln is a shared language and generative app to help execute this objective.
+These output documents are live artifacts that help product managers improve their thinking and communicate current planning and execution states to other stakeholders.
 
-Kiln is a shared language and generative app built around this
-
-This is the core value proposition
-
-Value creation is for the user while value
-
-This is the core tenet of Kiln - a framework and an app - to help PMs navigate the
-
-We wade into the messy, chaotic realities of organisations to connect problems, solutions and decisions in positive ways for users and the business. The line between valu
-
-![Hero](assets/hero_2.png)
-![Hero](assets/hero_3.png)
-![Hero](assets/hero_4.png)
-![Hero](assets/hero_5.png)
-![Hero](assets/robot_5.jpg)
-![Hero](assets/robot_6.jpg)
-
-explain gist and have a subsection for AI
+## Stack

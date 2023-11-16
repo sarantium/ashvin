@@ -9,7 +9,7 @@
 
 Digital twins are software representations of objects, people, processes or systems. For example, cars, influencers, workflows, and cities can all have digital twins.
 
-Like lego, digital twins can be connected to one another. Fleets are composed of cars which are composed of parts, which are all interconnected in a complex automotive ecosystem of users and transactions.
+Like lego, digital twins can be connected to one another. Fleet twins are composed of car twins which are composed of parts twins, which are all interconnected in a complex automotive ecosystem of users, vendors and transactions.
 
 At its core a digital twin is both a record of a thing's past and a guide to its future. More than a static ledger, the promise of a twin that makes it different from a copy or clone is that it has intent and evolves.
 
@@ -39,11 +39,11 @@ Many AI apps today are merely theatre; a thin skin of marketing and a white-labe
 
 A recent study of 758 BCG consultants applies a more rigorous lens and finds that consultants using AI finished 12.2% more tasks on average, completed tasks 25.1% more quickly, and produced 40% higher quality results than those without^[4](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4573321)^. As knowledge workers, the 18 tasks they tackled are very similar to the types of tasks product managers do.
 
-A key conclusion of the study is that AI infused work can be framed as Centaurs (pass tasks between human and machine) or Cyborgs (meld task execution by human and machine). Both postures allow humans to work with AI to produce more varied, more correct, and better results than either humans or AI can do alone^[5](https://www.oneusefulthing.org/p/centaurs-and-cyborgs-on-the-jagged)^.
+A key conclusion of the study is that AI infused work can be framed as Centaurs (sequential task handover) or Cyborgs (merged task execution). Both postures allow humans to work with AI to produce more varied, more correct, and better results than either humans or AI can do alone^[5](https://www.oneusefulthing.org/p/centaurs-and-cyborgs-on-the-jagged)^.
 
 !!! tip
 
-    Future **Human** + **AI** ways of working include **Centaur** and **Cyborg** postures
+    **Human** + **AI** ways of working include **Centaur** and **Cyborg** postures
 
 ## :material-key-alert-outline: Key features
 
@@ -51,18 +51,11 @@ Kiln is an app that uses generative AI to help product managers accelerate value
 
 Kiln's key features are:
 
-- **Simple**: The entire product development process is displayed on a single page
-- **Consistent**: Standardised vocabulary for describing different stages and activities
-- **Intuitive**: Cell coordinates make navigation and referencing a breeze
+- **Simple**: One input interface across all tasks
+- **Multimodal**: Inputs and outputs work with many data types
 - **Curated**: Modern product tools and templates selected with a bias for lean workflows
-- **Extensible**: Add, remove or modify rows, columns and cells to get the right fit
-- **Creative**: Generate better product artifacts in seconds
-- multimodal
-- guardrails
-- UI/UX
+- **Contextual**: Add custom data sources for more specific and specialised outcomes
+- **Automatic**: Agents and twins execute creative and directed tasks autonomously
+- **Fast**: Measurably faster cycle and task times, speeding up product development
 
-## :material-play-box-outline: Getting started
-
-[Try the App](https://gridpm.streamlit.app){ .md-button .md-button--primary}
-
-[Read the Framework](framework.md){ .md-button .md-button--primary} [View the Gallery](https://github.com/sarantium/grid){ .md-button .md-button--primary }
+[Try the App](https://gridpm.streamlit.app){ .md-button .md-button--primary .md-button--stretch}

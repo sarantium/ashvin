@@ -1,5 +1,12 @@
 - Less commonly understood is that digital twins can also exist for purely digital things - NPCs, codebases, bots - with no physical counterpart.
 
+- guardrails
+- UI/UX -->
+
+" A conversation between two or more perspectives in the heads of one or more designers"
+
+## A visual of all the artifacts?
+
 - Twins and agents precede generative AI
 
 ## :material-map-marker-plus-outline: Positioning
