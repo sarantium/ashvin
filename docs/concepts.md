@@ -1,6 +1,6 @@
 ![Hero](assets/hero_1.png)
 
-Where product managers end up is not where they start. _Build-measure-learn_ and _design thinking_ are two powerful ways to accelerate value creation and capture. Kiln uses these concepts - loops and documents - as foundational schemas in implementation.
+Where product managers end up is not where they start. _Build-measure-learn_ and _design thinking_ are two powerful ways to accelerate value creation and capture. Kiln uses these concepts - framed as loops and documents respectively - as foundational schemas in implementation.
 
 ## Loops
 
@@ -16,8 +16,8 @@ GIST has a variety of tools available - quantitative metrics, idea banks and ICE
 
 ## Documents
 
-Design thinking is a convenient way to categorise different stages of product planning and execution. Kiln uses a specific flavour of design thinking, assigning a single document output to each stage.
+Design thinking is a convenient way to categorise different stages of product planning and execution. Kiln uses a specific flavour of design thinking, assigning a single output document to each stage.
 
 ![designthinking](assets/designthinking_1.png)
 
-These output documents are live artifacts that help product managers improve their thinking and communicate current planning and execution states to other stakeholders.
+These documents are live artifacts with a dual purpose; they help product managers think better by themselves and communicate their thoughts more clearly to others.
