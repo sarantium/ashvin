@@ -23,6 +23,7 @@ theme:
         name: Switch to light mode
 plugins:
   - search
+  - blog
 
 extra:
   social:
@@ -104,9 +105,9 @@ extra_css:
 nav:
   - Twins and Agents: README.md
   - Loops and Documents: concepts.md
+  - Dreams and Hallucinations: blog
   # - Architecture and Origami: stack.md
   # - Now and Then: portfolio.md
-  # - Blog: blog
 #   - Reading List: reading-list.md
 #   - Release Notes: release-notes.md
 #   - License: license.md
