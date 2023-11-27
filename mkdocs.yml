@@ -23,7 +23,9 @@ theme:
         name: Switch to light mode
 plugins:
   - search
-  - blog
+  - blog:
+      archive: true
+      archive_name: History
 
 extra:
   social:

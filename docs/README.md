@@ -58,4 +58,4 @@ Kiln's key features are:
 - **Automatic**: Agents and twins execute creative and directed tasks autonomously
 - **Fast**: Measurably faster cycle and task times, speeding up product development
 
-[Try the App](https://gridpm.streamlit.app){ .md-button .md-button--primary .md-button--stretch}
+[Try the App](https://ashvin.streamlit.app/){ .md-button .md-button--primary .md-button--stretch}
