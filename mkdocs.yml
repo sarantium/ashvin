@@ -107,7 +107,9 @@ extra_css:
 nav:
   - Twins and Agents: README.md
   - Loops and Documents: concepts.md
+  - Books and Papers: research.md
   - Dreams and Hallucinations: blog
+  - Archive: blog/archive/2023
   # - Architecture and Origami: stack.md
   # - Now and Then: portfolio.md
 #   - Reading List: reading-list.md
