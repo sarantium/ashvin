@@ -15,3 +15,5 @@ Each entry has an abbreviated title, a link to the source document (where availa
 | :microscope: [Ideas are dimes a dozen](https://dx.doi.org/10.2139/ssrn.4526071)           | LLMs generate more and better ideas faster |
 | :microscope: [Personalized video advertisements](https://dx.doi.org/10.2139/ssrn.4614118) | Personalised videos increase ad clicks     |
 | :microscope: [Automated claim matching](https://dx.doi.org/10.2139/ssrn.4614239)          | Classifying social media truth claims      |
+| :light_bulb: [How to use LLMs](https://doi.org/10.48550/arXiv.2312.03759)                 | 4 perspectives on LLMs                     |
+| :light_bulb: [Generative Agents](https://doi.org/10.48550/arXiv.2304.03442)               | Smallville agent simulation                |

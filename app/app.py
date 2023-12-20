@@ -25,8 +25,6 @@ st.set_page_config(page_title="Kiln")
 format_prompts = {
     "user story": "As a [specific user type], I want to [an action], so that [benefit/value]",
     "how might we": "How might we [achieve a particular outcome or improvement] for [user/persona] so that [benefit/value]",
-    # "jobs to be done": "[User/persona] wants to [job to be done] when [a specific situation occurs] so that [benefit/value].",
-    # "jobs to be done": "The [specific user type]] wants [job to be done] when [a specific situation occurs] so that [benefit/value].",
     "jobs to be done": "When [situation] I want to [motivation] so I can [expected outcome].",
     "we believe that": "We believe [hypothesis] results in [outcome/value] because of [single specific reason].",
 }
@@ -62,7 +60,7 @@ def main():
             return
 
         try:
-            response = openai.ChatCompletion.create(
+            response = openai.chat.completions.create(
                 model=GPT_MODEL,
                 messages=[
                     {"role": "system", "content": system_content},
@@ -71,7 +69,7 @@ def main():
             )
 
             # Extracting the assistant's response and displaying it
-            assistant_response = response["choices"][0]["message"]["content"]
+            assistant_response = response.choices[0].message.content
             st.write(assistant_response)
         except Exception as e:
             # Handle exceptions from the API call

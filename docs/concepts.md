@@ -18,6 +18,18 @@ GIST has a variety of tools available - quantitative metrics, idea banks and ICE
 
 Design thinking is a convenient way to categorise different stages of product planning and execution. Kiln uses a specific flavour of design thinking, assigning a single output document to each stage.
 
-![designthinking](assets/designthinking_1.png)
+![designthinking](assets/designthinking_2.png)
 
 These documents are live artifacts with a dual purpose; they help product managers think better by themselves and communicate their thoughts more clearly to others.
+
+## Journeys
+
+The distinction between loops and documents is the difference between routes and maps. GIST is an execution route against the backdrop of design thinking artifacts.
+
+![Modified GIST](assets/designthinking_3.png)
+
+Kiln treats documents as a specialised, parallel step stage in the GIST loop. Documents are persistent objects stored by digital twins; the outcome of a document step is an update to the relevant artifact.
+
+!!! tip
+
+    **Act sequentially** with GIST and **plan persistently** with design thinking

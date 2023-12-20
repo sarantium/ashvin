@@ -107,6 +107,7 @@ extra_css:
 nav:
   - Twins and Agents: README.md
   - Loops and Documents: concepts.md
+  - Creativity and Productivity: creativity.md
   - Books and Papers: research.md
   - Dreams and Hallucinations: blog
   - Archive: blog/archive/2023

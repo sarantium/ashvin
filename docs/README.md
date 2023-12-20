@@ -47,7 +47,7 @@ A key conclusion of the study is that AI infused work can be framed as Centaurs 
 
 ## :material-key-alert-outline: Key features
 
-Kiln is an app that uses generative AI to help product managers accelerate value creation and capture. It does this by exploring how twins and agents can improve ways of working with product ideas and tasks.
+Kiln is an app that uses generative AI to help product managers accelerate value creation and capture. It does this by exploring how twins and agents can improve **creative** and **productive** ways of working with product ideas and tasks.
 
 Kiln's key features are:
 
@@ -56,6 +56,7 @@ Kiln's key features are:
 - **Curated**: Modern product tools and templates selected with a bias for lean workflows
 - **Contextual**: Add custom data sources for more specific and specialised outcomes
 - **Automatic**: Agents and twins execute creative and directed tasks autonomously
-- **Fast**: Measurably faster cycle and task times, speeding up product development
+- **Fast**: Compressing cycle times to one hour or one day product management sprints
+- **Solo**: Get more done with only a single human-in-the-loop
 
 [Try the App](https://ashvin.streamlit.app/){ .md-button .md-button--primary .md-button--stretch}
