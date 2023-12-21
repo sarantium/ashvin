@@ -1,7 +1,20 @@
 import streamlit as st
-import sqlite3
+import openai
 import pandas as pd
+import sqlite3
+from dotenv import load_dotenv
+from pprint import pprint as pp
+from pathlib import Path
 from datetime import datetime
+import os
+
+# Load API keys
+dotenv_path = Path(r"C:\Storage\python_projects\ashvin\.env")
+load_dotenv(dotenv_path=dotenv_path)
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+openai.api_key = OPENAI_API_KEY
+GPT_MODEL = "gpt-4-1106-preview"
 
 # Database connection
 conn = sqlite3.connect("ideas.db", check_same_thread=False)
@@ -57,6 +70,41 @@ def update_idea(id, title, notes, impact, confidence, ease):
         (title, notes, impact, confidence, ease, id),
     )
     conn.commit()
+
+
+# Function to format ideas
+def format_idea(idea):
+    instruction = """
+    take the input and convert it exactly to the format of the prompt that follows. 
+    Do do not add any additional explanation. 
+    Be precise and concise and compress the output to 25 words or less : """
+
+    format_prompts = [
+        "As a [specific user type], I want to [an action], so that [benefit/value]",
+        "How might we [achieve a particular outcome or improvement] for [user/persona] so that [benefit/value]",
+        "When [situation] I want to [motivation] so I can [expected outcome].",
+        "We believe [hypothesis] results in [outcome/value] because of [single specific reason].",
+    ]
+
+    formatted_ideas = []
+
+    for prompt in format_prompts:
+        try:
+            response = openai.chat.completions.create(
+                model=GPT_MODEL,
+                messages=[
+                    {"role": "system", "content": instruction},
+                    {"role": "system", "content": prompt},
+                    {"role": "user", "content": idea},
+                ],
+            )
+            assistant_response = response.choices[0].message.content
+            formatted_ideas.append(assistant_response)
+        except Exception as e:
+            st.error(f"An error occurred: {e}")
+            return None
+
+    return formatted_ideas
 
 
 # Function to delete an idea
@@ -141,14 +189,19 @@ def main():
             "Select an Idea to Format", idea_ids, format_func=lambda x: f"Idea {x}"
         )
 
-        # Formatting options as checkboxes
-        format_user_story = st.checkbox("User Story")
-        format_how_might_we = st.checkbox("How Might We")
-        format_jobs_to_be_done = st.checkbox("Jobs To Be Done")
-        format_we_believe = st.checkbox("We Believe")
-
         format_button = st.button("Format")
-        save_button = st.button("Save")
+
+        if format_button:
+            # Retrieve the idea text from the database
+            idea_text = pd.read_sql(
+                f"SELECT notes FROM ideas WHERE id = {selected_format_id}", conn
+            ).iloc[0]["notes"]
+
+            # Call the format_idea function and store the result
+            formatted_ideas = format_idea(idea_text)
+
+            # Store the formatted ideas in a session state for displaying in the main panel
+            st.session_state["formatted_ideas"] = formatted_ideas
 
     # Display Ideas in Main Panel
     st.subheader("Idea List")
@@ -162,6 +215,12 @@ def main():
     ]
 
     st.dataframe(all_ideas)
+
+    # Display formatted ideas
+    if "formatted_ideas" in st.session_state and st.session_state["formatted_ideas"]:
+        st.write("Formatted Ideas:")
+        for formatted_idea in st.session_state["formatted_ideas"]:
+            st.write(formatted_idea)
 
 
 if __name__ == "__main__":

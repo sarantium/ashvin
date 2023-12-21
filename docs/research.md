@@ -22,4 +22,5 @@ Each entry has an abbreviated title, a link to the source document (where availa
 | :chart_with_upwards_trend: [AI and Everything Else](https://youtu.be/xNBiPd2H9J0?si=ShEaUd4RK1K_b3s8) | Ben Evans SOTA presentation                |
 | :chart_with_upwards_trend: [Open Source SOTA](https://book.premai.io/state-of-open-source-ai/)        | Open Source AI Textbook                    |
 | :light_bulb: [Unbundling AI](https://www.ben-evans.com/benedictevans/2023/10/5/unbundling-ai)         | Evolution of AI products and businesses    |
-| :light_bulb: [AI's future](https://youtu.be/o8vU9QtcMZw?si=scG3ZYV6O_7ReJ44)                          | Jaron Lanier's take                        |
+| :light_bulb: [AI's future](https://youtu.be/o8vU9QtcMZw?si=scG3ZYV6O_7ReJ44)                          | Jaron Lanier's take on AI                  |
+| :light_bulb: [Function Calling](https://minimaxir.com/2023/12/chatgpt-structured-data/)               | Detailed Function Calling Guide            |

@@ -17,3 +17,7 @@ Referenced here : https://calnewport.com/standing-up-to-technology/#more-15738
 
 - https://youtu.be/xNBiPd2H9J0?si=HxBrzmEh4P_phmQD
 - https://www.ben-evans.com/presentations
+
+## Other state of AI 2023 - Open Source
+
+- https://book.premai.io/state-of-open-source-ai/
