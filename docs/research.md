@@ -24,3 +24,5 @@ Each entry has an abbreviated title, a link to the source document (where availa
 | :light_bulb: [Unbundling AI](https://www.ben-evans.com/benedictevans/2023/10/5/unbundling-ai)         | Evolution of AI products and businesses    |
 | :light_bulb: [AI's future](https://youtu.be/o8vU9QtcMZw?si=scG3ZYV6O_7ReJ44)                          | Jaron Lanier's take on AI                  |
 | :light_bulb: [Function Calling](https://minimaxir.com/2023/12/chatgpt-structured-data/)               | Detailed Function Calling Guide            |
+| :microscope: [life2vec](https://doi.org/10.1038/s43588-023-00573-5)                                   | Life trajectory embeddings - Arxiv         |
+| :microscope: [life2vec](https://doi.org/10.1038/s43588-023-00573-5)                                   | Life trajectory embeddings - Nature        |

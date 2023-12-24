@@ -1,3 +1,9 @@
+## State of AI Product 2024
+
+## BIG IDEA
+
+Take scoble's list of 4000 cmpanies and review them in a product way
+
 ## Various thoughts
 
 - this page and possibly a report with multiple sub pages will capture my synthesis of the state of ai in 2024
@@ -21,3 +27,7 @@ Referenced here : https://calnewport.com/standing-up-to-technology/#more-15738
 ## Other state of AI 2023 - Open Source
 
 - https://book.premai.io/state-of-open-source-ai/
+
+## Best available Human
+
+https://www.oneusefulthing.org/p/the-best-available-human-standard/comments

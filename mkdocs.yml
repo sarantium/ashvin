@@ -26,6 +26,8 @@ plugins:
   - blog:
       archive: true
       archive_name: History
+  - tags:
+      tags_file: tags.md
 
 extra:
   social:
@@ -108,10 +110,11 @@ nav:
   - Twins and Agents: README.md
   - Loops and Documents: concepts.md
   - Creativity and Productivity: creativity.md
-  - State of AI 2024: stateofai2024.md
+  - State of AI Product 2024: stateofaiproduct2024.md
   - Books and Papers: research.md
   - Dreams and Hallucinations: blog
   - Archive: blog/archive/2023
+  - Tags: tags.md
   # - Architecture and Origami: stack.md
   # - Now and Then: portfolio.md
 #   - Reading List: reading-list.md

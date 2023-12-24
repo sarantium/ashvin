@@ -57,6 +57,6 @@ Kiln's key features are:
 - **Contextual**: Add custom data sources for more specific and specialised outcomes
 - **Automatic**: Agents and twins execute creative and directed tasks autonomously
 - **Fast**: Compressing cycle times to one hour or one day product management sprints
-- **Solo**: Get more done with only a single human-in-the-loop
+- **Solo**: Get more done with only a single human-in-the-loop : yourself
 
 [Try the App](https://ashvin.streamlit.app/){ .md-button .md-button--primary .md-button--stretch}

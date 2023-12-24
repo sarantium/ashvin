@@ -32,4 +32,4 @@ Kiln treats documents as a specialised, parallel step stage in the GIST loop. Do
 
 !!! tip
 
-    **Act sequentially** with GIST and **plan persistently** with design thinking
+    **Act quickly** with GIST loops and **plan persistently** with design thinking documents
