@@ -31,3 +31,11 @@ Referenced here : https://calnewport.com/standing-up-to-technology/#more-15738
 ## Best available Human
 
 https://www.oneusefulthing.org/p/the-best-available-human-standard/comments
+
+# Companies I am looking at
+
+- https://snackprompt.com/magic
+
+# Prompts
+
+https://mphr.notion.site/Prompt-Engineering-Best-Practices-0839585d4bce4c6abb0b551b2107a92a

@@ -1,0 +1,41 @@
+title Fiction Ideas
+
+// User anchor
+anchor User [1, 0.85]
+
+// interacts with
+component Form [0.85, 0.9]
+evolve Form 0.3
+component Website [0.85, 0.8]
+component API [0.85, 0.7]
+
+// outputs
+component Content [0.7, 0.3]
+
+
+// enablers
+component Library [0.7, 0.4]
+component Scenarios [0.6, 0.3]
+component RealWorld [0.5, 0.25]
+component SyntheticData [0.3, 0.1]
+
+// evolution
+
+
+
+User -> Form
+User -> Website
+User -> API
+
+API -> Content
+Website -> Content
+
+Library -> Scenarios
+Content -> Library
+RealWorld -> Scenarios
+Content -> Scenarios
+SyntheticData -> RealWorld
+
+Form -> Scenarios
+Form -> RealWorld
+Form -> SyntheticData

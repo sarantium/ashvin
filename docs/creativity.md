@@ -2,6 +2,16 @@
 
 Generative AI extends creativity and improves productivity. Translating these broad benefits into practical opportunities remains opaque and overwhelming.
 
+One way to systematically investigate the possibilities and boundaries of AI is to set forth a series of hypotheses which are testable around creativity and productivity. A second way to move forward on this is to have separate implementations for productivity and productivity.
+
+My approach is to package creativity tests and outputs into a separate website : fictionideas.com
+
+[Go to Fiction Ideas](https://fictionideas.com/){ .md-button .md-button--primary .md-button--stretch}
+
+Productivity tests remains on this site and the Kiln App.
+
+[Try the Kiln App](https://ashvin.streamlit.app/){ .md-button .md-button--primary .md-button--stretch}
+
 ## Equations
 
 I propose a simple pidgin to describe generative AI use cases in a consistent format.

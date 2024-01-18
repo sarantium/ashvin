@@ -26,3 +26,9 @@ Each entry has an abbreviated title, a link to the source document (where availa
 | :light_bulb: [Function Calling](https://minimaxir.com/2023/12/chatgpt-structured-data/)               | Detailed Function Calling Guide            |
 | :microscope: [life2vec](https://doi.org/10.1038/s43588-023-00573-5)                                   | Life trajectory embeddings - Arxiv         |
 | :microscope: [life2vec](https://doi.org/10.1038/s43588-023-00573-5)                                   | Life trajectory embeddings - Nature        |
+
+### Read in January 2024
+
+| Title                                                                                      | Description                      |
+| ------------------------------------------------------------------------------------------ | -------------------------------- |
+| :light_bulb: [Can AI be as creative as Humans?](https://doi.org/10.48550/arXiv.2401.01623) | Frameworks to test AI creativity |

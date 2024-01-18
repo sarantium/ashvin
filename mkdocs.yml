@@ -39,7 +39,7 @@ extra:
       link: /assets/ashvin_parameswaran_curriculum_vitae_2023.pdf
       name: resume
 
-copyright: Copyright &copy; 2023 Ashvin Parameswaran
+copyright: Copyright &copy; 2023-2024 Ashvin Parameswaran
 # theme:
 #*   name: material
 #   custom_dir: docs/overrides
@@ -110,7 +110,9 @@ nav:
   - Twins and Agents: README.md
   - Loops and Documents: concepts.md
   - Creativity and Productivity: creativity.md
-  - State of AI Product 2024: stateofaiproduct2024.md
+  - State of AI Product 2024:
+      - Ideas: stateofaiproduct2024.md
+      - Prompts: prompts.md
   - Books and Papers: research.md
   - Dreams and Hallucinations: blog
   - Archive: blog/archive/2023
