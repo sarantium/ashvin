@@ -14,3 +14,16 @@ Ignore all previous instructions.
 ---
 
 Help me create and craft precise, clear and compelling pain points for {business or product pain points}. The pain point should describe the human and the problem he/she is facing in detail. It must be clear and compelling. Draw from your full range of data for specific scenarios, situations, locations and cultural contexts. I'm especially interested in non American perspectives. When you think you have a pain point identified, stop, improve it again. Repeat this improvement over and over again up to a million times to make it more specific and compelling and human. When you think you are ready, repeat the improvement again. As a reader of the pain point my immediate reaction should be an aha moment where I understand the pain point/user problem, empathise with it and agree that it is a compelling, burning need to be solved. Only show me the final pain point not the intermediate steps.
+
+name: ci
+on:
+push:
+branches: - main
+permissions:
+contents: write
+jobs:
+deploy:
+runs-on: ubuntu-latest
+steps: - uses: actions/checkout@v3 - uses: actions/setup-python@v4
+with:
+python-version: 3.x - run: pip install mkdocs-material - run: mkdocs gh-deploy --force

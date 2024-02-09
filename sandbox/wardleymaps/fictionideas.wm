@@ -1,41 +1,128 @@
+// title 
 title Fiction Ideas
 
-// User anchor
-anchor User [1, 0.85]
+// anchor
+anchor User [1, 0.8]
 
-// interacts with
-component Form [0.85, 0.9]
-evolve Form 0.3
-component Website [0.85, 0.8]
-component API [0.85, 0.7]
+// interface layer
+component create [0.9, 0.7]
+component learn [0.9, 0.8]
+component decide [0.9, 0.9]
+component website [0.8, 0.8]
+component email [0.8, 0.9]
+component interact [0.9, 0.5]
+component chat [0.8, 0.4]
+component rate [0.8, 0.6]
+component form [0.8, 0.5]
 
-// outputs
-component Content [0.7, 0.3]
+// content display layer
+component library [0.7, 0.3]
+component report [0.7, 0.7]
+component ideas [0.6, 0.25]
+component business case [0.6, 0.35]
+
+// content creation layer
+component scenarios [0.5, 0.3]
+component story [0.4, 0.25]
+component data [0.4, 0.35]
+component search [0.3, 0.5]
+component synthetic [0.3, 0.1]
+
+// data layer
+component multimodal [0.2, 0.1]
+component simulation [0.2, 0.3]
+
+// connection
+User -> create
+User -> learn
+User -> decide
+create -> website
+learn -> website
+decide -> website
+decide -> email
+website -> interact
+website -> library
+interact -> chat
+interact -> form
+interact -> rate
+chat -> data
+form -> data
+rate -> data
+library -> report
+library -> ideas
+library -> business case
+report -> email
+ideas -> scenarios
+business case -> scenarios
+scenarios -> story
+scenarios -> data
+story -> synthetic
+data -> synthetic
+data -> search
+synthetic -> multimodal
+synthetic -> simulation
 
 
-// enablers
-component Library [0.7, 0.4]
-component Scenarios [0.6, 0.3]
-component RealWorld [0.5, 0.25]
-component SyntheticData [0.3, 0.1]
-
-// evolution
 
 
 
-User -> Form
-User -> Website
-User -> API
 
-API -> Content
-Website -> Content
 
-Library -> Scenarios
-Content -> Library
-RealWorld -> Scenarios
-Content -> Scenarios
-SyntheticData -> RealWorld
+// // add an idea that is a component that is Idea Converter that converts a fiction idea into a real world idea in one click
 
-Form -> Scenarios
-Form -> RealWorld
-Form -> SyntheticData
+// title Fiction Ideas
+
+// // User anchor
+// anchor User [1, 0.85]
+
+// // User Needs
+// component Creative [0.9, 0.7]
+// component Educational [0.9, 0.8]
+// component Decision [0.9, 0.9]
+
+// // interacts with
+// component Form [0.85, 0.9]
+// evolve Form 0.3
+// component Website [0.85, 0.8]
+// component API [0.85, 0.7]
+// component Business Insights [0.85, 0.2]
+
+// // outputs
+// component Content [0.7, 0.3]
+
+
+// // enablers
+// component Idea Library [0.7, 0.4]
+// component Business Case Library [0.8, 0.4]
+// component Scenarios [0.6, 0.3]
+// component RealWorld [0.5, 0.25]
+// component Feedback [0.5, 0.1]
+// component Idea Converter [0.4, 0.05]
+// component SyntheticData [0.3, 0.1]
+// evolve SyntheticData 0.25
+
+// // evolution
+
+
+
+// User -> Form
+// User -> Website
+// User -> API
+// User -> Business Insights
+
+// API -> Content
+// Website -> Content
+
+// Library -> Scenarios
+// Content -> Idea Library
+// RealWorld -> Scenarios
+// Content -> Scenarios
+// Content -> Business Insights
+// SyntheticData -> RealWorld
+// Business Insights -> Feedback
+// Feedback -> SyntheticData
+// Feedback -> Scenarios
+
+// Form -> Scenarios
+// Form -> RealWorld
+// Form -> SyntheticData
