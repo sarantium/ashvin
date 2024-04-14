@@ -1,0 +1,13 @@
+// title 
+title Machine Users
+
+// anchor
+anchor User [1, 0.8]
+
+// components
+component Bot [0.9, 0.7]
+component Avatar [0.9, 0.4]
+component Agent [0.9, 0.3]
+component Twin
+
+// evolutions
