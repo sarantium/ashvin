@@ -1,6 +1,4 @@
 # Ashvin Parameswaran
-_Head of Emerging Technology at ReadyTech | AI Platforms, Products and Governance_
-
 
 I lead the Emerging Technology group at ReadyTech, working with engineers in AI, infrastructure, and developer relations. We build the foundational platforms, the frontier agentic products, and the governance that ensures it can be trusted. I also drive the go-to-market activities that scale and commercialise this technology.
 
