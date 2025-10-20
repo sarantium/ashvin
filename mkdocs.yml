@@ -34,8 +34,7 @@ plugins:
   - search
   - meta
   - blog:
-      archive: true
-      archive_name: ""
+      archive: false
       pagination_per_page: 10
       post_readtime: true
       post_url_format: "{date}/{slug}"
