@@ -1,5 +1,9 @@
 # About
 
+<p align="center">
+  <img src="../assets/clones_1.jpg" alt="Building AI Systems" style="max-width: 700px; width: 100%;">
+</p>
+
 !!! tip "AI as Infrastructure"
 
     I think of AI less as a product wave and more as a **new layer of civic infrastructure**. It should be as reliable, invisible, and trusted as water or power.
@@ -7,10 +11,6 @@
 I lead the Emerging Technology group at ReadyTech, working with engineers in AI, infrastructure, and developer relations. We build the foundational platforms, the frontier agentic products, and the governance that ensures it can be trusted. I also drive the go-to-market activities that scale and commercialise this technology.
 
 I build for B2B vertical industries and institutions where failure isn't an option—education, workforce, work pathways, government, and justice. These are the systems communities rely on every day, and AI here has to be both powerful and responsible.
-
-<p align="center">
-  <img src="../assets/clones_1.jpg" alt="Building AI Systems" style="max-width: 700px; width: 100%;">
-</p>
 
 Earlier, I co-founded a startup and led teams in universities and industry. Each role taught me the same lesson: **spend time with users, cut through complexity, and scale what works.**
 
@@ -26,7 +26,7 @@ Earlier, I co-founded a startup and led teams in universities and industry. Each
     GitHub
   </a>
   <a href="blog/index.md" class="md-button">
-    <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg></span>
+    <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1Z"/></svg></span>
     Blog
   </a>
 </p>

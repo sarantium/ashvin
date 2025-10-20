@@ -4,3 +4,6 @@
 
 # directories
 /sandbox/freewriting/
+
+# mkdocs build output
+site/
