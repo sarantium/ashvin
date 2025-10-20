@@ -35,7 +35,7 @@ plugins:
   - meta
   - blog:
       archive: true
-      archive_name: History
+      archive_name: ""
       pagination_per_page: 10
       post_readtime: true
       post_url_format: "{date}/{slug}"
@@ -83,12 +83,6 @@ extra_css:
   - stylesheets/extra.css
 
 nav:
-  - Twins and Agents: README.md
-  - Loops and Documents: concepts.md
-  - Creativity and Productivity: creativity.md
-  - State of AI Product 2024:
-      - Ideas: stateofaiproduct2024.md
-      - Prompts: prompts.md
-  - Books and Papers: research.md
-  - Dreams and Hallucinations:
+  - Blog:
       - blog/index.md
+  - About: about.md

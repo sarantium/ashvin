@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/ashvin.parameswaran/Projects/eccentric-subroutine/notes/**)",
+      "Bash(uv init:*)",
+      "Bash(uv add:*)",
+      "Bash(mkdocs:*)",
+      "Bash(uv run mkdocs:*)",
+      "Bash(.venv/Scripts/python:*)",
+      "Read(//c/Users/ashvin.parameswaran/OneDrive - ReadyTech/Desktop/**)",
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__get-library-docs",
+      "Bash(git add:*)",
+      "Bash(git rm:*)",
+      "Bash(git commit:*)",
+      "Bash(grep:*)",
+      "Bash(cat:*)",
+      "WebSearch",
+      "Bash(curl -s http://127.0.0.1:8000/)",
+      "Bash(curl:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
