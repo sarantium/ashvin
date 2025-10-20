@@ -1,9 +1,5 @@
 # About
 
-<p align="center">
-  <img src="../assets/clones_1.jpg" alt="Building AI Systems" style="max-width: 700px; width: 100%;">
-</p>
-
 !!! tip "AI as Infrastructure"
 
     I think of AI less as a product wave and more as a **new layer of civic infrastructure**. It should be as reliable, invisible, and trusted as water or power.
