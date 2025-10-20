@@ -17,7 +17,13 @@
       "Bash(cat:*)",
       "WebSearch",
       "Bash(curl -s http://127.0.0.1:8000/)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(pkill:*)",
+      "Bash(taskkill:*)",
+      "Bash(md5sum:*)",
+      "Bash(git push:*)",
+      "Bash(uv pip list:*)",
+      "Bash(uv sync:*)"
     ],
     "deny": [],
     "ask": []

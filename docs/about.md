@@ -1,14 +1,15 @@
-# About
+# Ashvin Parameswaran
+Head of Emerging Technology at ReadyTech | AI Platforms, Products and Governance
 
-!!! tip "AI as Infrastructure"
-
-    I think of AI less as a product wave and more as a **new layer of civic infrastructure**. It should be as reliable, invisible, and trusted as water or power.
 
 I lead the Emerging Technology group at ReadyTech, working with engineers in AI, infrastructure, and developer relations. We build the foundational platforms, the frontier agentic products, and the governance that ensures it can be trusted. I also drive the go-to-market activities that scale and commercialise this technology.
 
 I build for B2B vertical industries and institutions where failure isn't an option—education, workforce, work pathways, government, and justice. These are the systems communities rely on every day, and AI here has to be both powerful and responsible.
 
 Earlier, I co-founded a startup and led teams in universities and industry. Each role taught me the same lesson: **spend time with users, cut through complexity, and scale what works.**
+
+I think of AI less as a product wave and more as a **new layer of civic infrastructure**. It should be as reliable, invisible, and trusted as water or power.
+
 
 <br>
 
