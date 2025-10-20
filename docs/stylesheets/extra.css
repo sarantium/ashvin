@@ -66,3 +66,12 @@ table td + td {
 .pdf {
   color: maroon;
 }
+
+/* Hide site name in sidebar navigation */
+.md-nav--primary .md-nav__title {
+  font-size: 0;
+}
+
+.md-nav--primary .md-nav__title .md-nav__button {
+  font-size: initial;
+}
