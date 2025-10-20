@@ -23,7 +23,10 @@
       "Bash(md5sum:*)",
       "Bash(git push:*)",
       "Bash(uv pip list:*)",
-      "Bash(uv sync:*)"
+      "Bash(uv sync:*)",
+      "Read(//c/Users/ashvin.parameswaran/OneDrive - ReadyTech/Pictures/Screenshots/**)",
+      "WebFetch(domain:karpathy.bearblog.dev)",
+      "WebFetch(domain:simonwillison.net)"
     ],
     "deny": [],
     "ask": []
