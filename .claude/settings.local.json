@@ -26,7 +26,10 @@
       "Bash(uv sync:*)",
       "Read(//c/Users/ashvin.parameswaran/OneDrive - ReadyTech/Pictures/Screenshots/**)",
       "WebFetch(domain:karpathy.bearblog.dev)",
-      "WebFetch(domain:simonwillison.net)"
+      "WebFetch(domain:simonwillison.net)",
+      "Read(//c/Users/ashvin.parameswaran/Projects/eccentric-subroutine/**)",
+      "Bash(git checkout:*)",
+      "WebFetch(domain:www.youtube.com)"
     ],
     "deny": [],
     "ask": []
