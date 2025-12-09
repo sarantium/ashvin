@@ -4,15 +4,19 @@ hide:
   - toc
 ---
 
-# Ashvin Parameswaran
-
 <figure markdown="span">
   ![Building AI Systems](assets/clones_1.jpg){ width="600" }
 </figure>
 
-I think about AI as infrastructure—how it reshapes organizations, what it means for sovereignty, and how to build systems that hold under strain.
+<p align="center" markdown>
+I think about AI as infrastructure—how it reshapes organizations,<br>
+what it means for sovereignty, and how to build systems that hold under strain.
+</p>
 
-[About](about.md){ .md-button } [On Writing](on-writing.md){ .md-button }
+<p align="center">
+<a href="about/" class="md-button">About</a>
+<a href="on-writing/" class="md-button">On Writing</a>
+</p>
 
 ---
 
@@ -26,6 +30,8 @@ I think about AI as infrastructure—how it reshapes organizations, what it mean
     - [Walking and Flying](blog/2025/11/20/walking-and-flying/) · Nov 2025
     - [Cathedrals versus Commons](blog/2025/11/10/cathedrals-versus-commons/) · Nov 2025
     - [Beyond the Flywheel](blog/2025/10/20/beyond-the-flywheel/) · Oct 2025
+
+    <br>
 
     [Archive →](blog/index.md)
 
