@@ -29,7 +29,8 @@
       "WebFetch(domain:simonwillison.net)",
       "Read(//c/Users/ashvin.parameswaran/Projects/eccentric-subroutine/**)",
       "Bash(git checkout:*)",
-      "WebFetch(domain:www.youtube.com)"
+      "WebFetch(domain:www.youtube.com)",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []
