@@ -35,7 +35,8 @@ plugins:
   - meta
   - blog:
       blog_toc: true
-      archive: false
+      archive: true
+      archive_date_format: yyyy
       pagination_per_page: 10
       post_readtime: true
       post_url_format: "{date}/{slug}"
