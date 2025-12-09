@@ -30,7 +30,9 @@
       "Read(//c/Users/ashvin.parameswaran/Projects/eccentric-subroutine/**)",
       "Bash(git checkout:*)",
       "WebFetch(domain:www.youtube.com)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(xxd:*)"
     ],
     "deny": [],
     "ask": []
