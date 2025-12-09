@@ -1,4 +1,5 @@
 ---
+title: Ashvin Parameswaran
 hide:
   - navigation
   - toc
@@ -7,11 +8,6 @@ hide:
 <figure markdown="span">
   ![Building AI Systems](assets/clones_1.jpg){ width="600" }
 </figure>
-
-<p align="center" markdown>
-I think about AI as infrastructure—how it reshapes organizations,<br>
-what it means for sovereignty, and how to build systems that hold under strain.
-</p>
 
 <p align="center">
 <a href="about/" class="md-button">About</a>
