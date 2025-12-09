@@ -1,8 +1,8 @@
 ---
-title: Becoming
+title: On Writing
 ---
 
-# Becoming
+# On Writing
 
 Writing is thinking made visible, and thinking changes, so the writing changes.
 

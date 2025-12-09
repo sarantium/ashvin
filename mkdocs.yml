@@ -87,6 +87,6 @@ extra_css:
 
 nav:
   - About: about.md
-  - Becoming: becoming.md
+  - On Writing: on-writing.md
   - Blog:
       - blog/index.md
