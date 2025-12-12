@@ -22,10 +22,10 @@ hide:
 
     ---
 
+    - [The Political Economy of Moats](blog/2025/12/12/the-political-economy-of-moats/) · Dec 2025
+    - [On Slop](blog/2025/12/11/on-slop/) · Dec 2025
     - [Remix / Remake / Remade](blog/2025/12/11/remix--remake--remade/) · Dec 2025
     - [The Cockpit That Remembers](blog/2025/12/09/the-cockpit-that-remembers/) · Dec 2025
-    - [Walking and Flying](blog/2025/11/20/walking-and-flying/) · Nov 2025
-    - [Cathedrals versus Commons](blog/2025/11/10/cathedrals-versus-commons/) · Nov 2025
 
     <br>
 
