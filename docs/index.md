@@ -22,10 +22,10 @@ hide:
 
     ---
 
+    - [Thin to Thick](blog/2025/12/15/thin-to-thick/) · Dec 2025
     - [The Political Economy of Moats](blog/2025/12/13/the-political-economy-of-moats/) · Dec 2025
     - [On Slop](blog/2025/12/12/on-slop/) · Dec 2025
     - [Remix / Remake / Remade](blog/2025/12/11/remix--remake--remade/) · Dec 2025
-    - [The Cockpit That Remembers](blog/2025/12/09/the-cockpit-that-remembers/) · Dec 2025
 
     <br>
 
