@@ -22,6 +22,7 @@ hide:
 
     ---
 
+    - [Deep Structure](blog/2025/12/18/deep-structure/) · Dec 2025
     - [Thin to Thick](blog/2025/12/15/thin-to-thick/) · Dec 2025
     - [The Political Economy of Moats](blog/2025/12/13/the-political-economy-of-moats/) · Dec 2025
     - [On Slop](blog/2025/12/12/on-slop/) · Dec 2025
