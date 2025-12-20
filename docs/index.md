@@ -22,11 +22,11 @@ hide:
 
     ---
 
+    - [Twelve Predictions for 2026](blog/2025/12/20/twelve-predictions-for-2026/) · Dec 2025
     - [Deep Structure](blog/2025/12/18/deep-structure/) · Dec 2025
     - [Thin to Thick](blog/2025/12/15/thin-to-thick/) · Dec 2025
     - [The Political Economy of Moats](blog/2025/12/13/the-political-economy-of-moats/) · Dec 2025
     - [On Slop](blog/2025/12/12/on-slop/) · Dec 2025
-    - [Remix / Remake / Remade](blog/2025/12/11/remix--remake--remade/) · Dec 2025
 
     <br>
 
