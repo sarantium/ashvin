@@ -13,3 +13,5 @@ I write with a golem now. It takes what I mean and what it offers and produces a
 What's happened to writing is what happens to every practice when the underlying economics shift. The old package (solitary author, fixed text, finished product) has come apart. What's reassembling is something else: collaborative, iterative and alive. 
 
 The golem and I have an arrangement. It keeps the work open. I keep asking what's mine.
+
+You might have one as well. The reader changed when the writer did.
