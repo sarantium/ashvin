@@ -22,12 +22,12 @@ hide:
 
     ---
 
+    - [The Taste Squeeze](blog/2026/01/15/the-taste-squeeze/) · Jan 2026
     - [Impossible Algebra](blog/2026/01/05/impossible-algebra/) · Jan 2026
     - [The Political Economy of Fog](blog/2026/01/01/the-political-economy-of-fog/) · Jan 2026
     - [Twelve Predictions for 2026](blog/2025/12/20/twelve-predictions-for-2026/) · Dec 2025
     - [Deep Structure](blog/2025/12/18/deep-structure/) · Dec 2025
     - [Thin to Thick](blog/2025/12/15/thin-to-thick/) · Dec 2025
-    - [The Political Economy of Moats](blog/2025/12/13/the-political-economy-of-moats/) · Dec 2025
 
     <br>
 
