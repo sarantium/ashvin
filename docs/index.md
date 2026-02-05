@@ -22,12 +22,12 @@ hide:
 
     ---
 
+    - [The AI Capability Map: An Expanded Inventory](blog/2026/02/05/the-ai-capability-map-an-expanded-inventory/) · Feb 2026
     - [Reading After Readers](blog/2026/02/03/reading-after-readers/) · Feb 2026
     - [The Anatomy of a Ratchet](blog/2026/01/24/the-anatomy-of-a-ratchet/) · Jan 2026
     - [Nostalgia for Specialness](blog/2026/01/23/nostalgia-for-specialness/) · Jan 2026
     - [The Gradient of Disappearance](blog/2026/01/22/the-gradient-of-disappearance/) · Jan 2026
     - [Ghost Citizenships](blog/2026/01/21/ghost-citizenships/) · Jan 2026
-    - [Trails in the Circuit](blog/2026/01/20/trails-in-the-circuit/) · Jan 2026
 
     <br>
 
