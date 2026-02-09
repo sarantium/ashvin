@@ -88,7 +88,7 @@ extra_css:
 nav:
   - About: about.md
   - On Writing: on-writing.md
-  - On Working: on-working.md
   - On Reading: on-reading.md
+  - On Working: on-working.md
   - Blog:
       - blog/index.md
