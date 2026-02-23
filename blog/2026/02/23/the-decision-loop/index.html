@@ -1,0 +1,1033 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="DORA measures deployment. MOVE measures operations. Neither measures whether anyone understood the system well enough to decide correctly. Two metrics from Girba and Wardley fill the gap.">
+      
+      
+      
+        <link rel="canonical" href="https://ashvin.au/blog/2026/02/23/the-decision-loop/">
+      
+      
+        <link rel="prev" href="../../17/the-replacement-rate/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/view-grid-plus-outline-dark.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>The Decision Loop - ashvin</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-loop" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="ashvin" class="md-header__button md-logo" aria-label="ashvin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3v8h8V3zM3 21h8v-8H3zM3 3v8h8V3zm10 13h3v-3h2v3h3v2h-3v3h-2v-3h-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ashvin
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              The Decision Loop
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sarantium/ashvin/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sarantium/ashvin
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="ashvin" class="md-nav__button md-logo" aria-label="ashvin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3v8h8V3zM3 21h8v-8H3zM3 3v8h8V3zm10 13h3v-3h2v3h3v2h-3v3h-2v-3h-3z"/></svg>
+
+    </a>
+    ashvin
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sarantium/ashvin/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sarantium/ashvin
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-writing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Writing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Reading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-working/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Working
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Blog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Loop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time-to-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time to Question
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time-to-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time to Answer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-flywheel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Flywheel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-layer-beneath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Layer Beneath
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decision Profiles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Started
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2026-02-23 00:00:00+00:00" class="md-ellipsis">February 23, 2026</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              7 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <span class="md-tag">ai</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">future-of-work</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">strategy</span>
+      
+    
+  </nav>
+
+
+  
+  
+
+
+  <h1>The Decision Loop</h1>
+
+<p>DORA measures how fast code flows from commit to production. MOVE measures how fast the organization senses, decides, and acts. Both track real performance. Both share an assumption: that someone, somewhere, understood the system well enough to make the right call.</p>
+<p>That assumption has a cost, and it's larger than most organizations realize.</p>
+<!-- more -->
+
+<h2 id="the-loop">The Loop<a class="headerlink" href="#the-loop" title="Permanent link">⚓︎</a></h2>
+<p>Every knowledge worker in software follows the same cycle. Form a hypothesis about the system. Explore it. Assess what you find. Decide what to do next. Engineers trace code paths. Product managers interrogate usage patterns. Designers audit component states. QA engineers reconstruct failure chains. The subject changes. The loop does not.</p>
+<p>Two variables govern its speed. Tudor Girba and Simon Wardley name them in <em>Rewilding Software Engineering</em>, their book-length argument that the software industry has been optimizing the wrong variable for decades.</p>
+<p><strong>Time to Question (ttQ)</strong> — the time to formulate a specific, actionable question about a system.</p>
+<p><strong>Time to Answer (ttA)</strong> — the time from that question to a verified answer.</p>
+<p>Nobody tracks either. Most organizations have never discussed them.</p>
+<hr />
+<h2 id="time-to-question">Time to Question<a class="headerlink" href="#time-to-question" title="Permanent link">⚓︎</a></h2>
+<p><strong>The time to formulate a specific, actionable question about a system.</strong></p>
+<p>For a question to drive a decision, Girba and Wardley argue it must be three things. Actionable: if answered, someone can do something with the result. Specific: relevant to this system in this context. Timely: the answer will arrive before the environment changes enough to invalidate it.</p>
+<p>Most questions in organizations fail at least one criterion. "Why is retention dropping?" is actionable but too broad; the answer space is too large to guide action. "What's the P99 latency of the payment service?" is specific but may not be actionable for the person asking, because they lack the context to interpret what the number means for their decision. "How should we restructure the monolith?" fails all three if the answer takes six months and the organization will have reorganized twice by then.</p>
+<p>A large corporation needed to optimize a central data pipeline by an order of magnitude. The business case was clear. After years of effort and millions of dollars, data moved through the pipeline at the same speed as before. The team was capable, the resources were there. The constraint was visibility.</p>
+<p>They started where everyone starts: "Why are our services slow?"</p>
+<p>Reasonable question. Almost useless, because answering it in the general case requires understanding the entire system, which is the problem that produced the question.</p>
+<p>Weeks of exploration refined it. "Why are our services slow?" became "Is there useless data generated?", then "How is data traversing the pipeline?", then "How is a single attribute traversing the pipeline?", which, only after cheap answers made the landscape visible, became "What data is used only in the most recent campaign?"</p>
+<p>Each refinement was more specific, more actionable, more valuable. The distance between the first question and the last is Time to Question made visible. In this case, it was measured in weeks.</p>
+<hr />
+<h2 id="time-to-answer">Time to Answer<a class="headerlink" href="#time-to-answer" title="Permanent link">⚓︎</a></h2>
+<p><strong>The time from a specific question about a system to a verified answer.</strong></p>
+<p>Time to Question gets less attention, but Time to Answer is what makes it expensive.</p>
+<p>Tracing how a single variable moved through the pipeline required person-weeks of manual inspection. The system contained tens of thousands of variables. At that rate, answering even basic structural questions was economically prohibitive. The team couldn't verify their own hypotheses. Their best model of the system, a hand-drawn architecture diagram, omitted an entire third-party system that nobody knew existed. Decisions were being made against a picture that was materially wrong.</p>
+<p>This same structure appears everywhere the decision loop runs.</p>
+<p>An engineer asks "what calls this service?" and spends days reading code across repositories because the dependency graph lives on a whiteboard, drawn from memory, last validated months ago. A product manager asks "which features drive retention in segment X?" and waits two weeks for a custom query because the analytics platform organizes data by event type, not user journey. A designer asks "what states can this component reach in production?" and manually navigates edge cases because the design system documents intended states, not actual ones.</p>
+<p>In each case, formulating the question took seconds. Extracting a verified answer required days or weeks: reading code, building queries, navigating tools that weren't designed for the question being asked. Girba and Wardley use a recurring image for this: kitchen blenders digging deep mines. The tool works. It wasn't designed for this.</p>
+<hr />
+<h2 id="the-flywheel">The Flywheel<a class="headerlink" href="#the-flywheel" title="Permanent link">⚓︎</a></h2>
+<p>When Time to Answer drops, when answering a question about your system takes minutes instead of weeks, you can afford more questions. More questions means more explored landscape. More landscape means sharper hypotheses. Sharper hypotheses target higher-value answers. And higher-value answers reveal territory you didn't know existed: what Girba and Wardley call the adjacent unexplored.</p>
+<p>The data pipeline team built 54 contextual micro-tools in two person-months. Each tool answered a specific class of question directly from the live system, the way automated tests generate pass/fail signals from running code. The average tool was twelve lines of code. Total investment: a fraction of what manual investigation had consumed over years.</p>
+<p>The improvement factor was roughly 600x. The number understates what actually changed. Cheap answers made iterative exploration affordable, and that exploration revealed that the original question was aimed at the wrong part of the system entirely. The team couldn't have skipped to the right question. The path through wrong questions was the only path to the right one. What made the difference was a cost structure where each wrong question didn't consume person-weeks.</p>
+<p>The reverse is equally instructive. When answers are expensive, each question is an investment. Teams choose carefully, conservatively, optimizing for probability of payoff over breadth of discovery. This is how organizations spend years and millions on a problem that two people with contextual tools resolve in a month.</p>
+<p>This is why Time to Question improves when Time to Answer drops. The data pipeline team didn't learn to ask better questions through training. They learned because cheaper answers revealed more landscape, and more landscape made sharper questions possible. Cheap answers accelerate the accumulation of system knowledge that produces good questions, while expensive answers lock teams into generic questioning regardless of their expertise.</p>
+<hr />
+<h2 id="the-layer-beneath">The Layer Beneath<a class="headerlink" href="#the-layer-beneath" title="Permanent link">⚓︎</a></h2>
+<p>Three frameworks now describe three layers of the same organizational system.</p>
+<p><img alt="The Measurement Stack — three layers: DORA (deployment), MOVE (operations), Decision Loop (comprehension)" src="../../../../blog_assets/decision_loop_stack.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Framework</th>
+<th>Measures</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Deployment</td>
+<td>DORA</td>
+<td>How fast code ships: cycle time, deployment frequency, failure rate, recovery time</td>
+</tr>
+<tr>
+<td>Operations</td>
+<td>MOVE</td>
+<td>How fast the org operates: Momentum, Orchestration, Velocity, Exception</td>
+</tr>
+<tr>
+<td>Comprehension</td>
+<td>Decision Loop</td>
+<td>How fast people understand: Time to Question, Time to Answer</td>
+</tr>
+</tbody>
+</table>
+<p>Each depends on the one beneath it. DORA assumes someone decided what to deploy. MOVE assumes someone designed the workflow correctly. Both assume comprehension that neither measures.</p>
+<p>When MOVE metrics plateau, when Momentum stalls despite automation and Exception rates climb despite investment, the cause is usually comprehension speed. An organization with 60% Orchestration and rising Exception rates is often looking at this: the workflows were designed against an incomplete picture of the system, because the people who designed them couldn't get answers fast enough to ask the right questions.</p>
+<p>This also explains why AI copilots improve MOVE metrics to a point and then stop. Copilots accelerate execution within the existing understanding of the system. They do not change how fast the organization comprehends its own systems. Momentum lifts, Orchestration plateaus around 25%, and the decision loop, still running on expensive answers and broad questions, remains the binding constraint.</p>
+<hr />
+<h2 id="decision-profiles">Decision Profiles<a class="headerlink" href="#decision-profiles" title="Permanent link">⚓︎</a></h2>
+<p>The two metrics cluster into recognizable patterns.</p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Time to Answer</th>
+<th>Question Specificity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Elite</td>
+<td>Minutes</td>
+<td>Domain-specific</td>
+</tr>
+<tr>
+<td>High</td>
+<td>Hours</td>
+<td>Moderately specific</td>
+</tr>
+<tr>
+<td>Medium</td>
+<td>Days</td>
+<td>Generic</td>
+</tr>
+<tr>
+<td>Low</td>
+<td>Weeks+</td>
+<td>Unformulated</td>
+</tr>
+</tbody>
+</table>
+<p>Most organizations operate at Medium. Answers take days. Each question represents a significant investment, so teams choose questions conservatively. Exploration is treated as cost rather than a source of value.</p>
+<p>Thresholds vary by question type and system complexity. Minutes to answer "what services depend on this table?" is elite for legacy migration. It is meaningless for "should we enter this market?" Set baselines per question class.</p>
+<hr />
+<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">⚓︎</a></h2>
+<p>Pick one question each role answered in the last month. Something real.</p>
+<p><strong>Time the answer.</strong> When was the question first articulated? When did a verified answer arrive? Count everything: queue time waiting for another team, tool-switching between platforms, manual inspection, meetings convened to discuss what the data means. That total is your current Time to Answer.</p>
+<p><strong>Audit the answer.</strong> Did it come from a generated view of the live system, or from a manually created artifact: a dashboard configured months ago, a diagram drawn from memory, a spreadsheet assembled from multiple sources? Was the tool built for this question, or was a general-purpose tool pressed into service?</p>
+<p><strong>Trace the question.</strong> Was this the first question asked, or the refinement of a broader one? How many cycles of question and answer did it take to reach this level of specificity? Where did refinement stall, because an intermediate answer was too expensive or the tooling couldn't support a sharper question? That path is Time to Question made visible.</p>
+<p><strong>Repeat across roles.</strong> Engineering, product, design, QA. The question types will differ. The extraction patterns will differ. The structural bottleneck will be the same: generic tools producing expensive answers, suppressing question quality, and limiting exploration.</p>
+<hr />
+<p>The most expensive activity in software is figuring out what to build and whether what was built is right. Every operational era develops its own measurement language. Manufacturing brought throughput and defect rates. DevOps brought DORA. The AI-native organization brought MOVE. The decision loop is still unmeasured.</p>
+<hr />
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li>Tudor Girba and Simon Wardley, <em>Rewilding Software Engineering</em> (feenk, 2025-2026): <a href="https://medium.com/feenk">medium.com/feenk</a></li>
+<li>Tudor Girba, "Developers spend most of their time figuring the system out" (feenk, 2024): <a href="https://blog.feenk.com/developers-spend-most-of-their-time-figuri-7aj1ocjhe765vvlln8qqbuhto/">blog.feenk.com</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../17/the-replacement-rate/" class="md-footer__link md-footer__link--prev" aria-label="Previous: The Replacement Rate">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                The Replacement Rate
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023-2025 Ashvin Parameswaran
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sarantium/ashvin" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/ashvinparameswaran" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="/assets/ashvin_parameswaran_curriculum_vitae_2023.pdf" target="_blank" rel="noopener" title="resume" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M96 0C60.7 0 32 28.7 32 64v384c0 35.3 28.7 64 64 64h80V400c0-35.3 28.7-64 64-64h176V170.5c0-17-6.7-33.3-18.7-45.3L290.7 18.7C278.7 6.7 262.5 0 245.5 0zm261.5 176H264c-13.3 0-24-10.7-24-24V58.5zM240 380c-11 0-20 9-20 20v128c0 11 9 20 20 20s20-9 20-20v-28h12c33.1 0 60-26.9 60-60s-26.9-60-60-60zm32 80h-12v-40h12c11 0 20 9 20 20s-9 20-20 20m96-80c-11 0-20 9-20 20v128c0 11 9 20 20 20h32c28.7 0 52-23.3 52-52v-64c0-28.7-23.3-52-52-52zm20 128v-88h12c6.6 0 12 5.4 12 12v64c0 6.6-5.4 12-12 12zm88-108v128c0 11 9 20 20 20s20-9 20-20v-44h28c11 0 20-9 20-20s-9-20-20-20h-28v-24h28c11 0 20-9 20-20s-9-20-20-20h-48c-11 0-20 9-20 20"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tracking", "navigation.indexes", "search.highlight", "search.share", "content.code.copy", "navigation.footer", "navigation.top"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

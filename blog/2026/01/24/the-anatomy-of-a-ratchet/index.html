@@ -1,0 +1,1009 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Dan Lorenc's multiclaude embraces chaos over coordination, letting CI arbitrate between parallel AI agents. The architecture's lesson for human teams: code review is nostalgia, and the teams that ship at 100x will write constraints, not read diffs.">
+      
+      
+      
+        <link rel="canonical" href="https://ashvin.au/blog/2026/01/24/the-anatomy-of-a-ratchet/">
+      
+      
+        <link rel="prev" href="../../23/nostalgia-for-specialness/">
+      
+      
+        <link rel="next" href="../../../02/03/reading-after-readers/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/view-grid-plus-outline-dark.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>The Anatomy of a Ratchet - ashvin</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-brownian-motion" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="ashvin" class="md-header__button md-logo" aria-label="ashvin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3v8h8V3zM3 21h8v-8H3zM3 3v8h8V3zm10 13h3v-3h2v3h3v2h-3v3h-2v-3h-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ashvin
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              The Anatomy of a Ratchet
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sarantium/ashvin/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sarantium/ashvin
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="ashvin" class="md-nav__button md-logo" aria-label="ashvin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3v8h8V3zM3 21h8v-8H3zM3 3v8h8V3zm10 13h3v-3h2v3h3v2h-3v3h-2v-3h-3z"/></svg>
+
+    </a>
+    ashvin
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sarantium/ashvin/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sarantium/ashvin
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-writing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Writing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Reading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-working/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Working
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Blog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-brownian-motion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Brownian Motion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-pawl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Pawl
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-escape-wheel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Escape Wheel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-spring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Spring
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-ratchet-rejects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the Ratchet Rejects
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-means-for-human-teams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What This Means for Human Teams
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-counterintuitive-claim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Counterintuitive Claim
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2026-01-24 00:00:00+00:00" class="md-ellipsis">January 24, 2026</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              11 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <span class="md-tag">ai</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">future-of-work</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">multi-agent</span>
+      
+    
+  </nav>
+
+
+  
+  
+
+
+  <h1>The Anatomy of a Ratchet</h1>
+
+<p>Dan Lorenc's multiclaude takes a counterintuitive position on multi-agent orchestration: the best way to coordinate AI agents working on the same codebase is to barely coordinate them at all. Instead of building sophisticated protocols to prevent conflicts and duplicate work, multiclaude embraces chaos and lets CI serve as the filter. The result is a system that ships more code precisely because it doesn't try to manage what each agent is doing.</p>
+<p>This isn't accidental. The project calls its philosophy "The Brownian Ratchet," borrowing from physics: random motion in one direction, a mechanism that prevents backward movement, and net forward progress despite apparent disorder. The metaphor isn't decoration; it's the architectural blueprint.</p>
+<!-- more -->
+
+<p>Let's trace what actually happens when you run <code>multiclaude work "add rate limiting to the API"</code> and see how each component of the ratchet does its work.</p>
+<h2 id="the-brownian-motion">The Brownian Motion<a class="headerlink" href="#the-brownian-motion" title="Permanent link">⚓︎</a></h2>
+<p>Your rate-limiting task spawns a worker agent. But here's what multiclaude doesn't do: it doesn't check whether another agent is already touching the API, doesn't queue your task behind related work, doesn't lock files or coordinate access.</p>
+<p>Two other workers are already running. One is refactoring the authentication middleware. Another is adding request logging. All three will touch overlapping code. All three proceed simultaneously.</p>
+<p>This looks like a coordination failure. The conventional wisdom in distributed systems says you need locks, queues, or at least awareness of who's doing what. Multiclaude's design document is explicit about rejecting this: "Multiple autonomous agents work simultaneously on overlapping concerns. They may duplicate effort, create conflicting changes, or produce suboptimal solutions."</p>
+<p>The key word is "may." Not "will inevitably cause disaster." The bet is that the cost of occasional duplicate work and merge conflicts is lower than the cost of coordination overhead. Every lock is latency. Every queue is a bottleneck. Every "is anyone else working on this?" check is complexity that can fail.</p>
+<p>Each agent gets its own git worktree, a feature of git that lets you check out multiple branches simultaneously in separate directories. Your rate-limiter works in <code>~/.multiclaude/wts/api-repo/happy-platypus/</code>, while the auth refactor runs in <code>~/.multiclaude/wts/api-repo/clever-otter/</code>. They share the same repository but can't step on each other's files because they're literally working in different directories on different branches.</p>
+<p>The worktree isolation means conflicts are deferred, not prevented. They'll surface later, at merge time. And that's exactly where multiclaude wants them.</p>
+<h2 id="the-pawl">The Pawl<a class="headerlink" href="#the-pawl" title="Permanent link">⚓︎</a></h2>
+<p>In a mechanical ratchet, the pawl is the component that allows movement in one direction while preventing backward motion. In multiclaude, CI is the pawl.</p>
+<p>The design document states this as a hard constraint: "Agents must never weaken or disable CI checks without explicit human approval." This isn't a guideline buried in documentation. It's embedded in every agent's system prompt, repeated as a "Golden Rule," and treated as architecturally sacred.</p>
+<p>Play this forward. Your rate-limiter finishes first and creates a PR. CI runs. Tests pass. The merge-queue agent (a specialized agent that does nothing but watch PRs) merges it automatically.</p>
+<p>The auth refactor finishes second. Its PR also passes CI. Merged.</p>
+<p>The request logging agent finishes third. But now there's a problem: the code it wrote conflicts with the rate-limiting changes that merged while it was working. The tests fail.</p>
+<p>In a coordination-heavy system, this would be a failure state requiring human intervention or sophisticated conflict resolution. Multiclaude handles it differently: the merge-queue agent spawns a "fixup worker," a new Claude instance whose only job is to resolve the failing PR.</p>
+<p>The fixup worker pulls main, rebases the branch, fixes the conflicts, and pushes. If CI passes now, it merges. If not, another fixup attempt. The ratchet keeps clicking forward.</p>
+<p>The system doesn't prevent conflicts; it resolves them after they occur. This is a fundamentally different bet about where to spend complexity. Prevention requires prediction (knowing what will conflict before it does). Resolution only requires reaction (fixing what actually broke).</p>
+<p>CI becomes the single source of truth about what's acceptable. If the tests pass, the code can ship. No other criteria, no human judgment required for the merge decision itself. Humans retain control over what the tests check, but the merge-queue agent has autonomy within those constraints.</p>
+<h2 id="the-escape-wheel">The Escape Wheel<a class="headerlink" href="#the-escape-wheel" title="Permanent link">⚓︎</a></h2>
+<p>The escape wheel in a mechanical clock regulates energy release, converting the spring's stored power into controlled, measurable increments. In multiclaude, tmux and the filesystem serve this function: they make chaotic parallel execution observable and interruptible.</p>
+<p>Every agent runs in its own tmux window within a repository-specific tmux session. When you run <code>multiclaude attach happy-platypus</code>, you're dropped directly into that agent's terminal. You see exactly what Claude sees. You can type commands. You can interrupt, redirect, or take over.</p>
+<p>This is a deliberate rejection of abstraction. The design document explains: "Humans can attach to any agent at any time with a single command. No API calls, no log parsing, no dashboard navigation. Just tmux attach."</p>
+<p>When your rate-limiter hits a problem (maybe it's unsure how to handle the Redis connection pooling), you attach and watch it think. You see the commands it runs, the files it reads, the decisions it makes. If it's going down the wrong path, you can type directly into the terminal and correct it.</p>
+<p>The alternative would be building custom observability: a dashboard showing agent status, log aggregation, maybe a replay system. Multiclaude explicitly lists "web dashboard" as a non-goal. Not because dashboards are bad, but because tmux already exists and developers already know it.</p>
+<p>The same philosophy extends to inter-agent communication. Agents send messages to each other via JSON files in <code>~/.multiclaude/messages/&lt;repo&gt;/&lt;agent&gt;/</code>. The design document's rationale: "Just cat the files to see messages." When debugging why an agent didn't receive a nudge, you don't need specialized tools. You <code>ls</code> the directory and <code>cat</code> the file.</p>
+<p>Messages progress through statuses: pending, delivered, read, acknowledged. The daemon delivers them by literally typing into the agent's tmux window using <code>tmux send-keys</code>. No message queue, no pub/sub, no protocol buffers. Just text injection into a terminal.</p>
+<p>The 2-minute polling interval for message delivery is noted in the spec as an "acceptable tradeoff." Real-time coordination would require persistent connections, heartbeats, failure detection. Multiclaude accepts higher latency in exchange for simplicity that doesn't break.</p>
+<h2 id="the-spring">The Spring<a class="headerlink" href="#the-spring" title="Permanent link">⚓︎</a></h2>
+<p>The daemon is the spring: the stored energy that keeps the ratchet moving. It runs five concurrent loops, each on a 2-minute interval:</p>
+<p><strong>Health check</strong> verifies that agents are actually running. It checks that tmux windows exist and that Claude process PIDs are alive. Dead agents get marked for cleanup (if ephemeral) or restart (if persistent). The distinction matters: workers are ephemeral (they finish a task and disappear), while supervisors and merge-queue agents are persistent (they should always be running).</p>
+<p><strong>Message routing</strong> scans pending messages and delivers them. Delivery means injecting the message text into the agent's tmux window. The atomic delivery uses a specific tmux command (<code>SendKeysLiteralWithEnter</code>) to avoid race conditions documented in the codebase as a known issue.</p>
+<p><strong>Nudge loop</strong> sends periodic status checks to agents that have been quiet too long. Your rate-limiter hasn't produced output in 20 minutes? The daemon sends a nudge: "Status check: what's your current progress?" This uses exponential backoff to avoid spamming stuck agents.</p>
+<p><strong>Worktree refresh</strong> keeps worker branches from drifting too far from main. If main has moved significantly since a worker started, the daemon rebases the worker's branch. This reduces the eventual merge conflict surface.</p>
+<p><strong>Socket server</strong> handles CLI requests. When you run <code>multiclaude work "add rate limiting"</code>, the CLI sends a JSON message over a Unix socket to the daemon, which spawns the worker and responds with the agent name.</p>
+<p>State persists to a single JSON file (<code>~/.multiclaude/state.json</code>) using atomic writes: write to temp file, then rename. The spec notes this enables "simple recovery" and, critically, manual editing if something goes wrong. When the daemon restarts, it reads the state file, checks which agents should exist, and restores any that died.</p>
+<p>This is infrastructure-as-script, not infrastructure-as-service. No database, no external dependencies beyond tmux and git. The entire system runs locally on a developer's machine.</p>
+<h2 id="what-the-ratchet-rejects">What the Ratchet Rejects<a class="headerlink" href="#what-the-ratchet-rejects" title="Permanent link">⚓︎</a></h2>
+<p>Multiclaude's non-goals reveal as much about its philosophy as its features. Each absence is a bet about where complexity should and shouldn't live.</p>
+<p><strong>No web dashboard.</strong> Preserves terminal-first philosophy. The assumption is that users are developers comfortable with tmux. A dashboard would require authentication, hosting, state synchronization. The benefit (prettier visualization) doesn't outweigh the cost (maintaining another system).</p>
+<p><strong>No cross-repository coordination.</strong> Each repository is its own isolated world. If your microservices need coordinated changes across repos, multiclaude won't help. This keeps the state model simple: one daemon, many repos, but no relationships between them.</p>
+<p><strong>No multi-user support.</strong> Multiclaude assumes a single developer orchestrating agents. Shared access would require authentication, permissions, conflict resolution between humans. The workaround: each developer runs their own daemon.</p>
+<p><strong>No automatic restart on crash.</strong> If an agent crashes repeatedly, multiclaude doesn't keep retrying. The design document explains this prevents "infinite loops from buggy agents." A crash requires human attention. This is the human-in-the-loop principle applied to failure modes.</p>
+<p><strong>No remote daemon.</strong> The daemon runs locally, accessed via Unix socket. A remote daemon would need network protocols, authentication, TLS, connection management. Multiclaude sidesteps all of this by assuming you're SSH'd into a machine or using it locally.</p>
+<p>Compare this to Gastown, another multi-Claude orchestration project that shares the same technical foundations (Go, tmux, git worktrees). Gastown offers more comprehensive orchestration but targets what multiclaude's README calls "single-player" use. Multiclaude emphasizes "remote-first collaboration," treating software engineering "like an MMORPG where multiple humans and AI agents work together asynchronously."</p>
+<p>The distinction isn't that one is better. It's that they're optimizing for different constraints. Gastown bets on a single human directing multiple agents. Multiclaude bets on multiple humans spawning agents and walking away, checking back later to see what shipped.</p>
+<h2 id="what-this-means-for-human-teams">What This Means for Human Teams<a class="headerlink" href="#what-this-means-for-human-teams" title="Permanent link">⚓︎</a></h2>
+<p>Multiclaude is designed for AI agents, but its philosophy has an uncomfortable implication for human engineering teams: code review, as currently practiced, is a form of nostalgia.</p>
+<p>Consider what code review actually does. It catches bugs tests miss. It enforces style consistency. It transfers knowledge between team members. It provides a checkpoint where someone other than the author blesses the change. These are valuable functions. But examine them closely and a pattern emerges: most of what review catches could be caught by better tests, better linters, better architectural constraints. The residue, the part that genuinely requires human judgment, is small. Maybe 5% of review comments. The rest is ritual.</p>
+<p>This is Svetlana Boym's restorative nostalgia applied to engineering practice. We imagine a golden age when careful human review was the last line of defense against bugs, when senior engineers read every diff and their approval meant something. But that golden age may never have existed. Studies consistently show that code review catches fewer bugs than we think, that most defects slip through regardless, that the real value is knowledge transfer and team cohesion rather than defect detection.</p>
+<p>Multiclaude forces the question by making the alternative concrete. If CI is strong enough to arbitrate between agents, each producing PRs in parallel, each potentially conflicting with the others, then CI is strong enough to arbitrate between humans and agents too. The brownian ratchet doesn't need a human reviewer checking the pawl. The pawl is the tests. Either they pass or they don't.</p>
+<p>The strong claim: human review should be reserved for the cases where CI genuinely cannot arbitrate. Architectural decisions that shape the system for years. Security boundaries where the consequences of error are catastrophic. Product direction where "correct" depends on judgment no test can encode. For everything else, if the tests pass, the code ships.</p>
+<p>This is uncomfortable because it strips away a major source of engineering identity. Being the careful reviewer, the quality guardian, the senior engineer whose approval means something. But that identity may be downstream of scarcity. When one human produces one PR per day, review is feasible. When one human can spawn agents that produce fifty PRs overnight, review becomes the bottleneck that prevents you from using your own tools.</p>
+<p>Brian Eno's framing helps here: stop conducting and start creating conditions for scenius. The human role shifts from reviewer to constraint-writer. Your leverage isn't how many bugs you catch in review; it's how many classes of bugs you make impossible through better tests, better types, better architectural boundaries. You don't read diffs. You write the rules that make diff-reading unnecessary.</p>
+<p>The engineering teams that will ship at 100x won't look like current teams working faster. They'll look like a different kind of organization entirely. Small groups of humans writing constraints: test suites, type systems, architectural invariants, deployment gates. Agents doing implementation within those constraints. CI arbitrating what ships. Humans intervening only when the ratchet gets stuck, when something genuinely ambiguous arises, when the constraints themselves need to change.</p>
+<p>Frantz Fanon asked of colonial systems: who coordinates whom, and what does that do to the coordinated? The current answer for most engineering teams is that humans coordinate agents, treating them as tools to be supervised. But the multiclaude architecture suggests a different answer: the constraint system coordinates everyone, humans and agents alike. Humans aren't above the system managing agents. Humans are participants in the system, subject to the same CI arbiter, differentiated only by what they're good at. Agents implement. Humans define constraints. CI decides what ships.</p>
+<p>Going from one PR per day to a hundred isn't about working faster or hiring more agents. It's about accepting that the coordination overhead we've built, the standups and sprint planning and code review rotations and approval workflows, exists to solve problems that dissolve when you trust your tests. The teams that can't make this shift will watch their competitors ship while they're still scheduling review meetings.</p>
+<p>The chaos doesn't need human management. It needs human constraints. Write better tests. Define clearer boundaries. Then let the ratchet click.</p>
+<h2 id="the-counterintuitive-claim">The Counterintuitive Claim<a class="headerlink" href="#the-counterintuitive-claim" title="Permanent link">⚓︎</a></h2>
+<p>Multiclaude's architecture makes a bet that runs against most distributed systems intuition: less coordination infrastructure can mean more shipped code.</p>
+<p>The logic works like this. Coordination has costs: latency (waiting for locks), complexity (protocols that can fail), brittleness (central points of failure). For AI agents working on code, these costs compound. An agent waiting for a lock isn't generating PRs. A coordination failure blocks all agents, not just one.</p>
+<p>By contrast, the costs of non-coordination are bounded. Duplicate work wastes compute but produces a PR anyway. Merge conflicts require fixup but are automatically detected by CI. Suboptimal solutions ship and can be improved later.</p>
+<p>The ratchet framing clarifies the bet: as long as forward motion (passing PRs) exceeds backward motion (nothing, because CI prevents regression), net progress occurs regardless of the chaos in between.</p>
+<p>This doesn't generalize to all multi-agent systems. It works for code specifically because git provides cheap branching, CI provides automated validation, and PRs provide atomic units of reviewable work. The "brownian ratchet" wouldn't work for agents collaborating on a shared document or coordinating physical actions.</p>
+<p>But for the problem multiclaude solves, shipping code to a repository, the architecture is a reminder that sometimes the sophisticated solution is to not build the sophisticated solution. Tmux instead of custom terminals. Filesystem instead of message queues. CI instead of coordination protocols. Git worktrees instead of locking.</p>
+<p>The system works not despite its simplicity but because of it. Every component is debuggable with standard Unix tools, every failure mode has an obvious recovery path, and the only abstractions are ones developers already understand.</p>
+<p>The ratchet clicks forward. The code ships. Whether this philosophy scales beyond codebases, to other domains where CI-like arbiters don't exist, remains the open question. But for now, the chaos was the point.</p>
+<hr />
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li>Lorenc, multiclaude repository (2025): https://github.com/dlorenc/multiclaude</li>
+<li>multiclaude DESIGN.md: Core philosophy and architectural decisions</li>
+<li>multiclaude SPEC.md: Implementation architecture and component specifications</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../23/nostalgia-for-specialness/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Nostalgia for Specialness">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Nostalgia for Specialness
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../../02/03/reading-after-readers/" class="md-footer__link md-footer__link--next" aria-label="Next: Reading After Readers">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Reading After Readers
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023-2025 Ashvin Parameswaran
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sarantium/ashvin" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/ashvinparameswaran" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="/assets/ashvin_parameswaran_curriculum_vitae_2023.pdf" target="_blank" rel="noopener" title="resume" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M96 0C60.7 0 32 28.7 32 64v384c0 35.3 28.7 64 64 64h80V400c0-35.3 28.7-64 64-64h176V170.5c0-17-6.7-33.3-18.7-45.3L290.7 18.7C278.7 6.7 262.5 0 245.5 0zm261.5 176H264c-13.3 0-24-10.7-24-24V58.5zM240 380c-11 0-20 9-20 20v128c0 11 9 20 20 20s20-9 20-20v-28h12c33.1 0 60-26.9 60-60s-26.9-60-60-60zm32 80h-12v-40h12c11 0 20 9 20 20s-9 20-20 20m96-80c-11 0-20 9-20 20v128c0 11 9 20 20 20h32c28.7 0 52-23.3 52-52v-64c0-28.7-23.3-52-52-52zm20 128v-88h12c6.6 0 12 5.4 12 12v64c0 6.6-5.4 12-12 12zm88-108v128c0 11 9 20 20 20s20-9 20-20v-44h28c11 0 20-9 20-20s-9-20-20-20h-28v-24h28c11 0 20-9 20-20s-9-20-20-20h-48c-11 0-20 9-20 20"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tracking", "navigation.indexes", "search.highlight", "search.share", "content.code.copy", "navigation.footer", "navigation.top"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

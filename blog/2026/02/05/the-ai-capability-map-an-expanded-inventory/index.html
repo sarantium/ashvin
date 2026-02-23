@@ -1,0 +1,1150 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Prasad Prabhakaran's Wardley map of enterprise AI capabilities is useful, but its most important insight is implicit: everything in the Commodity column is no longer a choice. An expanded inventory of what each layer contains, what's missing, and the capabilities that don't fit the evolution axis at all.">
+      
+      
+      
+        <link rel="canonical" href="https://ashvin.au/blog/2026/02/05/the-ai-capability-map-an-expanded-inventory/">
+      
+      
+        <link rel="prev" href="../../03/reading-after-readers/">
+      
+      
+        <link rel="next" href="../../08/move-metrics-for-the-ai-native-organization/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/view-grid-plus-outline-dark.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>The AI Capability Map: An Expanded Inventory - ashvin</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#commodity-the-compulsory-floor" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="ashvin" class="md-header__button md-logo" aria-label="ashvin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3v8h8V3zM3 21h8v-8H3zM3 3v8h8V3zm10 13h3v-3h2v3h3v2h-3v3h-2v-3h-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ashvin
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              The AI Capability Map: An Expanded Inventory
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sarantium/ashvin/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sarantium/ashvin
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="ashvin" class="md-nav__button md-logo" aria-label="ashvin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3v8h8V3zM3 21h8v-8H3zM3 3v8h8V3zm10 13h3v-3h2v3h3v2h-3v3h-2v-3h-3z"/></svg>
+
+    </a>
+    ashvin
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sarantium/ashvin/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sarantium/ashvin
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-writing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Writing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Reading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-working/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Working
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Blog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#commodity-the-compulsory-floor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commodity: The Compulsory Floor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#product-the-compression-zone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Product: The Compression Zone
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-the-complexity-cliff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom: The Complexity Cliff
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#genesis-the-forecasting-horizon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Genesis: The Forecasting Horizon
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beyond-the-axis-what-the-categories-cant-see" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beyond the Axis: What the Categories Can't See
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-this-inventory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using This Inventory
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2026-02-05 00:00:00+00:00" class="md-ellipsis">February 5, 2026</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              16 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <span class="md-tag">ai</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">strategy</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">wardley-mapping</span>
+      
+    
+  </nav>
+
+
+  
+  
+
+
+  <h1>The AI Capability Map: An Expanded Inventory</h1>
+
+<p>You don't get to opt out of commodity AI. That's what "commodity" means: not "cheap" or "boring" but "compulsory." Ivan Illich saw this pattern with electricity, automobiles, schools. The moment something becomes a utility, non-participation becomes deviance. Prasad Prabhakaran's recent Wardley map of enterprise AI capabilities plots where different technologies sit on the evolution axis. The map is useful. But its most important insight is implicit: everything in the Commodity column is no longer a choice.</p>
+<p>What follows is an expanded inventory: the original categories, what's missing from each, and the harder question of what the categories themselves fail to capture. The act of mapping shapes what gets mapped. The categories we use determine the investments we make. And some capabilities don't fit the Genesis-to-Commodity axis at all.</p>
+<!-- more -->
+
+<h2 id="commodity-the-compulsory-floor">Commodity: The Compulsory Floor<a class="headerlink" href="#commodity-the-compulsory-floor" title="Permanent link">⚓︎</a></h2>
+<p><strong>Currently listed:</strong></p>
+<ul>
+<li>Chat interfaces</li>
+<li>Embeddings</li>
+<li>OCR</li>
+<li>Speech-to-text</li>
+<li>Summarisation</li>
+<li>Translation</li>
+<li>Basic LLM usage</li>
+<li>Standard ML techniques</li>
+<li>Deployment pipelines</li>
+</ul>
+<p><strong>What's missing:</strong></p>
+<p>The list underweights how much has commoditised in the past eighteen months. Add:</p>
+<ul>
+<li>
+<p><strong>Code completion and generation.</strong> GitHub Copilot was magic in 2022. In 2026, every IDE has it. The baseline expectation shifted; developers who don't use AI assistance are now the exception requiring explanation.</p>
+</li>
+<li>
+<p><strong>Semantic search.</strong> Not keyword matching but genuine meaning-based retrieval. This moved from research to API in three years. Anyone still building custom semantic search infrastructure is solving yesterday's problem.</p>
+</li>
+<li>
+<p><strong>Text-to-image generation.</strong> DALL-E felt like science fiction. Now it's a feature in Canva. The capability is table stakes; the differentiation moved elsewhere.</p>
+</li>
+<li>
+<p><strong>Classification and categorisation.</strong> Sentiment analysis, intent classification, topic modelling. These were ML projects requiring data scientists. Now they're prompt templates.</p>
+</li>
+<li>
+<p><strong>Document parsing and extraction.</strong> Beyond OCR to structured extraction from unstructured documents. Invoices, contracts, forms. The hard parts got absorbed into platform features.</p>
+</li>
+<li>
+<p><strong>Basic question answering.</strong> FAQ bots, support deflection, simple lookup queries. The "chatbot" that seemed sophisticated five years ago is now commodity infrastructure.</p>
+</li>
+</ul>
+<p><strong>The compulsion question:</strong></p>
+<p>When Prabhakaran writes that these capabilities are "utilities now," he's describing more than market maturity. Ivan Illich observed that commoditisation often marks the moment a tool becomes compulsory. Electricity didn't remain optional. The automobile didn't remain a choice. The school didn't remain one path among many.</p>
+<p>Commodity AI is following the same pattern. The question isn't whether your organisation will use chat interfaces and embeddings. You will. The question is whether you'll understand what you're using well enough to know its limits. Commodity status means you can no longer function without it. It also means most users stop understanding how it works. The capability becomes reliable precisely because variance is eliminated, including human variance. The operator becomes a passenger.</p>
+<p>This isn't inherently bad. You don't need to understand TCP/IP to use the internet productively. But it does mean that competitive advantage cannot live here. Any organisation still celebrating commodity AI as "transformation" is fighting a war that ended.</p>
+<h2 id="product-the-compression-zone">Product: The Compression Zone<a class="headerlink" href="#product-the-compression-zone" title="Permanent link">⚓︎</a></h2>
+<p><strong>Currently listed:</strong></p>
+<ul>
+<li>RAG platforms</li>
+<li>Enterprise copilots</li>
+<li>Vector databases</li>
+<li>Agent frameworks (CrewAI, Bedrock AgentCore, GCP ADK)</li>
+<li>Surface observability tooling (Langsmith, Langfuse)</li>
+<li>AI factory playbooks</li>
+</ul>
+<p><strong>What's missing:</strong></p>
+<p>The Product layer is where procurement gets involved, where feature competition matters, where you can actually buy things. It's also where compression is most violent. Add:</p>
+<ul>
+<li>
+<p><strong>Fine-tuning-as-a-service.</strong> What required ML teams and GPU clusters is now an API call with a credit card. OpenAI, Anthropic, and a dozen startups offer managed fine-tuning. The capability democratised as the expertise requirements collapsed.</p>
+</li>
+<li>
+<p><strong>Synthetic data generation.</strong> Training data creation moved from research technique to product category. Platforms generate domain-specific synthetic datasets for model training and evaluation. What was custom is becoming purchase order.</p>
+</li>
+<li>
+<p><strong>AI safety and guardrails tooling.</strong> Guardrails AI, NeMo Guardrails, and their competitors. Content filtering, output validation, prompt injection defence. These were custom implementations eighteen months ago. Now they're vendor features.</p>
+</li>
+<li>
+<p><strong>Retrieval orchestration.</strong> Beyond basic RAG to multi-source retrieval, reranking, query decomposition, hybrid search. The patterns stabilised. The products emerged.</p>
+</li>
+<li>
+<p><strong>Prompt management platforms.</strong> Version control, A/B testing, and deployment pipelines specifically for prompts. LangSmith, Promptfoo, and others. Prompt engineering became software engineering; the tooling followed.</p>
+</li>
+<li>
+<p><strong>AI gateway and proxy services.</strong> Routing, fallbacks, rate limiting, cost tracking across multiple LLM providers. Portkey, LiteLLM, and similar. Infrastructure that sits between your application and the models.</p>
+</li>
+<li>
+<p><strong>Model evaluation platforms.</strong> Beyond surface observability to systematic capability testing. Braintrust, Patronus, and others. Evaluation moved from ad-hoc scripts to product category.</p>
+</li>
+</ul>
+<p><strong>Compression dynamics:</strong></p>
+<p>Everything in the Product layer is racing toward Commodity. RAG platforms will be table stakes within the year. Vector databases are being eaten from below by Postgres extensions. Agent frameworks are converging on similar patterns; differentiation is shrinking.</p>
+<p>This compression creates a brutal dynamic: the moment something becomes buyable, it stops being differentiating. The moment your competitors can procure the same RAG platform, your RAG implementation is no longer a competitive advantage. It's an operational cost. The value migrates upward, toward whatever remains scarce.</p>
+<p>The strategic error is treating Product-layer investments as moats. They're not. They're infrastructure. Necessary infrastructure, but infrastructure nonetheless. The question isn't whether to buy these capabilities. The question is how quickly you can absorb them and move your differentiation to where competition hasn't yet commoditised.</p>
+<h2 id="custom-the-complexity-cliff">Custom: The Complexity Cliff<a class="headerlink" href="#custom-the-complexity-cliff" title="Permanent link">⚓︎</a></h2>
+<p><strong>Currently listed:</strong></p>
+<ul>
+<li>Multi-agent orchestration</li>
+<li>Memory architecture</li>
+<li>Evaluation harnesses</li>
+<li>Governance automation</li>
+<li>Human-agent operating models</li>
+<li>Domain knowledge graphs</li>
+<li>Context graphs grounded in business meaning</li>
+</ul>
+<p><strong>What's missing:</strong></p>
+<p>This is where Prabhakaran's analysis is sharpest: the Custom layer is where serious advantage is created and where most organisations underestimate the complexity. The work doesn't feel like plugging tools together. It feels like designing a new kind of system. Add:</p>
+<ul>
+<li>
+<p><strong>Intent architecture.</strong> Understanding what users actually want versus what they say. This goes beyond intent classification (commodity) to building systems that model user goals, detect goal shifts, and navigate ambiguity. The difference between a helpful assistant and an annoying chatbot.</p>
+</li>
+<li>
+<p><strong>Trust calibration systems.</strong> Knowing when the AI should be confident and when it should defer. Not just uncertainty quantification but calibrated uncertainty that maps to real-world stakes. Systems that know when to say "I don't know" and mean it.</p>
+</li>
+<li>
+<p><strong>Domain-specific reasoning patterns.</strong> Not just domain knowledge (what facts exist) but domain reasoning (how to think within a domain). How a lawyer reasons about precedent differs from how an underwriter reasons about risk differs from how a clinician reasons about diagnosis. This isn't fine-tuning; it's architecture.</p>
+</li>
+<li>
+<p><strong>Feedback loop design.</strong> How systems improve from production usage without degrading. RLHF got attention, but the harder problem is continuous improvement from implicit feedback in enterprise contexts where you can't simply ask users to rate every response.</p>
+</li>
+<li>
+<p><strong>Agentic workflow architecture.</strong> The actual design of multi-step agent systems, distinct from the frameworks that implement them. How you decompose tasks, handle failures, maintain context across steps, coordinate multiple agents with different capabilities. The framework is Product; the architecture is Custom.</p>
+</li>
+<li>
+<p><strong>Hybrid human-AI decision systems.</strong> Not human-in-the-loop as a checkbox but genuine collaboration design. When does the AI draft and human edit? When does the human draft and AI enhance? When do they work in parallel? The operating model, not the technology.</p>
+</li>
+<li>
+<p><strong>Explainability pipelines for regulated contexts.</strong> Not generic interpretability but explanations that satisfy specific regulatory requirements. What the EU AI Act requires differs from what insurance regulators require differs from what healthcare compliance requires. The explanations must be true, useful, and legally adequate.</p>
+</li>
+<li>
+<p><strong>Continuous learning architectures.</strong> Systems that improve from deployment without retraining from scratch. How do you incorporate new information, correct errors, adapt to distribution shift? This isn't model updates; it's architectural support for ongoing learning.</p>
+</li>
+</ul>
+<p><strong>The complexity cliff:</strong></p>
+<p>Most organisations fall off this cliff. They successfully navigate Commodity (use the APIs) and Product (buy the platforms), then assume Custom works the same way. It doesn't. Custom-layer work requires fundamentally different skills, timelines, and expectations.</p>
+<p>The talent constraint is severe. Prompt engineers are abundant. Systems architects who can design memory-coherent multi-agent workflows are rare. Domain experts who can model a knowledge graph capturing the actual semantics of insurance underwriting are rarer still. The constraint isn't compute or APIs; it's human expertise.</p>
+<p>The time constraint is equally severe. Domain knowledge graphs require six to twelve months of deep modelling work with domain experts. You cannot sprint to a knowledge graph. Organisations expecting quarterly results from Custom-layer investments will be perpetually disappointed.</p>
+<p>Prabhakaran's central insight lands here: the demo trap. Systems that work beautifully in controlled environments quietly degrade in production. Not crashes or errors, but something worse: a slow erosion of user confidence while models, prompts, and architecture remain unchanged. The gap between demo success and production reliability is bridged only by architectural maturity in the Custom layer.</p>
+<h2 id="genesis-the-forecasting-horizon">Genesis: The Forecasting Horizon<a class="headerlink" href="#genesis-the-forecasting-horizon" title="Permanent link">⚓︎</a></h2>
+<p><strong>Currently listed:</strong></p>
+<ul>
+<li>Self-evolving agents</li>
+<li>Autonomous collectives</li>
+<li>Living knowledge systems</li>
+<li>Agent-native organisations</li>
+<li>Emergent reasoning architectures</li>
+</ul>
+<p><strong>What's missing:</strong></p>
+<p>Genesis is research territory. High upside and high uncertainty; important to explore but dangerous to sell as production-ready. The list captures the speculative nature but underweights specific research directions worth watching. Add:</p>
+<ul>
+<li>
+<p><strong>World models.</strong> Internal representations of how the environment works, enabling prediction and planning. Beyond pattern matching to causal understanding. The gap between current LLMs and genuine world models is large; closing it would change everything.</p>
+</li>
+<li>
+<p><strong>Persistent agent identity.</strong> Agents that maintain coherent identity, goals, and memory across extended interactions and contexts. Not session state but genuine continuity, and the architectural challenges remain profound.</p>
+</li>
+<li>
+<p><strong>Cross-modal reasoning.</strong> Not multimodal inputs (that's Product) but genuinely integrated reasoning across modalities. Understanding that a diagram and a paragraph describe the same concept. Reasoning that moves fluidly between visual, textual, and structured representations.</p>
+</li>
+<li>
+<p><strong>Self-directed learning.</strong> Agents that identify their own knowledge gaps and seek to fill them. Not fine-tuning on curated data but autonomous exploration of what needs to be learned. The bootstrapping problem is hard.</p>
+</li>
+<li>
+<p><strong>Causal reasoning.</strong> Beyond correlation to genuine causal inference. Understanding that intervening on X affects Y differently than merely observing their correlation. Current models struggle here.</p>
+</li>
+<li>
+<p><strong>Genuine novelty detection.</strong> Knowing when you've encountered something outside your training distribution. Not just low confidence but recognition that the situation is genuinely new. Prerequisite for reliable operation in open-ended environments.</p>
+</li>
+<li>
+<p><strong>Multi-agent economies.</strong> Agents transacting value with each other, coordinating through market-like mechanisms, developing specialisation and trade. Game theory meets artificial intelligence. The alignment challenges compound.</p>
+</li>
+<li>
+<p><strong>Artificial general intelligence.</strong> The elephant in the room. Systems that match or exceed human cognitive abilities across domains. Whether this is years away or decades away or structurally impossible remains contested. But it belongs on any honest Genesis list.</p>
+</li>
+</ul>
+<p><strong>The forecasting problem:</strong></p>
+<p>Genesis defies forecasting. By definition, these capabilities have undefined characteristics. Breakthrough timelines are unpredictable. Confident predictions about when self-evolving agents will work are not expert opinions; they're speculation dressed as expertise.</p>
+<p>The strategic posture for Genesis is option value: small exploration bets, no production promises, watching for discontinuities. The organisation that ignores Genesis will be blindsided when breakthroughs occur. The organisation that bets heavily on Genesis will waste resources on things that don't materialise for decades. Neither extreme is wise.</p>
+<p>Augustine observed that the future doesn't exist yet; what we call expectation is present consciousness of what we anticipate. The Genesis layer exists in collective expectation, not in deployable capability. Treat it accordingly.</p>
+<h2 id="beyond-the-axis-what-the-categories-cant-see">Beyond the Axis: What the Categories Can't See<a class="headerlink" href="#beyond-the-axis-what-the-categories-cant-see" title="Permanent link">⚓︎</a></h2>
+<p>The Wardley map is useful. It is also a particular lens that illuminates certain things while obscuring others. Some capabilities don't fit the Genesis-to-Commodity axis because they're not capabilities in the same sense. They're structural features of organisations, relationships, or contexts that determine how capabilities create value. Missing them is like having a detailed parts list but no understanding of the machine.</p>
+<p><strong>Organisational learning capacity.</strong></p>
+<p>The meta-capability underlying all others. Not what AI capabilities you have but how quickly you can absorb new capabilities when they emerge. Mary Midgley warned against "machine-worship": the tendency to trust technology without understanding it. An organisation that treats AI as commodity consumption actively degrades its capacity to understand, adapt, and judge. The moat isn't what you own but what you comprehend.</p>
+<p>This doesn't appear on capability maps because it's not a capability you can acquire. It's a practice you develop. The organisation that has spent three years learning how its software should respond to edge cases in Australian workplace regulations has built something that cannot be purchased from an API. Not because the API couldn't generate the same tokens, but because the judgment about which tokens are valuable is embedded in institutional memory.</p>
+<p>What does learning capacity look like in practice? It's visible in specific behaviours. The organisation with high learning capacity runs structured experiments rather than pilots that quietly disappear. It maintains documentation that captures not just what was built but why alternatives were rejected. It rotates people through AI projects so knowledge spreads rather than concentrating in a few specialists who become bottlenecks. It distinguishes between "this didn't work" and "we don't yet understand why this didn't work" and treats them as different situations requiring different responses.</p>
+<p>The organisation with low learning capacity has a different signature. Each new AI initiative starts from scratch because previous learnings weren't captured. Vendor evaluations repeat the same mistakes because evaluation criteria were never formalised. The same edge cases surprise the team repeatedly because failure modes weren't documented. Technical debt accumulates because architectural decisions were made under pressure and never revisited.</p>
+<p>The gap between these organisations widens over time. When GPT-4 arrived, organisations with learning capacity had frameworks for evaluating new models: benchmark suites, integration patterns, risk assessment templates. They absorbed the new capability in weeks. Organisations without learning capacity started from zero, repeating discovery processes they'd already done for GPT-3.5. When Claude improved, when Gemini emerged, the pattern repeated. The learning organisations pulled further ahead with each wave.</p>
+<p>This is why "just use the APIs" is insufficient advice. Two organisations can use identical APIs and achieve radically different outcomes. The difference isn't in the capabilities they access but in the institutional capacity to understand, integrate, and improve. That capacity compounds. Its absence compounds too.</p>
+<p><strong>Cosmotechnical diversity.</strong></p>
+<p>Yuk Hui's insight: the evolution axis assumes all techniques develop along a single universal trajectory. But what appears "commoditised" in one context may operate completely differently in another, not from backwardness but because the technical-moral order demands different forms of stabilisation.</p>
+<p>This sounds abstract until you examine specific cases. Consider how AI systems handle authority and evidence across different regulatory environments. A US-built enterprise AI might treat user autonomy as the primary value: provide information, let the user decide. A system built for European contexts might embed different assumptions about institutional responsibility and duty of care. A system designed for contexts with strong guild traditions might require human expert validation as an architectural feature, not a compliance checkbox.</p>
+<p>These aren't superficial differences papered over with localisation. They're different answers to the question: what is this technology for? An AI assistant in an American legal context might be designed to empower individual lawyers to work faster. The same category of tool in a German context might be designed to support systematic quality control across a firm. Both are "legal AI." They're not the same thing.</p>
+<p>The practical implication: the Silicon Valley default—move fast, scale globally, localise later—may be structurally unsuited to AI systems that embed assumptions about human-machine relations. An AI system designed around one set of assumptions about authority and evidence cannot be trivially "localised" into a context with different assumptions. The assumptions are architectural, not surface-level.</p>
+<p>This creates both risk and opportunity. The risk: treating the dominant AI paradigm as universal and discovering too late that it conflicts with local technical-moral orders. The opportunity: building AI systems that embody different conceptions of authority, evidence, and action. These may find markets that the Silicon Valley default cannot serve well, not because those markets are backward but because they have different requirements that the dominant paradigm ignores.</p>
+<p><strong>The vernacular path.</strong></p>
+<p>Illich's counterpoint to commoditisation: vernacular capabilities that resist standardisation not by being immature but by design. Competitive advantage through competence creation rather than dependency creation. Users stay because they've grown more capable, not because they can't leave.</p>
+<p>This inverts the "lock-in" strategy embedded in most enterprise AI thinking. The L3 Platform Intelligence goal of "lock-in" assumes dependency is the moat. The vernacular alternative suggests retention through genuine value creation. These are different business models requiring different architectures.</p>
+<p>The distinction becomes concrete when you examine how AI systems handle expertise over time. A dependency-creating system makes the user less capable without the tool. The AI handles complexity so the user doesn't have to. Over time, the user's own judgment atrophies. They become passengers. Switching costs increase because the user has lost skills they once had.</p>
+<p>A competence-creating system makes the user more capable, with or without the tool. The AI explains its reasoning. It teaches patterns. It highlights edge cases the user should learn to recognise. Over time, the user's judgment improves. They become better practitioners. Switching costs are lower in one sense—the user could function without the tool—but retention is higher because the tool is genuinely valuable.</p>
+<p>The business models look different too. Dependency-creating systems optimise for usage metrics: daily active users, sessions per day, queries per session. The system is working when users use it constantly. Competence-creating systems optimise for outcome metrics: quality of decisions made, reduction in errors, speed of skill acquisition. The system is working when users make better decisions, whether or not those decisions involve the tool.</p>
+<p>This isn't merely ethical preference. It's strategic positioning. In regulated industries—healthcare, finance, law—dependency-creating AI faces structural headwinds. Regulators are uncomfortable with systems that reduce human judgment. Professional bodies resist tools that de-skill their members. The vernacular path aligns with regulatory direction rather than fighting it.</p>
+<p><strong>Institutional trust and reputation.</strong></p>
+<p>A capability that doesn't evolve along the Wardley axis at all: the accumulated trust that determines whether anyone will use your AI capabilities in the first place. This is particularly acute in high-stakes domains where errors are expensive and visible.</p>
+<p>Consider two organisations offering identical AI capabilities for medical diagnosis support. One has decades of reputation in healthcare software, regulatory relationships, clinical validation infrastructure, and a track record of responsible behaviour when things go wrong. The other is a startup with better technology and no history. The capabilities may be equivalent. The willingness of health systems to deploy them is not.</p>
+<p>Trust doesn't commoditise. It isn't purchased. It accumulates slowly through consistent behaviour and can collapse rapidly through single failures. An organisation that has built trust over years has an asset that new entrants cannot replicate regardless of their technical capabilities.</p>
+<p>This creates a specific strategic pattern: established players with trust can deploy AI capabilities that would be too risky for newcomers. They can move into higher-stakes applications because stakeholders will tolerate failures from trusted parties that they won't tolerate from unknown ones. The startup with better technology but no reputation is constrained to lower-stakes applications where trust matters less.</p>
+<p>The inverse is also true. Organisations that deploy AI carelessly and suffer public failures may find their trust assets depleted. The technology investment remains, but the ability to deploy it in high-value contexts is impaired. Trust is an asset that appears on no balance sheet but constrains strategy more than most assets that do.</p>
+<p><strong>Integration depth.</strong></p>
+<p>Another dimension invisible to capability maps: how deeply AI is woven into existing workflows, systems, and data. Two organisations can have identical AI capabilities yet face completely different replacement costs based on integration depth.</p>
+<p>Surface integration means the AI capability could be swapped with modest effort. The system calls an API; a different API could be called instead. Integration depth means the AI capability is embedded in data structures, workflow assumptions, training processes, and organisational habits. Replacement would require re-architecting systems, retraining people, and rebuilding processes.</p>
+<p>This is distinct from capability maturity. A commodity capability can be deeply integrated. A custom capability can be shallowly integrated. The Wardley axis captures whether something is standardised; integration depth captures how embedded it is in your specific context.</p>
+<p>Integration depth creates switching costs that exist independently of capability lock-in. Even if a better capability emerges and commoditises, migration costs may make switching irrational. The organisation isn't locked in because the capability is scarce. It's locked in because the integration is dense.</p>
+<p>Strategically, this suggests two moves. For your own capabilities: pursue integration depth that creates switching costs for competitors trying to displace you. For competitors' capabilities: target surface integrations that can be displaced rather than deep integrations that are practically immovable regardless of capability superiority.</p>
+<p><strong>Temporal strategy.</strong></p>
+<p>Augustine again: the capability map presents itself as spatial (positions on an axis) but conceals the fundamental temporal question. What the strategist experiences looking at a Wardley map is threefold: memory of how previous technologies evolved, attention to emerging capabilities, and expectation that today's Custom becomes tomorrow's Commodity.</p>
+<p>The enterprise's true strategic asset may not be position relative to capabilities but the quality of its memory and attention. Most enterprises suffer from scattered memory: fragments of past investments poorly integrated, lessons learned then forgotten. The enterprise with gathered memory can hold past, present, and future in creative tension. This is a practice rather than a capability.</p>
+<p>What does gathered memory look like operationally? It's specific practices, not vague aspirations. It means maintaining decision logs that capture not just what was decided but what alternatives were considered and why they were rejected. When the context changes, you can revisit those decisions with the reasoning intact rather than starting from scratch.</p>
+<p>It means conducting structured retrospectives that extract transferable lessons from projects, not just project-specific post-mortems. The lesson "our RAG implementation struggled with regulatory documents" is project-specific. The lesson "regulatory documents require citation-level retrieval, not passage-level, because users need to verify exact sources" is transferable.</p>
+<p>It means building institutional knowledge bases that are actually maintained and actually consulted. Not documentation that exists to satisfy compliance requirements but living resources that inform decisions. The test is whether people check the knowledge base before making decisions, not whether the knowledge base exists.</p>
+<p>Scattered memory has its own signatures. The same mistakes recur because failure modes weren't documented. Technical choices are re-litigated because the reasoning behind previous choices was lost. New team members spend months rediscovering context that should have been explicit. Vendors make pitches that were already rejected, because the rejection reasoning wasn't preserved.</p>
+<p>The temporal dimension matters because AI capabilities are evolving rapidly. What was impossible becomes possible; what was expensive becomes cheap; what was cutting-edge becomes commodity. The organisation with gathered memory can track these shifts systematically. It knows what it wanted to do but couldn't, and it notices when constraints lift. The organisation with scattered memory rediscovers the same opportunities repeatedly, often too late.</p>
+<hr />
+<h2 id="using-this-inventory">Using This Inventory<a class="headerlink" href="#using-this-inventory" title="Permanent link">⚓︎</a></h2>
+<p>The expanded lists are meant to be reference material. Screenshot them. Return to them when making investment decisions. Use them to pressure-test vendor claims.</p>
+<p>But the deeper value is in the questions the inventory raises:</p>
+<p><strong>For Commodity:</strong> Are we celebrating things here as transformation? If so, we're fighting the last war. What understanding are we losing as we consume these capabilities without comprehension?</p>
+<p><strong>For Product:</strong> How quickly is compression happening? What we're buying today will be table stakes soon. Where should our differentiation live when it is?</p>
+<p><strong>For Custom:</strong> Are we underestimating complexity? The demo trap is real. Architectural maturity in this layer is the difference between clever systems and trustworthy systems. Do we have the talent and timeline to build here seriously?</p>
+<p><strong>For Genesis:</strong> Are we maintaining option value without over-investing? Small exploration bets, not production promises.</p>
+<p><strong>Beyond the axis:</strong> What capabilities can't we map because they're not capabilities at all? Learning capacity, temporal strategy, cosmotechnical diversity. These may matter more than any item on the lists.</p>
+<p>The organisations that will lead won't be the ones with the most tools. They'll be the ones with the clearest understanding of maturity and the courage to invest deliberately.</p>
+<hr />
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li>Prasad Prabhakaran, "It Worked in Demos. It Drifted in Reality." (2026): Medium/AI Monks</li>
+<li>Simon Wardley, Wardley Mapping methodology and maturity frameworks</li>
+<li>Ivan Illich on commoditisation and conviviality</li>
+<li>Yuk Hui on cosmotechnics and technical diversity</li>
+<li>Mary Midgley on "machine-worship" and uncritical technological enthusiasm</li>
+<li>Augustine on interior temporality and expectation</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../03/reading-after-readers/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Reading After Readers">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Reading After Readers
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../08/move-metrics-for-the-ai-native-organization/" class="md-footer__link md-footer__link--next" aria-label="Next: MOVE: Metrics for the AI-Native Organization">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                MOVE: Metrics for the AI-Native Organization
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023-2025 Ashvin Parameswaran
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sarantium/ashvin" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/ashvinparameswaran" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="/assets/ashvin_parameswaran_curriculum_vitae_2023.pdf" target="_blank" rel="noopener" title="resume" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M96 0C60.7 0 32 28.7 32 64v384c0 35.3 28.7 64 64 64h80V400c0-35.3 28.7-64 64-64h176V170.5c0-17-6.7-33.3-18.7-45.3L290.7 18.7C278.7 6.7 262.5 0 245.5 0zm261.5 176H264c-13.3 0-24-10.7-24-24V58.5zM240 380c-11 0-20 9-20 20v128c0 11 9 20 20 20s20-9 20-20v-28h12c33.1 0 60-26.9 60-60s-26.9-60-60-60zm32 80h-12v-40h12c11 0 20 9 20 20s-9 20-20 20m96-80c-11 0-20 9-20 20v128c0 11 9 20 20 20h32c28.7 0 52-23.3 52-52v-64c0-28.7-23.3-52-52-52zm20 128v-88h12c6.6 0 12 5.4 12 12v64c0 6.6-5.4 12-12 12zm88-108v128c0 11 9 20 20 20s20-9 20-20v-44h28c11 0 20-9 20-20s-9-20-20-20h-28v-24h28c11 0 20-9 20-20s-9-20-20-20h-48c-11 0-20 9-20 20"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tracking", "navigation.indexes", "search.highlight", "search.share", "content.code.copy", "navigation.footer", "navigation.top"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
