@@ -1,0 +1,1137 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Three learning loops define how software organizations evolve: DORA scores deployment, MOVE scores organizational response, and DISCOVER operationalizes the comprehension bottleneck between them.">
+      
+      
+      
+        <link rel="canonical" href="https://ashvin.au/blog/2026/03/09/discover/">
+      
+      
+        <link rel="prev" href="../../../02/23/the-decision-loop/">
+      
+      
+        <link rel="next" href="../../10/voting-with-fire/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/view-grid-plus-outline-dark.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>DISCOVER - ashvin</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-compound-pattern" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="ashvin" class="md-header__button md-logo" aria-label="ashvin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3v8h8V3zM3 21h8v-8H3zM3 3v8h8V3zm10 13h3v-3h2v3h3v2h-3v3h-2v-3h-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ashvin
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              DISCOVER
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sarantium/ashvin/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sarantium/ashvin
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="ashvin" class="md-nav__button md-logo" aria-label="ashvin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3v8h8V3zM3 21h8v-8H3zM3 3v8h8V3zm10 13h3v-3h2v3h3v2h-3v3h-2v-3h-3z"/></svg>
+
+    </a>
+    ashvin
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sarantium/ashvin/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sarantium/ashvin
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-writing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Writing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Reading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-working/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Working
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Blog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-compound-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Compound Pattern
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dora-the-shipping-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DORA: The Shipping Layer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#move-the-organizational-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MOVE: The Organizational Layer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-comprehension-bottleneck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Comprehension Bottleneck
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discover" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DISCOVER
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#three-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three Loops
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-loss-function-paradox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Loss Function Paradox
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2026-03-09 00:00:00+00:00" class="md-ellipsis">March 9, 2026</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              11 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <span class="md-tag">ai</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">future-of-work</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">strategy</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">wardley-mapping</span>
+      
+    
+  </nav>
+
+
+  
+  
+
+
+  <h1>DISCOVER</h1>
+
+<p>Software development has two scoreboards and a process between them. The first measures deployment: how fast code ships, how often it breaks, how quickly you recover. The second measures the organization: how fast signals reach the right person, how autonomous the response is. Comprehension — understanding the system well enough to decide and act correctly — sits between them.</p>
+<p>The progression follows a logic that Simon Wardley mapped in his work on technology evolution: every capability that becomes commodity accelerates everything that depends on it, exposing the next constraint beneath.</p>
+<!-- more -->
+
+<hr />
+<h2 id="the-compound-pattern">The Compound Pattern<a class="headerlink" href="#the-compound-pattern" title="Permanent link">⚓︎</a></h2>
+<p>Wardley's evolution framework tracks how capabilities migrate from novel and poorly understood to standardized and invisible: genesis, custom-built, product, commodity. At each transition, the newly commoditized capability accelerates everything that depends on it, and that acceleration makes the next bottleneck visible — the one that was always there but hidden behind the louder problem in front of it.</p>
+<p>Cloud computing commoditized infrastructure, which made CI/CD possible at scale, which commoditized deployment, which made continuous delivery standard. Machine learning inference commoditized, which enabled code generation. Code generation is commoditizing now. I traced this specific chain in The AI Capability Map earlier this year. Each capability follows the same migration path through Wardley's stages, and each transition enables the next.</p>
+<hr />
+<h2 id="dora-the-shipping-layer">DORA: The Shipping Layer<a class="headerlink" href="#dora-the-shipping-layer" title="Permanent link">⚓︎</a></h2>
+<p>The first layer was deployment. DORA captured it with four metrics that gave the industry a shared vocabulary for engineering performance, anchored by Google's annual State of DevOps reports:</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Measures</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Deployment Frequency</td>
+<td>How often code ships to production</td>
+</tr>
+<tr>
+<td>Lead Time for Changes</td>
+<td>Time from commit to running in production</td>
+</tr>
+<tr>
+<td>Change Failure Rate</td>
+<td>Percentage of deployments causing failures</td>
+</tr>
+<tr>
+<td>Mean Time to Restore</td>
+<td>How fast the system recovers from failures</td>
+</tr>
+</tbody>
+</table>
+<p>Every DORA metric presupposes that someone upstream decided correctly what to build. DORA tracks the journey from commit to production with real precision, but it says nothing about whether the decision was right, how the organization sensed the signal that triggered it, or how efficiently humans and machines coordinated to act on it. When deployment speed stops being the constraint, DORA keeps scoring a solved problem.</p>
+<hr />
+<h2 id="move-the-organizational-layer">MOVE: The Organizational Layer<a class="headerlink" href="#move-the-organizational-layer" title="Permanent link">⚓︎</a></h2>
+<p>When shipping became table stakes, the constraint shifted to the organization itself: how fast do signals reach the right person, and how much of the response runs without human intervention?</p>
+<p>I developed MOVE to capture this layer — four metrics that measure the speed and reliability of an organization's operating model rather than its deployment pipeline:</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Measures</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>M</strong>omentum</td>
+<td>Signal-to-first-action time — how long work <em>waits</em> before anyone touches it</td>
+</tr>
+<tr>
+<td><strong>O</strong>rchestration</td>
+<td>Percentage of workflows designed to run autonomously through AI</td>
+</tr>
+<tr>
+<td><strong>V</strong>elocity</td>
+<td>Action-to-outcome time — how long work <em>takes</em> once started</td>
+</tr>
+<tr>
+<td><strong>E</strong>xception</td>
+<td>Percentage of orchestrated workflows requiring unplanned human intervention</td>
+</tr>
+</tbody>
+</table>
+<p>An organization where code deploys in minutes but signals take days to reach the right person has a MOVE problem, and no amount of DORA optimization will fix it because the constraint isn't the pipeline.</p>
+<p>Two deeper shifts drive the urgency. Value in technology organizations is migrating from the people doing the work to the infrastructure enabling it: workforce sizes hold roughly steady while economic output concentrates in the tooling and platform layer. And every role's contribution is now measured against what an AI system can achieve as an alternative. Together these pressures make organizational speed existential rather than merely operational.</p>
+<hr />
+<h2 id="the-comprehension-bottleneck">The Comprehension Bottleneck<a class="headerlink" href="#the-comprehension-bottleneck" title="Permanent link">⚓︎</a></h2>
+<p>DORA scores deployment. MOVE scores organizational responsiveness and autonomy. Comprehension — the work of understanding the system well enough to decide correctly — sits between them.</p>
+<p>Tudor Girba and Simon Wardley named this the comprehension bottleneck in <em>Rewilding Software Engineering</em> and identified two variables that score it.</p>
+<p><strong>Time to Question (TTQ)</strong> is how fast you formulate a specific, actionable question about the system. Most questions in organizations are too broad to drive action. "Why is retention dropping?" contains too many possible answers to be useful. The distance between that question and a precise, testable one — "which onboarding step has the highest drop-off in the first 48 hours?" — is Time to Question made visible.</p>
+<p><strong>Time to Answer (TTA)</strong> is how fast you extract a verified answer once you have a good question. Tracing a single variable through a data pipeline might take person-weeks of manual inspection. Asking "what services depend on this table?" might require days of reading code across repositories because the dependency graph lives on a whiteboard drawn from memory.</p>
+<p>When Time to Answer drops — when getting a verified answer takes minutes rather than weeks — more questions become affordable. More questions reveal more of the system's landscape. More landscape yields sharper hypotheses, and sharper hypotheses target higher-value answers. The flywheel is self-reinforcing: cheap answers accelerate the system knowledge that produces good questions, and good questions target answers that reveal territory you didn't know existed, what Girba and Wardley call the "adjacent unexplored."</p>
+<p>Expensive answers produce conservative questions. When tracing a dependency takes two weeks of engineer time, teams only ask questions they're confident will pay off. This filters out the exploratory questions — the ones that would reveal the system's actual structure. An organization can spend years working around a problem that two people with the right contextual tools would resolve in a month, because no one could afford the question that would have surfaced it.</p>
+<p>Organizations can deploy fast (DORA) and respond fast (MOVE) but discover slowly. Slow discovery is the bottleneck between organizational response and deployment — the gap between what MOVE measures and what DORA measures.</p>
+<hr />
+<h2 id="discover">DISCOVER<a class="headerlink" href="#discover" title="Permanent link">⚓︎</a></h2>
+<p>What happens when the comprehension bottleneck itself starts to commoditize?</p>
+<p>When AI agents can explore a codebase in seconds, map dependencies, trace execution paths, and answer structural questions that would take an engineer days, Time to Answer drops by orders of magnitude. Time to Question follows, because cheaper answers enable sharper questions. The comprehension flywheel accelerates, and the constraint shifts from understanding the system to designing the environments that let agents understand and act on it autonomously.</p>
+<p>The work here looks different. It involves designing the constraints, feedback loops, and verification systems that allow autonomous agents to do reliable work. OpenAI's internal experiment illustrates the shift: a million lines of code, zero lines manually written. Their biggest lesson was that early progress was slow because the environment was underspecified. Engineering time went entirely into the harness: repository structure, architectural constraints encoded as linters, agent-accessible observability, knowledge bases organized for machine discovery. The fix was always the same question — what capability is missing, and how do we make it legible and enforceable for the agent?</p>
+<p>Code generation commoditized, and now the process of building software is being industrialized. Human contribution keeps migrating upstream: from writing code, to reviewing code, to specifying what code should do, to designing the system that converts specifications into verified deployments.</p>
+<p>DORA and MOVE are scoreboards — DORA for the deployment pipeline, MOVE for organizational responsiveness and autonomy. DISCOVER is the process that connects what MOVE measures at intake to what DORA measures at output. It operationalizes the comprehension bottleneck: the process by which a vague signal becomes a specific question (TTQ), and a specific question becomes a verified answer running in production (TTA).</p>
+<p>Detect through Scope is where TTQ collapses. Contract through Verify is where TTA collapses.</p>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Step</th>
+<th>What Happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>TTQ</em></td>
+<td><strong>D</strong>etect</td>
+<td>A signal arrives: error log, feature request, usage anomaly, customer feedback</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>I</strong>nvestigate</td>
+<td>Explore the relevant system, map dependencies, understand current state</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>S</strong>cope</td>
+<td>Refine vague intent into a specific, testable question</td>
+</tr>
+<tr>
+<td><em>TTA</em></td>
+<td><strong>C</strong>ontract</td>
+<td>Write a structured spec with acceptance criteria and scope boundaries</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>O</strong>perate</td>
+<td>Multi-agent competitive implementation against the spec</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>V</strong>erify</td>
+<td>Layered verification: guardrails, tests, AI review, browser checks, adversarial testing</td>
+</tr>
+<tr>
+<td><em>Ship</em></td>
+<td><strong>E</strong>xecute</td>
+<td>Ship with feature flags, canary deployment, and automatic rollback</td>
+</tr>
+<tr>
+<td><em>Learn</em></td>
+<td><strong>R</strong>eflect</td>
+<td>Monitor production, extract learnings, feed signals back into the next cycle</td>
+</tr>
+</tbody>
+</table>
+<p>The table above uses software delivery as the primary example, but the pattern is not limited to code. Any organizational function with a comprehension bottleneck between signal and action follows the same structure. A cost anomaly arrives (Detect), gets investigated against infrastructure usage data (Investigate), gets refined from "spending seems high" into "which three services drove the 40% increase in compute costs last quarter?" (Scope), gets contracted into a report spec (Contract), gets generated and cross-checked by agents (Operate, Verify), gets distributed to stakeholders (Execute), and feeds back into what the organization watches next (Reflect). The same TTQ/TTA collapse applies: when the time to formulate the right financial question and extract a verified answer drops from weeks to hours, the organization's capacity to act on cost signals changes categorically, not incrementally. Research, compliance, documentation, operations — anywhere the bottleneck is comprehension rather than execution, DISCOVER describes the process and TTQ/TTA score it.</p>
+<hr />
+<h2 id="three-loops">Three Loops<a class="headerlink" href="#three-loops" title="Permanent link">⚓︎</a></h2>
+<p>Chris Argyris and Donald Schön described three levels of organizational learning; Gregory Bateson mapped the same territory from the ecology of mind. Each level is a different logical type from the one below.</p>
+<table>
+<thead>
+<tr>
+<th>Loop</th>
+<th>Question</th>
+<th>What It Means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Single</strong></td>
+<td>Am I doing this right?</td>
+<td>Optimize deployment. Ship faster, fail less, recover quicker. DORA scores this.</td>
+</tr>
+<tr>
+<td><strong>Double</strong></td>
+<td>Am I doing the right thing?</td>
+<td>Optimize the organization. Sense the right signals, route work correctly, increase autonomy. MOVE scores this.</td>
+</tr>
+<tr>
+<td><strong>Triple</strong></td>
+<td>How do I decide what's right?</td>
+<td>Design and improve the process that connects organizational response to deployment. DISCOVER is that process. TTQ and TTA score it.</td>
+</tr>
+</tbody>
+</table>
+<p>Each loop is the meta-work of its corresponding framework. Single-loop is the meta-work of DORA: optimizing deployment speed, hitting a plateau, and responding by optimizing harder. The organizational structure goes unquestioned. Double-loop is the meta-work of MOVE: questioning not just how fast you ship, but whether the whole signal-routing system is designed for the work you actually do. The change required is structural, not procedural.</p>
+<p>The triple loop is the meta-work of DISCOVER: designing the process that converts signals into verified deployments, and asking whether that process is getting better at getting better. This means questioning whether DISCOVER's own categories are right — whether "signal → deployment" is always the correct pipeline shape, whether the phases capture the actual work or just the work you expected, whether your measurement apparatus (TTQ, TTA, the metrics stacked beneath them) is producing useful knowledge or just comfortable numbers. It means studying where the process fails not at the level of individual cycles but at the level of design: which signals never enter the pipeline because Detect can't see them, which questions never get asked because Scope is calibrated to the wrong domain, which answers are technically verified but operationally meaningless.</p>
+<p>When the time to formulate a precise question and extract a verified answer drops from weeks to seconds, the entire decision cycle accelerates, and the work of designing that decision cycle — questioning its assumptions, reshaping its categories, deciding what it should measure — becomes the primary engineering challenge.</p>
+<hr />
+<h2 id="the-loss-function-paradox">The Loss Function Paradox<a class="headerlink" href="#the-loss-function-paradox" title="Permanent link">⚓︎</a></h2>
+<p>Each layer of the compound pattern pushes human work one step further from the material. Engineers wrote code, then reviewed AI-generated code, then wrote specifications that AI implements, then designed the systems that convert specifications into verified deployments. The trajectory is consistent: with each step, fewer people make higher-leverage decisions further upstream.</p>
+<p>Follow this trajectory far enough and you arrive at what sounds like a simple endpoint: humans define what the system should optimize for, and autonomous systems handle everything downstream. In machine learning the term for this is the loss function — the objective that the system minimizes or maximizes. In organizational terms it means a small group setting direction while agents handle execution, verification, and even the design of new execution pipelines. A board of directors where there used to be an engineering team.</p>
+<p>This sounds clean. The problem is that setting good objectives — choosing the right loss function — requires exactly the kind of deep, sustained contact with the system that each layer of automation progressively removes.</p>
+<p>Consider a concrete case. An engineering leader who once reviewed every pull request understood the codebase intimately: its architectural grain, its load-bearing abstractions, where the technical debt lived and what it cost. That understanding informed which features to prioritize, which bets to make, which compromises to accept. Automate code review and the leader gains leverage but loses contact with the code's texture. Automate implementation and the distance grows. Automate specification and the leader is now setting objectives for a system they understand through dashboards and summaries rather than through the direct experience of building.</p>
+<p>The musician analogy sharpens this. A musician who automates production, distribution, and composition assistance eventually faces the question "what music should exist?" and finds that answering it well requires the kind of relationship with the instrument, the audience, and the craft that automation was designed to relieve. The knowledge needed to set direction comes from working close to the material, and each layer of abstraction moves you further from it.</p>
+<p>But this framing assumes the only path to judgment runs through the material. A bricklayer doesn't need to know how to fire clay. A Huf Haus eliminates traditional construction skills entirely and replaces them with something different: the ability to specify constraints, design for machine assembly, think in systems rather than in materials. The skills change; whether they degrade is a separate question. The conductor who has never played the oboe still shapes how the oboe sounds in the orchestra. The judgment is real, but it operates on relationships between parts rather than on the parts themselves.</p>
+<p>Maybe the paradox isn't that abstraction destroys the knowledge you need to set direction, but that it produces a different kind of knowledge — powerful for coordination and design, blind to the texture that hands-on work reveals. The question becomes whether that blindness matters, and for which decisions. An engineering leader who understands the system through dashboards and agent outputs rather than through pull requests may develop judgment about system dynamics, failure modes, and architectural patterns that the hands-on engineer never sees. Different vantage point, different blindness, different insight.</p>
+<p>The skill you need most at the top of the stack — judgment about what's worth doing — isn't destroyed by abstraction, but it is transformed by it. Systems designers develop their own form of judgment, operating on relationships between parts rather than on the parts themselves. The Huf Haus architect's judgment is real — it just operates on different material. Beneath "set the loss function" lies "develop the capacity to know what matters," and that capacity is shaped by the level at which you engage: close to the material, or at the level of systems.</p>
+<p>Every operational era develops its own measurement language. Manufacturing brought throughput and defect rates. DevOps brought DORA. The AI-native organization needs MOVE. The triple loop is the ongoing work of designing and improving DISCOVER — the process that connects organizational response to deployment. The judgment needed to do that work well comes from the same place the Huf Haus architect's judgment comes from: sustained, serious engagement with the material, at the level of systems rather than at the level of bricks. The material changes. The requirement for engagement with it does not.</p>
+<p>Concretely: the engineer who once developed judgment by reading code now develops it by designing the constraints that agents work within, by studying where verification fails and why, by tracing the patterns in TTQ and TTA that reveal which parts of the system are well-understood and which remain opaque. The knowledge is different — it's knowledge about how comprehension happens rather than knowledge about how code works — but it requires the same sustained contact, the same willingness to sit with the system long enough to see what others miss. The Huf Haus architect doesn't touch bricks, but they spend years learning which joints fail under load, which materials expand in heat, which assembly sequences produce reliable structures. That knowledge comes from engagement, not from abstraction. The triple loop demands the same discipline applied to a different material.</p>
+<hr />
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li>Simon Wardley, <em>Wardley Maps</em> (2016-ongoing): <a href="https://learnwardleymapping.com/">learnwardleymapping.com</a></li>
+<li>Tudor Girba and Simon Wardley, <em>Rewilding Software Engineering</em> (feenk, 2025-2026): <a href="https://medium.com/feenk">medium.com/feenk</a></li>
+<li>Chris Argyris and Donald Schon, <em>Organizational Learning: A Theory of Action Perspective</em> (Addison-Wesley, 1978)</li>
+<li>Gregory Bateson, <em>Steps to an Ecology of Mind</em> (Chandler Publishing, 1972)</li>
+<li>OpenAI, "Harness Engineering" (2026): <a href="https://openai.com/index/harness-engineering/">openai.com</a></li>
+<li>Google DORA Team, <em>Accelerate State of DevOps Report</em> (annual)</li>
+<li>Ashvin Parameswaran, "MOVE: Metrics for the AI-Native Organization" (2026): <a href="https://ashvin.au/blog/move-metrics/">ashvin.au/blog/move-metrics</a></li>
+<li>Ashvin Parameswaran, "The Decision Loop" (2026): <a href="https://ashvin.au/blog/decision-loop/">ashvin.au/blog/decision-loop</a></li>
+<li>Ashvin Parameswaran, "The AI Capability Map" (2026): <a href="https://ashvin.au/blog/2026/02/05/the-ai-capability-map-an-expanded-inventory/">ashvin.au/blog/the-ai-capability-map</a></li>
+<li>Ashvin Parameswaran, "The Phantom Limb Economy" (2026): <a href="https://ashvin.au/blog/phantom-limb-economy/">ashvin.au/blog/phantom-limb-economy</a></li>
+<li>Ashvin Parameswaran, "The Replacement Rate" (2026): <a href="https://ashvin.au/blog/replacement-rate/">ashvin.au/blog/replacement-rate</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../../02/23/the-decision-loop/" class="md-footer__link md-footer__link--prev" aria-label="Previous: The Decision Loop">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                The Decision Loop
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../10/voting-with-fire/" class="md-footer__link md-footer__link--next" aria-label="Next: Voting with Fire">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Voting with Fire
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023-2025 Ashvin Parameswaran
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sarantium/ashvin" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/ashvinparameswaran" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="/assets/ashvin_parameswaran_curriculum_vitae_2023.pdf" target="_blank" rel="noopener" title="resume" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M96 0C60.7 0 32 28.7 32 64v384c0 35.3 28.7 64 64 64h80V400c0-35.3 28.7-64 64-64h176V170.5c0-17-6.7-33.3-18.7-45.3L290.7 18.7C278.7 6.7 262.5 0 245.5 0zm261.5 176H264c-13.3 0-24-10.7-24-24V58.5zM240 380c-11 0-20 9-20 20v128c0 11 9 20 20 20s20-9 20-20v-28h12c33.1 0 60-26.9 60-60s-26.9-60-60-60zm32 80h-12v-40h12c11 0 20 9 20 20s-9 20-20 20m96-80c-11 0-20 9-20 20v128c0 11 9 20 20 20h32c28.7 0 52-23.3 52-52v-64c0-28.7-23.3-52-52-52zm20 128v-88h12c6.6 0 12 5.4 12 12v64c0 6.6-5.4 12-12 12zm88-108v128c0 11 9 20 20 20s20-9 20-20v-44h28c11 0 20-9 20-20s-9-20-20-20h-28v-24h28c11 0 20-9 20-20s-9-20-20-20h-48c-11 0-20 9-20 20"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tracking", "navigation.indexes", "search.highlight", "search.share", "content.code.copy", "navigation.footer", "navigation.top"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
