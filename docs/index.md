@@ -22,12 +22,12 @@ hide:
 
     ---
 
+    - [The Plastic Substrate](blog/2026/05/03/the-plastic-substrate/) · May 2026
     - [The Eval Checklist](blog/2026/04/17/the-eval-checklist/) · Apr 2026
     - [Harness Engineering: A Composable Architecture](blog/2026/04/09/harness-engineering-a-composable-architecture/) · Apr 2026
     - [Harness Engineering](blog/2026/03/29/harness-engineering/) · Mar 2026
     - [The Phoenix Test](blog/2026/03/15/the-phoenix-test/) · Mar 2026
     - [Voting with Fire](blog/2026/03/10/voting-with-fire/) · Mar 2026
-    - [DISCOVER](blog/2026/03/09/discover/) · Mar 2026
 
     <br>
 
