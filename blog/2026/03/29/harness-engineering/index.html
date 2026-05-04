@@ -1,0 +1,1174 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Three engineering posts from OpenAI, Thoughtworks, and Anthropic converge on the same architecture for keeping coding agents reliable. A walkthrough of what the discipline actually consists of.">
+      
+      
+      
+        <link rel="canonical" href="https://ashvin.au/blog/2026/03/29/harness-engineering/">
+      
+      
+        <link rel="prev" href="../../15/the-phoenix-test/">
+      
+      
+        <link rel="next" href="../../../04/09/harness-engineering-a-composable-architecture/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/view-grid-plus-outline-dark.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Harness Engineering - ashvin</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#where-the-term-came-from" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="ashvin" class="md-header__button md-logo" aria-label="ashvin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3v8h8V3zM3 21h8v-8H3zM3 3v8h8V3zm10 13h3v-3h2v3h3v2h-3v3h-2v-3h-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ashvin
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Harness Engineering
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sarantium/ashvin/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sarantium/ashvin
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="ashvin" class="md-nav__button md-logo" aria-label="ashvin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3v8h8V3zM3 21h8v-8H3zM3 3v8h8V3zm10 13h3v-3h2v3h3v2h-3v3h-2v-3h-3z"/></svg>
+
+    </a>
+    ashvin
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sarantium/ashvin/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sarantium/ashvin
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-writing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Writing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Reading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-working/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Working
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Blog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#where-the-term-came-from" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where the term came from
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-three-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The three components
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The three components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#context-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context engineering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architectural-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architectural constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entropy-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entropy management
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-multi-agent-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The multi-agent pattern
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-economics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The economics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-means-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What this means in practice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2026-03-29 00:00:00+00:00" class="md-ellipsis">March 29, 2026</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              16 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <span class="md-tag">ai</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">applied-ai</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">software-architecture</span>
+      
+    
+  </nav>
+
+
+  
+  
+
+
+  <h1>Harness Engineering</h1>
+
+<p>In late August 2025, a team at OpenAI made the first commit to an empty git repository. Five months later, that repository contained roughly a million lines of code across application logic, infrastructure, tooling, documentation, and internal developer utilities. Over 1,500 pull requests had been opened and merged. The product had internal daily users and external alpha testers.</p>
+<p>None of the code was written by a human.</p>
+<p>Three engineers drove the work. They wrote no code themselves. Every line was generated by Codex, OpenAI's coding agent. They averaged 3.5 merged pull requests per engineer per day, and the throughput increased as the team grew to seven. The product shipped, deployed, broke, and got fixed. What the engineers did, from the first commit onward, was something other than programming.</p>
+<p>Ryan Lopopolo, writing about the experiment in February 2026, put it plainly: "The primary job of our engineering team became enabling the agents to do useful work." When the agent got stuck, the fix was almost never "try harder." The engineers would step into the task and ask: what capability is missing, and how do we make it both legible and enforceable for the agent?</p>
+<p>That question turns out to be the entire discipline.</p>
+<!-- more -->
+
+<h2 id="where-the-term-came-from">Where the term came from<a class="headerlink" href="#where-the-term-came-from" title="Permanent link">⚓︎</a></h2>
+<p>Mitchell Hashimoto, co-founder of HashiCorp, appears to have crystallized the concept first. In a post describing his six-stage AI adoption journey, Stage 5 is "Engineer the Harness." His definition is concrete: every time you discover an agent has made a mistake, you take the time to engineer a solution so that it can never make that mistake again. Not a better prompt. Not a more detailed instruction. A structural fix to the environment the agent works in.</p>
+<p>OpenAI's February 2026 post formalized the practice at scale. A team running Codex against a million-line codebase had accumulated enough operational experience to describe what the discipline actually consists of: context management, architectural enforcement, feedback loops, entropy control. The post is titled "Harness engineering: leveraging Codex in an agent-first world," though as Birgitta Böckeler pointed out, it only mentions "harness" once in the text. The substance mattered more than the naming.</p>
+<p>Böckeler, a Distinguished Engineer at Thoughtworks with over twenty years in software delivery, published her response on martinfowler.com six days later. Her contribution was taxonomic. She broke the OpenAI team's practices into three distinct categories and connected them to existing engineering concepts. She also flagged a significant gap: the OpenAI post focused on internal quality and maintainability but said almost nothing about verification of functionality and behavior.</p>
+<p>Six weeks after that, Anthropic published a deeper engineering treatment. Prithvi Rajasekaran from their Labs team described a multi-agent architecture that addressed the failure modes Böckeler had identified. Where OpenAI described what a mature harness looks like at rest, Anthropic showed how to build one that catches bugs before humans see them.</p>
+<p>Kai Wang, writing for the AI Builder Club, read all three and compressed the convergence into a single line: "It is the control system that keeps agents inside a structured, testable, and reproducible workflow."</p>
+<p>Four sources, four vantage points, one architecture emerging.</p>
+<h2 id="the-three-components">The three components<a class="headerlink" href="#the-three-components" title="Permanent link">⚓︎</a></h2>
+<p>Böckeler's taxonomy is the cleanest way to parse what a harness actually contains. Three components, each addressing a different failure mode.</p>
+<h3 id="context-engineering">Context engineering<a class="headerlink" href="#context-engineering" title="Permanent link">⚓︎</a></h3>
+<p>From the agent's point of view, anything it can't access in-context while running effectively doesn't exist. Knowledge that lives in Google Docs, Slack threads, or people's heads is invisible to the system. Repository-local, versioned artifacts are all the agent can see. Code, markdown, schemas, executable plans.</p>
+<p>The OpenAI team learned this early. Progress was slower than expected at the start, and the reason had nothing to do with model capability. The environment was underspecified. The agent lacked the tools, abstractions, and internal structure required to make progress toward high-level goals.</p>
+<p>Their first instinct was a comprehensive AGENTS.md. It failed in predictable ways. Context is a scarce resource inside a model's working memory. A giant instruction file crowds out the task, the code, and the relevant docs. The agent either misses key constraints or starts optimizing for the wrong ones. Too much guidance becomes non-guidance. When everything is marked important, nothing is. And a monolithic manual rots instantly. Agents can't distinguish what's still true from what's stale.</p>
+<p>So they inverted the approach. AGENTS.md became a table of contents: roughly 100 lines, serving as a map with pointers to deeper sources of truth. The real knowledge base lives in a structured <code>docs/</code> directory:</p>
+<div class="highlight"><pre><span></span><code>AGENTS.md          ← ~100 lines, the map
+ARCHITECTURE.md    ← top-level domain map, package layering
+docs/
+├── design-docs/
+│   ├── index.md
+│   ├── core-beliefs.md
+│   └── ...
+├── exec-plans/
+│   ├── active/
+│   ├── completed/
+│   └── tech-debt-tracker.md
+├── generated/
+│   └── db-schema.md
+├── product-specs/
+│   ├── index.md
+│   └── ...
+├── references/
+│   ├── design-system-reference-llms.txt
+│   └── ...
+├── DESIGN.md
+├── FRONTEND.md
+├── QUALITY_SCORE.md
+├── RELIABILITY.md
+└── SECURITY.md
+</code></pre></div>
+<p>This enables what the team calls progressive disclosure. Agents start with a small, stable entry point and learn where to look next, rather than being overwhelmed up front. Design documentation is catalogued and indexed, including verification status and a set of core beliefs that define operating principles. Plans are treated as first-class artifacts: ephemeral lightweight plans for small changes, execution plans with progress and decision logs for complex work. Active plans, completed plans, and known technical debt are all versioned and co-located, allowing agents to operate without relying on external context.</p>
+<p>The principle extends well beyond documentation. The team made the application bootable per git worktree, so Codex could launch one instance per change. They wired the Chrome DevTools Protocol into the agent runtime, enabling Codex to take DOM snapshots, navigate the UI, and validate its own changes visually. They built a local observability stack with logs queryable via LogQL, metrics via PromQL, and traces via TraceQL. Each stack is ephemeral, scoped to a worktree, torn down when the task completes. Prompts like "ensure service startup completes in under 800ms" or "no span in these four critical user journeys exceeds two seconds" become tractable because the agent can measure the system it's changing.</p>
+<p>The team regularly saw single Codex runs work on a single task for upwards of six hours. Often while the humans were sleeping.</p>
+<p>Context engineering is the practice of making the entire operational surface legible to the agent. What the code should do, yes, but also what the code does do right now. UI behavior, performance metrics, runtime state, error logs. If the agent can't observe it, the agent can't reason about it.</p>
+<h3 id="architectural-constraints">Architectural constraints<a class="headerlink" href="#architectural-constraints" title="Permanent link">⚓︎</a></h3>
+<p>Context tells the agent what to do. Constraints prevent it from doing the wrong thing.</p>
+<p>The OpenAI team built their application around a rigid architectural model. Each business domain is divided into a fixed set of layers: Types, Config, Repo, Service, Runtime, UI. Dependency directions are strictly validated. Cross-cutting concerns enter through a single explicit interface called Providers. A limited set of permissible edges. Anything else is disallowed.</p>
+<p>These constraints are enforced mechanically. Custom linters and structural tests validate dependency directions, naming conventions, file size limits, structured logging requirements, and platform-specific reliability rules. Because the lints are custom, the team writes error messages that inject remediation instructions directly into agent context. When a lint fails, the agent doesn't just know that something is wrong. It knows what to do about it.</p>
+<p>The philosophy: enforce invariants, not implementations. They require Codex to parse data shapes at the boundary, but don't specify which library to use. The model tends to reach for Zod. That's its choice. They care about dependency direction and module boundaries. Within those boundaries, the agent has significant freedom in how solutions are expressed.</p>
+<p>Böckeler connected this to a broader observation about the AI coding landscape. Much of the early hype assumed LLMs would give us unlimited flexibility in the target runtime. Generate in any language, any pattern, without constraints. The LLM will figure it out. What the OpenAI team demonstrated is the opposite: increasing trust and reliability required constraining the solution space. Specific architectural patterns. Enforced boundaries. Standardized structures. You trade the "generate anything" flexibility for maintainability you can actually verify.</p>
+<p>The team favored what they described as "boring" technology. Dependencies and abstractions that could be fully internalized and reasoned about in-repo. Technologies described as boring tend to be easier for agents to model: composable, stable APIs, well-represented in training data. In some cases, it was cheaper to have the agent reimplement subsets of functionality than to work around opaque upstream behavior from public libraries. One example: rather than pulling in a generic <code>p-limit</code>-style concurrency package, they had Codex implement their own map-with-concurrency helper. Tightly integrated with their OpenTelemetry instrumentation. 100% test coverage. Behaves exactly the way their runtime expects.</p>
+<p>This is the kind of rigid architecture most teams postpone until they have hundreds of engineers. With coding agents, it's an early prerequisite. The constraints are what allow speed without decay.</p>
+<p>In a human-first workflow, rules like these might feel pedantic or constraining. With agents, they become multipliers. Encoded once, applied everywhere at once.</p>
+<h3 id="entropy-management">Entropy management<a class="headerlink" href="#entropy-management" title="Permanent link">⚓︎</a></h3>
+<p>Left alone, a codebase maintained by agents drifts. Codex replicates patterns that already exist in the repository, including suboptimal ones. Over time, this leads to what the OpenAI team experienced firsthand: the accumulation of "AI slop."</p>
+<p>Initially, humans cleaned up the mess manually. The team spent every Friday cleaning up agent-generated drift. Twenty percent of the working week, consumed by janitorial work on code no human had written.</p>
+<p>It didn't scale.</p>
+<p>The fix was to encode what they call "golden principles" directly into the repository and build a recurring cleanup process. These principles are opinionated, mechanical rules that keep the codebase legible for future agent runs. Two examples: prefer shared utility packages over hand-rolled helpers to keep invariants centralized, and validate data boundaries or rely on typed SDKs rather than probing data shapes through trial and error. On a regular cadence, background Codex tasks scan for deviations, update quality grades, and open targeted refactoring pull requests. Most can be reviewed in under a minute and automerged.</p>
+<p>Technical debt, the team observed, is like a high-interest loan. Almost always better to pay it down continuously in small increments than to let it compound and tackle it in painful bursts. Human taste is captured once, then enforced continuously on every line of code. Bad patterns get caught on a daily basis, rather than spreading through the codebase for days or weeks before anyone notices.</p>
+<p>This functions as garbage collection for code quality. And like garbage collection, it's not something you do once. It's something you run continuously, because entropy is a constant pressure.</p>
+<p>Böckeler raised a question that follows naturally from this: can harness techniques be applied to existing applications, or do they only work for codebases built with a harness in mind? For older codebases, full of non-standardized patterns and accumulated entropy, retrofitting a harness may not be worth the effort. She compared it to running a static code analysis tool on a codebase that's never had one, then drowning in alerts. There may be two distinct futures for application maintenance: pre-AI and post-AI, with different economics governing each.</p>
+<h2 id="the-multi-agent-pattern">The multi-agent pattern<a class="headerlink" href="#the-multi-agent-pattern" title="Permanent link">⚓︎</a></h2>
+<p>Böckeler's gap observation was specific: the OpenAI post described measures for long-term internal quality and maintainability, but said little about verifying that the software actually works correctly. Anthropic's March 2026 post addressed this directly.</p>
+<p>Prithvi Rajasekaran had been working on two problems at Anthropic Labs: getting Claude to produce high-quality frontend designs, and getting it to build complete applications without human intervention. Both had earlier iterations. Both hit ceilings. Decomposing the failures, he identified two persistent failure modes.</p>
+<p><strong>Context decay.</strong> The longer a task runs, the more the agent drifts from its original intent. As the context window fills, models lose coherence. Some exhibit what Anthropic calls "context anxiety," where they begin wrapping up work prematurely as they approach what they believe is their context limit. With Claude Sonnet 4.5, summarizing earlier conversation in place (compaction) wasn't sufficient. The agent needed full context resets: clearing the window entirely and starting a fresh session with a structured handoff artifact carrying the previous agent's state and next steps.</p>
+<p><strong>Self-evaluation blindness.</strong> When asked to evaluate their own work, agents consistently respond by praising it. Even when the quality is obviously mediocre to a human observer. The pattern is most pronounced on subjective tasks like frontend design, where there is no binary pass/fail check equivalent to a test suite. Whether a layout feels polished or generic is a judgment call, and agents reliably skew positive when grading their own output. But even on tasks with verifiable outcomes, agents exhibit poor judgment when assessing work they've produced themselves.</p>
+<p>The solution draws on the structural insight behind Generative Adversarial Networks: separate generation from evaluation. The separation doesn't immediately eliminate leniency on its own. The evaluator is still an LLM inclined to be generous toward LLM-generated outputs. But tuning a standalone evaluator to be skeptical turns out to be far more tractable than making a generator critical of its own work. Once that external feedback exists, the generator has something concrete to iterate against.</p>
+<p>Rajasekaran built a three-agent architecture.</p>
+<p><strong>Planner.</strong> Takes a one-to-four-sentence prompt and expands it into a full product specification. Instructed to be ambitious about scope and to focus on product context and high-level technical design rather than detailed implementation. The reasoning: if the planner specifies granular technical details upfront and gets something wrong, errors cascade into the downstream build. Better to constrain the deliverables and let the agents figure out the path.</p>
+<p><strong>Generator.</strong> Implements the spec one feature at a time, working in sprints. Uses a React, Vite, FastAPI, and SQLite stack (later PostgreSQL). Self-evaluates at the end of each sprint before handing off to QA. Has git for version control.</p>
+<p><strong>Evaluator.</strong> Uses Playwright to drive the running application the way a user would. Tests UI features, API endpoints, and database states. Grades each sprint against both the bugs it finds and a set of criteria covering product depth, functionality, visual design, and code quality. Each criterion has a hard threshold. If any one falls below it, the sprint fails and the generator gets detailed feedback on what went wrong.</p>
+<p>Before each sprint, the generator and evaluator negotiate a sprint contract: they agree on what "done" looks like before any code is written. The generator proposes what it will build and how success will be verified. The evaluator reviews the proposal to ensure the right thing is being built. They iterate until they agree. Communication is handled via files. One agent writes; the other reads and responds.</p>
+<p>Getting the evaluator to perform at this level required real calibration work. Out of the box, Claude is, by Rajasekaran's own assessment, a poor QA agent. In early runs, he watched it identify legitimate issues, then talk itself into deciding they weren't a big deal and approve the work anyway. It tested superficially rather than probing edge cases. The tuning loop was to read the evaluator's logs, find examples where its judgment diverged from his, and update the prompt to correct for those gaps. It took several rounds before the evaluator graded in a way he found reasonable.</p>
+<p>Once calibrated, the evaluator caught real problems. Sprint 3 of a retro video game maker had 27 criteria covering the level editor alone. Some examples of what the evaluator found:</p>
+<table>
+<thead>
+<tr>
+<th>Contract criterion</th>
+<th>Evaluator finding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rectangle fill tool allows click-drag to fill area with selected tile</td>
+<td><strong>FAIL.</strong> Tool only places tiles at drag start/end points instead of filling the region. <code>fillRectangle</code> function exists but isn't triggered properly on mouseUp.</td>
+</tr>
+<tr>
+<td>User can select and delete placed entity spawn points</td>
+<td><strong>FAIL.</strong> Delete key handler requires both <code>selection</code> and <code>selectedEntityId</code> to be set, but clicking an entity only sets <code>selectedEntityId</code>.</td>
+</tr>
+<tr>
+<td>User can reorder animation frames via API</td>
+<td><strong>FAIL.</strong> <code>PUT /frames/reorder</code> route defined after <code>/{frame_id}</code> routes. FastAPI matches "reorder" as a frame_id integer and returns 422.</td>
+</tr>
+</tbody>
+</table>
+<p>These are not surface-level observations. The evaluator identified the specific function that wasn't triggering, the exact conditional logic that was wrong, the route ordering that caused a type mismatch. This is the kind of QA feedback that sends an agent straight to the fix, with no additional investigation required.</p>
+<p>The biggest difference showed up in the final product. Rajasekaran compared a solo run (no harness, 20 minutes, $9) against the full harness (6 hours, $200) on the same retro game maker prompt. The solo run produced an application that looked reasonable on first glance. Click through it, though, and the problems emerged. The layout wasted space. The workflow was rigid, with no guidance toward the correct sequence. The actual game was broken: entities appeared on screen, but nothing responded to input. The wiring between entity definitions and the game runtime was disconnected, with no surface indication of where.</p>
+<p>The harnessed version had rough edges. A character jumped onto a platform and ended up overlapping with it, which felt intuitively wrong. But the core thing worked. You could play the game.</p>
+<p>For the frontend design domain, Rajasekaran built a separate generator-evaluator loop running 5 to 15 iterations per generation. He wrote four grading criteria (design quality, originality, craft, and functionality) and weighted design quality and originality more heavily, because Claude already scored well on craft and functionality by default. On design and originality, it reliably produced bland output. The criteria explicitly penalized generic patterns, pushing the model toward aesthetic risk-taking.</p>
+<p>The wording of the criteria shaped outputs in ways he didn't fully anticipate. Including the phrase "the best designs are museum quality" pushed designs toward a particular visual convergence. In one example, a Dutch art museum website went through nine iterations of clean, dark-themed conventional refinement. On the tenth cycle, the agent scrapped the approach entirely and reimagined the site as a spatial experience: a 3D room with a checkered floor rendered in CSS perspective, artwork hung on walls in free-form positions, doorway-based navigation between gallery rooms instead of scroll or click. The kind of creative leap that single-pass generation hadn't produced.</p>
+<h2 id="the-economics">The economics<a class="headerlink" href="#the-economics" title="Permanent link">⚓︎</a></h2>
+<p>The cost question is unavoidable. Here are the numbers from Anthropic's experiments:</p>
+<table>
+<thead>
+<tr>
+<th>Prompt</th>
+<th>Harness</th>
+<th>Duration</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Retro game maker</td>
+<td>Solo agent</td>
+<td>20 min</td>
+<td>$9</td>
+</tr>
+<tr>
+<td>Retro game maker</td>
+<td>Full harness (v1)</td>
+<td>6 hr</td>
+<td>$200</td>
+</tr>
+<tr>
+<td>Browser DAW</td>
+<td>Simplified harness (v2)</td>
+<td>3 hr 50 min</td>
+<td>$124.70</td>
+</tr>
+</tbody>
+</table>
+<p>Twenty times the cost. The quality difference is categorical, not incremental. The solo run produces something that looks like a working application. The harnessed run produces something that is one. Features function. Bugs are caught and fixed during the build. The application is tested by an agent that interacts with it the way a user would.</p>
+<p>On the other side of the ledger, OpenAI estimated their harness approach built their product in roughly one-tenth the time hand-coding would have taken. Three engineers producing 3.5 merged PRs per day each, with throughput increasing as the team grew to seven.</p>
+<p>The interesting principle underneath these numbers comes from Rajasekaran: <strong>every component in a harness encodes an assumption about what the model can't do on its own.</strong> Those assumptions are worth stress-testing, both because they may be wrong and because they go stale as models improve.</p>
+<p>He demonstrated this directly. The first version of the harness was built for Claude Opus 4.5, which needed sprint decomposition to maintain coherence across long tasks. When Opus 4.6 shipped, with better planning, longer sustained agentic work, improved self-correction, and stronger long-context retrieval, the sprint construct became unnecessary overhead. The model could run coherently for over two hours without it. Rajasekaran removed it.</p>
+<p>With sprints gone, the evaluator's role shifted too. On Opus 4.5, the evaluator caught meaningful issues across every sprint, because the task was at the edge of what the generator could handle solo. On Opus 4.6, the model's baseline capability increased, so the boundary moved outward. Tasks that had needed the evaluator's check to be implemented coherently were now within what the generator handled well on its own. But for the parts of the build still at the edge of the generator's capability, the evaluator continued to provide real lift.</p>
+<p>The cost breakdown for the browser DAW shows where time and money actually sit:</p>
+<table>
+<thead>
+<tr>
+<th>Agent &amp; Phase</th>
+<th>Duration</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Planner</td>
+<td>4.7 min</td>
+<td>$0.46</td>
+</tr>
+<tr>
+<td>Build (Round 1)</td>
+<td>2 hr 7 min</td>
+<td>$71.08</td>
+</tr>
+<tr>
+<td>QA (Round 1)</td>
+<td>8.8 min</td>
+<td>$3.24</td>
+</tr>
+<tr>
+<td>Build (Round 2)</td>
+<td>1 hr 2 min</td>
+<td>$36.89</td>
+</tr>
+<tr>
+<td>QA (Round 2)</td>
+<td>6.8 min</td>
+<td>$3.09</td>
+</tr>
+<tr>
+<td>Build (Round 3)</td>
+<td>10.9 min</td>
+<td>$5.88</td>
+</tr>
+<tr>
+<td>QA (Round 3)</td>
+<td>9.6 min</td>
+<td>$4.06</td>
+</tr>
+</tbody>
+</table>
+<p>The planner is trivially cheap. The evaluator is cheap per round. Almost all the cost is in the generator building the application. The evaluator adds roughly 8% to total cost while catching bugs that would otherwise require human QA or, worse, ship unfound.</p>
+<p>The practical implication: the evaluator is not a fixed yes-or-no decision. It's worth the cost when the task sits beyond what the current model does reliably solo. As models improve, that boundary shifts. Components that were load-bearing last month might be dead weight today.</p>
+<p>Rajasekaran framed this as a moving frontier: "The space of interesting harness combinations doesn't shrink as models improve. Instead, it moves, and the interesting work for AI engineers is to keep finding the next novel combination."</p>
+<h2 id="what-this-means-in-practice">What this means in practice<a class="headerlink" href="#what-this-means-in-practice" title="Permanent link">⚓︎</a></h2>
+<p>All three sources converge on the same structure, and Kai Wang compressed it into a flow:</p>
+<div class="highlight"><pre><span></span><code>Constitution + Spec (intent and constraints written down)
+  -&gt; Plan + Tasks (with test specs and acceptance criteria upfront)
+    -&gt; Generator executes task by task
+      -&gt; after each task:
+          analyze alignment
+          verify tasks
+          run tests
+      -&gt; if anything fails, send it back and redo
+        -&gt; loop until everything passes
+</code></pre></div>
+<p>Intent into persistent artifacts first. Then enforce validation with an independent evaluator. Loop until everything passes. The specific tools don't matter. The pattern does.</p>
+<p>Chad Fowler, writing in "Relocating Rigor," made the connection to existing engineering discipline explicit. Generative systems only work if invariants are explicit rather than implicit. Interfaces must be real contracts, not incidental boundaries. Evaluation must be ruthless. Failures must be loud and immediate.</p>
+<p>Look at what the three harness components actually are. Context engineering is documentation: structured, discoverable, version-controlled knowledge that an agent can navigate. Architectural constraints are linting and testing: mechanical enforcement of invariants that keep the codebase coherent. Entropy management is tech debt hygiene: continuous cleanup that prevents drift from compounding into crisis.</p>
+<p>These are practices that have existed for decades. The harness didn't invent them. What changed is that when humans wrote the code, these practices competed for attention with the typing. Developers knew documentation mattered, knew linting helped, knew tech debt compounds. But the immediate pressure was always to produce the next feature. The infrastructure of quality was perpetually second priority, perpetually under-invested. It's hard to argue for better linter rules when the sprint board is full.</p>
+<p>When agents write the code, the typing disappears as a bottleneck. What remains is everything that was always supposed to surround it. The documentation. The architectural rules. The feedback loops. The cleanup processes. The environment that makes good output possible.</p>
+<p>Böckeler made a prediction worth watching. Most organizations have two or three main tech stacks. She imagined a future where teams pick from a set of harnesses for common application topologies, the way they pick from service templates today. Harnesses with custom linters, structural tests, context documentation, and observability integration built in. Start from a harness, shape it over time for the application's specifics.</p>
+<p>That this team worked on their harness for five months, she noted, shows this isn't something you jump into for quick results. Building a harness is building the infrastructure that makes everything else possible. It compounds.</p>
+<p>Kai Wang's summary holds: "You are no longer writing code. You are writing constraints, acceptance criteria, and feedback loops. Writing prompts is just the beginning. The real job is making sure agents stay controlled and actually work."</p>
+<p>The harness is the engineering now.</p>
+<hr />
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li>Ryan Lopopolo, "Harness engineering: leveraging Codex in an agent-first world" (February 2026): https://openai.com/index/harness-engineering/</li>
+<li>Birgitta Böckeler, "Harness Engineering" (February 2026): https://martinfowler.com/articles/exploring-gen-ai/harness-engineering.html</li>
+<li>Prithvi Rajasekaran, "Harness design for long-running application development" (March 2026): https://www.anthropic.com/engineering/harness-design-long-running-apps</li>
+<li>Kai Wang, "Harness Engineering: What Engineers Do Now" (March 2026): AI Builder Club</li>
+<li>Mitchell Hashimoto, "My AI Adoption Journey" (2025): https://mitchellh.com/writing/my-ai-adoption-journey</li>
+<li>Chad Fowler, "Relocating Rigor" (2026): https://aicoding.leaflet.pub/3mbrvhyye4k2e</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../15/the-phoenix-test/" class="md-footer__link md-footer__link--prev" aria-label="Previous: The Phoenix Test">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                The Phoenix Test
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../../04/09/harness-engineering-a-composable-architecture/" class="md-footer__link md-footer__link--next" aria-label="Next: Harness Engineering: A Composable Architecture">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Harness Engineering: A Composable Architecture
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023-2025 Ashvin Parameswaran
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sarantium/ashvin" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/ashvinparameswaran" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="/assets/ashvin_parameswaran_curriculum_vitae_2023.pdf" target="_blank" rel="noopener" title="resume" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M96 0C60.7 0 32 28.7 32 64v384c0 35.3 28.7 64 64 64h80V400c0-35.3 28.7-64 64-64h176V170.5c0-17-6.7-33.3-18.7-45.3L290.7 18.7C278.7 6.7 262.5 0 245.5 0zm261.5 176H264c-13.3 0-24-10.7-24-24V58.5zM240 380c-11 0-20 9-20 20v128c0 11 9 20 20 20s20-9 20-20v-28h12c33.1 0 60-26.9 60-60s-26.9-60-60-60zm32 80h-12v-40h12c11 0 20 9 20 20s-9 20-20 20m96-80c-11 0-20 9-20 20v128c0 11 9 20 20 20h32c28.7 0 52-23.3 52-52v-64c0-28.7-23.3-52-52-52zm20 128v-88h12c6.6 0 12 5.4 12 12v64c0 6.6-5.4 12-12 12zm88-108v128c0 11 9 20 20 20s20-9 20-20v-44h28c11 0 20-9 20-20s-9-20-20-20h-28v-24h28c11 0 20-9 20-20s-9-20-20-20h-48c-11 0-20 9-20 20"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tracking", "navigation.indexes", "search.highlight", "search.share", "content.code.copy", "navigation.footer", "navigation.top"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

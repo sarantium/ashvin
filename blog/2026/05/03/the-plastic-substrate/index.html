@@ -1,0 +1,1063 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="An architecture for the authored layer of an agent system: three layers, four shapes, three cross-cutting properties, Packs, and curation.">
+      
+      
+      
+        <link rel="canonical" href="https://ashvin.au/blog/2026/05/03/the-plastic-substrate/">
+      
+      
+        <link rel="prev" href="../../../04/17/the-eval-checklist/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/view-grid-plus-outline-dark.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>The Plastic Substrate - ashvin</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-three-layers" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="ashvin" class="md-header__button md-logo" aria-label="ashvin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3v8h8V3zM3 21h8v-8H3zM3 3v8h8V3zm10 13h3v-3h2v3h3v2h-3v3h-2v-3h-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ashvin
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              The Plastic Substrate
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sarantium/ashvin/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sarantium/ashvin
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="ashvin" class="md-nav__button md-logo" aria-label="ashvin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3v8h8V3zM3 21h8v-8H3zM3 3v8h8V3zm10 13h3v-3h2v3h3v2h-3v3h-2v-3h-3z"/></svg>
+
+    </a>
+    ashvin
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sarantium/ashvin/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sarantium/ashvin
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-writing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Writing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Reading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-working/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Working
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Blog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-three-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Three Layers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-four-shapes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Four Shapes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-cutting-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Cutting Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packs-and-curation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Packs and Curation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#views-as-generative-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Views as Generative Interfaces
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2026-05-03 00:00:00+00:00" class="md-ellipsis">May 3, 2026</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              9 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <span class="md-tag">ai</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">applied-ai</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">software-architecture</span>
+      
+    
+  </nav>
+
+
+  
+  
+
+
+  <h1>The Plastic Substrate</h1>
+
+<p>In materials science, plastic deformation is the part of a material's response to stress that does not spring back. Push a steel beam past its elastic limit and the bend stays. Push a fluid and it flows away. Plastic deformation sits between the two.</p>
+<p>A plastic substrate, in software, is an authored layer that behaves the same way under use. The user edits something. The behavior of the system on the next invocation is different in a way the user intended, in a form the user can read back. The deformation persists and the record is legible.</p>
+<p>What follows is the architecture of that layer. While examples are from Claude Code for familiarity, the pattern should translate into any harness.</p>
+<!-- more -->
+
+<h2 id="the-three-layers">The Three Layers<a class="headerlink" href="#the-three-layers" title="Permanent link">⚓︎</a></h2>
+<p>The substrate sits across three layers. Each holds a different kind of state with a different lifetime.</p>
+<p>The <strong>Playbook</strong> is the authored layer. It holds authored items — rules, recipes, schedules, schemas — written by the user or captured by the agent, that persist across sessions and shape the next invocation. An edit on Tuesday changes the agent's behavior on Wednesday: on the laptop, on the build server, in any subagent that spawns under it. The Playbook is where the substrate deforms.</p>
+<p>In Claude Code, the Playbook is everything in <code>CLAUDE.md</code> and under <code>.claude/</code>. <code>CLAUDE.md</code> holds rules the agent reads on every turn. <code>.claude/skills/</code> holds named procedures invoked by topic match. <code>.claude/commands/</code> holds slash commands invoked by name. <code>.claude/hooks/</code> holds events fired on session lifecycle, tool calls, or external triggers. Each lives in a directory tree the user can read, edit, and version.</p>
+<p>The <strong>Runtime</strong> is the active session. The prompt, the agent's tool use, the streamed output. Items from the Playbook fire here — threads execute, subagents spawn, views render, events trigger. Nothing in the Runtime survives the session.</p>
+<p>In Claude Code, the Runtime is a single <code>claude</code> invocation. Subagents spawn into nested sessions. Tool calls reach into the working directory and the network. The streamed transcript is the Runtime's only direct output. When the session closes, the Runtime is gone.</p>
+<p>The <strong>Filesystem</strong> is where outputs accrue. Artifacts the agent wrote into the working directory. Transcripts of past sessions, indexed for future ones to read. A provenance ledger that records, for every artifact, which session produced it and which Playbook items were in scope at the time. The Filesystem is the substrate's long memory.</p>
+<p>In Claude Code, the Filesystem is <code>~/.claude/projects/&lt;repo-hash&gt;/</code> — transcripts, indexed history — plus the working directory the agent edits in. Both are version-controlled by their owners. Both feed back into future Playbook edits.</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Role</th>
+<th>Holds</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Playbook</td>
+<td>Deforms</td>
+<td>Authored items: rules, invocables, events, views</td>
+</tr>
+<tr>
+<td>Runtime</td>
+<td>Fires</td>
+<td>Threads, subagent runs, view renders, event handlers</td>
+</tr>
+<tr>
+<td>Filesystem</td>
+<td>Persists</td>
+<td>Artifacts, transcripts, provenance ledger</td>
+</tr>
+</tbody>
+</table>
+<p>A simple test separates a plastic substrate from things that look like one. An edit must do two things: change what the system does next time the way you intended, and leave a record you can read back later. Saved vendor preferences can fail the first — the platform may quietly override or ignore your setting. Trained model weights fail the second — something changed durably, but it's encoded in numbers no human can inspect. A markdown line the agent reads on the next turn passes both.</p>
+<h2 id="the-four-shapes">The Four Shapes<a class="headerlink" href="#the-four-shapes" title="Permanent link">⚓︎</a></h2>
+<p>Every authored item in the Playbook answers three questions. <strong>What's in it. When does it fire. What comes out.</strong> The named shapes — Rule, Invocable, Event, View — are common answer patterns.</p>
+<table>
+<thead>
+<tr>
+<th>Shape</th>
+<th>What's in it</th>
+<th>When fires</th>
+<th>What comes out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rule</td>
+<td>text</td>
+<td>always · topic</td>
+<td>context</td>
+</tr>
+<tr>
+<td>Invocable</td>
+<td>text [+ script]</td>
+<td>name</td>
+<td>context · artifact · side-effect</td>
+</tr>
+<tr>
+<td>Event</td>
+<td>script [+ text]</td>
+<td>trigger</td>
+<td>side-effect · context</td>
+</tr>
+<tr>
+<td>View</td>
+<td>schema</td>
+<td>name · trigger</td>
+<td>UI · artifact</td>
+</tr>
+</tbody>
+</table>
+<p>As an example of a hybrid shape, a Claude Code slash command for release status reads three columns at once:</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>What's in it</th>
+<th>When fires</th>
+<th>What comes out</th>
+<th>Reads as</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/release-status</code></td>
+<td>text + script</td>
+<td>name</td>
+<td>context + UI + artifact</td>
+<td>Invocable + View</td>
+</tr>
+</tbody>
+</table>
+<p>A short walk through each question grounds the answer-values.</p>
+<p><strong>What's in it.</strong> Three values:</p>
+<ul>
+<li><strong>Text</strong> — what the LLM reads. A persona in <code>CLAUDE.md</code> injected every turn. A reference document on API conventions, pulled in when the topic matches.</li>
+<li><strong>Script</strong> — deterministic code the runtime executes. A pre-commit hook in <code>.claude/hooks/</code>. A step inside an Invocable that calls a build API.</li>
+<li><strong>Schema</strong> — a renderer's input. A <code>view.json</code> declaring the columns and field-types of a release dashboard, against which the UI is produced.</li>
+</ul>
+<p><strong>When does it fire.</strong> Four values:</p>
+<ul>
+<li><strong>Always</strong> — every turn. A persona injected into every prompt.</li>
+<li><strong>On topic</strong> — when the active task matches the item's scope. A Typescript-conventions reference pulled in only when Typescript is in play.</li>
+<li><strong>By name</strong> — when the user calls it. <code>/release-status</code>. A subagent definition the orchestrator addresses by handle.</li>
+<li><strong>On trigger</strong> — deterministic firing on an observable signal. A pre-commit hook on a commit. A nightly digest on a schedule. A webhook handler on inbound HTTP.</li>
+</ul>
+<p>Hooks and crons differ only in which trigger fires them; both are Events.</p>
+<p><strong>What comes out.</strong> Four values:</p>
+<ul>
+<li><strong>Context</strong> — text read back into the LLM. A Rule injected into the prompt. An Invocable's structured brief returned to the orchestrator.</li>
+<li><strong>Artifact</strong> — a file pinned to the Filesystem with provenance attached. A markdown report. A generated migration. A test fixture.</li>
+<li><strong>Side-effect</strong> — a deterministic external write. A database migration applied. A build triggered. A Slack message sent.</li>
+<li><strong>UI</strong> — a rendered surface. The dashboard a <code>/release-status</code> invocation displays. The status-report card a stakeholder-update Invocable hands back.</li>
+</ul>
+<h2 id="cross-cutting-properties">Cross-Cutting Properties<a class="headerlink" href="#cross-cutting-properties" title="Permanent link">⚓︎</a></h2>
+<p>Every shape carries the same metadata. Three properties cover what the substrate must record on each item, in the same way every file has a name, a size, and a modification time.</p>
+<p><strong>Provenance</strong> is the load-bearing property. Source, version, authorship chain — including whether the author was the user or the agent itself. The author writes a source string in frontmatter — <code>source: pack:typescript-conventions@v3</code>, <code>source: agent-captured</code>, <code>source: regulator:victoria-payroll</code>. A Rule the user typed into <code>CLAUDE.md</code> and a lesson the agent captured from a session transcript both land in the Playbook; their source strings differ, and downstream review treats them differently. Human-led authorship is throttled by how often the user remembers to look; agent-led authorship is throttled only by how often the harness runs, which is how small improvements accumulate during sessions the user is not thinking about. From that single field, three jobs follow. The harness honors precedence when a user edit, a vendor rule, and a Pack-imported lesson coexist. It furnishes the audit trail every regulated context requires, because every rule the agent applied traces back to an authoring source. It gives the user reversibility — strip the Playbook by source when something misbehaves, leave the rest intact.</p>
+<p><strong>Scope</strong> bounds what any one item can reach. Tools, connections, files, network. A skill in <code>.claude/skills/db-migrate/</code> with <code>allowedTools: [Bash(psql:*)]</code> and a connection to the production database has a different Scope from one whose declared scope is <code>Read</code>-only on the current repo. A change to Scope is a reviewable event, which is how the substrate avoids blast-radius surprises. The author declares Scope in the item's frontmatter; the harness enforces it at injection.</p>
+<p><strong>Telemetry</strong> is feedback metadata in two directions. Retrospective: what fired, how often, with what hit-rate — surfaced from the per-session transcripts the harness ledgers under <code>~/.claude/projects/&lt;repo-hash&gt;/</code>. Prospective: dry-run before activation, replay against past sessions to see where a new Rule would have changed the outcome. The author declares minimal hooks on the item, often through a <code>SessionEnd</code> entry in <code>.claude/hooks/</code>; the harness provides the heavy lifting. The runtime mechanics that turn declared hooks into traces are the harness's concern, not the substrate's; the harness post lays them out.</p>
+<h2 id="packs-and-curation">Packs and Curation<a class="headerlink" href="#packs-and-curation" title="Permanent link">⚓︎</a></h2>
+<p>A <strong>Pack</strong> is the composition unit. A versioned, provenance-preserving bundle of Playbook items plus a manifest, distributable as a single object. The manifest is the Pack's top-level descriptor — name, version, inventory of items, declared scope, dependencies on other Packs — analogous to <code>package.json</code> for npm, <code>Cargo.toml</code> for Rust, or <code>Chart.yaml</code> for Helm. A Pack can carry any mix of the four shapes — a handful of Rules, an Invocable that references them, an Event that fires the Invocable on a schedule, a View the Invocable renders against. The composition unit and the distribution format are the same object. A Pack lands in the Playbook; the Runtime fires from it on the next session, and the Filesystem accrues the outputs with the Pack's source recorded against each.</p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Who</th>
+<th>Distribution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Personal</td>
+<td>One user, one harness</td>
+<td>Copy the folder</td>
+</tr>
+<tr>
+<td>Firm</td>
+<td>Shared inside an organisation</td>
+<td>Internal registry, dotfiles repo</td>
+</tr>
+<tr>
+<td>Public</td>
+<td>Marketplace</td>
+<td>Versioned, certified, supported like software</td>
+</tr>
+</tbody>
+</table>
+<p>What changes between tiers is governance, liability, and audience. The shapes and the provenance mechanism do not. Personal Packs are where most substrate-shaping happens; most never publish, because the specific shape they take is worth more to the author than to any general audience. Firm Packs encode norms a firm operates on but cannot publish externally without losing the differentiation the norms encode. Public Packs are where network effects accumulate, because every consumer's evidence improves the Pack the next consumer installs — and where abuse surfaces fastest, because a misbehaving Public Pack hits many consumers at once.</p>
+<p>Without the substrate, every correction evaporates at session end — the agent fixes the instance and the friction returns next session. The substrate's first job is to make corrections stick: a user edit or an agent-captured lesson lands in the Playbook, traced by Provenance, and every future Runtime fires against the new shape.</p>
+<p>The second job is curation — keeping the body of stuck corrections healthy over time. This is where the substrate earns out. Five of twenty Invocables sit unused. Two Events conflict on edge cases. An Invocable built against last year's model misbehaves on this year's. The Filesystem's transcripts and provenance ledger are the evidence base; the work moves from operating the substrate to maintaining it.</p>
+<p>Network effects accumulate where agent-led curation meets a Public Pack. A Public Pack whose curation runs without the publisher in the loop gets better between releases on its own schedule: when v3.1 adds a Rule that survived on a subset of tenants, v3.2 ships it to every consumer, and the publisher's job becomes review rather than authorship.</p>
+<h2 id="views-as-generative-interfaces">Views as Generative Interfaces<a class="headerlink" href="#views-as-generative-interfaces" title="Permanent link">⚓︎</a></h2>
+<p>A generative interface is a UI produced from a schema rather than shipped as fixed code. The schema declares what is there — columns, fields, sections, actions; the harness's renderer (often the agent itself, generating code each invocation) turns the schema into a surface on the fly. The user authors the schema; the rendered surface gets produced for them. New schemas yield new interfaces; edited schemas reshape existing ones on the next invocation. Views are the substrate's generative-interface mechanism.</p>
+<p>Views have more range than any other shape — a spectrum from disposable scratch surfaces to durable mini-apps to thin clients over external systems. Three patterns are worth naming.</p>
+<p><strong>Disposable.</strong> A View written for one task, then discarded. While debugging an agent run, the user renders a table of the last twenty tool calls from the session log: write the schema, read the output, delete the file when the bug is fixed. The substrate hosts the View for as long as the question lives.</p>
+<p><strong>Mini-app.</strong> A View that is actually a bundle — multiple Views, Invocables, and Events composed into something durable. Take a scheduling app inside a harness: a calendar View, an appointment-list View, Invocables to create and edit appointments, Events that fire reminders, Rules encoding booking policy. This is a Pack, not a single View. The "mini-app inside a harness" concept and the Pack primitive are the same object viewed from different angles. Personal mini-apps stay on one user's machine; firm-tier mini-apps get shared across a team.</p>
+<p><strong>Connected.</strong> A View that renders against state held elsewhere. The schema lives in the Playbook; the data comes from a connector — a database, an API, a CRM. Scope declares which connections the View can reach; a Script attached to the View's Invocable does the fetch. The harness owns the surface; the system of record stays where it was. This is how a substrate hosts a Linear panel or a Salesforce dashboard without owning the data.</p>
+<p>Treating Views as a spectrum makes the substrate's UI surface area explicit. Most of the visible variation between substrates will accumulate here.</p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">⚓︎</a></h2>
+<p>A plastic substrate is an authored layer that deforms persistently and legibly under use. Edit it on Tuesday; the agent behaves differently on Wednesday, the way you intended, in a form you can read back later.</p>
+<p>The architecture has three layers (Playbook, Runtime, Filesystem), four shapes inside the Playbook (Rule, Invocable, Event, View), three properties on each item (Provenance, Scope, Telemetry), and Packs at three tiers (Personal, Firm, Public). Items enter the Playbook by user edit or agent capture. Over time, the Playbook needs curation.</p>
+<p>Polished tools win the first week. Shapeable tools win the sixth month.</p>
+<hr />
+<p><em>See also: <a href="/blog/2026/04/09/harness-engineering-a-composable-architecture/">Harness Engineering: A Composable Architecture</a> — the architecture for the firing discipline this surface fires from.</em></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../../04/17/the-eval-checklist/" class="md-footer__link md-footer__link--prev" aria-label="Previous: The Eval Checklist">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                The Eval Checklist
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023-2025 Ashvin Parameswaran
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sarantium/ashvin" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/ashvinparameswaran" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="/assets/ashvin_parameswaran_curriculum_vitae_2023.pdf" target="_blank" rel="noopener" title="resume" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M96 0C60.7 0 32 28.7 32 64v384c0 35.3 28.7 64 64 64h80V400c0-35.3 28.7-64 64-64h176V170.5c0-17-6.7-33.3-18.7-45.3L290.7 18.7C278.7 6.7 262.5 0 245.5 0zm261.5 176H264c-13.3 0-24-10.7-24-24V58.5zM240 380c-11 0-20 9-20 20v128c0 11 9 20 20 20s20-9 20-20v-28h12c33.1 0 60-26.9 60-60s-26.9-60-60-60zm32 80h-12v-40h12c11 0 20 9 20 20s-9 20-20 20m96-80c-11 0-20 9-20 20v128c0 11 9 20 20 20h32c28.7 0 52-23.3 52-52v-64c0-28.7-23.3-52-52-52zm20 128v-88h12c6.6 0 12 5.4 12 12v64c0 6.6-5.4 12-12 12zm88-108v128c0 11 9 20 20 20s20-9 20-20v-44h28c11 0 20-9 20-20s-9-20-20-20h-28v-24h28c11 0 20-9 20-20s-9-20-20-20h-48c-11 0-20 9-20 20"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tracking", "navigation.indexes", "search.highlight", "search.share", "content.code.copy", "navigation.footer", "navigation.top"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
