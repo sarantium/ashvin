@@ -29,3 +29,8 @@ How to add a book:
    The `:   ` indented line uses Markdown definition-list syntax (def_list is on)
    so the note hangs under the title cleanly.
 -->
+
+## D { #d }
+
+**A Parade of Horribles (Dungeon Crawler Carl #8)** — Matt Dinniman *(2026)*
+:   I loved the race scenario and each act gets crazier than the ones before. Can't wait for the next book.
