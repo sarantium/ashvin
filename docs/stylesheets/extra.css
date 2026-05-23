@@ -67,6 +67,17 @@ table td + td {
   color: maroon;
 }
 
+/* Bookshelf A-Z jump bar */
+.bookshelf-jump {
+  font-size: 0.85em;
+  letter-spacing: 0.05em;
+  margin: 1.2em 0 2em;
+}
+
+.bookshelf-jump a {
+  text-decoration: none;
+}
+
 /* Hide site name in sidebar navigation */
 .md-nav--primary .md-nav__title {
   font-size: 0;
