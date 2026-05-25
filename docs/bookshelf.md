@@ -30,6 +30,11 @@ How to add a book:
    so the note hangs under the title cleanly.
 -->
 
+## C { #c }
+
+**The Mercy of Gods (The Captive's War #1)** — James S.A. Corey *(2026)*
+:   Neither utopia nor dystopia, space prison aliens and a melancholy vibe with humans seething with rage but largely powerless. Interesting and worth reading the next book to see how it plays out.
+
 ## D { #d }
 
 **A Parade of Horribles (Dungeon Crawler Carl #8)** — Matt Dinniman *(2026)*
