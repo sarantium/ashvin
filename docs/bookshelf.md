@@ -35,6 +35,9 @@ How to add a book:
 **The Mercy of Gods (The Captive's War #1)** — James S.A. Corey *(2026)*
 :   Neither utopia nor dystopia, space prison aliens and a melancholy vibe with humans seething with rage but largely powerless. Interesting and worth reading the next book to see how it plays out.
 
+**The Faith of Beasts (The Captive's War #2)** — James S.A. Corey *(2026)*
+:   Unexpected death and surprising resistance held my interest. Weapons of the weak vibes.
+
 ## D { #d }
 
 **A Parade of Horribles (Dungeon Crawler Carl #8)** — Matt Dinniman *(2026)*
