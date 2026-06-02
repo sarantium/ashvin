@@ -30,6 +30,20 @@ How to add a book:
    so the note hangs under the title cleanly.
 -->
 
+## A { #a }
+
+**The Last Smile in Sunder City (The Fetch Phillips Archives #1)** — Luke Arnold *(2026)*
+:   gritty detective novels with an overarching theme of unimaginable loss. solid urban fantasy. wish it were happier
+
+**Dead Man in a Ditch (The Fetch Phillips Archives #2)** — Luke Arnold *(2026)*
+:   gritty detective novels with an overarching theme of unimaginable loss. solid urban fantasy. wish it were happier
+
+**One Foot in the Fade (The Fetch Phillips Archives #3)** — Luke Arnold *(2026)*
+:   gritty detective novels with an overarching theme of unimaginable loss. solid urban fantasy. wish it were happier
+
+**Whisper in the Wind (The Fetch Phillips Archives #4)** — Luke Arnold *(2026)*
+:   gritty detective novels with an overarching theme of unimaginable loss. solid urban fantasy. wish it were happier
+
 ## C { #c }
 
 **The Mercy of Gods (The Captive's War #1)** — James S.A. Corey *(2026)*
