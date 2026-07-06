@@ -1,0 +1,990 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Evals, benchmarks, and the two ways to own what "good" means.">
+      
+      
+      
+        <link rel="canonical" href="https://ashvin.au/blog/2026/07/06/the-secret-and-the-standard/">
+      
+      
+        <link rel="prev" href="../../../05/03/the-plastic-substrate/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/view-grid-plus-outline-dark.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>The Secret and the Standard - ashvin</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-consensus" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="ashvin" class="md-header__button md-logo" aria-label="ashvin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3v8h8V3zM3 21h8v-8H3zM3 3v8h8V3zm10 13h3v-3h2v3h3v2h-3v3h-2v-3h-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ashvin
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              The Secret and the Standard
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sarantium/ashvin/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sarantium/ashvin
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="ashvin" class="md-nav__button md-logo" aria-label="ashvin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3v8h8V3zM3 21h8v-8H3zM3 3v8h8V3zm10 13h3v-3h2v3h3v2h-3v3h-2v-3h-3z"/></svg>
+
+    </a>
+    ashvin
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sarantium/ashvin/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sarantium/ashvin
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-writing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Writing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Reading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-working/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Working
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../bookshelf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bookshelf
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Blog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-consensus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The consensus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-uncopyable-part" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The uncopyable part
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-control-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The control test
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The loop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-landlords-offer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The landlord's offer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-other-move" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The other move
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#two-ways-to-own-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two ways to own it
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2026-07-06 00:00:00+00:00" class="md-ellipsis">July 6, 2026</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              12 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <span class="md-tag">ai</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">business-models</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">evals</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">strategy</span>
+      
+    
+  </nav>
+
+
+  
+  
+
+
+  <h1>The Secret and the Standard</h1>
+
+<p><em>Evals you hoard, benchmarks you publish.</em></p>
+<p>There are two ways to own a piece of knowledge. You keep it secret, or you publish it and own the standard.</p>
+<p>Coca-Cola never patented its formula. A patent expires; a secret doesn't. So the recipe sits in a vault, and the property is worth exactly what the secrecy holds. Bell Labs did the reverse with the transistor: it patented the invention, licensed it to all comers, and an industry grew on the disclosure. One asset earns from what nobody can see. The other earns from what everybody has to reference.</p>
+<p>AI evals are about to split along the same line. An eval is a graded set of tasks that defines what "good" means in your domain. Hoard it and it's one kind of property; publish it and it's the opposite kind. Most companies that own one don't know which game they're playing. Most don't know they own property at all.</p>
+<!-- more -->
+
+<h2 id="the-consensus">The consensus<a class="headerlink" href="#the-consensus" title="Permanent link">⚓︎</a></h2>
+<p>Satya Nadella has spent months telling anyone who will listen that a company's private evals <a href="https://www.latent.space/p/satya-2026">"may be the biggest IP."</a> He wasn't first. <a href="https://blog.promptlayer.com/building-better-ai-systems-lessons-from-anthropics-ai-engineer-talk/">Anthropic's Alexander Bricken</a> said it a year earlier, and <a href="https://x.com/garrytan/status/1892952656940880036">Y Combinator's Garry Tan</a> called evals the real moat for AI startups before that. The vendor blogs have caught up since. In under two years the claim went from contrarian to consensus.</p>
+<p>What the consensus skips is the only question that changes what you do about it: which kind of property? A secret and a standard are both worth owning, but you build them by opposite rules — one you guard, the other you give away. Until you've answered which one you're holding, "evals are IP" isn't a strategy. It's a slogan.</p>
+<p>Start with what the thing actually is. A private eval is more than a vibe check or a dashboard. It's three artifacts. A <strong>failure taxonomy</strong>: the named ways your system fails, pulled from real production traces. A <strong>golden dataset</strong>: graded examples of good and bad output, held with train/dev/test discipline so you can't fool yourself. And <strong>validated judges</strong>: LLM-as-judge instruments whose agreement with your human experts is measured, not assumed.</p>
+<p>Write it all down and it looks like a spreadsheet. Why would a spreadsheet be the most valuable thing a company owns?</p>
+<h2 id="the-uncopyable-part">The uncopyable part<a class="headerlink" href="#the-uncopyable-part" title="Permanent link">⚓︎</a></h2>
+<p>Because you can't buy one that works.</p>
+<p>The taxonomy and the golden set come out of your own traces. Hamel Husain, who wrote the standard playbook for this work, is blunt about where the failure categories come from: you read your own transcripts and name what you find, nothing borrowed from another project or brainstormed in advance. An expert reads fifty to a hundred real traces of your system failing in your domain and names what went wrong. Before your system has failed in front of your own experts, the asset doesn't exist — so there's nothing to copy.</p>
+<p>The technique, though, is a commodity. Husain open-sourced it: how to run error analysis, how to build a judge, how to validate one. I laid out the full nine-step build in <a href="https://ashvin.au/blog/2026/04/17/the-eval-checklist/">The Eval Checklist</a>. Six of the steps generalise to any project, and the open tooling ships them. The three that don't — instrumenting your traces, fixing your bugs, wiring your own CI — are where the property lives. The method is free. The content it produces is yours.</p>
+<p>There's a fast way to see that content. Take the eval and subtract everything a frontier model already knows. Generic correctness goes; fluent prose goes; any model has those. What's left is domain judgment: the threshold where a refund over $500 needs a human, the procedure a regulator expects to see followed, the difference between the failure that costs you a client and the one that costs you an apology. The eval is that judgment written down in a form a machine can check ten thousand times a day.</p>
+<p>It's also why eval moats might hold where "data moats" disappointed. Companies sat on years of raw logs that never became an advantage, because raw data doesn't turn into product. An eval is the refined form: judgment already distilled, already wired to a deploy gate.</p>
+<h2 id="the-control-test">The control test<a class="headerlink" href="#the-control-test" title="Permanent link">⚓︎</a></h2>
+<p>So the eval is real property. The next question is whether it's <em>yours</em> — and there's a test you can run this quarter. You're on model A. Switch to model B. Can you climb back to your quality bar within days?</p>
+<p>If yes, you own something. The scorecard that defines "good" is yours, and any engine can be tuned against it. If no — if switching means months of vibes and regressions nobody can name — you never owned the quality. The model owned you.</p>
+<p>Nadella puts the same test to enterprises, and the stakes only grow. Models are commoditising; the frontier changes hands every few months. Each handover is either an upgrade or a hostage negotiation, and your eval decides which. The scorecard defines the hill. The model is just whatever climbs it.</p>
+<p>And it's never a bare model that climbs. A benchmark scores a system — the model wired into your harness, your tools, your context — which is why the same model posts different numbers under different harnesses. The harness is yours too. What you own measures the whole system, not the engine inside it.</p>
+<h2 id="the-loop">The loop<a class="headerlink" href="#the-loop" title="Permanent link">⚓︎</a></h2>
+<p>Say the test comes back clean and the scorecard is yours. It still has a shelf life. Your system eventually passes every example in its own golden set, and the domain drifts underneath it — new products, new regulations. A static eval is a depreciating asset.</p>
+<p>The objection is correct, and it tells you what the asset actually is. The eval isn't the scorecard. It's the measurement half of a loop — and measurement is the half that closes it. Strip the eval out and nothing feeds back: what's left isn't a loop but an open system, running until something external stops it. Traces come in; new failures get named and added to the taxonomy; the golden set regrows; judges get revalidated against the experts; deploy gates move. Then the system fails in new ways, and the loop turns again. What compounds is the loop. The eval set is just its latest reading.</p>
+<p>Investors who push back on the moat story are right about the half they can see. Ed Sim's version: evals alone aren't defensibility — you also need the context, the workflow integration, the execution data. Concede it. His list is the rest of the loop.</p>
+<p>The market is already pricing that loop, piece by piece. Anthropic's leaders have <a href="https://techcrunch.com/2025/09/21/silicon-valley-bets-big-on-environments-to-train-ai-agents/">reportedly discussed</a> spending more than $1 billion in a year on RL environments — the simulated workplaces where agents practise. Fleet, which sells them, reached a reported valuation around $750 million. Prime Intellect runs a hub of more than 2,500 of them. Nobody is buying the model. They're buying the gym.</p>
+<p>And the loop repairs the one crack in the trade-secret frame. Coca-Cola's secret survives because nothing forces it to change; your domain grants no such mercy. The only trade secret that outlasts a drifting domain is one that regenerates faster than it leaks — which is exactly what the loop does.</p>
+<h2 id="the-landlords-offer">The landlord's offer<a class="headerlink" href="#the-landlords-offer" title="Permanent link">⚓︎</a></h2>
+<p>If the moat is the loop, the next question is who runs it — and there's a pitch going around with a seductive answer. The same people who tell you evals are your biggest IP also sell the machine that builds them for you. In the version Nadella <a href="https://www.youtube.com/watch?v=d0Pfu6B7gIM">sketched at Stanford</a>, the platform watches a workflow it already hosts — HR onboarding running through M365, say — and from what it observes, generates the evals and the training environment around them. A multi-tenant hill-climbing service. Bring any model. Press the button.</p>
+<p>If the landlord builds your hill-climbing machine, whose hill is it?</p>
+<p>Here's the part that's easy to miss, because on the surface it looks like everything above. It isn't. Until now the question was whether an eval is worth owning. This one is subtler: you can have a perfectly good eval — accurate, useful, climbing every day — and not own it. The taxonomy is real, the golden set is graded, the gate works. But if all of it lives in the platform's format, runs on the platform's telemetry, and gates deploys only inside the platform's walls, you are not the owner. You are a tenant with a very nice apartment.</p>
+<p>Run the control test again, one level up. Last time you swapped the model; this time swap the platform. Can you take the taxonomy, the golden set, the judges, and the traces, and go climb somewhere else? If the answer is no, the eval is real and the ownership is rented — and the rent is paid in switching costs.</p>
+<p>None of this is a reason to refuse the button. Generated evals are genuinely useful. They spare you the slowest part of the build, and a platform that has watched onboarding run ten thousand times across its tenants has seen failure patterns you haven't. But there's a part neither the platform nor the frontier lab behind it can absorb: which failure costs you a client, what "good" means to your domain experts, who is liable when the answer is wrong. That knowledge isn't in the telemetry.</p>
+<p>So hold the line: generated evals are scaffolding; validated evals are IP. Keep the taxonomy in plain files, the golden set exportable, and judge agreement measured against your own people. Take the scaffolding. Own the validation.</p>
+<p>Now read the same picture from the other chair. Every tenancy has a landlord, and the landlord's is the best seat at the table. If you run the platform other people build their evals on — if you own the format, hold the telemetry, and are the gate their deploys have to pass — then their switching costs are your revenue. You're not renting the hill. You're charging admission to it. That is a real strategy, not a hypothetical; it's what the easy button looks like from the other side. It carries one hard condition: you can only be the landlord if you own rails other people genuinely need to build on. Most don't — and mistaking your own apartment for the building is how you end up paying rent while you think you're collecting it.</p>
+<h2 id="the-other-move">The other move<a class="headerlink" href="#the-other-move" title="Permanent link">⚓︎</a></h2>
+<p>Tenant or landlord, that whole contest is about the eval you keep — held close, guarded, the value in who can't get at it. Now turn the artifact over.</p>
+<p>The same scorecard, published instead of hidden, becomes the opposite kind of property — the Bell Labs move, not the Coca-Cola one. It sounds like a contradiction: why give away the thing you just spent an argument learning to guard? Because disclosure can be worth more than secrecy, and one industry has already run the whole experiment.</p>
+<p>When John Bogle launched the first retail index fund in 1976, it tracked the S&amp;P 500 — and the index was worth so little as property that, as the Acquired podcast tells it, people inside S&amp;P wondered who should be paying whom. It was public and effectively free.</p>
+<p>Then the ecosystem grew, and the property appeared. S&amp;P began writing licenses, and the teeth came through the courts: at one point it blocked Vanguard from launching an S&amp;P 500 ETF for years. By 2025 a single fund whose entire job is tracking the index — SPY — paid S&amp;P <a href="https://www.sec.gov/Archives/edgar/data/884394/000119312525297563/d18808dn30d.htm">$186 million in license fees</a> for the year, and S&amp;P Global's index business booked <a href="https://s29.q4cdn.com/690959130/files/doc_financials/2025/q4/S-P-Global-4Q-FY-2025-Earnings-Release-Exhibits-2-10-2026.pdf">$1.85 billion of revenue at a 69% operating margin</a>.</p>
+<p>Look at what kind of property that is: a trademark and a contract, no patent anywhere in the story. The methodology was public the whole time. Publish the reference and you own the name — the thing everyone has to license to say they track it. The fund is the commodity wrapper; the index is the asset. Disclosure didn't give the property away. Disclosure created it.</p>
+<p>AI benchmarks are in their 1976 moment: published free, stewarded informally, nobody paying rent yet. And the standard-setter move is already visible. Sierra, an agent startup, published τ-bench for customer-service agents, and <a href="https://www.anthropic.com/news/claude-4">Anthropic's Claude 4 launch page reports scores on it</a>. A frontier lab citing a startup's scorecard in its own launch material — that's the whole play in one act. Whoever owns the benchmark owns the axis everyone else is measured on.</p>
+<p>But a benchmark is a stranger asset than an index, and the difference is the whole game. The S&amp;P 500 costs almost nothing to maintain: a committee applies a rulebook — the large, liquid, profitable American companies — and the index goes on measuring the same thing forever. It doesn't wear out. A benchmark does. The day you publish it, every lab starts training against it; scores climb, the ceiling arrives, and the number stops telling good from great. <a href="https://www.understandingai.org/p/why-its-getting-harder-to-measure">MMLU ran from 43.9% to a frontier parked at 88–93%</a> and the labs quietly stopped reporting it; <a href="https://arxiv.org/abs/2501.14249">Humanity's Last Exam</a>, built because everything else had saturated, was half-solved within eighteen months.</p>
+<p>So the value was never in publishing the benchmark — that part is done once, and cheaply. It's in the work of keeping it worth citing: re-cutting the hard cases as the old ones top out, controlling for contamination between releases, throwing out the tasks that turn out to be broken. That work is the loop from the first half of this essay, run in public instead of in private. <a href="https://openai.com/index/introducing-swe-bench-verified/">OpenAI took over SWE-bench</a>, an academic benchmark that was already public, cut a human-verified five-hundred-instance subset, and turned SWE-bench Verified into the coding number every lab now reports. The raw benchmark existed; the stewardship created the value. Abandoned, a benchmark decays from instrument into training target. Tended, it stays an instrument — and the $186 million is rent on the reference.</p>
+<p>So who does the tending? Not naturally a platform. The companies that own reference standards in other industries — the ones that rate the credit, measure the audience, certify the wiring won't burn your house down — are trusted because they don't compete in the market they measure. The neutrality is the asset. Which puts a platform in an awkward spot: own the benchmark everyone measures against and you hold the rails and the ruler at once, the strongest seat on the board — but a referee who also plays stops being believed. You can build the standard. Staying credible with it may mean giving it away.</p>
+<p>That is the move a strategist should be watching. As agents and the packaged workflows built from them commoditise, buyers face a shelf where everything claims to work and nothing proves it, and the scarce thing becomes certification — a trusted answer to which of these is any good.</p>
+<p>Today that answer is thin on the ground. Coding has SWE-bench — agentic, continuously tended, the number every lab reports. Other kinds of work have benchmarks too, but mostly knowledge tests a model can pass without doing the job — the bar exam, the medical boards — and no single agentic standard has emerged the way SWE-bench has for code. The frontier labs are building the general version: OpenAI's <a href="https://openai.com/index/gdpval/">GDPval</a> already scores models on real tasks across forty-odd occupations. But that is the horizontal sweep. The deep, trusted, continuously-tended standard for one domain — the one a compliance officer would stake her name on — is still up for grabs in most of them, and the people positioned to claim it are the ones who already own that domain's judgment.</p>
+<p>Which tells you what the steward actually sells. Not the dataset — publish that and it saturates. The product is the verdict. So the benchmarks built to last don't release their tasks at all; they publish the scores and lock the questions away, precisely so no one can train against them. Scale keeps its evaluation sets private, the ARC Prize holds its test out, FrontierMath has never released its problems. They hype the scoreboard and hoard the ruler. And look at what that move is: it keeps the method private — the loop from the first half of this essay — and publishes only the verdict — the standard from the second. It refuses the choice the essay has been drawing. It is what Sangeet Paul Choudary calls rebundling: once a thing splits into parts, the winner owns the one part everyone else has to route through, and folds the rest back around it. Here that part is the trusted number. A credit-rating agency is the pure form — Moody's sells you the letters, never the model behind them, and the letters are the whole business.</p>
+<p>That arrangement carries the rating agencies' old cost. A benchmark you can't see is one you can't game, and also one you can't check. In 2008 the agencies stamped their top grade on mortgage-backed junk, because the firms being rated were the firms paying for the rating and no outsider could audit the model that produced the letters. The un-gameable benchmark and the unauditable one are the same benchmark. Whoever comes to own the trusted number for agentic work inherits the rent and the liability together.</p>
+<h2 id="two-ways-to-own-it">Two ways to own it<a class="headerlink" href="#two-ways-to-own-it" title="Permanent link">⚓︎</a></h2>
+<p>One artifact, two ways to own it — the two the essay opened with. Keep it, and it's a trade secret: model-independent, compounding for as long as the private loop that regenerates it stays yours, whether you climb on it alone or rent the hill to everyone else. Give it away, and it's a bid to own a standard: you trade the secrecy for a reference others must cite, and take on the public version of that same loop to keep it worth citing. Or, if you can be trusted to hold the ruler, do both at once — publish the verdict and keep the method, the letters and not the model.</p>
+<p>Both moves assume the scorecard exists. For almost every company, it doesn't. The judgment is still where it has always been — in a few experts' heads, unwritten and ungraded, walking out the door each time one of them leaves. And that is the strange part: the most valuable IP a company will ever hold is also the cheapest to mint. You make it by writing down what your best people already know. Almost no one does.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../../05/03/the-plastic-substrate/" class="md-footer__link md-footer__link--prev" aria-label="Previous: The Plastic Substrate">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                The Plastic Substrate
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023-2025 Ashvin Parameswaran
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sarantium/ashvin" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/ashvinparameswaran" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="/assets/ashvin_parameswaran_curriculum_vitae_2023.pdf" target="_blank" rel="noopener" title="resume" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M96 0C60.7 0 32 28.7 32 64v384c0 35.3 28.7 64 64 64h80V400c0-35.3 28.7-64 64-64h176V170.5c0-17-6.7-33.3-18.7-45.3L290.7 18.7C278.7 6.7 262.5 0 245.5 0zm261.5 176H264c-13.3 0-24-10.7-24-24V58.5zM240 380c-11 0-20 9-20 20v128c0 11 9 20 20 20s20-9 20-20v-28h12c33.1 0 60-26.9 60-60s-26.9-60-60-60zm32 80h-12v-40h12c11 0 20 9 20 20s-9 20-20 20m96-80c-11 0-20 9-20 20v128c0 11 9 20 20 20h32c28.7 0 52-23.3 52-52v-64c0-28.7-23.3-52-52-52zm20 128v-88h12c6.6 0 12 5.4 12 12v64c0 6.6-5.4 12-12 12zm88-108v128c0 11 9 20 20 20s20-9 20-20v-44h28c11 0 20-9 20-20s-9-20-20-20h-28v-24h28c11 0 20-9 20-20s-9-20-20-20h-48c-11 0-20 9-20 20"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tracking", "navigation.indexes", "search.highlight", "search.share", "content.code.copy", "navigation.footer", "navigation.top"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
