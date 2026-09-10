@@ -22,12 +22,12 @@ hide:
 
     ---
 
+    - [Double Entry AI](blog/2026/09/10/double-entry-ai/) · Sep 2026
     - [The Economics of Difficulty](blog/2026/08/08/the-economics-of-difficulty/) · Aug 2026
     - [Launching Orqestra](blog/2026/08/01/launching-orqestra/) · Aug 2026
     - [The Secret and the Standard](blog/2026/07/06/the-secret-and-the-standard/) · Jul 2026
     - [The Plastic Substrate](blog/2026/05/03/the-plastic-substrate/) · May 2026
     - [The Eval Checklist](blog/2026/04/17/the-eval-checklist/) · Apr 2026
-    - [Harness Engineering: A Composable Architecture](blog/2026/04/09/harness-engineering-a-composable-architecture/) · Apr 2026
 
     <br>
 
