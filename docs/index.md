@@ -22,12 +22,12 @@ hide:
 
     ---
 
+    - [Benchmarking the Harness](blog/2026/09/22/benchmarking-the-harness/) · Sep 2026
     - [The Cost Control Checklist](blog/2026/09/21/the-cost-control-checklist/) · Sep 2026
     - [Double Entry AI](blog/2026/09/10/double-entry-ai/) · Sep 2026
     - [The Economics of Difficulty](blog/2026/08/08/the-economics-of-difficulty/) · Aug 2026
     - [Launching Orqestra](blog/2026/08/01/launching-orqestra/) · Aug 2026
     - [The Secret and the Standard](blog/2026/07/06/the-secret-and-the-standard/) · Jul 2026
-    - [The Plastic Substrate](blog/2026/05/03/the-plastic-substrate/) · May 2026
 
     <br>
 
