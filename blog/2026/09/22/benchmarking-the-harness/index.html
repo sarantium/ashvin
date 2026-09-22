@@ -1,0 +1,1756 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A survey of how agent harnesses are evaluated today: the instruments that exist, what they score, what they miss, and the four questions the field cannot agree on.">
+      
+      
+      
+        <link rel="canonical" href="https://ashvin.au/blog/2026/09/22/benchmarking-the-harness/">
+      
+      
+        <link rel="prev" href="../../21/the-cost-control-checklist/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/view-grid-plus-outline-dark.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Benchmarking the Harness - ashvin</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#what-a-harness-is" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="ashvin" class="md-header__button md-logo" aria-label="ashvin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3v8h8V3zM3 21h8v-8H3zM3 3v8h8V3zm10 13h3v-3h2v3h3v2h-3v3h-2v-3h-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ashvin
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Benchmarking the Harness
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sarantium/ashvin/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sarantium/ashvin
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="ashvin" class="md-nav__button md-logo" aria-label="ashvin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3v8h8V3zM3 21h8v-8H3zM3 3v8h8V3zm10 13h3v-3h2v3h3v2h-3v3h-2v-3h-3z"/></svg>
+
+    </a>
+    ashvin
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sarantium/ashvin/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sarantium/ashvin
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-writing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Writing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Reading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-working/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Working
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../bookshelf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bookshelf
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Blog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-a-harness-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a harness is
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-shape-of-the-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The shape of the field
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-instruments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The instruments
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The instruments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#infrastructure-and-cross-cutting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Infrastructure and cross-cutting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coding-and-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coding and terminal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool-use-and-integrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool use and integrations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#knowledge-work-and-documents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Knowledge work and documents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-browser-and-computer-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Web, browser and computer use
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#research-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Research agents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-and-long-horizon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memory and long horizon
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-and-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security and governance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operational" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operational
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buyer-side-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Buyer-side frameworks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methodology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methodology
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#five-instruments-worth-building-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Five instruments worth building on
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-agents-get-scored" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How agents get scored
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-field-cannot-agree-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the field cannot agree on
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What the field cannot agree on">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#separating-the-harness-from-the-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Separating the harness from the model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whether-to-aggregate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Whether to aggregate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contamination-and-decay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contamination and decay
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whether-a-declared-capability-can-be-verified" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Whether a declared capability can be verified
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-nobody-measures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What nobody measures
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-case-that-this-cannot-be-done" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The case that this cannot be done
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="References">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#peer-reviewed-or-reproducible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Peer-reviewed or reproducible
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documented-and-independently-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documented and independently run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vendor-or-analyst-framings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vendor or analyst framings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2026-09-22 00:00:00+00:00" class="md-ellipsis">September 22, 2026</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              16 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <span class="md-tag">ai</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">applied-ai</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">evals</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">infrastructure</span>
+      
+    
+  </nav>
+
+
+  
+  
+
+
+  <h1>Benchmarking the Harness</h1>
+
+<p>Every public agent leaderboard ranks a model. Around that model sits a scaffold: the code that issues tools, builds context, decides when to retry and when to stop. The scaffold usually goes unreported. Three controlled results published this year show what that omission costs.</p>
+<p>Vats and Golev ran two models across three open-source harnesses on a stratified 50-task subset of Terminal-Bench Pro. Their finding: "harness choice induces up to a 40x difference in tokens per solved task, while paired within-model pass-rate differences remain 0-8 percentage points." Failure patterns replicated across models. Goose failed on reasoning, OpenHands-SDK on verification and turn limits, OpenCode on idle loops and timeouts. Those are properties of the harness, not of the model running inside it.</p>
+<!-- more -->
+
+<p>A 2026 survey of agent and harness design found the same effect on WebArena. Holding the backbone fixed at GPT-4o, accuracy "ranges from 13.1% in the model-only baseline to 54.6% with WebOperator, a 41.5% span; even among named harnesses alone, it ranges from 19.2% with LM-TS to 54.6% with WebOperator."</p>
+<p>A third paper formalises this as the Binding Constraint Thesis: for long-horizon tasks across models of comparable frontier capability, performance variance is governed more by harness configuration than by model choice, so current protocols "systematically misattribute harness-level gains to model improvements."</p>
+<p>If the scaffold moves the number that much, the scaffold is worth measuring on its own. This is a survey of what exists to measure it with.</p>
+<h2 id="what-a-harness-is">What a harness is<a class="headerlink" href="#what-a-harness-is" title="Permanent link">⚓︎</a></h2>
+<p>A harness is everything between the user's request and the model's weights. It decides which tools the model can reach and how their outputs are formatted; how much of the conversation and the filesystem enters the context window; whether the model plans before acting; how many turns it gets; what happens on a tool error; whether a human is asked before a destructive action; and what the model is allowed to touch in the first place.</p>
+<p>Claude Code, Codex CLI, OpenCode and Cursor are harnesses. So are Glean, Microsoft 365 Copilot and Agentforce. So are LangGraph, the OpenAI Agents SDK and Google's ADK, except there you assemble the harness yourself. The four classes have almost nothing in common architecturally, which is the central obstacle to comparing them and the reason most of this survey's instruments cover exactly one class.</p>
+<h2 id="the-shape-of-the-field">The shape of the field<a class="headerlink" href="#the-shape-of-the-field" title="Permanent link">⚓︎</a></h2>
+<p>Rigorous, reproducible instruments cluster in coding and tool use. Terminal-Bench, SWE-bench Pro, the Berkeley Function-Calling Leaderboard and τ-bench are all open, re-runnable, and programmatically scored. Move outward and the rigour drops fast. Knowledge work has one serious instrument. Enterprise deployment has none, only analyst frameworks. Onboarding cost, connector depth and governance controls are measured only by declaration.</p>
+<p>That is the coverage problem. The second problem is design. Almost every instrument varies the model and holds the scaffold fixed. That is the right design if you are ranking models, which is what most of these were built to do. Only three things in the survey treat the harness as the variable under test: the Holistic Agent Leaderboard, the Scaffold Effect paper, and practitioner bake-offs.</p>
+<h2 id="the-instruments">The instruments<a class="headerlink" href="#the-instruments" title="Permanent link">⚓︎</a></h2>
+<p>Read the last column first. It determines whether an instrument can say anything about a harness at all.</p>
+<h3 id="infrastructure-and-cross-cutting">Infrastructure and cross-cutting<a class="headerlink" href="#infrastructure-and-cross-cutting" title="Permanent link">⚓︎</a></h3>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Measures</th>
+<th>Unit of task</th>
+<th>Scoring</th>
+<th>Harness treated as</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Holistic Agent Leaderboard (HAL), Princeton PLI</td>
+<td>Accuracy against cost across 9 benchmarks</td>
+<td>One task from an adapted benchmark</td>
+<td>Inherited programmatic, plus LLM log inspection</td>
+<td><strong>Variable</strong> — models × scaffolds × benchmarks</td>
+</tr>
+<tr>
+<td>Terminal-Bench 2.0 + Harbor + registry, Laude Institute</td>
+<td>Terminal task completion, end state</td>
+<td>One instruction in a Docker sandbox</td>
+<td>Programmatic end-state tests</td>
+<td><strong>Variable</strong> — agent adapters</td>
+</tr>
+<tr>
+<td>HELM / HELM Capabilities, Stanford CRFM</td>
+<td>Accuracy, robustness, bias, efficiency</td>
+<td>One scenario or prompt</td>
+<td>Multi-metric grid</td>
+<td>Fixed, mostly implicit</td>
+</tr>
+<tr>
+<td>CUBE, a proposed unification standard</td>
+<td>Benchmark interoperability</td>
+<td>Adapter-normalised trajectory</td>
+<td>Parity experiments</td>
+<td>Variable, by design</td>
+</tr>
+<tr>
+<td>Inside the Scaffold</td>
+<td>12 scaffold dimensions</td>
+<td>Architecture description</td>
+<td>Qualitative taxonomy</td>
+<td>The object of study</td>
+</tr>
+</tbody>
+</table>
+<h3 id="coding-and-terminal">Coding and terminal<a class="headerlink" href="#coding-and-terminal" title="Permanent link">⚓︎</a></h3>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Measures</th>
+<th>Unit of task</th>
+<th>Scoring</th>
+<th>Harness treated as</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SWE-bench Verified</td>
+<td>Repository bug-fix resolve rate</td>
+<td>One GitHub issue</td>
+<td>Fail-to-pass and pass-to-pass tests</td>
+<td>Undisclosed; varies by submission</td>
+</tr>
+<tr>
+<td>SWE-bench Pro, Scale AI</td>
+<td>Long-horizon software engineering</td>
+<td>One commit-derived task</td>
+<td>Resolve rate, no regressions</td>
+<td>Disclosed per submission, not controlled</td>
+</tr>
+<tr>
+<td>The Scaffold Effect, Vats &amp; Golev</td>
+<td>Harness token cost and failure fingerprints</td>
+<td>One Terminal-Bench Pro task</td>
+<td>pass@1, tokens per solved task, failure taxonomy</td>
+<td><strong>Variable</strong> — 2 models × 3 harnesses</td>
+</tr>
+<tr>
+<td>Agentic Harness Engineering</td>
+<td>Automatic harness evolution</td>
+<td>Terminal-bench-long task</td>
+<td>Pass-rate uplift at fixed model</td>
+<td>The thing being optimised</td>
+</tr>
+</tbody>
+</table>
+<p>SWE-bench Verified is the cautionary tale of the group. OpenAI retired it after finding frontier models could reproduce the gold patches from memory; its page is now titled "Why SWE-bench Verified no longer measures frontier coding capabilities."</p>
+<h3 id="tool-use-and-integrations">Tool use and integrations<a class="headerlink" href="#tool-use-and-integrations" title="Permanent link">⚓︎</a></h3>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Measures</th>
+<th>Unit of task</th>
+<th>Scoring</th>
+<th>Harness treated as</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Berkeley Function-Calling Leaderboard v4</td>
+<td>Function calling, multi-turn, web search, memory</td>
+<td>One call or trajectory</td>
+<td>AST match, executable check, relevance accuracy</td>
+<td>Fixed; ranks models</td>
+</tr>
+<tr>
+<td>MCP-Universe, Salesforce AI Research</td>
+<td>Real MCP servers across 6 domains, 11 servers</td>
+<td>One multi-step MCP task</td>
+<td>Execution-based evaluators, no LLM judge</td>
+<td>Partly variable</td>
+</tr>
+<tr>
+<td>MCP-Bench</td>
+<td>28 servers, 250 tools, cross-tool composition</td>
+<td>Multi-step tool task</td>
+<td>Rubric LLM judgement plus execution</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>LangChain agentevals</td>
+<td>Agent trajectory quality</td>
+<td>Message and tool-call list</td>
+<td>Trajectory match — strict, unordered, subset, superset — plus LLM judge</td>
+<td>The harness is the agent</td>
+</tr>
+<tr>
+<td>Google ADK evaluation</td>
+<td>Tool trajectory and response</td>
+<td>EvalCase → Invocation</td>
+<td><code>tool_trajectory_avg_score</code>, <code>response_match_score</code></td>
+<td>The harness is the agent</td>
+</tr>
+</tbody>
+</table>
+<h3 id="knowledge-work-and-documents">Knowledge work and documents<a class="headerlink" href="#knowledge-work-and-documents" title="Permanent link">⚓︎</a></h3>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Measures</th>
+<th>Unit of task</th>
+<th>Scoring</th>
+<th>Harness treated as</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GDPval, OpenAI</td>
+<td>Real deliverables across 44 occupations</td>
+<td>One document artifact</td>
+<td>Human expert pairwise, plus rubrics and an automated grader</td>
+<td>Implicit</td>
+</tr>
+<tr>
+<td>GDPval-AA, Artificial Analysis</td>
+<td>Blind pairwise on the 220-task gold subset</td>
+<td>One document artifact</td>
+<td>LLM judge, pairwise, Elo</td>
+<td>Conflated with the model</td>
+</tr>
+<tr>
+<td>OfficeBench</td>
+<td>Office automation across documents, sheets, email</td>
+<td>Multi-app office task</td>
+<td>Programmatic checks</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>DABstep, Workspace-Bench</td>
+<td>Data analysis and file-heavy workspace tasks</td>
+<td>Multi-step data task</td>
+<td>Programmatic plus rubric</td>
+<td>Conflated</td>
+</tr>
+</tbody>
+</table>
+<p>GDPval is the most carefully built of these. It covers 44 occupations across the top nine sectors contributing to US GDP, with tasks written by professionals averaging fourteen years of experience: 1,320 in total, 220 open-sourced as a gold subset with a public grading service. It measures what a model produces, not what a scaffold does, but the occupation-sampling method and the pairwise-plus-rubric scoring are the closest thing the field has to a template for artifact quality.</p>
+<h3 id="web-browser-and-computer-use">Web, browser and computer use<a class="headerlink" href="#web-browser-and-computer-use" title="Permanent link">⚓︎</a></h3>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Measures</th>
+<th>Unit of task</th>
+<th>Scoring</th>
+<th>Harness treated as</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WebArena, CMU</td>
+<td>Self-hosted web navigation</td>
+<td>One web task</td>
+<td>Programmatic state checks</td>
+<td>Undisclosed in most reports</td>
+</tr>
+<tr>
+<td>OSWorld / OSWorld 2.0</td>
+<td>Computer use, long-horizon desktop work</td>
+<td>One desktop workflow</td>
+<td>Deterministic graders, partial credit</td>
+<td>Fixed per submission</td>
+</tr>
+<tr>
+<td>BrowseComp, OpenAI</td>
+<td>Hard agentic web research</td>
+<td>One short-answer question</td>
+<td>Exact match</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>Steel browser-agent leaderboards</td>
+<td>Aggregates ten browser and computer-use benchmarks</td>
+<td>Inherited</td>
+<td>Inherited, sources tagged</td>
+<td>Mixed; system pages tagged</td>
+</tr>
+</tbody>
+</table>
+<h3 id="research-agents">Research agents<a class="headerlink" href="#research-agents" title="Permanent link">⚓︎</a></h3>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Measures</th>
+<th>Unit of task</th>
+<th>Scoring</th>
+<th>Harness treated as</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Deep Research Bench, FutureSearch</td>
+<td>89 multi-step web research tasks</td>
+<td>One research task</td>
+<td>Per-category precision, recall, F1, binary</td>
+<td>Fixed scaffold provided</td>
+</tr>
+<tr>
+<td>DeepResearch Bench (RACE/FACT)</td>
+<td>100 PhD-level tasks across 22 fields</td>
+<td>One long research report</td>
+<td>Adaptive rubric LLM judge, plus citation checking</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>DRACO, Perplexity</td>
+<td>100 tasks against expert rubrics</td>
+<td>One research task</td>
+<td>Expert rubric</td>
+<td>Conflated; vendor-run</td>
+</tr>
+</tbody>
+</table>
+<p>Deep Research Bench contributes one idea worth more than its scores: RetroSearch, a large frozen snapshot of scraped pages served to agents so that results stay comparable as the live web changes underneath them.</p>
+<h3 id="memory-and-long-horizon">Memory and long horizon<a class="headerlink" href="#memory-and-long-horizon" title="Permanent link">⚓︎</a></h3>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Measures</th>
+<th>Unit of task</th>
+<th>Scoring</th>
+<th>Harness treated as</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vending-Bench, Andon Labs</td>
+<td>Long-term coherence over a business simulation</td>
+<td>One long-horizon run</td>
+<td>Programmatic — net worth, coherence</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>LongMemEval</td>
+<td>Long-span memory, 500 questions, temporal reasoning</td>
+<td>Memory question</td>
+<td>Accuracy by category</td>
+<td>Memory layer varied</td>
+</tr>
+<tr>
+<td>LoCoMo</td>
+<td>Long-term dialogue memory</td>
+<td>Dialogue recall question</td>
+<td>F1, accuracy</td>
+<td>Memory layer varied</td>
+</tr>
+<tr>
+<td>Mem0 benchmark suite</td>
+<td>Memory accuracy against token cost</td>
+<td>Memory question</td>
+<td>Accuracy plus tokens</td>
+<td>The vendor's own memory layer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="security-and-governance">Security and governance<a class="headerlink" href="#security-and-governance" title="Permanent link">⚓︎</a></h3>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Measures</th>
+<th>Unit of task</th>
+<th>Scoring</th>
+<th>Harness treated as</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AgentDojo, ETH Zurich SPY Lab</td>
+<td>Prompt injection: benign utility and attack success rate</td>
+<td>One (user task, injection task) pair</td>
+<td>Programmatic environment state</td>
+<td>Defences are composable modules</td>
+</tr>
+<tr>
+<td>NIST CAISI hijacking evaluations</td>
+<td>Hijacking resistance</td>
+<td>Hijacking scenario built on AgentDojo</td>
+<td>Attack success rate</td>
+<td>The system under test</td>
+</tr>
+<tr>
+<td>τ2-bench, Sierra Research</td>
+<td>Tool-agent-user dialogue and policy adherence</td>
+<td>Multi-turn conversation against a policy document</td>
+<td>Database-state match, action correctness, pass^k</td>
+<td>Fixed</td>
+</tr>
+</tbody>
+</table>
+<p>AgentDojo is the cleanest reusable component in the survey. It populates four environments (banking, Slack, travel, workspace) with "97 realistic tasks ... 629 security test cases", and scores both axes programmatically against resulting environment state: did the agent complete the benign task, and did the injected instruction divert it. No LLM judge. NIST adopted it for US government hijacking evaluations. Its acknowledged weakness is that static attacks age, and the field is calling for adaptive attacker-defender co-evolution.</p>
+<h3 id="operational">Operational<a class="headerlink" href="#operational" title="Permanent link">⚓︎</a></h3>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Measures</th>
+<th>Unit of task</th>
+<th>Scoring</th>
+<th>Harness treated as</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HAL cost-Pareto analysis</td>
+<td>Accuracy against dollars and tokens</td>
+<td>One rollout</td>
+<td>Cost logged per run</td>
+<td>Variable</td>
+</tr>
+<tr>
+<td>HAL AI Agent Reliability Tracker</td>
+<td>Variance across identical runs</td>
+<td>Multi-run task</td>
+<td>Pass distribution</td>
+<td>Scaffold analysed</td>
+</tr>
+<tr>
+<td>MLPerf Agentic Inference, MLCommons</td>
+<td>Serving throughput and latency under agentic load</td>
+<td>Multi-turn trajectory</td>
+<td>TTFT, TPOT, throughput</td>
+<td>Not applicable — infrastructure</td>
+</tr>
+<tr>
+<td>The Scaffold Effect</td>
+<td>Tokens per solved task</td>
+<td>One task</td>
+<td>Token accounting</td>
+<td>Variable</td>
+</tr>
+</tbody>
+</table>
+<h3 id="buyer-side-frameworks">Buyer-side frameworks<a class="headerlink" href="#buyer-side-frameworks" title="Permanent link">⚓︎</a></h3>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Measures</th>
+<th>Unit of task</th>
+<th>Scoring</th>
+<th>Harness treated as</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Forrester Agent Control Plane</td>
+<td>Inventory, governance, orchestration, assurance</td>
+<td>Capability assertion</td>
+<td>Analyst scoring of declared capability</td>
+<td>The platform is ranked</td>
+</tr>
+<tr>
+<td>Gartner, "How to Compare Enterprise AI Assistants"</td>
+<td>Search, connectors, tools, extensibility, governance</td>
+<td>Capability assertion</td>
+<td>Six declared criteria</td>
+<td>The assistant is ranked</td>
+</tr>
+<tr>
+<td>Glean, "How to Compare Enterprise AI Assistants"</td>
+<td>Connectors, permissions, actions</td>
+<td>Capability assertion</td>
+<td>Checklist</td>
+<td>Own product favoured</td>
+</tr>
+<tr>
+<td>Composio, "8 Best AI Agent Harnesses"</td>
+<td>Pass rate, tokens, cost, speed on a shared task set</td>
+<td>Shared task</td>
+<td>Programmatic checker</td>
+<td><strong>The thing being ranked</strong>, at a fixed model</td>
+</tr>
+</tbody>
+</table>
+<p>These four are the only instruments in the survey that address enterprise platforms as whole products. Three of them score by declaration and are paywalled or vendor-authored. The fourth is a practitioner bake-off. That is the entire measurement culture for the category most enterprises are actually buying.</p>
+<h3 id="methodology">Methodology<a class="headerlink" href="#methodology" title="Permanent link">⚓︎</a></h3>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Contribution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Agentic Benchmark Checklist (ABC), Kang et al.</td>
+<td>Task-setup and reward-design validity</td>
+</tr>
+<tr>
+<td>Establishing Best Practices for Rigorous Agentic Benchmarks</td>
+<td>Rigour guidelines</td>
+</tr>
+<tr>
+<td>Stop Comparing LLM Agents Without Disclosing the Harness</td>
+<td>A disclosure standard and the Binding Constraint Thesis</td>
+</tr>
+<tr>
+<td>Efficient Benchmarking of AI Agents</td>
+<td>Task subset selection to cut cost</td>
+</tr>
+<tr>
+<td>NIST CAISI, "Cheating on AI Agent Evaluations"</td>
+<td>A taxonomy of grader gaming</td>
+</tr>
+<tr>
+<td>IBM Research, "Ready For General Agents?"</td>
+<td>The argument that cross-environment comparison is currently infeasible</td>
+</tr>
+</tbody>
+</table>
+<p>The ABC paper is worth reading before trusting any score above. It found that "SWE-bench Verified uses insufficient test cases, while TAU-bench counts empty responses as successful", and that issues of this kind "can lead to under- or overestimation of agents' performance by up to 100% in relative terms."</p>
+<h2 id="five-instruments-worth-building-on">Five instruments worth building on<a class="headerlink" href="#five-instruments-worth-building-on" title="Permanent link">⚓︎</a></h2>
+<p><strong>HAL</strong> is the strongest piece of reusable infrastructure. Any scaffold needs only expose a <code>run(input) -&gt; dict</code> interface, after which HAL orchestrates parallel rollouts across hundreds of VMs, logs tokens and dollars, and runs LLM-aided inspection over the traces. The authors validated it with "21,730 agent rollouts across 9 models and 9 benchmarks in coding, web navigation, science, and customer service with a total cost of about $40,000", and released 2.5B tokens of logs. Inspecting those logs surfaced behaviours no pass rate would have caught, including agents "searching for the benchmark on HuggingFace instead of solving a task, or misusing credit cards in flight booking tasks." Its own stated limitation is that providers swap weights and quantisations without notice, which breaks reproducibility from underneath.</p>
+<p><strong>Terminal-Bench 2.0</strong> contributes the adapter pattern. A task is a Docker container with an instruction and an end-state test suite, so the question is not whether the model said the right thing but whether the machine ended up in the right state. The registry pins dataset name, version, commit hash and task subset. The adapter layer means one agent integration runs unchanged against SWE-bench Verified, AppWorld, DevEval and EvoEval.</p>
+<p><strong>The Scaffold Effect</strong> is a study design rather than a benchmark, and it is the template for isolating harness contribution: hold the model set fixed, vary the harness, and report pass rate alongside tokens per solved task and a failure taxonomy. Its own limits are scale and accounting: three harnesses, two models, fifty tasks, and token counts that do not compare cleanly between harnesses, since Goose does not split input from output.</p>
+<p><strong>AgentDojo</strong> is the only security instrument that scores both axes programmatically, which makes it droppable into a wider suite without dragging an LLM judge along with it. Its environments are also the nearest thing to a working probe for permissions, since an attack that succeeds is evidence that least privilege did not hold.</p>
+<p><strong>agentevals and Google ADK evaluation</strong> are the only instruments that natively score <em>how</em> a scaffold orchestrates rather than what it finally produces. Both score the trajectory: the sequence of tool calls and messages, matched against a reference under configurable strictness. For a question about harness quality rather than model quality, trajectory scoring is the closest available proxy.</p>
+<h2 id="how-agents-get-scored">How agents get scored<a class="headerlink" href="#how-agents-get-scored" title="Permanent link">⚓︎</a></h2>
+<p>Eight methods recur. Each is good at something and fails in a characteristic way.</p>
+<p><strong>Programmatically-checkable environment tasks.</strong> Terminal-Bench end-state tests, WebArena state checks, OSWorld graders, τ2 database state, AgentDojo environment state. Objective, reproducible, hard to game at the answer level. They fail through fragile simulators and gameable graders. NIST documented agents disabling assertions and reading git history rather than solving the task.</p>
+<p><strong>Golden-answer retrieval.</strong> BrowseComp, LongMemEval, parts of Deep Research Bench. Cheap, exact, and contamination is detectable. Only works where the answer is short and verifiable, and saturates quickly.</p>
+<p><strong>Rubric-scored artifacts.</strong> GDPval task-writer rubrics, DeepResearch Bench RACE, DRACO. The only way to measure open-ended deliverable quality. Rubrics drift, cost real money to author, and need expert calibration.</p>
+<p><strong>LLM-as-judge.</strong> GDPval-AA, DeepResearch Bench, agentevals, HAL log inspection. Calibration techniques in use: blind anonymised pairwise comparison, reference-based adaptive criteria, and splitting extraction from judgement across a cheaper and a stronger model. Fails through self-preference bias and non-determinism.</p>
+<p><strong>Human expert grading.</strong> GDPval, DRACO. Ground truth for knowledge work, and the reason GDPval ships an automated grader alongside: cost and latency make it unrepeatable at scale.</p>
+<p><strong>Pairwise preference.</strong> GDPval-AA, AgentArena. Captures a quality that rubrics miss, and generates preference data as a by-product. Conflates model and harness, and rewards popularity.</p>
+<p><strong>Capability assertions verified by probe.</strong> Almost absent. Analyst and vendor frameworks <em>declare</em> capabilities; nobody probes them. The closest reproducible probes are BFCL's relevance detection, which tests whether an agent correctly declines to call a tool, and AgentDojo's attacks, which probe least-privilege by trying to exceed it.</p>
+<p><strong>Operational telemetry during a run.</strong> HAL's token and dollar logging, the Scaffold Effect's tokens-per-solved-task, MLPerf's TTFT and TPOT, OpenTelemetry's genAI semantic conventions. The only route to cost, latency and reliability. Fails because harnesses report tokens inconsistently and provider routing shifts results between runs.</p>
+<h2 id="what-the-field-cannot-agree-on">What the field cannot agree on<a class="headerlink" href="#what-the-field-cannot-agree-on" title="Permanent link">⚓︎</a></h2>
+<h3 id="separating-the-harness-from-the-model">Separating the harness from the model<a class="headerlink" href="#separating-the-harness-from-the-model" title="Permanent link">⚓︎</a></h3>
+<p>The evidence that they must be separated is now strong: the 40× token span at fixed model, the 41.5-point WebArena span at fixed backbone, and the Binding Constraint Thesis. The disagreement is over what to do about it.</p>
+<p>One camp wants disclosure. The "Stop Comparing" position paper proposes a standard set of fields every submission must report, so that a reader can at least see what was varied. A second camp wants factorial design. HAL's models × scaffolds × benchmarks grid is the only large-scale example. Neither resolves the hard case, which is a harness locked to one model family. Claude Code runs Claude; Codex runs GPT. There is no configuration in which they can be compared at a fixed model, so any number placed in a model-controlled column is wrong by construction.</p>
+<h3 id="whether-to-aggregate">Whether to aggregate<a class="headerlink" href="#whether-to-aggregate" title="Permanent link">⚓︎</a></h3>
+<p>HAL abandoned the one-dimensional leaderboard in favour of accuracy-against-cost Pareto frontiers. Steel refuses to cross-compare its constituent benchmarks at all, on the grounds that 92% on one and 80% on another is not a ranking. HELM's durable contribution is a grid and the argument that no single number should stand for a system's whole character. Against that, buyers want a ranking, and every attempt to refuse them one has been met with someone else publishing the ranking anyway.</p>
+<p>The IBM critique sharpens this: across benchmarks, even "success" is defined incompatibly, so a composite is not merely lossy but incoherent.</p>
+<h3 id="contamination-and-decay">Contamination and decay<a class="headerlink" href="#contamination-and-decay" title="Permanent link">⚓︎</a></h3>
+<p>SWE-bench Verified was retired because models had memorised the patches. τ-bench froze at late-2024 models. SWE-bench Pro was built specifically to resist contamination, drawing 1,865 problems from 41 actively maintained repositories split across 11 public, 12 held-out and 18 commercial. Agents were still caught reading git history and searching Hugging Face for answers.</p>
+<p>The instruments that survive share one habit: they refresh on a schedule and version what they refresh. Terminal-Bench pins commit hashes in its registry. τ-bench moved to τ2. Deep Research Bench freezes the web rather than the questions. What nobody has settled is the cadence, or who pays for it.</p>
+<h3 id="whether-a-declared-capability-can-be-verified">Whether a declared capability can be verified<a class="headerlink" href="#whether-a-declared-capability-can-be-verified" title="Permanent link">⚓︎</a></h3>
+<p>Forrester, Gartner and Glean all score enterprise platforms on capabilities the vendor states it has. That is the dominant method for the entire trust-and-governance axis: permissions, audit export, data residency, tenancy, human-in-the-loop checkpoints. No reproducible probe exists for any of them. Whether one <em>could</em> exist is an open question. A canned MCP server the harness must discover and call is easy to imagine, a reproducible test of data residency much less so.</p>
+<h2 id="what-nobody-measures">What nobody measures<a class="headerlink" href="#what-nobody-measures" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li><strong>Fully loaded cost per completed business task.</strong> HAL and the Scaffold Effect measure token and dollar cost on academic tasks. Nobody measures cost including retries, human oversight and connector fees. Costs are non-deterministic, provider routes shift between runs, and vendors have no reason to publish the real figure.</li>
+<li><strong>Connector depth and quality.</strong> Every vendor publishes a connector count. Nobody scores whether a connector reads and writes correctly, under permissions, at depth. Testing it requires live credentials to hundreds of SaaS tenants.</li>
+<li><strong>Governance as a scored outcome.</strong> AgentDojo scores injection resistance. Permissions, auditability, trace export, residency and admin controls are only ever declared. No environment exists to probe them reproducibly.</li>
+<li><strong>Run-to-run reliability.</strong> HAL's Reliability Tracker is close to alone in reporting variance across identical runs. Multi-run protocols multiply cost, and stable numbers are commercially inconvenient.</li>
+<li><strong>Onboarding and time-to-value.</strong> Central to how buyers actually choose, measured rigorously by nobody. It depends on the customer's own data and takes weeks, which is hostile to any static benchmark.</li>
+<li><strong>Whole products.</strong> No instrument runs the Claude, ChatGPT or Gemini applications end to end, or Glean, Agentforce and Copilot Studio, across all four axes. The products are closed, have no evaluation hooks, and expose mutually incompatible interaction protocols.</li>
+<li><strong>Delegation quality.</strong> Frameworks advertise multi-agent orchestration. Trajectory scoring covers whether tools were called in a sensible order; it does not cover whether delegation was correct at scale.</li>
+</ul>
+<h2 id="the-case-that-this-cannot-be-done">The case that this cannot be done<a class="headerlink" href="#the-case-that-this-cannot-be-done" title="Permanent link">⚓︎</a></h2>
+<p>The strongest argument against a horizontal harness benchmark comes from IBM Research, whose position is that cross-environment comparison is currently "impossible without substantial ad hoc engineering" because harness communication protocols are mutually incompatible. A web agent has no conversational channel, and a chat agent has no way to issue a click. Forcing an MCP-native agent like Claude Code through a command-line protocol distorts what it does. General AgentBench supplies the empirical companion: scores degrade sharply moving from domain-specific to general settings, which means the task distribution you choose largely determines who wins.</p>
+<p>Read alongside HELM and Steel, both of which reject cross-benchmark aggregation, the honest reading is that a horizontal harness benchmark cannot be a single ranking. It can be a disclosed, per-axis matrix with the harness held as a controlled variable wherever the product permits it. Even then, its coverage is a policy choice rather than a fact about the world, and the choice of what to include will decide the result.</p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">⚓︎</a></h2>
+<p>The harness moves agent performance as much as the model does, and almost nothing measures it. The instruments that exist were built to rank models under a fixed scaffold, and they do that well. Three things treat the scaffold as the variable: HAL, the Scaffold Effect study design, and a handful of practitioner bake-offs.</p>
+<p>The components for something better are already published and mostly open: HAL's orchestration and cost logging, Terminal-Bench's adapters, AgentDojo's security environments, GDPval's grading method, trajectory scoring from the SDK vendors.</p>
+<p>The obstacle is ownership. The organisations able to build it all have a product in the ring, and the ones without that conflict cannot get access to the closed harnesses that would need to be in it.</p>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">⚓︎</a></h2>
+<h3 id="peer-reviewed-or-reproducible">Peer-reviewed or reproducible<a class="headerlink" href="#peer-reviewed-or-reproducible" title="Permanent link">⚓︎</a></h3>
+<ul>
+<li>Vats, N. &amp; Golev, O. (2026). <a href="https://arxiv.org/abs/2607.22585">The Scaffold Effect in Coding Agents: Harness Choice as a Hidden Variable in Coding-Agent Evaluation</a>. arXiv:2607.22585.</li>
+<li><a href="https://arxiv.org/abs/2605.23950">Stop Comparing LLM Agents Without Disclosing the Harness</a> (2026). arXiv:2605.23950.</li>
+<li><a href="https://arxiv.org/abs/2606.20683">From Question Answering to Task Completion: A Survey on Agent System and Harness Design</a> (2026). arXiv:2606.20683.</li>
+<li>Kapoor, S., Stroebl, B., Narayanan, A. et al. (2026). <a href="https://arxiv.org/abs/2510.11977">Holistic Agent Leaderboard: The Missing Infrastructure for AI Agent Evaluation</a>. arXiv:2510.11977. Code: <a href="https://github.com/princeton-pli/hal-harness">princeton-pli/hal-harness</a>.</li>
+<li><a href="https://www.tbench.ai/">Terminal-Bench</a> and the <a href="https://www.tbench.ai/news/registry-and-adapters">dataset registry and adapters</a>. Laude Institute. Code: <a href="https://github.com/laude-institute/terminal-bench">laude-institute/terminal-bench</a>.</li>
+<li>Debenedetti, E. et al. (2024). <a href="https://arxiv.org/abs/2406.13352">AgentDojo: A Dynamic Environment to Evaluate Prompt Injection Attacks and Defenses for LLM Agents</a>. arXiv:2406.13352. Code: <a href="https://github.com/ethz-spylab/agentdojo">ethz-spylab/agentdojo</a>.</li>
+<li>Patil, S. et al. <a href="https://gorilla.cs.berkeley.edu/leaderboard.html">Berkeley Function-Calling Leaderboard</a>. UC Berkeley Gorilla.</li>
+<li>Liang, P. et al. <a href="https://crfm.stanford.edu/helm/">Holistic Evaluation of Language Models (HELM)</a>. Stanford CRFM.</li>
+<li>Zhou, S. et al. <a href="https://webarena.dev/">WebArena</a>. Carnegie Mellon University.</li>
+<li><a href="https://github.com/xlang-ai/OSWorld">OSWorld</a> and OSWorld 2.0.</li>
+<li><a href="https://drb.futuresearch.ai/">Deep Research Bench</a> (2025). arXiv:2506.06287. FutureSearch.</li>
+<li>Kang, D. et al. <a href="https://arxiv.org/abs/2507.02825">Establishing Best Practices for Rigorous Agentic Benchmarks</a> and the Agentic Benchmark Checklist. arXiv:2507.02825.</li>
+<li><a href="https://arxiv.org/abs/2603.23749">Efficient Benchmarking of AI Agents</a> (2026). arXiv:2603.23749.</li>
+<li><a href="https://arxiv.org/abs/2604.03515">Inside the Scaffold</a> (2026). arXiv:2604.03515.</li>
+<li>Andon Labs (2025). <a href="https://arxiv.org/abs/2502.15840">Vending-Bench: A Benchmark for Long-Term Coherence of Autonomous Agents</a>. arXiv:2502.15840.</li>
+</ul>
+<h3 id="documented-and-independently-run">Documented and independently run<a class="headerlink" href="#documented-and-independently-run" title="Permanent link">⚓︎</a></h3>
+<ul>
+<li>Scale AI (2025). <a href="https://arxiv.org/abs/2509.16941">SWE-Bench Pro</a>. arXiv:2509.16941. Leaderboard: <a href="https://labs.scale.com/leaderboard/swe_bench_pro_private">labs.scale.com</a>.</li>
+<li>OpenAI (2026). <a href="https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/">Why SWE-bench Verified no longer measures frontier coding capabilities</a>.</li>
+<li>Salesforce AI Research (2025). <a href="https://arxiv.org/abs/2508.14704">MCP-Universe: Benchmarking Large Language Models with Real-World Model Context Protocol Servers</a>. arXiv:2508.14704. Code: <a href="https://github.com/SalesforceAIResearch/MCP-Universe">SalesforceAIResearch/MCP-Universe</a>.</li>
+<li><a href="https://openreview.net/forum?id=fe8mzHwMxN">MCP-Bench: Benchmarking Tool-Using LLM Agents</a>. OpenReview.</li>
+<li>Sierra Research. <a href="https://github.com/sierra-research/tau2-bench">τ-bench and τ2-bench</a>.</li>
+<li>OpenAI (2025). <a href="https://arxiv.org/abs/2510.04374">GDPval: Evaluating AI Model Performance on Real-World Economically Valuable Tasks</a>. arXiv:2510.04374. Overview: <a href="https://openai.com/index/gdpval/">openai.com/index/gdpval</a>.</li>
+<li>Du, M. et al. (2025). <a href="https://arxiv.org/abs/2506.11763">DeepResearch Bench: A Comprehensive Benchmark for Deep Research Agents</a>. arXiv:2506.11763.</li>
+<li><a href="https://arxiv.org/abs/2407.19056">OfficeBench: Benchmarking Language Agents across Multiple Applications</a>. arXiv:2407.19056.</li>
+<li><a href="https://github.com/xiaowu0162/LongMemEval">LongMemEval</a> and <a href="https://snap-research.github.io/locomo/">LoCoMo</a>.</li>
+<li>NIST CAISI. <a href="https://www.nist.gov/news-events/news/2025/01/technical-blog-strengthening-ai-agent-hijacking-evaluations">Strengthening AI Agent Hijacking Evaluations</a> and "Cheating on AI Agent Evaluations".</li>
+<li>LangChain. <a href="https://github.com/langchain-ai/agentevals">agentevals</a>.</li>
+<li>Google. <a href="https://google.github.io/adk-docs/evaluate/">ADK evaluation</a>.</li>
+<li>MLCommons (2026). <a href="https://mlcommons.org/2026/07/agentic-inference-for-mlperf-inference/">Agentic Inference for MLPerf Inference</a>.</li>
+<li>IBM Research (2026). <a href="https://iclr-blogposts.github.io/2026/blog/2026/general-agent-evaluation/">Ready For General Agents? Let's Test It</a>. ICLR 2026 blogpost track.</li>
+<li>Anthropic (2026). <a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">Demystifying evals for AI agents</a>.</li>
+<li>Composio (2026). <a href="https://composio.dev/content/best-ai-agent-harnesses">8 Best AI Agent Harnesses</a>.</li>
+</ul>
+<h3 id="vendor-or-analyst-framings">Vendor or analyst framings<a class="headerlink" href="#vendor-or-analyst-framings" title="Permanent link">⚓︎</a></h3>
+<p>These score declared capabilities rather than measured outcomes, and each author has a commercial interest in the result.</p>
+<ul>
+<li>Forrester. <a href="https://www.forrester.com/blogs/announcing-our-evaluation-of-the-agent-control-plane-market/">Announcing Our Evaluation Of The Agent Control Plane Market</a> and the Agentic Control Plane Solutions Landscape, Q2 2026.</li>
+<li>Gartner. "How to Compare Enterprise AI Assistants" (December 2025); AI Agent Management Platforms.</li>
+<li>Glean. <a href="https://www.glean.com/resources/guides/how-to-compare-enterprise-ai-assistants">How to Compare Enterprise AI Assistants</a>.</li>
+<li>Artificial Analysis. <a href="https://artificialanalysis.ai/evaluations/gdpval-aa">GDPval-AA leaderboard</a>.</li>
+<li>Perplexity. DRACO.</li>
+<li>Mem0. <a href="https://mem0.ai/blog/understanding-memory-benchmark-for-production-ai-agents">Memory benchmark suite</a>.</li>
+<li>Firecrawl. <a href="https://www.firecrawl.dev/blog/best-ai-coding-agents">Best AI Coding Agents in 2026: Harness, Cost, and Accuracy Compared</a>.</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../21/the-cost-control-checklist/" class="md-footer__link md-footer__link--prev" aria-label="Previous: The Cost Control Checklist">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                The Cost Control Checklist
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023-2025 Ashvin Parameswaran
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sarantium/ashvin" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/ashvinparameswaran" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="/assets/ashvin_parameswaran_curriculum_vitae_2023.pdf" target="_blank" rel="noopener" title="resume" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M96 0C60.7 0 32 28.7 32 64v384c0 35.3 28.7 64 64 64h80V400c0-35.3 28.7-64 64-64h176V170.5c0-17-6.7-33.3-18.7-45.3L290.7 18.7C278.7 6.7 262.5 0 245.5 0zm261.5 176H264c-13.3 0-24-10.7-24-24V58.5zM240 380c-11 0-20 9-20 20v128c0 11 9 20 20 20s20-9 20-20v-28h12c33.1 0 60-26.9 60-60s-26.9-60-60-60zm32 80h-12v-40h12c11 0 20 9 20 20s-9 20-20 20m96-80c-11 0-20 9-20 20v128c0 11 9 20 20 20h32c28.7 0 52-23.3 52-52v-64c0-28.7-23.3-52-52-52zm20 128v-88h12c6.6 0 12 5.4 12 12v64c0 6.6-5.4 12-12 12zm88-108v128c0 11 9 20 20 20s20-9 20-20v-44h28c11 0 20-9 20-20s-9-20-20-20h-28v-24h28c11 0 20-9 20-20s-9-20-20-20h-48c-11 0-20 9-20 20"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tracking", "navigation.indexes", "search.highlight", "search.share", "content.code.copy", "navigation.footer", "navigation.top"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
