@@ -1,0 +1,1391 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="As AI takes over each step of Write, Run, Check, taste moves with it. At scale it becomes a record, a simulation or a rule, which sets how far search can go, and at the top of the loops it becomes a decision.">
+      
+      
+      
+        <link rel="canonical" href="https://ashvin.au/blog/2026/10/12/write-run-check/">
+      
+      
+        <link rel="prev" href="../../../09/22/benchmarking-the-harness/">
+      
+      
+        <link rel="next" href="../outcome-pricing-is-a-piece-rate/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/view-grid-plus-outline-dark.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Write, Run, Check - ashvin</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-first-loop" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="ashvin" class="md-header__button md-logo" aria-label="ashvin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3v8h8V3zM3 21h8v-8H3zM3 3v8h8V3zm10 13h3v-3h2v3h3v2h-3v3h-2v-3h-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ashvin
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Write, Run, Check
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sarantium/ashvin/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sarantium/ashvin
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="ashvin" class="md-nav__button md-logo" aria-label="ashvin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3v8h8V3zM3 21h8v-8H3zM3 3v8h8V3zm10 13h3v-3h2v3h3v2h-3v3h-2v-3h-3z"/></svg>
+
+    </a>
+    ashvin
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sarantium/ashvin/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sarantium/ashvin
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-writing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Writing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Reading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-working/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Working
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../bookshelf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bookshelf
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Blog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-first-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The first loop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-second-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The second loop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-third-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The third loop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hundreds-of-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hundreds of tasks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recorded-and-simulated-taste" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recorded and simulated taste
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-a-rule-judges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When a rule judges
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-people-judge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When people judge
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loops-within-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loops within loops
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2026-10-12 00:00:00+00:00" class="md-ellipsis">October 12, 2026</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              24 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <span class="md-tag">ai</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">applied-ai</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">evals</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">tacit-knowledge</span>
+      
+    
+  </nav>
+
+
+  
+  
+
+
+  <h1>Write, Run, Check</h1>
+
+<p>A product's <strong>core loop</strong> is the short cycle of steps its users repeat. Dwipal Desai, who was on
+YouTube's early team, gives YouTube's as "Create &gt; Upload &gt; Share". Google's Playground, which his
+group launched in October 2026 to make games from descriptions, has "Create &gt; Play &gt; Share".</p>
+<p>Work done with AI has a core loop too: <strong>Write &gt; Run &gt; Check</strong>. A person writes down the steps, the
+AI runs them, and the person checks what comes back. The loop stays the same while the AI takes
+over its steps one at a time: first the running, then the writing, and now the checking. This post
+follows a person's <strong>taste</strong>, their sense of what a good result is, through each handover, and then
+asks what happens when there are more tasks than anyone's taste can reach. Its example is a wine
+that has to taste the same every year, though its grapes never do.</p>
+<!-- more -->
+
+<h2 id="the-first-loop">The first loop<a class="headerlink" href="#the-first-loop" title="Permanent link">⚓︎</a></h2>
+<p>Most wine changes from year to year, because the grapes do. A hot summer gives riper, sweeter
+grapes and a cool one gives sharper grapes, so a bottle with a year on its label tastes partly of
+that year's weather.</p>
+<p>Some wines are made not to change. The best known is champagne, the sparkling wine from the
+Champagne region of northern France. Most champagne carries no year on its label, and the region's
+trade body calls this non-vintage wine "the most common Champagne"
+(<a href="https://www.champagne.fr/en/champagne-frequently-asked-questions">Comité Champagne</a>). It is the
+bottle each producer, called a house, is known by, and it is meant to taste the same whenever it is
+opened. The aim, in the trade body's words, is that "the style and character of a Champagne House"
+endure, whatever the harvest was like
+(<a href="https://www.champagne.fr/en/champagne-tasting/type-of-champagne/non-vintage-brut">Comité Champagne</a>).
+To manage it, a house mixes the year's wine with <strong>reserve wines</strong>, kept back from earlier years, so
+that a thin year can lean on fuller ones. Krug's current bottle is "a blend of 150 wines from 13
+different years" (<a href="https://www.krug.com/en-us/champagne/krug-grande-cuvee-173eme-edition">Krug</a>).</p>
+<p>The person who keeps the style is the <strong>cellar master</strong>, the house's head winemaker. Each winter
+after the harvest they write the blend: which wines go in, from which villages and which years, and
+how much of each. It is slow work. At Krug, for six months after the harvest, the tasters meet at 11
+every morning, taste no more than 15 wines a day without knowing which is which, and write around
+5,000 tasting notes a year (<a href="https://www.krug.com/en-us/craftsmanship/the-art-of-blending">Krug</a>).
+The cellar then makes the wine. The blend is bottled with yeast and a little sugar, ferments a second
+time to make its bubbles, and ages for at least 15 months before it can be sold
+(<a href="https://www.champagne.fr/system/files/2024-03/Cahier_des_charges_appellation.pdf">AOC rules</a>). The
+cellar master decides when it is ready
+(<a href="https://maisons-champagne.com/en/houses/the-champagne-houses/10-major-trades-in-champagne/article/cellar-master">Union des Maisons de Champagne</a>).</p>
+<p>The blend can't be written once and reused. Every harvest is different, so the proportions that held
+the house style last year will miss it this year. Krug's cellar master, Julie Cavil, says "there is
+no recipe, each year is a blank slate"
+(<a href="https://winejournal.robertparker.com/meet-julie-cavil-krug-s-new-cellar-master">Wine Advocate</a>).
+So every winter the cellar master writes the blend again.</p>
+<p>Their taste goes into both of their steps, and does a different job in each. When they write the
+blend, the wines in front of them are young, still and sharp, more than a year away from the wine
+that will be sold. The houses' own trade body says the skill "lies in predicting the results of
+second fermentation and cellaring", which it calls "a leap into the future that calls for long
+experience of wine tasting" (Union des Maisons de Champagne). Writing the blend, then, uses taste to
+predict a result that doesn't exist yet. Judging the finished wine uses it on the result itself.</p>
+<p>Taste here means more than liking. David Hume's 1757 essay on the standard of taste retells a story
+from <em>Don Quixote</em>. Two of Sancho's kinsmen are asked to judge a hogshead, a large barrel, of wine.
+One finds "a small taste of leather" in it and the other "a taste of iron", and the people around
+them laugh at both, until "on emptying the hogshead, there was found at the bottom, an old key with a
+leathern thong tied to it" (<a href="https://davidhume.org/texts/empl1/st">Hume</a>). Hume's point is that
+taste can be fine enough to catch what others miss, and that it can be shown to be right.</p>
+<p>AI work in the first loop has the same parts. Most AI tools for work are <strong>harnesses</strong>: software that
+runs a model and gives it tools, data and instructions, such as Claude Code or GitHub Copilot. A
+person writes the steps down, as a workflow, as a skill the model loads when a task calls for it, or
+as a file of standing instructions. Those steps are the blend. The harness runs them, as the cellar
+makes the wine, and the person checks what comes back, as the cellar master tastes. The tasks are
+the harvest. A skill is written for the tasks the person has seen so far, as a blend is written for
+the wines in the cellar, and when the tasks change, with new kinds of documents, customers or
+questions, steps that worked last month start to miss.</p>
+<p>Unlike a cellar, a harness has no blending season. When the person fixes a bad result by hand, the
+steps stay as they were, and they improve only when someone sets aside time to rewrite them, a
+separate job from checking.</p>
+<p>In the figure, the person's parts are teal and the AI's are violet. <strong>Write</strong> and <strong>Check</strong> are both
+yours. The <strong>Goal</strong> at the top right is the house style, the standard the checking is against. The
+dashed arrow back to Write is the rewrite, which happens only when someone makes time for it.</p>
+<p><img alt="Loop 1, left to right: Write, by you, a written page; Run, by AI, a play button; Check, by you, a card with a tick and a card with a cross. A dashed arrow marked &quot;rewrite&quot; leads back from Check to Write. At the top right, a target labelled Goal, you, with an arrow into Check. Teal marks your parts and violet the AI's." src="../../../../blog_assets/write_run_check_loop1.png" /></p>
+<h2 id="the-second-loop">The second loop<a class="headerlink" href="#the-second-loop" title="Permanent link">⚓︎</a></h2>
+<p>In 2019 the Swedish distillery Mackmyra released a whisky whose recipe a model proposed. Built with
+Microsoft and the Finnish AI firm Fourkind, the model was fed the distillery's existing recipes,
+sales data and customer preferences, and could generate "more than 70 million recipes that it
+predicts will be popular"
+(<a href="https://news.microsoft.com/europe/features/meet-the-worlds-first-ai-created-whisky/">Microsoft</a>).
+Mackmyra's master blender, Angela D'Orazio, then did what the model couldn't. At the end of each
+round she "singled out ingredients that would work well together and corrected combinations that
+she knew wouldn't work", and her corrections shaped the next round
+(<a href="https://www.geekwire.com/2019/microsoft-got-creation-worlds-first-whisky-formulated-ai/">GeekWire</a>).
+From a final shortlist of five she chose Recipe No. 36
+(<a href="https://news.microsoft.com/europe/features/the-story-behind-the-worlds-first-ai-created-whisky/">Microsoft</a>).
+Her own summary was "AI-generated, but human-curated. Ultimately, the decision is made by a person."</p>
+<p>A cellar master searches too, by hand. Moët &amp; Chandon's cellar master, Benoît Gouez, has described
+starting each year from 800 to 1,000 base wines, building 40 to 60 trial blends, and combining 10 to
+15 of those into the final blend, so as to "progressively reduce the possibilities" to "a human
+scale" (<a href="https://vinovonk.com/en/sparks/benoit-gouez-moet-chandon/">VinoVonk</a>). The model's 70
+million recipes are the same search without the human scale.</p>
+<p>What stayed human at Mackmyra was the judging: D'Orazio no longer wrote the recipe, but her
+corrections steered each next round. She corrected recipes rather than finished whisky, which takes
+years to age, so she used the predicting kind of taste a cellar master uses on young wine. AI work
+has it easier here, because it is fast. A cellar master waits at least 15 months to find out what a
+blend became, while a harness returns a result in minutes, so the person can judge real results
+instead of predicting them.</p>
+<p>AI work makes the same move with a test. Jerry Liu, chief executive of LlamaIndex, wrote on 9
+October 2026 that "you can pretty much solve any task by defining an eval and hillclimbing over it",
+rather than by writing the workflow yourself
+(<a href="https://x.com/jerryjliu0/status/2108436834418373099">Liu</a>). An <strong>eval</strong> is a test: a goal plus a
+way to score an attempt against it. <strong>Hill-climbing</strong> means trying a version, scoring it, changing
+one thing, and keeping the change if the score goes up. In the second loop the AI writes the steps
+this way: it tries versions on past cases and keeps the one that scores best.</p>
+<p>Liu's wording puts the eval first: define the test, then let the AI search.
+<a href="https://arxiv.org/abs/2404.12272">Researchers</a> who studied people building graders for AI output
+found why writing the test first fails, and named the problem <em>criteria drift</em>: "users need criteria
+to grade outputs, but grading outputs helps users define criteria". People find out what they want
+by looking at results. So the second loop begins at Check. The person
+marks a set of past results right or wrong, with a line on why, and the marks become the eval.</p>
+<p>Producing patterns from cases, Hume wrote, "is like finding the key with the leathern thong": it
+shows a taste is right to people who couldn't taste the difference themselves. A marked result does
+that for the search. The search has no taste of its own, but it can check each new version against
+the cases the person marked and see whether it repeats a mistake they caught. It gets a thinner
+version of the taste than an apprentice does, a few dozen marked cases rather than 13 years at the
+tasting table, and it knows only what was marked.</p>
+<p>So the person's taste now enters at one step, Check, and reaches Write through the eval. A fix to one
+result becomes a case that every later search has to pass, so the way back to Write runs each time
+someone checks, instead of waiting for someone to rewrite the steps.</p>
+<p>In the figure, <strong>Write</strong> has turned violet, with earlier drafts behind the page for the versions the
+search tried and dropped. The arrow back from <strong>Check</strong> is solid now, and still teal: your checks.</p>
+<p><img alt="Loop 2, in the same layout: Write is now done by AI, shown as the page with earlier drafts behind it; Run, by AI; Check, still by you. A solid teal arrow marked &quot;your checks&quot; leads back from Check to Write. The Goal, you, still points into Check." src="../../../../blog_assets/write_run_check_loop2.png" /></p>
+<h2 id="the-third-loop">The third loop<a class="headerlink" href="#the-third-loop" title="Permanent link">⚓︎</a></h2>
+<p>Checking is now being automated the way writing was. On 28 September 2026 Anthropic shipped a
+command that builds an eval, alongside one that hill-climbs against it
+(<a href="https://claude.dev/blog/automating-eval-design-and-hillclimbing/">Martin</a>). The AI drafts the test
+cases, from the work's own past transcripts where it can, writes a grader to score results, and asks
+the person to approve both. That approval is the step between the second loop and the third. Once
+the grader is trusted, the AI checks each result against it, and the person no longer looks at
+results one by one.</p>
+<p>Wine is heading the same way. Researchers have trained a model to predict how a Pinot Noir will
+taste, its "sensory profile", from a scan of the wine in near-infrared light, with the stated aim "to
+maintain a determined wine style" (<a href="https://www.mdpi.com/1424-8220/20/13/3618">Fuentes et al.</a>). A
+check like that could tell a cellar whether this year's blend matches the house style without anyone
+tasting it. Then all three steps would be the machine's.</p>
+<p>The loop still checks against something: a standard of what a good result is, which for the house
+is its style. A cellar master's goal was always wider than any one check. Gouez again: "In a given
+year, we never do the best blend – we do the best blend without compromising the future"
+(<a href="https://www.the-buyer.net/people/producer/benoit-gouez-on-the-tricky-decisions-behind-blending-moet-imperial">The Buyer</a>).
+A blend that tastes best this year might use up reserve wines that later years need, and no check
+on this year's glass would show it. The person in the third loop has a problem of the same kind.
+They can't learn whether the standard is right by looking at results, because the check has already
+approved them. What can tell them is <strong>outcomes</strong>: what happened after a result left the loop. For a
+wine house, that is whether people keep buying the wine and what the critics say. For AI work, it is
+what the result led to.</p>
+<p>Antaripa Saha and Hamel Husain ran six automated error-analysis tools over the logged conversations
+of an apartment-leasing agent, which a domain expert had already labelled by hand
+(<a href="https://parlance-labs.com/blog/posts/auto-evals.html">Saha and Husain</a>). The best tool found 87%
+of the expert's failures, and every tool missed the same kind: conversations that "looked correct"
+but fell short of what the product was for, such as the agent giving up at a prospect's first
+objection. The authors saw that objection handling mattered only "after reading a trace where a
+prospect walked away." The prospect walking away is an outcome. No check inside the loop caught it,
+because nothing in the standard asked about it.</p>
+<p>Sometimes the world outside the cellar changes under the style itself. Over thirty years, the Comité
+Champagne reported in 2019, the harvest has begun "an average of 18 days earlier", with riper and
+less acidic grapes
+(<a href="https://daily.sevenfifty.com/how-champagne-producers-are-preserving-acidity-as-the-climate-changes/">SevenFifty Daily</a>).
+Louis Roederer's cellar master, Jean-Baptiste Lécaillon, expects that "in the future, we will be
+fighting for freshness instead of ripeness". The house has replaced its non-vintage with a wine
+whose consistency "from one edition to the next is no longer integral", as the wine writer Essi
+Avellan puts it
+(<a href="https://cluboenologique.com/report/non-vintage-champagne-blending-style-changes/">Club Oenologique</a>).
+A machine that predicts a wine's sensory profile can say whether this year's wine matches the style.
+It can't say whether to keep the style or let it move with the grapes, because that is a decision
+about the profile itself. Only a person can make that call, and in the third loop it is the work
+left for the cellar master's taste.</p>
+<p>In AI work, someone has to own that decision too. A drafted standard can say whether a result meets
+it, but not whether it is still the right standard. If nobody owns the goal, nobody asks, and nobody
+notices, because every result passes.</p>
+<p>In the figure, everything inside the loop is violet. The <strong>Goal</strong> is still teal, and a new teal
+arrow leads to it from outside the loop: <strong>outcomes</strong>.</p>
+<p><img alt="Loop 3, in the same layout: Write, Run and Check, all by AI, with a violet arrow back from Check to Write. Only the Goal is still yours: it points into Check, and a teal arrow marked &quot;outcomes&quot; leads from Check back up to it." src="../../../../blog_assets/write_run_check_loop3.png" /></p>
+<h2 id="hundreds-of-tasks">Hundreds of tasks<a class="headerlink" href="#hundreds-of-tasks" title="Permanent link">⚓︎</a></h2>
+<p>So far, each loop has had one person's taste behind it, the way a house has one cellar master. Many
+businesses won't have that. Say a business runs 300 support workflows through AI: refunds, delivery
+questions, account changes and so on. Nobody there can hold a sense of what a good answer is for
+each one, so the AI has to set the goals as well, and it can only set them from data. In wine, a
+company already sets goals that way.</p>
+<p>Tastry, in California, analyses each wine's chemistry in its lab, more than 100,000 chemical signals
+per wine, and runs blind panels in which drinkers score wines without knowing which is which. From
+the two, it trained what it calls "the first model to link the chemistry of a wine to the score a
+population of consumers would give it", and it reports that the predicted scores match the real ones
+93% of the time (<a href="https://tastry.com/wine">Tastry</a>). Tastry aims that one model at three kinds of
+target.</p>
+<p>The first is a winery's own style. A Napa Valley Cabernet, 200,000 cases at $150 a bottle, needed 20%
+more wine "without drifting from its signature style". Tastry turned ten vintages of it into what it
+calls a style blueprint, tested every sample that bulk-wine sellers offered against the blueprint,
+and found the only one that matched. The second target is a crowd: wineries use the predicted scores
+to "adjust their wines to match customer tastes", as one account of the company puts it
+(<a href="https://www.forbes.com/sites/bernardmarr/2021/06/28/artificial-intelligence-can-now-tastetransforming-winemaking-with-tastry/">Forbes</a>).
+The third is one drinker. Tastry's app, BottleBird, gives each user a "palate survey" and recommends
+the wines that person will like, because "consumer palates are like fingerprints – no two are
+alike".</p>
+<p>In all three, the model has no taste of its own. What it has is taste on record: a winemaker's, kept
+in ten vintages; a crowd's, kept in its scores; one drinker's, kept in a quiz. That is what
+industrialising taste means: recording it, so that a machine can judge wine against it without
+anyone tasting. The second loop did the same on a small scale. The search there had no taste either,
+only the person's, recorded as a few dozen marked cases.</p>
+<p>With hundreds of tasks, the taste on record stops being the person's. Nobody marks cases for 300
+goals, so the AI drafts the goals from records that already exist: past tickets, the ratings
+customers gave, what customers did next. Those hold the customers' taste, for the crowd as a whole
+or for each customer alone. So by default, the business's own taste is not what gets industrialised.
+Its customers' taste is, and theirs takes the place of the business's.</p>
+<p>In the figure, the third loop has become the front card in a stack of tasks. Its goal has turned
+violet, because the AI drafts it from the <strong>records</strong> at the right, which hold the customers' marks,
+not the person's. Nothing in the figure is teal: nothing in the stack holds the business's own
+taste.</p>
+<p><img alt="The third loop, smaller, on the front card of a stack of task cards labelled Tasks, hundreds. Write, Run, Check and the goal are all violet, done by AI, and nothing is teal. At the right, three violet cards marked with two ticks and a cross, labelled Records, customers, with a violet arrow into the front card's goal." src="../../../../blog_assets/write_run_check_tasks.png" /></p>
+<h2 id="recorded-and-simulated-taste">Recorded and simulated taste<a class="headerlink" href="#recorded-and-simulated-taste" title="Permanent link">⚓︎</a></h2>
+<p>A record of taste can repeat a judgement that someone has already made, and nothing more. For some
+uses that is enough, and Hume's essay opens with a view that says why. On that view, "a thousand
+different sentiments, excited by the same object, are all right": no taste is better than another,
+so the only job is to match each thing with someone who likes it. BottleBird's palate survey does
+that for each drinker. Tastry did it for one brand as well: it mapped where the people most likely
+to love the brand's wines lived, and sales climbed "without changing the product".</p>
+<p>Hume wrote his essay to answer that view, and the key in the barrel is his answer. Some faults are in
+the wine whether anyone minds or not, and a fine enough taste finds them. A record of what drinkers
+liked holds only what they noticed, and Hume thought fine taste rare: without it, "the finer touches
+pass unnoticed and disregarded". So a record can't find a fault that nobody noticed, or make a
+judgement that nobody has made.</p>
+<p>A record can still make work more alike or more different, depending on whose taste it holds. A
+crowd's taste pulls work together. Daniel Fleder and Kartik Hosanagar found that the recommenders
+online shops use "push each person to new products, but they often push users toward the same
+products" (<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=955984">Fleder and Hosanagar</a>). Each
+customer's own taste pulls work apart, as BottleBird's lists differ from one drinker to the next.</p>
+<p>Either way, the work goes no further than the taste on record. Anil Doshi and Oliver Hauser let some
+people draw on story ideas from GPT-4, a model built from a record of a great deal of what people
+have written, before they wrote short stories. The ideas lifted the stories of the least creative
+writers to the level of the most creative, did little for the most creative, and made the stories
+more like one another (<a href="https://www.science.org/doi/10.1126/sciadv.adn5290">Doshi and Hauser</a>).</p>
+<p>Going further needs the cellar master's other job. In the first loop, taste did two things: it
+judged the finished wine, and it predicted, from young, sharp wine, a wine that didn't exist yet. A
+record does the judging. AI does a version of the predicting by simulating taste: building a model
+of how people would respond, and asking it about things nobody has made. Mackmyra's model already
+did this. Fed sales data and customer preferences, it could generate "more than 70 million recipes
+that it predicts will be popular", each a whisky that didn't exist yet.</p>
+<p>Simile now offers the same for any decision. Its founders are the Stanford researchers who created
+"generative agents", AI characters built to behave like people, and its simulations "show how and
+why customers, employees, or populations respond to change" (<a href="https://www.simile.com/">Simile</a>). In
+their research, they built agents from two-hour interviews with 1,052 Americans and gave the agents
+a survey the people had taken. People don't give quite the same answers when they retake a survey
+two weeks later, and the agents came 83% of the way to that level of agreement
+(<a href="https://arxiv.org/abs/2411.10109">Park et al.</a>). A simulated customer can respond to a reply
+nobody has sent, or to a product nobody has made.</p>
+<p>Simulated taste reaches only a little past the record it is built from. James Brand, Ayelet Israeli
+and Donald Ngwe, at Harvard Business School, asked language models what customers would pay for
+products and features, and checked the answers against surveys of real people. The answers were
+often off, and some pointed the wrong way, such as a lower price for a laptop with a bigger screen.
+Training a model on earlier surveys helped it with new features of a kind of product it knew, but
+not with new kinds of product
+(<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4395751">Brand, Israeli and Ngwe</a>). A
+simulation can try paths close to the ones already walked, and the further a path leads from them,
+the less its taste can be trusted. The authors' advice is to treat it as "a supplement to—not a
+substitute for—human studies".</p>
+<h2 id="when-a-rule-judges">When a rule judges<a class="headerlink" href="#when-a-rule-judges" title="Permanent link">⚓︎</a></h2>
+<p>Writing a result and picking one out are separate jobs, as the second loop showed: the search wrote
+versions, and the person's marked cases picked among them. The simulation's limit is in the picking.
+The writing can go as far from the walked paths as anyone likes, and with enough computing it could
+try every one. Liu Cixin, the author of <em>The Three-Body Problem</em>, followed that thought to its end
+in <em>The Poetry Cloud</em>, a story published in 2003. A godlike being, with technology far beyond ours,
+meets a human poet who tells it that classical Chinese poetry can't be surpassed. "Just for fun",
+the god sets out to surpass Li Bai, the Tang dynasty's great poet. It grows a human body for itself,
+dresses as Li Bai, calls for ink and wine, and can't write a line.</p>
+<p>Two months later it comes back with what it calls the alternative route: "The two ways to surpass Li
+Bai are: 1. to write poems that surpass his; 2. to write every possible poem!" It will try every
+arrangement of Chinese characters in the forms Li Bai wrote in, and keep them all. The dinosaur who
+brought the poet, an ambassador called Big-tooth, asks why it doesn't "install a decision-making
+program at the output end to eliminate the poems that are not worth keeping". The god refuses. A
+poem's meaning, it says, "is determined by time", and nobody can know which poems time will choose.
+So it takes apart the Sun and the planets to store them all, in "a nebula 10 billion kilometres in
+diameter that comprises all possible poems".</p>
+<p>Big-tooth's program would have been an eval, and the ending shows what refusing it costs. Under the
+cloud, the god admits defeat: "I have indeed composed the most supreme pieces of poetry by means of
+our great technology, but I have been unable to locate them in the Poetry Cloud." It has tried to
+write the program itself, but "a program which can appreciate ancient poetry is yet to be written"
+(<a href="https://www.cuhk.edu.hk/rct/pdf/e_outputs/b7778/v7778p087.pdf">Liu</a>). The god's search wrote
+everything and had nothing to pick with. In the second loop, the person's marked cases were the
+program Big-tooth asked for.</p>
+<p>To show the god how big its search would be, Big-tooth uses a Go board. Each of its 361 points can
+be black, white or empty, so every board is a poem of 361 characters written with three, and there
+are about 10 to the power of 172 of them, far more than there are atoms in the universe. Yet Go fell
+to search 13 years after the story appeared, when DeepMind's AlphaGo beat a world champion in March
+2016. It didn't try every board. Go holds its taste in a third form, beside a record and a
+simulation: a rule. The rules say who won, so the outcome of any game is known the moment it ends,
+however far its moves stray from the games people have played. AlphaGo's successor, AlphaGo Zero,
+played against itself and learned from those outcomes alone, "without human data, guidance or domain
+knowledge beyond game rules". Its network learned to look at a position and predict who would win,
+the way a cellar master tastes young wine and predicts what it will become. That is a simulated
+taste, but one built from games no person had played, and AlphaGo Zero beat AlphaGo 100 games to
+none (<a href="https://www.nature.com/articles/nature24270">Silver et al.</a>).</p>
+<p>The players' taste moved too. Lee Sedol, the champion AlphaGo beat, said its moves made him wonder
+whether the moves he had known were the right ones. Minkyu Shin and his colleagues studied 5.8
+million moves by professional players from 1950 to 2021. After superhuman programs arrived, players
+made moves nobody had made before more often, and the new moves came with better play
+(<a href="https://arxiv.org/abs/2303.07462">Shin et al.</a>). That is the opposite of what happened to the
+stories in the last section, which grew more alike when their writers drew on a model built from a
+record. A record holds only the paths people have walked, while Go's rules gave its search the
+outcome of paths nobody had.</p>
+<p>Mathematics reached the same point this year. Its taste is partly a rule too: a proof holds if each
+step follows from the last, and a program can check that as soon as the proof is written. In May an
+OpenAI model disproved a conjecture about points in the plane that Paul Erdős made in 1946. Tim
+Gowers wrote that had a human submitted the paper to the <em>Annals of Mathematics</em>, he "would have
+recommended acceptance without any hesitation"
+(<a href="https://www.quantamagazine.org/why-the-legendary-erdos-problems-are-falling-to-ai-20260803/">Quanta</a>).
+As in Go, an attempt's outcome is known as soon as it exists, however far it strays from the proofs
+people have found.</p>
+<h2 id="when-people-judge">When people judge<a class="headerlink" href="#when-people-judge" title="Permanent link">⚓︎</a></h2>
+<p>A refund reply, a lease conversation and a new style of champagne have no rule like Go's. Nothing
+says how they did except the people they reach, and people answer slowly. A prospect signs or
+doesn't some time after the conversation, and a new champagne spends at least 15 months in the
+cellar before anyone can drink it. Each answer costs something too, because a reply that turns out
+badly has already reached a real customer. So the outcomes this kind of work can learn from are few,
+and they are the ones on record.</p>
+<p>That is the difference from Go. AlphaGo Zero's predictions could be trusted far from human games
+because the rules gave it outcomes for games nobody had played. A simulated customer has only the
+record to learn from, so it reaches a little past it, as Brand, Israeli and Ngwe found, and no
+further. The business's own taste is in the same position at scale: its marked cases are one more
+record. A search run against a record or a simulation can still write any reply, but it can pick out
+only those near the replies already tried.</p>
+<p>The next figure puts the two kinds of task side by side. Each cloud holds every result a search
+could write for one task. The violet dots are the ones the AI can pick out, with its taste in
+whatever form it has, and nothing is teal, as in the stack of tasks. Where the taste is <strong>a rule</strong>,
+the AI picks results out anywhere, because every result's outcome comes free. Where it comes from
+<strong>people</strong>, it picks them out from the <strong>record</strong> and the <strong>simulated</strong> ring around it. Beyond
+those, <strong>outcomes</strong> reach a few results, one real trial at a time: one turned out well, and the
+hollow one didn't.</p>
+<p><img alt="Two clouds of the same grey dots, each dot a result a search could write. Left, labelled A rule (Go, a proof): violet dots picked out all across the cloud. Right, labelled People (a reply, a new wine): violet dots picked out only inside a small patch labelled record and a dashed ring around it labelled simulated, and two violet arrows labelled outcomes reaching from the patch to two far dots, one violet and one left hollow." src="../../../../blog_assets/write_run_check_poetry_clouds.png" /></p>
+<p>For anyone building a harness, that gives each task a question to ask before its search runs: what
+can say whether a result worked, and how soon? Where a rule can, such as tests that pass or totals
+that reconcile, Jerry Liu's advice holds, and a search can climb far past the cases anyone marked.
+Someone still has to check now and then that the rule means what they meant. Of ten results OpenAI
+published in August, each with a proof a program had checked, one was still disputed four weeks
+later over "whether its formalization meant what it claimed"
+(<a href="https://arxiv.org/abs/2608.28997">Kallel and El Louadi</a>). Where only people can say, a search
+against a record or a simulation stays near what has been tried, however long it runs. The way
+further is to try a few new paths on real customers and add what happened to the record, so that the
+next search starts from a wider patch. For the leasing agent, a new way to answer an objection can
+be judged only by prospects, and by the leases they sign or don't.</p>
+<h2 id="loops-within-loops">Loops within loops<a class="headerlink" href="#loops-within-loops" title="Permanent link">⚓︎</a></h2>
+<p>The 300 support workflows now have goals, drafted from records, and nothing yet says whether a
+drafted goal was the right one. A loop can't judge its own goal, because the goal is what it judges
+everything else by. That takes another loop, one level up.</p>
+<p>TikTok runs one. Its main feed shows each viewer short videos without asking them to follow anyone
+first. Eugene Wei, writing in 2020, described it learning each viewer's interests "through
+consumption", with an algorithm that let its builders treat another market "as a complete black
+box. What do people in that country like? ... You don't have to figure it out. The algorithm will
+handle that" (<a href="https://www.eugenewei.com/blog/2020/8/3/tiktok-and-the-sorting-hat">Wei</a>). Each
+viewer has a goal, the videos they will want next, and the system writes it from what they have
+watched.</p>
+<p>Someone still chose what a good outcome is for the feed as a whole. A feed like that can aim at how
+long people watch, how often they come back or how much they share, and each aim makes a different
+feed. That aim is the goal of the loop above: one number, taken to stand for a good result across
+all the viewers. The loop's Write is the goals of the loops below, one per viewer. Its Run is those
+loops, running. Its Check reads the number.</p>
+<p>For the 300 support workflows, the number might be how many customers stay. Say the refund
+workflow's goal is a reply that says when the money will arrive, and every reply meets it, but
+customers who ask for refunds leave as often as before. The goal was met, and it was still the wrong
+goal. Only the loop above can see that, by reading the number, and it drafts the goal again.</p>
+<p>The loop above searches too, and the limits of the last two sections hold for it. It can draft any
+goal, but it can pick out only the goals its check can judge, and its check is the slow kind: what
+customers do, weeks later. So goals are the hardest thing to search far for, and the way further is
+the same as for replies: try a few new ones on real customers, and add what happened to the record.</p>
+<p>A business keeps more than one number, and the numbers pull against each other. A generous refund
+keeps a customer and costs money, so the loop that raises how many customers stay can lower profit.
+Something has to weigh one number against the other, and that is one more loop, a level higher,
+with a goal of its own. The loops nest, and each level drafts the goals of the one below.</p>
+<p>At the top is a goal that no loop above checks, except, slowly, whether the business survives.
+Tastry's three targets are that choice in wine: the same model can aim at a winery's own style, a
+crowd's taste or one drinker's, and whoever uses it picks which. Whoever picks at the top, a person
+or an AI, makes a decision that no search can make, because nothing above it can score the options.
+Every loop below works to that decision's taste.</p>
+<p>In the figure, the stack of tasks is the one from before, but its goals now come from above: two
+numbers, each with its own loop, sending <strong>goals</strong> down and reading <strong>outcomes</strong> back. Above them is
+the <strong>top goal</strong>, grey rather than teal or violet, since a person or an AI could set it, and nothing
+comes back up to it.</p>
+<p><img alt="Three rows. At the bottom, the stack of task cards labelled Tasks, hundreds, with a small all-violet loop on the front card. In the middle row, labelled Numbers, one loop each: two violet targets, customers stay and profit, each with a solid violet arrow labelled goals down to the stack and a dashed violet arrow labelled outcomes back up. At the top, labelled Top goal, a person or an AI: one grey target with arrows down to both numbers, and nothing coming back up to it." src="../../../../blog_assets/write_run_check_nested.png" /></p>
+<p>Before the god leaves, it gives the poet and the dinosaur a chip each, holding the "trillions of
+poems" it found in the cloud by searching for their names. It has read only a few dozen. "The good
+works in the Poetry Cloud," it says, "do not yet belong to anyone." A search can write a business's
+best reply, as the cloud held poems better than Li Bai's. That reply becomes the business's when
+something scores it: a test, where the work has a rule, and otherwise a customer's answer. Which
+answer counts as good is set one loop up, and so on, to the decision at the top that nothing
+scores.</p>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li>Dwipal Desai, <a href="https://www.linkedin.com/posts/dwipaldesai_today-we-launched-something-ive-been-working-share-7513728801978187776-_O9f/">post on LinkedIn</a>, October 2026, on the launch of Playground.</li>
+<li>Google, <a href="https://blog.google/innovation-and-ai/technology/ai/playground-experimental-gaming-platform/">Introducing Playground: Create and play custom games</a>, 7 October 2026.</li>
+<li>Comité Champagne, <a href="https://www.champagne.fr/en/champagne-frequently-asked-questions">Frequently asked questions</a> and <a href="https://www.champagne.fr/en/champagne-tasting/type-of-champagne/non-vintage-brut">Non-vintage brut</a>.</li>
+<li>Krug, <a href="https://www.krug.com/en-us/champagne/krug-grande-cuvee-173eme-edition">Krug Grande Cuvée 173ème Édition</a> and <a href="https://www.krug.com/en-us/craftsmanship/the-art-of-blending">The art of blending</a>.</li>
+<li>Institut National de l'Origine et de la Qualité, <a href="https://www.champagne.fr/system/files/2024-03/Cahier_des_charges_appellation.pdf">Cahier des charges de l'appellation Champagne</a>.</li>
+<li>Union des Maisons de Champagne, <a href="https://maisons-champagne.com/en/houses/the-champagne-houses/10-major-trades-in-champagne/article/cellar-master">Cellar master</a>.</li>
+<li>David Hume, <a href="https://davidhume.org/texts/empl1/st">Of the Standard of Taste</a>, 1757; text from Hume Texts Online.</li>
+<li>Wine Advocate, <a href="https://winejournal.robertparker.com/meet-julie-cavil-krug-s-new-cellar-master">Meet Julie Cavil, Krug's new cellar master</a>.</li>
+<li>Microsoft, <a href="https://news.microsoft.com/europe/features/meet-the-worlds-first-ai-created-whisky/">Meet the world's first AI-created whisky</a>, 13 May 2019, and <a href="https://news.microsoft.com/europe/features/the-story-behind-the-worlds-first-ai-created-whisky/">The story behind the world's first AI-created whisky</a>, 2019.</li>
+<li>Alan Boyle, <a href="https://www.geekwire.com/2019/microsoft-got-creation-worlds-first-whisky-formulated-ai/">on Mackmyra's AI-formulated whisky</a>, GeekWire, 5 September 2019.</li>
+<li>VinoVonk, <a href="https://vinovonk.com/en/sparks/benoit-gouez-moet-chandon/">Benoît Gouez, Moët &amp; Chandon</a>, 2026 (transcript of a podcast interview).</li>
+<li>Jerry Liu, <a href="https://x.com/jerryjliu0/status/2108436834418373099">post on X</a>, 9 October 2026.</li>
+<li>Shreya Shankar et al., <a href="https://arxiv.org/abs/2404.12272">Who Validates the Validators?</a>, 2024.</li>
+<li>Club Oenologique, <a href="https://cluboenologique.com/story/krug-chef-de-cave-julie-cavil-on-being-at-one-with-the-house/">Krug chef de cave Julie Cavil on being at one with the house</a>.</li>
+<li>Lance Martin, <a href="https://claude.dev/blog/automating-eval-design-and-hillclimbing/">Automating eval design and hillclimbing with Claude</a>, 28 September 2026.</li>
+<li>Sigfredo Fuentes et al., <a href="https://www.mdpi.com/1424-8220/20/13/3618">Sensors 20(13):3618</a>, 2020.</li>
+<li>The Buyer, <a href="https://www.the-buyer.net/people/producer/benoit-gouez-on-the-tricky-decisions-behind-blending-moet-imperial">Benoît Gouez on the tricky decisions behind blending Moët Impérial</a>, 2017.</li>
+<li>Antaripa Saha and Hamel Husain, <a href="https://parlance-labs.com/blog/posts/auto-evals.html">Do Automated Evals Work?</a>, 11 July 2026.</li>
+<li>Tina Caputo, <a href="https://daily.sevenfifty.com/how-champagne-producers-are-preserving-acidity-as-the-climate-changes/">How Champagne producers are preserving acidity as the climate changes</a>, SevenFifty Daily, 24 June 2019.</li>
+<li>Essi Avellan, <a href="https://cluboenologique.com/report/non-vintage-champagne-blending-style-changes/">on changing non-vintage champagne styles</a>, Club Oenologique, 9 November 2022.</li>
+<li>Tastry, <a href="https://tastry.com/wine">Wine</a>.</li>
+<li>Bernard Marr, <a href="https://www.forbes.com/sites/bernardmarr/2021/06/28/artificial-intelligence-can-now-tastetransforming-winemaking-with-tastry/">Artificial intelligence can now taste</a>, Forbes, 28 June 2021.</li>
+<li>Daniel Fleder and Kartik Hosanagar, <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=955984">Blockbuster Culture's Next Rise or Fall: The Impact of Recommender Systems on Sales Diversity</a>, Management Science 55(5), 2009.</li>
+<li>Anil Doshi and Oliver Hauser, <a href="https://www.science.org/doi/10.1126/sciadv.adn5290">Generative AI enhances individual creativity but reduces the collective diversity of novel content</a>, Science Advances, 2024.</li>
+<li>Joon Sung Park et al., <a href="https://arxiv.org/abs/2411.10109">Generative Agent Simulations of 1,000 People</a>, 2024, revised 2026.</li>
+<li>Simile, <a href="https://www.simile.com/">simile.com</a>.</li>
+<li>James Brand, Ayelet Israeli and Donald Ngwe, <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4395751">Using LLMs for Market Research</a>, Harvard Business School Working Paper 23-062, 2023.</li>
+<li>Liu Cixin, <a href="https://www.cuhk.edu.hk/rct/pdf/e_outputs/b7778/v7778p087.pdf">The Poetry Cloud</a>, translated by Chi-yin Ip and Cheuk Wong, Renditions, 2012; first published in Chinese in 2003.</li>
+<li>David Silver et al., <a href="https://www.nature.com/articles/nature24270">Mastering the game of Go without human knowledge</a>, Nature 550, 2017.</li>
+<li>Minkyu Shin, Jin Kim, Bas van Opheusden and Thomas Griffiths, <a href="https://arxiv.org/abs/2303.07462">Superhuman artificial intelligence can improve human decision-making by increasing novelty</a>, PNAS 120(12), 2023.</li>
+<li>Quanta Magazine, <a href="https://www.quantamagazine.org/why-the-legendary-erdos-problems-are-falling-to-ai-20260803/">Why the Legendary Erdős Problems Are Falling to AI</a>, 3 August 2026.</li>
+<li>Maher Kallel and Mohamed El Louadi, <a href="https://arxiv.org/abs/2608.28997">Verification abundance, adjudication scarcity</a>, 2026.</li>
+<li>Eugene Wei, <a href="https://www.eugenewei.com/blog/2020/8/3/tiktok-and-the-sorting-hat">TikTok and the Sorting Hat</a>, 3 August 2020.</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../../09/22/benchmarking-the-harness/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Benchmarking the Harness">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Benchmarking the Harness
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../outcome-pricing-is-a-piece-rate/" class="md-footer__link md-footer__link--next" aria-label="Next: Outcome pricing is a piece rate">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Outcome pricing is a piece rate
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023-2025 Ashvin Parameswaran
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sarantium/ashvin" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/ashvinparameswaran" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="/assets/ashvin_parameswaran_curriculum_vitae_2023.pdf" target="_blank" rel="noopener" title="resume" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M96 0C60.7 0 32 28.7 32 64v384c0 35.3 28.7 64 64 64h80V400c0-35.3 28.7-64 64-64h176V170.5c0-17-6.7-33.3-18.7-45.3L290.7 18.7C278.7 6.7 262.5 0 245.5 0zm261.5 176H264c-13.3 0-24-10.7-24-24V58.5zM240 380c-11 0-20 9-20 20v128c0 11 9 20 20 20s20-9 20-20v-28h12c33.1 0 60-26.9 60-60s-26.9-60-60-60zm32 80h-12v-40h12c11 0 20 9 20 20s-9 20-20 20m96-80c-11 0-20 9-20 20v128c0 11 9 20 20 20h32c28.7 0 52-23.3 52-52v-64c0-28.7-23.3-52-52-52zm20 128v-88h12c6.6 0 12 5.4 12 12v64c0 6.6-5.4 12-12 12zm88-108v128c0 11 9 20 20 20s20-9 20-20v-44h28c11 0 20-9 20-20s-9-20-20-20h-28v-24h28c11 0 20-9 20-20s-9-20-20-20h-48c-11 0-20 9-20 20"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tracking", "navigation.indexes", "search.highlight", "search.share", "content.code.copy", "navigation.footer", "navigation.top"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
