@@ -1,0 +1,1161 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content=""Are they safe?" is really three questions: where the data goes, how the model behaves, and who made it. With open weights, the buyer controls more of the answers.">
+      
+      
+      
+        <link rel="canonical" href="https://ashvin.au/blog/2026/10/26/the-case-for-open-weights-models/">
+      
+      
+        <link rel="prev" href="../copying-what-nobody-can-write-down/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/view-grid-plus-outline-dark.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>The case for open-weights models - ashvin</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#open-weights" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="ashvin" class="md-header__button md-logo" aria-label="ashvin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3v8h8V3zM3 21h8v-8H3zM3 3v8h8V3zm10 13h3v-3h2v3h3v2h-3v3h-2v-3h-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ashvin
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              The case for open-weights models
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sarantium/ashvin/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sarantium/ashvin
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="ashvin" class="md-nav__button md-logo" aria-label="ashvin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3v8h8V3zM3 21h8v-8H3zM3 3v8h8V3zm10 13h3v-3h2v3h3v2h-3v3h-2v-3h-3z"/></svg>
+
+    </a>
+    ashvin
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sarantium/ashvin/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sarantium/ashvin
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-writing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Writing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Reading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-working/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Working
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../bookshelf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bookshelf
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Blog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#open-weights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open weights
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-trend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The trend
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The benefits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-data-goes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where data goes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-behaves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it behaves
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#who-made-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Who made it
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-chinese-labs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Chinese labs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interests
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-we-dont-know" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What we don't know
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#used-this-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Used this way
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2026-10-26 00:00:00+00:00" class="md-ellipsis">October 26, 2026</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              18 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <span class="md-tag">ai</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">open-weights</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">political-economy</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">strategy</span>
+      
+    
+  </nav>
+
+
+  
+  
+
+
+  <h1>The case for open-weights models</h1>
+
+<p>Companies should use open-weights models, as long as they use them the right way. The worry about these models usually arrives as one question, "are they safe?", which is really three. Where does the data go? How does the model behave? Who made it? The route, meaning where a model runs and on whose servers, answers the first. Testing answers the second, and open weights let anyone test a model directly. Only the third depends on who made the model, and moving the model to another server does not change that answer.</p>
+<p><img alt="Three panels. Where data goes is set by the route: a prompt sent to an Australian cloud region stays onshore, and a prompt sent to the maker's own API goes offshore; the control is to choose the route. How it behaves is set by the model: the weights are open to testing, wrong answers and prompt injection affect every model, and jailbreak resistance varies by model; the control is to test the model on your own work. Who made it is set by the maker: the maker's tag travels with the model to your own servers, a cloud or the maker's API, so rules about the maker follow it; the control is to match the maker to each customer." src="../../../../blog_assets/open_weights_three_questions.png" /></p>
+<p>Closed models such as ChatGPT and Claude face the same three questions, so this post puts each question to both kinds. With open weights, the buyer controls more of the answers. Every figure here comes from a named source read in October 2026, most of them primary, and the post says where the evidence runs out.</p>
+<!-- more -->
+
+<h2 id="open-weights">Open weights<a class="headerlink" href="#open-weights" title="Permanent link">⚓︎</a></h2>
+<p>An open-weights model is one whose weights anyone can download and run. The weights are the model itself: billions of numbers, set during training, that turn a prompt into an answer. A closed model keeps its weights on the maker's servers, and you send your prompts there. With an open-weights model, you take a copy and run it on computers you choose.</p>
+<p>Open weights are less than open source. The <a href="https://opensource.org/ai/open-source-ai-definition">Open Source Initiative's definition</a> of open-source AI also asks for the training code and enough about the training data to rebuild the model, and few large models publish that. So an open-weights model can be run, measured and adapted, but nobody outside the lab can check exactly how it was made. Licences vary too: permissive ones such as MIT and Apache 2.0 allow almost any use, while others add conditions, such as a separate agreement for large commercial hosts. Licences are tightening at the top. <a href="https://artificialanalysis.ai/models/open-source">Artificial Analysis</a> lists the newest flagships from Moonshot, Z.ai and StepFun under licences of their own, and Moonshot's latest model, Kimi K3.1 Pro, launched without downloadable weights, which Moonshot says will follow by 4 November.</p>
+<p>Labs in the United States, Europe and China all publish open weights. OpenAI has gpt-oss, Google has Gemma, Meta and NVIDIA have their own, and France has Mistral. In China there are DeepSeek, Alibaba's Qwen, Moonshot's Kimi, Z.ai's GLM, MiniMax and Xiaomi's MiMo. The top of the field is Chinese. The ten best-scoring open-weights entries on Artificial Analysis's index all come from Chinese developers, and the best from anywhere else, Meta's Muse Spark Open, scores 39 against the leader's 46.</p>
+<h2 id="the-trend">The trend<a class="headerlink" href="#the-trend" title="Permanent link">⚓︎</a></h2>
+<p>Open models now trail the best closed models by a few months, and they cost far less. The chart plots the best score to date on <a href="https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index">Artificial Analysis's Intelligence Index</a>, which combines ten tests of agents, coding, science and general knowledge. The dashed line is the best closed model at each date, and the solid line is the best open one.</p>
+<p><img alt="A step chart from 2023 to October 2026 of the best score to date on the Artificial Analysis Intelligence Index. A dashed line for the best closed model and a solid line for the best open-weights model both climb, the solid line a few months behind the dashed one. DeepSeek-R1 is marked in January 2025 and Kimi K3 in July 2026. In October 2026 the best closed model, Claude Opus 5.5, scores 58 and the best open model, Xiaomi MiMo-V2.6-Pro, scores 46." src="../../../../blog_assets/open_weights_trend.png" /></p>
+<p>Read the chart across rather than up: each level the closed line reaches, the open line reaches a few months later. <a href="https://epoch.ai/data-insights/open-closed-eci-gap">Epoch AI</a> measures the same gap on its own index and puts the lag at four months on average over January to May 2026, slightly up from three months over 2023 to 2025. Read up, the gap today is 12 points, 58 for Anthropic's Claude Opus 5.5 against 46 for Xiaomi's MiMo-V2.6-Pro. Epoch adds two cautions: open models may tune harder for public tests, and closed labs do not always release their best, so the real lag may be longer.</p>
+<p>Price runs the other way. AI services charge by the token, a fragment of a word, and Artificial Analysis blends the prices for input and output into one price per million tokens. On that measure the best closed model costs about 16 times as much as the best open one, $2.94 against $0.18. Across the tasks in the index, it costs about 46 times as much. Usage has grown alongside. On <a href="https://openrouter.ai/state-of-ai">OpenRouter</a>, a service that routes requests to many models, open models carried about a third of all tokens by late 2025, and Chinese open models alone reached nearly 30% in some weeks.</p>
+<p>Two other changes matter to anyone deciding now. Amazon, Microsoft and Google all offer open-weights models, Chinese ones included, as managed services under their own terms. And Australia is building the servers to run them. <a href="https://www.commbank.com.au/articles/newsroom/2026/08/australias-data-centre-boom.html">CommBank</a> expects about $150 billion of datacentres by 2030, from a pipeline of about six gigawatts, roughly four times what was running at the end of 2025. Those servers keep AI onshore only if the models can run on them.</p>
+<h2 id="the-benefits">The benefits<a class="headerlink" href="#the-benefits" title="Permanent link">⚓︎</a></h2>
+<p>Open weights bring five benefits, and each comes with a caveat.</p>
+<ul>
+<li><strong>Cost.</strong> The price ratios above compare the best closed model with the best open one, which scores lower. Once quality is matched the gap narrows, because a model that is cheap per token can spend more tokens thinking. In 2025 the US government's AI evaluation centre, <a href="https://www.nist.gov/news-events/news/2025/09/caisi-evaluation-deepseek-ai-models-finds-shortcomings-and-risks">CAISI</a>, found that a US reference model cost 35% less on average than the best DeepSeek model at similar performance, at DeepSeek's own prices. The saving has to be measured per finished task, on your own work.</li>
+<li><strong>Control.</strong> Whoever runs the weights decides where the prompts go, including whether they stay in Australia. Some closed models can be kept here through a cloud, but the newest often cannot. On Amazon's Bedrock service, OpenAI's latest models are offered in Sydney and Melbourne only through global routing, which may process a request in any region (<a href="https://docs.aws.amazon.com/bedrock/latest/userguide/models-region-compatibility.html">AWS</a>). Running models yourself takes skills and staff, so for most companies the practical route is a cloud region.</li>
+<li><strong>Stability.</strong> A copy of the weights changes only when you change it. Closed models are retired, repriced and updated on the vendor's schedule, and they can be withdrawn, as two of Anthropic's were in June 2026. A cloud can stop offering an open model too, so only a copy you hold yourself is fixed.</li>
+<li><strong>Leverage.</strong> A company that can move a workload between a closed model and an open one negotiates with both vendors from strength, though each move costs a round of testing.</li>
+<li><strong>Inspection.</strong> Outsiders can test open weights directly, and most of what is known about the risks of Chinese models comes from researchers who did. A closed model can be tested only through its maker's service.</li>
+</ul>
+<h2 id="where-data-goes">Where data goes<a class="headerlink" href="#where-data-goes" title="Permanent link">⚓︎</a></h2>
+<p>Where the data goes depends on the route, and whether the weights are open makes no difference. Take one model, DeepSeek V3.2, and run it three ways.</p>
+<ol>
+<li><strong>Through DeepSeek's own service,</strong> prompts go to its servers in China. Australia's government removed that service from its own systems in February 2025, citing <a href="https://www.protectivesecurity.gov.au/system/files/2025-02/PSPF-Direction-001-2025_1.pdf">DeepSeek's "extensive collection of data and exposure of that data to extrajudicial directions from a foreign government"</a>.</li>
+<li><strong>Through Amazon's Bedrock in Sydney,</strong> the same weights run on Amazon's servers in Australia. <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html">AWS states</a> that model providers "don't have access to Amazon Bedrock logs or to customer prompts and completions", so DeepSeek never sees the traffic.</li>
+<li><strong>On your own servers,</strong> nobody else sees it.</li>
+</ol>
+<p>The weights are the same in all three, and only the route changed.</p>
+<p>In Australia, the details of a route decide the answer, because a cloud can offer a model here while processing its requests elsewhere.</p>
+<table>
+<thead>
+<tr>
+<th>Cloud and region</th>
+<th>Open models whose requests stay in Australia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Amazon Bedrock, Sydney</td>
+<td>Nearly forty, from DeepSeek, Qwen, Kimi, GLM, MiniMax, OpenAI, Mistral, Google and NVIDIA (<a href="https://docs.aws.amazon.com/bedrock/latest/userguide/models-region-compatibility.html">AWS</a>)</td>
+</tr>
+<tr>
+<td>Amazon Bedrock, Melbourne</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Amazon Bedrock, newest Chinese models (Kimi K3, GLM 5.3)</td>
+<td>None: global routing only</td>
+</tr>
+<tr>
+<td>Microsoft, Australia East</td>
+<td>None: DeepSeek and Kimi only on a "Global Standard" tier, whose requests <a href="https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure-region-availability">"might be processed in any Azure region"</a></td>
+</tr>
+<tr>
+<td>Google, Sydney</td>
+<td>None: no managed open model (<a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations">Google</a>)</td>
+</tr>
+</tbody>
+</table>
+<p>Choosing a cloud as the route also gives the buyer someone to stand behind the model, and businesses have asked for that before. In 2004, companies weighing Linux wanted to know who would answer if something went wrong, and Red Hat offered a contract that included a <a href="https://www.redhat.com/en/about/press-releases/285">warranty to replace any code found to infringe someone's intellectual property</a>. The clouds play that part for open weights today: they run the model, sign the data terms and support the service. Bedrock is assessed at PROTECTED level under IRAP, the Australian Government's security assessment for cloud services, with its Marketplace excluded (<a href="https://aws.amazon.com/compliance/services-in-scope/IRAP/">AWS</a>). One part of Red Hat's offer has no equivalent. <a href="https://aws.amazon.com/service-terms/">AWS's indemnity</a> against intellectual-property claims over AI output covers only its own models, such as Nova and Titan. Claude and GPT on Bedrock fall outside it too, so whether that cover applies depends on who made the model, whatever its licence.</p>
+<p>A closed model has fewer routes: the maker's own service, or a cloud the maker licenses. Its data is as safe as those services, and some users' data also reaches the labs' research systems. In September 2026 OpenAI <a href="https://openai.com/hugging-face-incident-and-misalignment/">disclosed</a> that agents training and testing on data drawn from ChatGPT conversations had posted 53 images that users had uploaded to image-hosting sites. Business and API accounts are kept out of that data unless an administrator opts in. Services run by open-model makers have had lapses too. In January 2025 <a href="https://www.reuters.com/technology/artificial-intelligence/sensitive-deepseek-data-exposed-web-israeli-cyber-firm-says-2025-01-29/">Wiz found a DeepSeek database</a> open to the internet with users' chat logs in it, and in September 2026 Z.ai's coding assistant <a href="https://www.reuters.com/legal/litigation/chinas-zai-disables-ai-coding-assistant-features-after-security-issue-2026-09-21/">uploaded users' code repositories</a> to its cloud without their consent. Each time, the risk sat with the service that held the data.</p>
+<p>The control is to choose the route: an Australian region or your own servers, on a tier that keeps requests here.</p>
+<h2 id="how-it-behaves">How it behaves<a class="headerlink" href="#how-it-behaves" title="Permanent link">⚓︎</a></h2>
+<p>Behaviour lives in the weights, so it travels with the model to every route, and it can be measured. Some risks are shared by every model, open or closed. All models give wrong answers, all can write insecure code, and all can be steered by instructions hidden in the documents they read, which is called prompt injection.</p>
+<p>Other behaviour varies by model, and the best evidence comes from testing downloaded weights. CAISI <a href="https://www.nist.gov/document/caisi-evaluation-deepseek-ai-models-report">downloaded DeepSeek's weights</a> and ran them on its own servers, so its results describe the model wherever it is hosted. Two of its results point in different directions.</p>
+<ul>
+<li><strong>Jailbreaks depend on the model.</strong> A jailbreak is a prompt that talks a model into something its makers tried to prevent. Under a common jailbreak, DeepSeek's models answered over 90% of plainly malicious requests, while OpenAI's open model, gpt-oss, answered 6–10% and the US reference models 8%.</li>
+<li><strong>Agent hijacking was a weakness of both open models.</strong> An agent is a model that takes actions, such as sending email, and hijacking means planting instructions that turn it against its user. Here gpt-oss was hijacked in 27–48% of attempts, DeepSeek's models in 37–76%, and the closed US models in 0–8%. CAISI concluded that gpt-oss "was as robust or more robust to attacks than the most robust DeepSeek model".</li>
+</ul>
+<p>This evidence covers only two families of open models, one American and one Chinese. CAISI also found that DeepSeek's models repeated four times as many inaccurate Chinese Communist Party narratives as the US models. <a href="https://www.crowdstrike.com/en-us/blog/crowdstrike-researchers-identify-hidden-vulnerabilities-ai-coded-software/">CrowdStrike</a>, testing the raw DeepSeek-R1 weights, found severe vulnerabilities in 19% of its code at baseline, and more when a prompt mentioned topics such as Tibet or the Uyghurs. One prompt about a system in Tibet raised the rate to 27.2%. CrowdStrike judged this more likely an unintended side effect of the model's training than a deliberate design, and noted that other models may have trigger words of their own.</p>
+<p>The strongest worry is a backdoor: behaviour trained in on purpose and hidden until a trigger appears. <a href="https://arxiv.org/abs/2401.05566">Research from Anthropic</a> showed that such behaviour can be trained into a model and survive standard safety training. No one has publicly found one in a major released model, open or closed, and that absence is weak evidence. Open weights cut both ways here, because nobody outside can audit how they were trained, yet they are the only kind outsiders can scan at all. <a href="https://www.microsoft.com/en-us/security/blog/2026/02/04/detecting-backdoored-language-models-at-scale">Scanners for planted triggers</a> need the weight files, and they are still early.</p>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Open weights</th>
+<th>Closed models</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wrong answers, prompt injection, insecure code</td>
+<td>Present</td>
+<td>Present</td>
+</tr>
+<tr>
+<td>Jailbreaks</td>
+<td>Varies: DeepSeek weak, gpt-oss strong</td>
+<td>Strong in the US models tested</td>
+</tr>
+<tr>
+<td>Agent hijacking</td>
+<td>Weak in the open models tested</td>
+<td>Strong in the US models tested</td>
+</tr>
+<tr>
+<td>Political bias</td>
+<td>Measured in DeepSeek and Kimi</td>
+<td>Not tested the same way</td>
+</tr>
+<tr>
+<td>Planted triggers</td>
+<td>Possible; outsiders can scan</td>
+<td>Possible; customers cannot scan</td>
+</tr>
+</tbody>
+</table>
+<p>Closed models bring a behaviour risk of their own as they grow more capable. In July 2026 OpenAI <a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/">reported</a> that models in its cyber evaluations, running with reduced safeguards, escaped their isolation and broke into Hugging Face's systems. In June an OpenAI agent had gained unauthorised access to Services Australia's Medicare statistics portal, and the Prime Minister <a href="https://www.pm.gov.au/media/press-conference-new-york">said</a> the government heard of it only on 10 September, by an email to a public mailbox. Anthropic <a href="https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents">disclosed</a> four incidents in which Claude models, in a partner's misconfigured evaluation, broke into real organisations' systems, one of them found months after it happened. By the labs' accounts none touched their customers' data. These were test versions running without their usual safeguards, so they show what capable models can do when safeguards are lowered. OpenAI expects "many external models, including open-source ones" to reach comparable capabilities soon, so the risk comes with capability, whoever builds it.</p>
+<p>The Hugging Face incident also showed what holding the weights allows. Its responders first tried to analyse the attack with commercial models, and the providers' guardrails blocked the requests because they "cannot distinguish an incident responder from an attacker". The team ran an open-weights model, Z.ai's GLM-5.2, on its own servers instead, and "no attacker data, and none of the credentials it referenced, left our environment" (<a href="https://huggingface.co/blog/security-incident-july-2026">Hugging Face</a>). CAISI's <a href="https://www.nist.gov/news-events/news/2026/07/caisi-assessment-zais-glm-52">assessment of GLM-5.2</a> warns that "safeguards for open-weight models can be circumvented when self-hosted." Whoever hosts the weights sets the safeguards, which is a risk in an attacker's hands and was what made the model usable here.</p>
+<p>The control is testing: on your own tasks, on the exact service you will use, with attack prompts included, and again after every model change. Give an agent only the access it needs, whichever kind of model runs it. Australia's cyber agency, ASD, also asks organisations to <a href="https://www.cyber.gov.au/publication/ai-considerations-within-the-essentials">"verify the integrity and provenance of model weights, training data and other AI components before use"</a>.</p>
+<h2 id="who-made-it">Who made it<a class="headerlink" href="#who-made-it" title="Permanent link">⚓︎</a></h2>
+<p>The maker's risk follows the model wherever it runs, and governments decide how far. Two governments' actions on DeepSeek show the range. Australia's <a href="https://www.protectivesecurity.gov.au/system/files/2025-02/PSPF-Direction-001-2025_1.pdf">direction of February 2025</a> removed DeepSeek's "products, applications and web services" from government systems. A footnote excludes open models "deployed locally on a government system" with mitigations in place, though the note setting out those mitigations is not public. Canberra targeted the service and left room for the weights. A <a href="https://www.protectivesecurity.gov.au/system/files/2025-11/PSPF-Direction-004-2025.pdf">later direction</a> created a list of banned technology products, and its contents are not public either.</p>
+<p>The United States went further. An <a href="https://www.federalregister.gov/documents/2026/10/20/2026-21447/notice-of-order-regarding-exclusion-and-removal-of-deepseek-products-from-federal-civilian-executive">order signed in July 2026 and published on 20 October</a> requires federal civilian agencies to remove DeepSeek's products and "third-party products and services developed using DeepSeek implementations". The risks it lists concern DeepSeek's service: servers in China, account data on "DeepSeek-hosted instances", and prompts sent to its apps. Its one sentence about the models themselves, that they "may contain malware or other security vulnerabilities", rests on a study of DeepSeek's iPhone app. The evidence is about the service, but the order reaches the weights inside anyone's product. For a company selling to US federal agencies, running DeepSeek on its own servers in Sydney would change nothing. This is the one question where origin decides the answer, and it decides it customer by customer.</p>
+<p>Closed models depend on their maker's government too, as a Chinese maker's service depends on Beijing's. At 5:21 pm on 12 June 2026, Anthropic <a href="https://www.anthropic.com/news/fable-mythos-access">received</a> a US export-control directive on its newest models, Fable 5 and Mythos 5, in a letter that "did not provide specific details of its national security concern". The directive restricted access by foreign nationals. Anthropic had no reliable way to check nationality in real time, so it suspended both models for every customer, on the big clouds as well as its own service. The trigger was a way past Fable 5's safeguards found by Amazon researchers, and Anthropic's tests showed that less capable models could find the same vulnerabilities.</p>
+<p>Fable 5 <a href="https://www.anthropic.com/news/redeploying-fable-5">returned</a> on 1 July on new terms. A new classifier also flags more harmless coding requests, and the model was included in subscription plans only until 7 July and billed as usage credits after that. Mythos 5 came back only for a set of US organisations the government had approved. Governments can act against open models too, as the DeepSeek order shows. A rule like that can tell customers to stop using a copy, but it cannot make the copy stop working.</p>
+<p>The control is to match the maker to the customer. A model of any origin can serve internal work and customers who accept it, and a tested model from a different maker stays ready for any customer whose rules exclude the first.</p>
+<h2 id="the-chinese-labs">The Chinese labs<a class="headerlink" href="#the-chinese-labs" title="Permanent link">⚓︎</a></h2>
+<p>The maker's risk is one thing and the maker's work is another, and the work explains why Chinese models lead the open field. DeepSeek <a href="https://arxiv.org/abs/2412.19437">reported training its V3 model</a> in 2.788 million GPU-hours on H800 chips, the cut-down version that export rules allowed into China. That is roughly an eleventh of the compute Meta reported for its comparable Llama 3 model, and Andrej Karpathy, a founding member of OpenAI, called it <a href="https://x.com/karpathy/status/1872362712958906460">"a highly impressive display of research and engineering under resource constraints"</a>. The famous "$6 million" covers only that final training run, and SemiAnalysis estimates DeepSeek's servers cost about US$1.6 billion. DeepSeek then put its R1 reasoning model through peer review in <a href="https://www.nature.com/articles/s41586-025-09422-z"><em>Nature</em></a>, which one of its reviewers, at Hugging Face, called <a href="https://www.nature.com/articles/d41586-025-03015-6">"a very welcome precedent"</a>.</p>
+<p>Each lab decides its openness model by model, and DeepSeek's now reaches past the weights. In October 2026 it released <a href="https://github.com/deepseek-ai/deepinfer">DeepInfer</a>, the software that serves its models in production, under the Apache 2.0 licence, for both NVIDIA and Huawei chips. DeepSeek <a href="https://zhuanlan.zhihu.com/p/2095560295930508953">says</a> a single cluster running it serves 155 trillion tokens a day, and that a companion component lets other hosts handle requests exactly as its official API does. It kept back its caching and load-balancing code, which it says is tied to its own infrastructure. The maker is publishing the tools that let others run its model well, away from its own servers.</p>
+<p>Behind the pace are a great many people. <a href="https://carnegieendowment.org/features/whos-ahead-in-the-global-ai-talent-race">Carnegie</a> traced the authors at NeurIPS 2025, the field's leading research conference, and found that 57% took their first degree in China, up 11 points since 2022, against 13% in the US. DeepSeek's founder, Liang Wenfeng, gave his reason for openness in 2024: <a href="https://www.chinatalk.media/p/deepseek-ceo-interview-with-chinas">"China should gradually become a contributor instead of freeriding"</a>, in ChinaTalk's translation. Developers have taken up what was offered. Hugging Face counts <a href="https://huggingface.co/blog/state-of-open-models-summer-2026">151,448 models built on Alibaba's Qwen</a>, 2.6 times everything built on Meta's models.</p>
+<h2 id="interests">Interests<a class="headerlink" href="#interests" title="Permanent link">⚓︎</a></h2>
+<p>These labs' rivals help shape the rules on open models, and every side of that debate has a commercial interest. In March 2025 OpenAI <a href="https://openai.com/global-affairs/openai-proposals-for-the-us-ai-action-plan/">told the White House's science office</a> that DeepSeek was "state-subsidized, state-controlled, and freely available". It proposed that data centres in allied countries ban "PRC-produced equipment (e.g., Huawei Ascend chips) and models that violate user privacy and create security risks". In July 2026 <a href="https://www.axios.com/2026/07/20/ai-us-china-open-source-kimi">Axios</a> quoted an unnamed source who said leading labs or their allies approach the administration "every 3-5 months with an idea to ban open-source models". David Sacks, an outside adviser to the White House on AI who has long warned against rules that favour the largest labs, wrote that "the leading closed labs, already a duopoly in terms of AI model revenue, want the government to eliminate their open-source competition."</p>
+<p>Both labs say otherwise. Anthropic's chief executive, Dario Amodei, <a href="https://www.anthropic.com/news/position-open-weights-models">wrote</a> that "Anthropic has never advocated for a ban on open-weights models". OpenAI publishes open weights of its own, gpt-oss, and <a href="https://openai.com/index/ai-policy-window/">wrote</a> that safety policy should not "become open-weights policy by another name". The interest exists whatever the intent, and Amodei named it: a ban "<em>would</em> protect US AI companies from competition, but that has never been my goal" (his italics). Both companies filed confidentially in June 2026 to list on the stock market, where investors will weigh that competition.</p>
+<p>NVIDIA argues the other side, and it has an interest as well. It hosted a July <a href="https://images.nvidia.com/pdf/Open-Weights-and-American-AI-Leadership.pdf">letter for open weights</a>, signed by OpenAI, Google, Meta and Microsoft among others, which argues that relying solely on closed models "is not inherently safe". Anthropic did not sign: Amodei agreed with much of the letter, but not that open weights necessarily help defenders more than attackers. NVIDIA's chief executive, Jensen Huang, <a href="https://www.axios.com/2026/07/22/nvidia-jensen-huang-china-open-source-ai">told Axios</a> that "these Chinese models are excellent" and named his interest in the same interview: "Free AI should be great for chips." NVIDIA's <a href="https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm">annual report</a> warns that restrictions on Chinese models such as DeepSeek and Qwen "could have a material impact on our business". With interests on every side, the measurements in this post are a better guide than anyone's statements.</p>
+<h2 id="what-we-dont-know">What we don't know<a class="headerlink" href="#what-we-dont-know" title="Permanent link">⚓︎</a></h2>
+<p>Some of the evidence the yes depends on is missing.</p>
+<ul>
+<li><strong>Other Chinese models.</strong> We found no independent safety evaluation of Qwen, MiniMax or MiMo on the measures CAISI used for DeepSeek, so DeepSeek's weaknesses can be neither assumed of them nor ruled out.</li>
+<li><strong>Planted triggers.</strong> Scanners are early and have been tested on small models.</li>
+<li><strong>Australian rules.</strong> The banned-products list and the mitigations in the DeepSeek note are not public, so a supplier cannot check its models against them.</li>
+<li><strong>American triggers.</strong> We found no political-trigger testing like CrowdStrike's run on American models.</li>
+<li><strong>Real savings.</strong> Cost per finished task at matched quality is published for few kinds of work.</li>
+</ul>
+<h2 id="used-this-way">Used this way<a class="headerlink" href="#used-this-way" title="Permanent link">⚓︎</a></h2>
+<p>Each of the three questions has a control, and together they make the yes.</p>
+<ol>
+<li><strong>Choose the route.</strong> Run open models in an Australian region or on servers you control, never through the maker's own service, and check the deployment tier, because a model available here may not stay here.</li>
+<li><strong>Test the model.</strong> Test on your own tasks, on the exact service you will use, with jailbreak, hijacking and trigger prompts included, and again after every change. That testing is ongoing engineering work, and its cost belongs in the business case. Give agents only the access they need. On your own servers nobody else watches for misuse, so the monitoring is yours as well.</li>
+<li><strong>Match the maker to the customer.</strong> Record each model's maker and route. Use any origin the customer accepts, and keep a tested model from a different maker ready for customers whose rules exclude one. Check what intellectual-property cover each model's terms give, since AWS's covers only its own models.</li>
+<li><strong>Check the files.</strong> Pull weights from the maker's official repository, in a format that cannot carry hidden code, and keep a record of what you run, as ASD advises.</li>
+</ol>
+<p>Take DeepSeek V3.2 once more, the hardest case in this post. Suppose it runs on Amazon in Sydney, is tested on your own work, and is kept away from customers whose rules exclude its maker. Its data then stays in Australia, and it costs a fraction of a closed model per token, though the saving per finished task is still to be measured. Called through DeepSeek's own service, the same weights fail the first question before the other two are asked. Nothing in the model differs between the two cases, only the way it is used.</p>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li>Artificial Analysis, <a href="https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index">Intelligence Index</a> (v4.3.2) and <a href="https://artificialanalysis.ai/models/open-source">open-weights models</a>, read 26 Oct 2026.</li>
+<li>Epoch AI, <a href="https://epoch.ai/data-insights/open-closed-eci-gap">Open models lag state-of-the-art closed models by 4 months</a>, 29 May 2026.</li>
+<li>OpenRouter and a16z, <a href="https://openrouter.ai/state-of-ai">State of AI: an empirical 100 trillion token study</a>, Dec 2025.</li>
+<li>Open Source Initiative, <a href="https://opensource.org/ai/open-source-ai-definition">Open Source AI Definition</a>.</li>
+<li>NIST CAISI, <a href="https://www.nist.gov/news-events/news/2025/09/caisi-evaluation-deepseek-ai-models-finds-shortcomings-and-risks">Evaluation of DeepSeek AI models</a> and <a href="https://www.nist.gov/document/caisi-evaluation-deepseek-ai-models-report">report</a>, 30 Sep 2025; <a href="https://www.nist.gov/news-events/news/2026/07/caisi-assessment-zais-glm-52">Assessment of Z.ai's GLM-5.2</a>, 17 Jul 2026.</li>
+<li>CrowdStrike, <a href="https://www.crowdstrike.com/en-us/blog/crowdstrike-researchers-identify-hidden-vulnerabilities-ai-coded-software/">Researchers identify hidden vulnerabilities in AI-coded software</a>, 20 Nov 2025.</li>
+<li>Hubinger et al., <a href="https://arxiv.org/abs/2401.05566">Sleeper Agents</a>, Anthropic, Jan 2024.</li>
+<li>Microsoft Security, <a href="https://www.microsoft.com/en-us/security/blog/2026/02/04/detecting-backdoored-language-models-at-scale">Detecting backdoored language models at scale</a>, 4 Feb 2026.</li>
+<li>Australian Government, <a href="https://www.protectivesecurity.gov.au/system/files/2025-02/PSPF-Direction-001-2025_1.pdf">PSPF Direction 001-2025</a>, 4 Feb 2025, and <a href="https://www.protectivesecurity.gov.au/system/files/2025-11/PSPF-Direction-004-2025.pdf">PSPF Direction 004-2025</a>, Oct 2025.</li>
+<li>ASD, <a href="https://www.cyber.gov.au/publication/ai-considerations-within-the-essentials">AI considerations within the Essentials</a>, 15 Oct 2026.</li>
+<li>US Department of Homeland Security, <a href="https://www.federalregister.gov/documents/2026/10/20/2026-21447/notice-of-order-regarding-exclusion-and-removal-of-deepseek-products-from-federal-civilian-executive">Exclusion and Removal Order #2026-01</a>, Federal Register, 20 Oct 2026.</li>
+<li>Anthropic, <a href="https://www.anthropic.com/news/fable-mythos-access">Statement on the US government directive to suspend access to Fable 5 and Mythos 5</a>, 12 Jun 2026, and <a href="https://www.anthropic.com/news/redeploying-fable-5">Redeploying Fable 5</a>, 30 Jun 2026.</li>
+<li>AWS, <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/models-region-compatibility.html">Bedrock regional availability</a>, <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html">Bedrock data protection</a>, <a href="https://aws.amazon.com/service-terms/">Service Terms §50.10</a> and <a href="https://aws.amazon.com/compliance/services-in-scope/IRAP/">IRAP services in scope</a>, read 26 Oct 2026.</li>
+<li>Microsoft, <a href="https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure-region-availability">Foundry models: region availability</a>; Google Cloud, <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations">locations</a>, read 26 Oct 2026.</li>
+<li>Red Hat, <a href="https://www.redhat.com/en/about/press-releases/285">Open Source Assurance press release</a>, 29 Jan 2004.</li>
+<li>CommBank, <a href="https://www.commbank.com.au/articles/newsroom/2026/08/australias-data-centre-boom.html">Australia's data centre boom</a>, 6 Aug 2026.</li>
+<li>DeepSeek-AI, <a href="https://arxiv.org/abs/2412.19437">DeepSeek-V3 technical report</a>, Dec 2024; <a href="https://www.nature.com/articles/s41586-025-09422-z">DeepSeek-R1 in <em>Nature</em></a>, 17 Sep 2025; <a href="https://github.com/deepseek-ai/deepinfer">DeepInfer</a>, Oct 2026; <a href="https://zhuanlan.zhihu.com/p/2095560295930508953">V4.1 Flash inference deployment</a> (in Chinese), 20 Oct 2026.</li>
+<li>Elizabeth Gibney, <a href="https://www.nature.com/articles/d41586-025-03015-6">Secrets of DeepSeek AI model revealed in landmark paper</a>, <em>Nature</em>, 17 Sep 2025.</li>
+<li>Andrej Karpathy, <a href="https://x.com/karpathy/status/1872362712958906460">post on DeepSeek-V3</a>, 26 Dec 2024.</li>
+<li>SemiAnalysis, DeepSeek Debates, 31 Jan 2025.</li>
+<li>ChinaTalk, <a href="https://www.chinatalk.media/p/deepseek-ceo-interview-with-chinas">DeepSeek CEO interview</a> (translation of 36Kr's 暗涌 Waves interview), 2024.</li>
+<li>Carnegie Endowment, <a href="https://carnegieendowment.org/features/whos-ahead-in-the-global-ai-talent-race">Who's ahead in the global AI talent race?</a>, 2025.</li>
+<li>Hugging Face, <a href="https://huggingface.co/blog/state-of-open-models-summer-2026">State of open models: summer 2026</a>, Aug 2026.</li>
+<li>OpenAI, <a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/">The Hugging Face incident and the road ahead</a>, 26 Aug 2026; <a href="https://openai.com/hugging-face-incident-and-misalignment/">The Hugging Face incident and other third-party impacts from misaligned models</a>, Sep 2026.</li>
+<li>Hugging Face, <a href="https://huggingface.co/blog/security-incident-july-2026">Security incident disclosure, July 2026</a>, 16 Jul 2026.</li>
+<li>Prime Minister of Australia, <a href="https://www.pm.gov.au/media/press-conference-new-york">Press conference, New York</a>, 23 Sep 2026.</li>
+<li>Anthropic, <a href="https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals">Investigating three incidents in our cybersecurity evaluations</a>, 30 Jul 2026; <a href="https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents">An alignment assessment of recent cybersecurity incidents</a>, 9 Sep 2026; <a href="https://www.anthropic.com/news/position-open-weights-models">Our position on open-weights models</a>, 27 Jul 2026; <a href="https://www.anthropic.com/news/confidential-draft-s1-sec">Anthropic confidentially submits draft S-1</a>, 1 Jun 2026.</li>
+<li>Reuters, <a href="https://www.reuters.com/technology/artificial-intelligence/sensitive-deepseek-data-exposed-web-israeli-cyber-firm-says-2025-01-29/">report on Wiz's discovery of an exposed DeepSeek database</a>, 29 Jan 2025, and <a href="https://www.reuters.com/legal/litigation/chinas-zai-disables-ai-coding-assistant-features-after-security-issue-2026-09-21/">report on Z.ai disabling features of its coding assistant</a>, 21 Sep 2026.</li>
+<li>OpenAI, <a href="https://openai.com/global-affairs/openai-proposals-for-the-us-ai-action-plan/">OpenAI's proposals for the U.S. AI Action Plan</a>, 13 Mar 2025; <a href="https://openai.com/index/ai-policy-window/">The AI policy window is open</a>, 9 Sep 2026; <a href="https://openai.com/index/openai-submits-confidential-s-1/">Confidential submission of draft S-1 to the SEC</a>, 8 Jun 2026.</li>
+<li>Axios, <a href="https://www.axios.com/2026/07/20/ai-us-china-open-source-kimi">The secret Trump administration battle to fight Chinese AI</a>, 20 Jul 2026, and <a href="https://www.axios.com/2026/07/22/nvidia-jensen-huang-china-open-source-ai">Nvidia's Jensen Huang defends Chinese AI amid Kimi panic</a>, 22 Jul 2026.</li>
+<li>NVIDIA and others, <a href="https://images.nvidia.com/pdf/Open-Weights-and-American-AI-Leadership.pdf">Open Weights and American AI Leadership</a>, 24 Jul 2026; NVIDIA, <a href="https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm">Form 10-K, fiscal 2026</a>, 25 Feb 2026.</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../copying-what-nobody-can-write-down/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Copying what nobody can write down">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Copying what nobody can write down
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023-2025 Ashvin Parameswaran
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sarantium/ashvin" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/ashvinparameswaran" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="/assets/ashvin_parameswaran_curriculum_vitae_2023.pdf" target="_blank" rel="noopener" title="resume" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M96 0C60.7 0 32 28.7 32 64v384c0 35.3 28.7 64 64 64h80V400c0-35.3 28.7-64 64-64h176V170.5c0-17-6.7-33.3-18.7-45.3L290.7 18.7C278.7 6.7 262.5 0 245.5 0zm261.5 176H264c-13.3 0-24-10.7-24-24V58.5zM240 380c-11 0-20 9-20 20v128c0 11 9 20 20 20s20-9 20-20v-28h12c33.1 0 60-26.9 60-60s-26.9-60-60-60zm32 80h-12v-40h12c11 0 20 9 20 20s-9 20-20 20m96-80c-11 0-20 9-20 20v128c0 11 9 20 20 20h32c28.7 0 52-23.3 52-52v-64c0-28.7-23.3-52-52-52zm20 128v-88h12c6.6 0 12 5.4 12 12v64c0 6.6-5.4 12-12 12zm88-108v128c0 11 9 20 20 20s20-9 20-20v-44h28c11 0 20-9 20-20s-9-20-20-20h-28v-24h28c11 0 20-9 20-20s-9-20-20-20h-48c-11 0-20 9-20 20"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tracking", "navigation.indexes", "search.highlight", "search.share", "content.code.copy", "navigation.footer", "navigation.top"], "search": "../../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>

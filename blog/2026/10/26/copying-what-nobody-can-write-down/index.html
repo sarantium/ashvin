@@ -1,0 +1,1067 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Why chains copy a working shop rather than a manual, when rivals can follow, and why no copy stays the same: three papers on replication, explained as one mechanism.">
+      
+      
+      
+        <link rel="canonical" href="https://ashvin.au/blog/2026/10/26/copying-what-nobody-can-write-down/">
+      
+      
+        <link rel="prev" href="../../21/automation-and-new-tasks-explained/">
+      
+      
+        <link rel="next" href="../the-case-for-open-weights-models/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/view-grid-plus-outline-dark.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Copying what nobody can write down - ashvin</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#template" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="ashvin" class="md-header__button md-logo" aria-label="ashvin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3v8h8V3zM3 21h8v-8H3zM3 3v8h8V3zm10 13h3v-3h2v3h3v2h-3v3h-2v-3h-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ashvin
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Copying what nobody can write down
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sarantium/ashvin/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sarantium/ashvin
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="ashvin" class="md-nav__button md-logo" aria-label="ashvin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3v8h8V3zM3 21h8v-8H3zM3 3v8h8V3zm10 13h3v-3h2v3h3v2h-3v3h-2v-3h-3z"/></svg>
+
+    </a>
+    ashvin
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sarantium/ashvin/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sarantium/ashvin
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-writing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Writing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Reading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-working/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Working
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../bookshelf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bookshelf
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Blog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Template
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arrow-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arrow core
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copy-exactly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copy exactly
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imitators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Imitators
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feedback
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2026-10-26 00:00:00+00:00" class="md-ellipsis">October 26, 2026</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              18 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <span class="md-tag">business-models</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">strategy</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">tacit-knowledge</span>
+      
+    
+  </nav>
+
+
+  
+  
+
+
+  <h1>Copying what nobody can write down</h1>
+
+<p>A chain store looks like the easiest business to explain. Someone gets one shop right, writes down what they did, and opens the same shop again and again, so the chain's profit is one shop's profit times the number of shops. Sidney Winter and Gabriel Szulanski, who studied firms that grow this way, call this the usual picture of replication and argue that it misses most of what such firms actually do.</p>
+<p>This post asks three questions the usual picture can't answer. What does a firm copy when it copies a working shop? If the shop can be copied, why can't a rival copy it too? And why does no copy stay the same as the original? It draws on three papers: Winter and Szulanski's account of <a href="https://doi.org/10.1287/orsc.12.6.730.10084">replication as a strategy</a>, Jan Rivkin's model of when a firm can <a href="https://doi.org/10.1287/orsc.12.3.274.10106">copy itself but rivals can't copy it</a>, and Martin Friesl and Joanne Larty's <a href="https://doi.org/10.1111/j.1468-2370.2012.00340.x">review of how copied routines change</a> once people perform them. One bank, Banc One, runs through the whole post. It leaves out franchise contracts, finance and brand, and starts from the usual picture, a formula written down and copied, adding a part each time that picture fails.</p>
+<!-- more -->
+
+<h2 id="template">Template<a class="headerlink" href="#template" title="Permanent link">⚓︎</a></h2>
+<p>A replicator copies a working example, because the thing that makes its business work can't be written down. Winter and Szulanski find that what a chain copies is rarely an insight that would fit on a page. It is "a complex set of interdependent routines that is discovered, adjusted, and fine-tuned by 'doing'": how the counter is staffed, how stock is ordered, how people are trained, which sites are chosen. Much of it is tacit, held in the hands of the people who do the work, and even the people running the shop can't say exactly which parts make it succeed.</p>
+<p>The working example has a name. Following Richard Nelson and Sidney Winter's earlier work, Winter and Szulanski call it the <strong>template</strong>: the outlet someone would point to if asked what a new one should look like. For McDonald's, the first template was the McDonald brothers' hamburger stand. Nelson and Winter put its advantage plainly. A template "makes possible a relatively precise copying of a functioning system that is far too large and complex to be comprehended by a single person." Nobody has to understand the whole system, because the whole system is there to be looked at.</p>
+<p>The bank this post follows shows what that looks like in practice. Banc One, an American regional bank, grew from the 1970s into the 1990s by buying other banks and converting each one to its own computer systems, products and procedures. For every new bank it picked a "sister bank" that had recently converted to similar systems and served a similar market. Staff from the new bank visited the sister to see how it ran, and the sister could lend specialists to help with the conversion. Banc One also wrote manuals, with step-by-step procedures for tellers and branch staff. It still sent people to look at a working bank.</p>
+<p>The manuals weren't enough for a reason philosophers had already found. Ludwig Wittgenstein argued that a written rule can't fix how it is to be applied: "no course of action could be determined by a rule, because any course of action can be made out to accord with the rule" (<a href="https://wab.uib.no/ojs/index.php/agora-wab/article/view/2947/3615"><em>Philosophical Investigations</em> §201</a>). People learn what a rule means by watching it followed. Winter and Szulanski make the same point about business knowledge. The written part "must still be translated into action", and the principles for translating it are hard to state but "can be learned and thus recreated by consulting a working example." The template supplies the applications that the manual leaves open.</p>
+<p>Copying an example solves one problem and creates another. The example contains everything the shop happens to be, and some of that has nothing to do with why it works.</p>
+<h2 id="arrow-core">Arrow core<a class="headerlink" href="#arrow-core" title="Permanent link">⚓︎</a></h2>
+<p>The part of the template that matters is what Winter and Szulanski call the <strong>Arrow core</strong>: the knowledge of which traits of the business can be copied and are worth copying, how those traits are produced, and in what kinds of place they pay. It is the complete answer to what, how and where to replicate, and it contains nothing irrelevant or harmful. The name honours the economist Kenneth Arrow, whose work on information explains why the core is so valuable. Information isn't used up by being used. Knowing how to run a good bank in one town takes nothing away from knowing how to run one in the next.</p>
+<p>Strictly, the core is knowledge about traits, but it is convenient to call the traits it picks out the core as well. The template holds those traits along with three other kinds. Some are irrelevant. Some are harmful, hidden by the template's overall success. Some matter but can't be copied, such as the instincts and local reputation of one particular manager. A firm can stretch such a person across more sites, but that spreads them thin, while the core can serve any number of sites at once. Nothing on the shop floor labels which trait is which. Even insiders face what economists call causal ambiguity: they can't say with confidence which of the things they do produce the results they get.</p>
+<p>Starbucks' early history shows the sorting taking place. Before Starbucks, Howard Schultz opened a coffee bar in Seattle called Il Giornale, modelled on the espresso bars he had seen in Italy, with Italian words on the menu, Italian décor and Italian opera on the sound system. In the figure below, the left shop is Il Giornale as built, with every trait drawn alike. The right shop is the same business after it had been running for a while.</p>
+<p><img alt="Two shopfronts. The left one, labelled as built, holds six identical grey cards: coffee quality, Italian menu, opera, barista, Italian décor and the experience, with the note every trait looks like a cause. An arrow labelled run it, customers complain, leads to the right shop, labelled as learned, where coffee quality, barista and the experience sit inside a dashed teal boundary labelled Arrow core. Below it, three struck-through cards for Italian menu, opera and Italian décor are labelled dropped." src="../../../../blog_assets/replication_template_core.png" /></p>
+<p>Customers did the sorting. "People started complaining about the incessant opera," Schultz recalled, and he dropped much of the Italian trimming. What carried into the Starbucks chain was the quality of the coffee, the overall experience and the barista. The dashed line around those three is the Arrow core as the firm came to understand it. It is drawn dashed because it is a belief, which further shops would test. Winter and Szulanski call the core "the hidden truth about replication potential": the firm never sees it directly, and learns it by building outlets and watching which differences matter, much as a scientist tests a theory against new facts.</p>
+<p>Banc One learned this way too, and kept what it learned in a dedicated unit. Its systems subsidiary carried out more than 135 conversions of over 80 banks between 1970 and 1993. One of them, a $650 million bank with 32 branches in Lafayette, Indiana, converted in 1986, was remembered inside Banc One as the worst ever. Out of failures like it came a written conversion process, and in Winter and Szulanski's summary, "every problem became first a checkpoint and then a task." That checklist wrote down part of the Arrow core, one lesson at a time. The rest stayed in employees' skills, which Banc One still had to pass on by training, and the unit that kept both was learning how to replicate as well as what to replicate.</p>
+<h2 id="copy-exactly">Copy exactly<a class="headerlink" href="#copy-exactly" title="Permanent link">⚓︎</a></h2>
+<p>Once the firm settles on its idea of the core, it does best by copying the template precisely, traits that may not matter included. The settling is forced on it by time, which a replicator has least of. Every month spent refining the model is a month in which rivals can take the best sites, so at some point the firm stops exploring and starts copying at scale. Winter and Szulanski liken this to freezing a product's design. Bradach's study of five restaurant chains found the same pattern: "most of the costs incurred by the chain to create and refine a business format occur early in the life of the chain. Later in a chain's life cycle, the chain operator clones units."</p>
+<p>After the design is frozen, the firm faces what Winter and Szulanski call the <strong>replication dilemma</strong>: copy the template precisely, or let each new outlet adapt it to local conditions. Adapting sounds wiser. Precision means copying traits that may not matter, and no new town is quite like the old one.</p>
+<p>They argue for precision anyway, at least at first. Their hypothesis is that replication pays best when the firm starts by copying the template exactly and adapts only once a close copy is up and running. Intel's "Copy Exactly" policy for its chip plants is the extreme case. No change to a plant's specification happens without a central committee's approval, and an approved change goes into every plant built to that specification; staff joked that "even the height of the process technicians must be identical at all fabs." Franchisees arrive at the same view from below. One told Bradach: "Why venture into the unknown? Once you start screwing around with the format, things get really complicated." Later evidence points the same way. Szulanski and Robert Jensen followed one franchisor's expansion into 23 countries and found that local licensees who <a href="https://scholarsarchive.byu.edu/facpub/920">copied its blueprint more exactly grew their networks faster</a>, with the benefit of an exact first year lasting several years.</p>
+<p>That leaves a doubt. If the firm has a fair idea of which traits matter, why not copy those and leave the rest? Winter and Szulanski describe a version of this they saw in chains: a "mix and match" rule that assembles a new store from the best parts of several, one part from the original St. Louis design and another from an innovation tried in San Francisco. Its weakness, they say, is that it assumes the parts don't affect one another. To see why that assumption fails, we need a picture of how parts affect one another.</p>
+<h2 id="interactions">Interactions<a class="headerlink" href="#interactions" title="Permanent link">⚓︎</a></h2>
+<p>Rivkin's model supplies that picture, and it shows that when choices interact, the value of each depends on the others. The model treats a business strategy as a set of choices: make an input or buy it, install flexible machines or specialised ones, organise by function or by product. In his simulations there are twelve such choices, each with two options. The setting that matters is how many other choices each choice's value depends on, which Rivkin calls K. His examples are ordinary. Machines that let a factory make a wide product range are worth more if the salesforce is trained to sell that range, and a no-questions-asked returns policy costs less if the logistics are already set up to take goods back. When K is zero, each choice adds its value alone. When K is eleven, every choice changes the value of every other.</p>
+<p>Rivkin pictures every possible combination of choices as a point on a landscape, with height standing for profit. A firm looking for a better strategy is a climber on that landscape, and the simplest way to climb is to change one choice at a time and keep any change that helps. In the figure below, each panel is a landscape for a different degree of interaction. The real landscapes have twelve dimensions, so these slices show their shape, not their scale. The flag marks the best combination anyone knows of, where the template stands. Each climber starts at the open circle and stops at the filled one. Watch where it stops.</p>
+<p><img alt="Three landscapes drawn as grey silhouettes, each with a teal flag on its highest point labelled best known. Few interactions: one smooth hill, and a climber's dotted path runs from the foot to the flag; tweaks reach the top. Some interactions: a range of four peaks, and the climber stops on a low peak to the left of the flagged one; stops on a lower peak, peaks cluster together. Many interactions: a field of jagged spikes, and the climber stops on the first small spike; stops almost at once, many peaks, far apart." src="../../../../blog_assets/replication_landscapes.png" /></p>
+<p>With few interactions the landscape is one smooth hill, and changing one choice at a time leads to the top from anywhere. As interactions grow, the hill breaks into a range of peaks. A climber on a lesser peak finds that every single change makes things worse, so it stays there, though a better peak exists nearby. With many interactions the landscape becomes a field of spikes. When every choice affects every other, changing one choice changes the value of all twelve, so a combination one step from a high peak has a profit essentially unrelated to that peak's. By Rivkin's formula, a twelve-choice landscape at maximum interaction has about 315 local peaks on average, the typical peak is lower, and the high ones lie far apart. Rivkin gives the organisational version of being stuck: a manager in charge of one choice has no reason to change it, because any change they can make alone makes results worse.</p>
+<p>The picture settles the doubt about copying exactly. When choices interact, a trait that looks irrelevant may be holding up the value of a trait that matters. Leaving it out, or swapping in a part from another store, moves the new outlet off the template's peak, and on a range of peaks the nearest slope may lead somewhere lower. Copying every trait keeps the outlet on the peak the template has already found, whatever the firm believes about which traits matter. That is why precision pays most where the work is most tangled, as in Intel's plants, and why the mix-and-match store bets on interactions nobody has tested.</p>
+<h2 id="imitators">Imitators<a class="headerlink" href="#imitators" title="Permanent link">⚓︎</a></h2>
+<p>The same landscape decides when a rival can follow. Nelson and Winter treated replication and imitation as two versions of one task, reproducing a success, and Rivkin quotes Winter's warning that "[f]eatures that restrain involuntary transfer tend to inhibit voluntary transfer." Whatever stops a rival copying you tends to stop you copying yourself. Anything you do to make copying easier, such as writing a better manual, helps the rival as well.</p>
+<p>Two of Rivkin's cases show this link holding at either end. White Castle, whose founders are widely credited with inventing the fast-food business, standardised everything: white steel buildings with turrets, stools facing a grill, a short menu, an emphasis on hygiene. It spread fast and was copied faster. The founders of White Tower visited White Castles in Minneapolis, photographed and measured them, copied the products and hired away an operator. By the early 1930s, White Tower ran nearly as many outlets as White Castle. Marks &amp; Spencer was the opposite case. For generations it was Britain's leading retailer of clothing and food, built on decades of partnership with suppliers who made goods almost only for it. No British rival matched it, and nor could Marks &amp; Spencer itself in Canada, where new suppliers failed its quality standards and it ended up importing from its British ones. In one case writer's words, "the same difficulties that inhibit[ed] competitors from copying M &amp; S's position in the United Kingdom also limit[ed] M &amp; S's ability to replicate its U.K. position overseas."</p>
+<p>What the replicator has and the rival lacks is the template. Even with it, the replicator can't set every choice right at the first attempt, because it doesn't know exactly what made the original work; Rivkin's replicator copies imperfectly too, only less so. He gives the template three uses: the replicator starts its copy closer to the original, it is more accurate when it tries to change many choices at once to match the original, and it knows which of its choices already match. Each use produces the same pattern in his runs, so the next figure shows only the first. The landscapes stay the same and one thing changes. There are now two climbers. The <strong>replicator</strong> starts near the flag, because it has the template, and the <strong>imitator</strong> starts far away, because it sees only the outside.</p>
+<p><img alt="The same three landscapes with two climbers in each, a teal replicator and a violet imitator. Few interactions: both dotted paths reach the flag; both reach the top, the template adds little. Some interactions: the replicator, starting on the flagged peak's slope, reaches the flag, while the imitator stops on a low peak to the left; only the replicator does, the template is worth most. Many interactions: the replicator stops on a small spike next to the flag and the imitator on a small spike at the far left, at similar heights; neither does, near is not high." src="../../../../blog_assets/replication_landscapes_rivals.png" /></p>
+<p>On the smooth hill the template adds little, because both climbers reach the top and the imitator just takes longer. On the field of spikes it adds little too. The replicator ends up nearer the best peak than the imitator does, but the spikes between high peaks are low, so being near the best one is worth almost nothing. Only in between, where peaks cluster in ranges, does the template's head start carry the replicator up the right slope while the imitator is caught on a lesser peak.</p>
+<p>Rivkin's numbers have the same shape. In one set of his runs, the replicator starts with eight of the twelve choices matching the original and the imitator with two, and both then improve one choice at a time. The table gives the share of the best possible profit each reaches, averaged over 200 landscapes:</p>
+<table>
+<thead>
+<tr>
+<th>Interactions (K)</th>
+<th>Replicator</th>
+<th>Imitator</th>
+<th>Gap (points)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>100.0%</td>
+<td>100.0%</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>99.3%</td>
+<td>95.2%</td>
+<td>4.1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>97.8%</td>
+<td>91.8%</td>
+<td>6.1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>96.3%</td>
+<td>90.6%</td>
+<td>5.7</td>
+</tr>
+<tr>
+<td>5</td>
+<td>92.4%</td>
+<td>89.2%</td>
+<td>3.2</td>
+</tr>
+<tr>
+<td>11</td>
+<td>81.1%</td>
+<td>81.0%</td>
+<td>0.2</td>
+</tr>
+</tbody>
+</table>
+<p>The gap is Rivkin's own figure, computed before rounding, so it can differ by 0.1 from subtracting the two columns.</p>
+<p>The gap is widest at K = 2 in this setting and has almost vanished by K = 11. At that level the replicator still ends up much nearer the original, 4.4 choices away against the imitator's 9.1, and is no better off for it. It even ends slightly further away than it started, because climbing from its starting point led to whichever local peak lay nearest. Where the gap peaks depends on the size of the head start: in Rivkin's runs, the more choices the replicator starts with right, the higher the K at which its advantage is largest. He puts it as a rule of thumb: "the greater is a firm's informational superiority, the more complex it would like its strategy to be."</p>
+<p>This is where a common belief fails. It is tempting to think that the more intricate a business is, the safer it is from copycats. Rivkin's results say intricacy guards against rivals and against your own expansion alike, which is Marks &amp; Spencer's story. White Castle's trouble, on his reading, ran the other way: its turrets had little to do with its menu, and neither had much to do with its hygiene, so a copycat could get each part right separately.</p>
+<p>Winter and Szulanski add a further reason a rival falls behind, and Banc One's checklist is an instance of it. A rival has to copy more than a shop; it has to copy the ability to open shops. "It is one thing to contemplate imitating a Starbucks coffee bar," they write, "yet quite another to consider imitating a set of organizational capabilities that makes it possible to locate, design, build, furnish, and train personnel for new coffee bars at the Starbucks rate of about one store a day." That capability lives in the replicator's centre, where an outsider can't observe it. Rivkin counts Banc One among the firms that managed to replicate without being imitated, at least for some time.</p>
+<h2 id="performance">Performance<a class="headerlink" href="#performance" title="Permanent link">⚓︎</a></h2>
+<p>Rivkin's model has a limit that he states himself: it treats the original success as a fixed target and each copy as a one-off effort. A choice in the model is a switch set to 0 or 1, and once set, it stays set. Friesl and Larty's review explains why real copies don't behave like switches: a routine exists only when people perform it, and performances vary.</p>
+<p>They draw on Martha Feldman and Brian Pentland's account of routines, which gives every routine two aspects. The <strong>ostensive</strong> aspect is the routine as people understand it, the shared and partly unspoken idea that lets staff recognise a set of activities as, say, part of the hiring routine, and judge whether they were done properly. The <strong>performative</strong> aspect is the routine as actually carried out, by particular people on a particular day. Each shapes the other. People's understanding guides what they do, and what they do, repeated, maintains or changes their understanding. As Friesl and Larty put it, drawing on Wanda Orlikowski, knowledge "is not transferred but enacted in practice."</p>
+<p>This changes what a transfer can carry. A manual, a training course or a visit to a sister bank can shape the new staff's understanding of a routine. The performance itself has to be produced on site, by people with their own experience, values and interests, who have room to vary it. Wittgenstein's point applies here too: since a rule can't settle its own applications, people who share an understanding can still carry it out differently.</p>
+<p>Friesl and Larty call the result <strong>drift</strong>, and they find it in two directions. In performative drift, staff in two outlets share an understanding of a routine but carry it out differently. In ostensive drift, they carry it out the same way but understand it differently, which someone watching the work would miss, because it shows only in how people explain what they do. Pentland found both in Citibank's branches. In one case, performances varied widely while people's understanding was much the same; in another, understanding varied while the performances were alike. Drift also grows with time. As a routine turns into habit, the knowledge of how to do it slips out of conscious attention, and the performance can wander from the manual without anyone deciding to change it.</p>
+<p>A copy, then, has to be kept as well as made. Winter and Szulanski reach the same view from the replicator's side. Chains with high staff turnover lose skills constantly, and a study of pizza stores found that a store's effectiveness came overwhelmingly from its experience in recent weeks; tossing dough by hand is a tacit skill, passed on by apprenticeship. They describe knowledge transfer as a process "by which an organization recreates a complex, causally ambiguous set of routines in new settings and keeps it functioning." In the terms of Rivkin's landscape, an outlet keeps getting nudged off the peak it was placed on, and someone has to keep putting it back.</p>
+<h2 id="feedback">Feedback<a class="headerlink" href="#feedback" title="Permanent link">⚓︎</a></h2>
+<p>Copies send lessons back as well as receiving them, and what gets written into the template is decided by people with a stake in it. Friesl and Larty call these <strong>reverse knowledge flows</strong>: lessons from the copies that change the template for the next round. Winter and Szulanski note that innovations in replicating firms often start in a local outlet and spread from there, rather than being planned at the centre. Szulanski and Jensen describe the order this suggests, with replication as "a method for lowering the risk and effort of innovation by allowing one to master the existing form first." An outlet that has mastered the template can break its rules knowingly, and a good change can then travel back to the centre.</p>
+<p>Banc One built a place for that return trip. Alongside its sister banks it ran a "model bank", a working front and back office where every new corporate standard and system was installed first, so that pilots could run without disrupting a real bank. The model bank was a template kept deliberately one step ahead, where changes to the Arrow core were tried before they went out.</p>
+<p>The lessons that travel back are chosen in a contest, though. Friesl and Larty argue that replication is political at both ends. Choosing which unit's routines become the template "adds prestige and legitimacy to the respective unit and its management," so units have reason to lobby for their own way of working. Banc One's history has an example. When it converted a bank in Indianapolis, the local bank "wanted to keep their own systems and there was this tug of war about which systems they were going to use." The policy that grew out of it, which Banc One called Common Systems, was blunt: "We were going to have one common product and everybody is going to it." That policy was a statement about the Arrow core, and it came out of a fight over systems as much as out of analysis. Winter and Szulanski call Banc One's whole replication process "to some extent an emergent phenomenon." Nothing in their account says the outcome was worse than the alternative. The risk Friesl and Larty name is that it can be: <strong>reverse drift</strong>, drift in the flow back to the centre, where an inferior template or a poor rule is adopted for the next round because its backers won the argument.</p>
+<p>The last figure puts the parts together. The <strong>centre</strong> holds the <strong>Arrow core</strong> as a dashed page, a hypothesis learned from the <strong>template</strong> beneath it, whose teal cards are the traits the core picks out, as in the first figure. The centre sends copies out to the outlets. In each outlet the copy exists twice, as a routine <strong>understood</strong> and as a routine <strong>performed</strong>, and in the bottom outlet the performance has <strong>drifted</strong>. Only performative drift can be drawn; ostensive drift, a change in understanding, doesn't show from outside. <strong>Lessons</strong> flow back to the centre, contested on the way. The <strong>imitator</strong> stands outside, watching the outlets.</p>
+<p><img alt="A three-zone diagram. In the teal replicator zone, a building labelled centre holds a dashed page labelled Arrow core; below it, a shop labelled template, a working example, with an arrow labelled learn pointing up to the centre. Teal arrows labelled copy run from the centre to three shops in the amber outlets zone. Each shop holds a page and three people, labelled understood and performed in the first shop; in the third shop two of the people are tilted, labelled drift. Dashed amber arrows labelled lessons, contested, run from the second and third shops back to the centre. In the violet rival zone, an eye labelled imitator, sees outlets, not the core, looks at the middle shop along a dotted line." src="../../../../blog_assets/replication_assembled.png" /></p>
+<p>Nowhere in the figure is the Arrow core written down for certain. It exists as the centre's current hypothesis, tested by every new outlet and revised by lessons that someone had to win an argument to send back, while drift wears away the copies made from it. The imitator, looking at the outlets, sees the performances and some of the template's surface, which is enough to copy a White Castle and not enough to copy a Banc One.</p>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li>Winter, S. G. &amp; Szulanski, G. (2001). <a href="https://doi.org/10.1287/orsc.12.6.730.10084">Replication as strategy</a>. <em>Organization Science</em>, 12(6), 730–743. Banc One, Starbucks, Intel, Bradach's chains, the Arrow core.</li>
+<li>Rivkin, J. W. (2001). <a href="https://doi.org/10.1287/orsc.12.3.274.10106">Reproducing knowledge: Replication without imitation at moderate complexity</a>. <em>Organization Science</em>, 12(3), 274–293. The landscape model, Table 3 (Panel A) and Table 4; White Castle and Marks &amp; Spencer.</li>
+<li>Friesl, M. &amp; Larty, J. (2013). <a href="https://doi.org/10.1111/j.1468-2370.2012.00340.x">Replication of routines in organizations: Existing literature and new perspectives</a>. <em>International Journal of Management Reviews</em>, 15(1), 106–122. Ostensive and performative aspects, drift, reverse flows, politics; Nelson and Winter's template quotation; Pentland's Citibank study.</li>
+<li>Szulanski, G. &amp; Jensen, R. J. (2008). <a href="https://scholarsarchive.byu.edu/facpub/920">Growing through copying: The negative consequences of innovation on franchise network growth</a>. <em>Research Policy</em>, 37, 1732–1741 (abstract).</li>
+<li>Wittgenstein, L. <em>Philosophical Investigations</em>, §201, revised translation (2001), as quoted in <a href="https://wab.uib.no/ojs/index.php/agora-wab/article/view/2947/3615">an essay on the paradox in §201</a>.</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../21/automation-and-new-tasks-explained/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Automation and New Tasks, Explained">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Automation and New Tasks, Explained
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../the-case-for-open-weights-models/" class="md-footer__link md-footer__link--next" aria-label="Next: The case for open-weights models">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                The case for open-weights models
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023-2025 Ashvin Parameswaran
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sarantium/ashvin" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/ashvinparameswaran" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="/assets/ashvin_parameswaran_curriculum_vitae_2023.pdf" target="_blank" rel="noopener" title="resume" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M96 0C60.7 0 32 28.7 32 64v384c0 35.3 28.7 64 64 64h80V400c0-35.3 28.7-64 64-64h176V170.5c0-17-6.7-33.3-18.7-45.3L290.7 18.7C278.7 6.7 262.5 0 245.5 0zm261.5 176H264c-13.3 0-24-10.7-24-24V58.5zM240 380c-11 0-20 9-20 20v128c0 11 9 20 20 20s20-9 20-20v-28h12c33.1 0 60-26.9 60-60s-26.9-60-60-60zm32 80h-12v-40h12c11 0 20 9 20 20s-9 20-20 20m96-80c-11 0-20 9-20 20v128c0 11 9 20 20 20h32c28.7 0 52-23.3 52-52v-64c0-28.7-23.3-52-52-52zm20 128v-88h12c6.6 0 12 5.4 12 12v64c0 6.6-5.4 12-12 12zm88-108v128c0 11 9 20 20 20s20-9 20-20v-44h28c11 0 20-9 20-20s-9-20-20-20h-28v-24h28c11 0 20-9 20-20s-9-20-20-20h-48c-11 0-20 9-20 20"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tracking", "navigation.indexes", "search.highlight", "search.share", "content.code.copy", "navigation.footer", "navigation.top"], "search": "../../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>
