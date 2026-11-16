@@ -1,5 +1,6 @@
 ---
-title: "Concrete Is Not Control: Separating the Facility Stack from the Model Stack in Australia's AI Standards"
+title: "Concrete Is Not Control: Data Centres and Australia's AI Standards"
+slug: concrete-is-not-control
 date: 2026-11-16
 description: "Policy note: The 'sovereign AI' bargain asks Australia to pay in things it controls (grid, water, land consent, copyright) for something a building cannot deliver: a say over foreign models. Canberra can bind frontier labs through the terms of market entry instead."
 tags:
@@ -12,7 +13,7 @@ tags:
 
 **ASHVIN PARAMESWARAN**, Sydney, Australia
 
-**Abstract.** Australia is running two AI policies under one banner. In November 2026 it announced a statutory safety regulator covering every frontier AI provider in its market. It has also promised mandatory energy and water rules for large data centres while courting the companies that build them. Industry pitches and policy debate increasingly join the two into a single "sovereign AI" bargain: approve multi-gigawatt data centres quickly, and the foreign laboratories that use them will give Australia model access, safety cooperation, and strategic weight. I argue that this bargain asks Australia to pay in things it controls (grid capacity, water, land consent, copyright law) for something a building cannot deliver: a say over foreign models. Control of a model follows its owner's home government, as the June 2026 suspension of two Anthropic models showed. About two-thirds of a data centre's capital cost is imported hardware, and most AI work reaches Australian users over subsea fibre wherever it runs. The say Australia wants is available by another route: the November regulator binds any provider that sells here, wherever its computers sit. Canberra should enforce safety duties and 72-hour incident reporting as unconditional terms of market entry, fund public compute and model portability directly, and hold data centres to hard limits on power, water, consent, and public cost.
+**Abstract.** Australia is being asked to treat two AI policies as one. The first is a new safety regulator for every frontier AI provider that serves Australians. The second is the courting of very large data centres. The "sovereign AI" bargain joins them: approve the data centres quickly, and the foreign laboratories that use them will give Australia model access, safety cooperation, and strategic weight. I argue that this bargain asks Australia to pay in things it controls (grid capacity, water, land consent, copyright law) for something a building cannot deliver: a say over foreign models. A model answers to its owner's home government, wherever its computers sit. Most of a data centre's capital cost is imported hardware, and the gains from AI come from using it, not from housing it. Australia already has the say it wants, because it sets the terms on which providers enter its market. Canberra should make safety duties and 72-hour incident reporting unconditional terms of entry, fund public compute directly, and hold data centres to hard limits on power, water, consent, and public cost.
 
 **Keywords:** AI governance, data centres, sovereign AI, compute policy, Australian AI Standards, energy and water systems
 
