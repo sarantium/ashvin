@@ -2,7 +2,7 @@
 title: "Build the Data Centres, Govern the Models"
 slug: concrete-is-not-control
 date: 2026-11-16
-description: "Policy note: Australia can have both a large data-centre industry and a real say over AI, if it keeps them as two separate deals. Data centres get a fast, published path on clear terms. AI providers owe safety duties as a condition of market entry. Neither is traded for the other."
+description: "Policy note: Approving a data centre and governing an AI model are separate decisions. Data centres that pay their own costs get a fast, published path to approval. AI providers owe safety duties as a condition of market entry. Neither is traded for the other."
 tags:
   - ai
   - data-centres
@@ -13,11 +13,11 @@ tags:
 
 **ASHVIN PARAMESWARAN**, Sydney, Australia
 
-**Abstract.** Australia wants two things from the AI boom: a share of the data-centre investment, and a say over the AI models its people use. It can have both. This note argues that it gets them by making two separate deals, and puts both at risk by trading one for the other.
+**Abstract.** Approving a data centre and governing an AI model are separate decisions, and Australia should make them separately. The "sovereign AI" proposal joins them. It holds that if Australia approves very large data centres quickly, the foreign laboratories that use them will repay it with model access, safety cooperation, and strategic weight.
 
-The "sovereign AI" proposal trades them. It holds that if Australia approves very large data centres quickly, the foreign laboratories that use them will repay it with model access, safety cooperation, and strategic weight. A building cannot deliver that. A model answers to its owner's home government wherever its computers sit, and the economic gains from AI come from using it, not from housing it. Australia's say over models has a different source: the terms it sets on entry to its market.
+This note argues that the trade fails. A building confers no authority over the model that runs inside it: a model answers to its owner's home government wherever its computers sit. The economic gains from AI come from using it, not from housing it. Australia's authority over models has a different source, the terms it sets on entry to its market, and linking those terms to investment weakens them.
 
-I recommend a fast, published approval path for data centres that meet clear limits on power, water, consent, and public cost; safety duties and 72-hour incident reporting as unconditional terms of market entry; and direct public funding of research compute.
+Each decision should be made on its own terms. Data centres that meet clear limits on power, water, consent, and public cost should be approved quickly, through a published path. AI providers should owe safety duties and 72-hour incident reporting as unconditional terms of market entry. Research compute should be funded directly.
 
 **Keywords:** AI governance, data centres, sovereign AI, compute policy, Australian AI Standards, energy and water systems
 
@@ -27,7 +27,7 @@ I recommend a fast, published approval path for data centres that meet clear lim
 
 ## 1. Introduction
 
-AI runs on data centres, and Australia is a good place to build them. It has land, sun and wind, stable institutions, and a close alliance with the United States. Investors have noticed. The Australian Energy Market Operator (AEMO) counts 225 data-centre projects in development [3], and Commonwealth Bank describes a $150 billion investment opportunity [9]. Many of these projects deserve to be built. The question for policy is on what terms.
+AI runs on data centres, and Australia is a good place to build them. It has land, sun and wind, stable institutions, and a close alliance with the United States. Investors have noticed. The Australian Energy Market Operator (AEMO) counts 225 data-centre projects in development [3], and Commonwealth Bank describes a $150 billion investment opportunity [9]. Projects that pay their own costs should be built, and approved quickly. The question for policy is what those costs are and who sets the terms.
 
 That question has become tangled with a second one, because Australia now has two AI policies.
 
@@ -39,7 +39,7 @@ That question has become tangled with a second one, because Australia now has tw
 
 The case for linking the policies runs as a chain. If Australia approves data centres quickly, foreign laboratories will sink tens of billions of dollars here. Having done so, they will have reason to keep Australia supplied with their best models, to cooperate with its safety institute, and to defend its interests in Washington. In this account the buildings are "sovereign AI infrastructure", and helping to build them is a way of governing AI.
 
-I argue that both deals are worth making and that joining them damages both. Data centres should be welcomed on clear commercial terms. AI providers should owe safety duties as a condition of serving Australians. The joined version asks Australia to pay in things it controls (grid capacity, water, consent over land, copyright law) for something a building cannot deliver: a say over AI models owned abroad. That say is already available, at no such price, through the terms of market entry.
+I argue that the two policies must be kept apart. A data centre confers no authority over the models that run inside it. The joined deal therefore asks Australia to pay in things it controls (grid capacity, water, consent over land, copyright law) for something a building cannot deliver. Australia already holds authority over models through the terms of market entry. Data centres should be approved on clear commercial terms, AI providers should owe safety duties as a condition of serving Australians, and neither should be traded for the other.
 
 The note proceeds in four steps:
 
@@ -83,7 +83,7 @@ A second fact points the same way: the data centres proposed for export are not 
 - ***Training*** (building a new model) packs tens of thousands of chips into a single power-dense campus [25]. It can be done anywhere with enough power.
 - ***Inference*** (running a trained model to answer requests) divides according to how much delay a task can tolerate. Interactive clinical tools, voice systems, and industrial controls need millisecond response times and so must run near Australian cities. Long-running coding, research, and administrative agents run just as well over subsea fibre from abroad [24, 27].
 
-The hardware is diverging along the same line, as inference moves to specialised chips unlike those in training clusters. A training campus built in regional Australia for export may be a sound commercial project. It gives Australian hospitals, banks, and public agencies no guarantee that their AI services will keep running during an international disruption.
+The hardware is diverging along the same line, as inference moves to specialised chips unlike those in training clusters. Whatever its commercial merits, a training campus built in regional Australia for export gives Australian hospitals, banks, and public agencies no guarantee that their AI services will keep running during an international disruption.
 
 ## 3. The Economic Case Is Real, and It Is Commercial
 
@@ -103,13 +103,13 @@ These are good reasons to build. They are also ordinary commercial reasons, whic
 
 **The productivity gain comes from using AI, wherever it is hosted.** The Productivity Commission estimates that AI could lift labour productivity by 4.3% over the next decade, or roughly 0.4 percentage points a year, nearly doubling the past decade's pace [28]. Australian firms and agencies earn that gain by redesigning everyday tasks, whether the computation happens in Melbourne or Oregon. The owners of the data centres carry a separate risk. As Hempton warns, capital-heavy infrastructure with low operating costs and rapid chip obsolescence can suffer severe overbuild and weak investor returns even while the services running over it transform the wider economy [27].
 
-None of this is a reason to refuse a data centre. It is a reason not to subsidise one. A project that pays for its own grid connection, water, and site remediation leaves the overbuild risk with its investors, and is welcome at any size. A project that needs grid priority, cheap water, or tax relief asks ratepayers to carry that risk, in return for a productivity gain they would receive anyway.
+The rule that follows is simple: approve, but do not subsidise. A project that pays for its own grid connection, water, and site remediation leaves the overbuild risk with its investors, and is welcome at any size. A project that needs grid priority, cheap water, or tax relief asks ratepayers to carry that risk, in return for a productivity gain they would receive anyway.
 
 ## 4. Joining the Deals Weakens Both
 
 What remains is the joined deal in its strongest form: **compute-for-access** [25]. In Egan's account, Australia can offer foreign laboratories fast, predictable approvals, abundant renewable land, and aligned Five Eyes security settings for multi-gigawatt training clusters. Once the laboratories have sunk tens of billions of private dollars onshore, they have reason to defend Australian access in Washington. Canberra can then bargain for guaranteed access to frontier models, dedicated research compute, and close safety cooperation with the AISI [25]. Charlton advances a related case behind Expectation 5: partnerships with the laboratories could turn Australian universities and firms from passive buyers of AI services into intellectual-property partners [24].
 
-Much of this is sound. Fast, predictable approvals are worth offering for their own sake, and research partnerships cost the public nothing where developers pay their full costs. The difficulty arises only when Canberra relies on data-centre investment to secure model access or safety cooperation. That reliance fails for three reasons.
+Two parts of this account are right. Fast, predictable approvals are worth offering for their own sake, and research partnerships cost the public nothing where developers pay their full costs. The third part is the error: relying on data-centre investment to secure model access or safety cooperation. That reliance fails for three reasons.
 
 **First, Australia already holds a stronger lever, and linkage weakens it.** The November announcement applies mandatory security controls, independent evaluation, and rapid incident reporting to *every* frontier AI provider operating in Australia [1]. It reaches a model trained and hosted anywhere on earth the moment that model serves Australian users. Canberra timed it deliberately "before a range of major international talks that will cover AI development and investment" [1]. If safety cooperation or research access is instead made conditional on data-centre deals, a statutory duty becomes a negotiated favour, and the companies being regulated gain a bargaining position against their regulator.
 
@@ -168,9 +168,9 @@ Within government, the Digital Transformation Agency (DTA) and Australian Signal
 
 ## 7. Conclusion
 
-Australia can have a large data-centre industry and a real say over the AI its people use. The two come from different sources. Data centres come from land, power, and a fast, predictable path to approval. A say over models comes from the market: any laboratory that wants Australian customers is already within Parliament's reach, and Canberra can require independent evaluation, security controls, and prompt incident reporting without owing anything to the companies that build data centres [1].
+Approving a data centre and governing an AI model are different acts, and they rest on different sources of authority. Australia's authority over data centres comes from its land, grid, and water. Its authority over models comes from its market: any laboratory that wants Australian customers is within Parliament's reach, and Canberra can require independent evaluation, security controls, and prompt incident reporting without owing anything to the companies that build data centres [1].
 
-The "sovereign AI" proposal confuses the two sources. It treats a building as though it carried authority over what runs inside it, and asks Australia to pay for that authority with its grid, water, land, and law. Concrete is not control. Kept apart, each deal can be made on terms that hold: data centres that meet published limits on power, water, consent, and public cost are approved quickly, and AI providers owe the same safety duties wherever their computers sit.
+The "sovereign AI" proposal confuses the two. It treats a building as though it carried authority over what runs inside it, and asks Australia to pay for that authority with its grid, water, land, and law. Concrete is not control. Australia should make each decision on its own terms: approve quickly the data centres that meet published limits on power, water, consent, and public cost, and hold every AI provider to the same safety duties wherever its computers sit.
 
 ---
 
