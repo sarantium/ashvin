@@ -93,7 +93,23 @@ If hosting does not buy control, data centres must be judged as industry policy.
 - Services that need fast responses or onshore data must be hosted near their Australian users, so some new capacity is needed on any view [24].
 - A large electricity customer can lower power prices for everyone. If it puts more energy through the existing network without adding to the peak, the network's fixed costs are spread more thinly [26].
 
-These are good reasons to build. They are also ordinary commercial reasons, which a sound project can meet on ordinary commercial terms. Productivity Commission chair Danielle Wood makes the same point: there is "pretty strong commercial incentive to build these things", and she expects Australia to "end up with a lot of capacity in any case" [28]. Four findings set the scale of the public benefit, and so the limit of what the public should pay for it.
+These are good reasons to build. They are also ordinary commercial reasons, which a sound project can meet on ordinary commercial terms. Productivity Commission chair Danielle Wood makes the same point: there is "pretty strong commercial incentive to build these things", and she expects Australia to "end up with a lot of capacity in any case" [28].
+
+**How to count the benefit.** Headline investment is the wrong measure, and so is gross domestic product (GDP). GDP counts everything produced on Australian soil, including profits that belong to foreign owners. The right measure is gross national income (GNI): what Australian residents keep. For a single project, the calculation has three terms:
+
+> **Net benefit to residents = income residents keep + spillovers − costs left with residents**
+
+Table 2 sets out what belongs in each term and what does not.
+
+| Term | What counts | What does not count |
+|---|---|---|
+| **Income residents keep** | Wages paid to Australian workers; margins earned by Australian suppliers of construction, land, and energy; taxes and charges paid to Australian governments; profits to any Australian owners | Imported chips and servers, which enter as investment and leave as imports; profits to foreign owners |
+| **Spillovers** | Lower network charges, if the load does not add to the peak; compute and skills passed on to local researchers and firms | The productivity gain from using AI, which arrives wherever the model is hosted |
+| **Costs left with residents** | Grid upgrades and higher bills the project does not pay for; water drawn from stressed catchments; trades diverted from housing and the energy transition; tax relief and other concessions | Costs the project pays for itself |
+
+*Table 2. How to count a data centre's benefit to Australian residents.*
+
+Four findings fill in these terms. They show that the first term is much smaller than the headline, that the second is conditional, and that the third is within government's control.
 
 **The pipeline is far larger than Australian demand.** In August 2026 AEMO's 225 projects in development totalled 67 GW [3]. The record of existing data centres is more modest. Those operating on the NEM consumed roughly 5 terawatt-hours (TWh) in FY2026, or 3% of grid demand [3]. Average use of their grid connections sat near 27%, facilities took five to ten years to reach full load, and 36% of the projects in AEMO's 2025 forecast had already been cancelled [3]. Hosting 10 to 15 GW at 75% utilisation would consume 65.7 to 98.6 TWh a year, four to six times AEMO's Step Change forecast for FY2030 (15.5 TWh) [3, 25, 26]. Capacity on that scale would serve export markets, not Australian hospitals, schools, or firms. Export is a legitimate business. It should be assessed as one.
 
@@ -101,13 +117,13 @@ These are good reasons to build. They are also ordinary commercial reasons, whic
 
 The same pattern holds once a data centre is running. Charlton estimates that of each dollar spent on AI services, energy takes about 5 to 10 cents and infrastructure less than 10. Chips take 20 to 30 cents, and most of the remainder goes to the model's developer [24]. Australia would supply the smaller parts. Whether those parts earn more than a commodity return depends on whether Australia can supply them below the global marginal cost, which Charlton calls an "[i]mportant unanswered question" [24].
 
-**The local share arrives during construction and competes for scarce trades.** The remaining 32%, about US$12 billion per gigawatt in Epoch's model, is spent on buildings, electrical fit-out, cooling, and land [12]. Large campuses bid for the same electricians, civil trades, and high-voltage transformers needed for housing and grid decarbonisation [9]. Once operating, a data centre employs few people: an industry-commissioned report by Mandala Partners counts around 9,450 ongoing direct and supply-chain jobs in 2026, in a workforce of 15.2 million [19]. The profits of foreign-owned operators, though counted in gross domestic product (GDP), flow offshore. They drop out of gross national income (GNI), which measures the income Australian residents keep.
+**The local share arrives during construction and competes for scarce trades.** The remaining 32%, about US$12 billion per gigawatt in Epoch's model, is spent on buildings, electrical fit-out, cooling, and land [12]. Large campuses bid for the same electricians, civil trades, and high-voltage transformers needed for housing and grid decarbonisation [9]. Once operating, a data centre employs few people: an industry-commissioned report by Mandala Partners counts around 9,450 ongoing direct and supply-chain jobs in 2026, in a workforce of 15.2 million [19]. The profits of foreign-owned operators, though counted in GDP, flow offshore and so drop out of GNI.
 
 **The productivity gain comes from using AI, wherever it is hosted.** The Productivity Commission estimates that AI could lift labour productivity by 4.3% over the next decade, or roughly 0.4 percentage points a year, nearly doubling the past decade's pace [28]. Australian firms and agencies earn that gain by redesigning everyday tasks, whether the computation happens in Melbourne or Oregon. The owners of the data centres carry a separate risk. As Hempton warns, capital-heavy infrastructure with low operating costs and rapid chip obsolescence can suffer severe overbuild and weak investor returns even while the services running over it transform the wider economy [27].
 
-These findings do not yet add up to a single figure. None of the sources reviewed here estimates what a gigawatt of data-centre capacity adds to the income of Australian residents once imports, offshore profits, and grid and water costs are netted off. That figure, measured in GNI and not in headline investment, is the one on which approvals should turn. Governments should calculate and publish it (Recommendation 1).
+None of the sources reviewed here puts numbers on all three terms for an Australian project. Governments should calculate that figure and publish it, because approvals should turn on it and not on headline investment (Recommendation 1).
 
-Until they do, the rule that follows is simple: approve, but do not subsidise. A project that pays for its own grid connection, water, and site remediation leaves the overbuild risk with its investors, and is welcome at any size. A project that needs grid priority, cheap water, or tax relief asks ratepayers to carry that risk, in return for a productivity gain they would receive anyway. On this the proposal's advocates agree. In Egan's version, "[t]he Australian government is not spending money on these" [25].
+The formula also yields a simple rule: approve, but do not subsidise. When a project pays its own costs, the third term falls to zero, and whatever income and spillovers it brings are a net gain. A project that pays for its own grid connection, water, and site remediation leaves the overbuild risk with its investors, and is welcome at any size. A project that needs grid priority, cheap water, or tax relief asks ratepayers to carry that risk, in return for a productivity gain they would receive anyway. On this the proposal's advocates agree. In Egan's version, "[t]he Australian government is not spending money on these" [25].
 
 ## 4. Joining the Deals Weakens Both
 
@@ -129,7 +145,7 @@ Linkage also serves developers poorly. An approval won by concession lasts only 
 
 ## 5. Recommendations: Two Deals, Each on Clear Terms
 
-Each deal should be made on its own terms, so that neither can be traded for the other. Table 2 sets out what each party gains. Four recommendations follow, each tied to the layers in Table 1.
+Each deal should be made on its own terms, so that neither can be traded for the other. Table 3 sets out what each party gains. Four recommendations follow, each tied to the layers in Table 1.
 
 | Party | What it gains from separate deals |
 |---|---|
@@ -139,7 +155,7 @@ Each deal should be made on its own terms, so that neither can be traded for the
 | AI providers | One set of safety duties, the same wherever they host |
 | Government | Authority over models that depends on no investor's goodwill |
 
-*Table 2. What each party gains when data-centre approval and model governance are kept apart.*
+*Table 3. What each party gains when data-centre approval and model governance are kept apart.*
 
 **1. Give data centres a fast, published path to approval (Layers 1–3).** Developers need speed and certainty more than they need concessions, and on this the debate agrees. Egan's first priority is that Australia "demonstrate that we can build data centres quickly and we can do it well, with certainty" [25]. Wood wants approval processes streamlined without protections being removed [28]. Commonwealth and state governments should publish one set of conditions and commit to a fixed decision time for any project that meets them. A project should pass four gates, in strict order:
 
