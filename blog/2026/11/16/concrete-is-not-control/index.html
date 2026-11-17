@@ -1,0 +1,1276 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Policy note: Approving a data centre and governing an AI model are separate decisions. A landlord controls the lease, not the tenant's business. Australia should sell land, power, and fast approval at a proper price, and bind AI providers through the terms of market entry.">
+      
+      
+      
+        <link rel="canonical" href="https://ashvin.au/blog/2026/11/16/concrete-is-not-control/">
+      
+      
+        <link rel="prev" href="../../../10/26/the-case-for-open-weights-models/">
+      
+      
+        <link rel="next" href="../how-to-read-the-fight-over-ai-data-centres/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/view-grid-plus-outline-dark.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>Build the Data Centres, Govern the Models - ashvin</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-introduction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="ashvin" class="md-header__button md-logo" aria-label="ashvin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3v8h8V3zM3 21h8v-8H3zM3 3v8h8V3zm10 13h3v-3h2v3h3v2h-3v3h-2v-3h-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ashvin
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Build the Data Centres, Govern the Models
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sarantium/ashvin/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sarantium/ashvin
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="ashvin" class="md-nav__button md-logo" aria-label="ashvin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3v8h8V3zM3 21h8v-8H3zM3 3v8h8V3zm10 13h3v-3h2v3h3v2h-3v3h-2v-3h-3z"/></svg>
+
+    </a>
+    ashvin
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sarantium/ashvin/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sarantium/ashvin
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-writing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Writing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-reading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Reading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../on-working/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Working
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../bookshelf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bookshelf
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Blog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-hosting-does-not-give-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Hosting Does Not Give Control
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-what-australia-gains-from-a-data-centre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. What Australia Gains from a Data Centre
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-why-the-trade-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Why the Trade Fails
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Recommendations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Recommendations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-rules-for-data-centres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Rules for data centres
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-rules-for-ai-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Rules for AI services
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-who-gains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Who gains
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-objections-and-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Objections and Limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Conclusion
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Conclusion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#acknowledgments-and-disclosure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Acknowledgments and Disclosure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2026-11-16 00:00:00+00:00" class="md-ellipsis">November 16, 2026</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              25 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <span class="md-tag">ai</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">australia</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">data-centres</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">political-economy</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">strategy</span>
+      
+    
+  </nav>
+
+
+  
+  
+
+
+  <h1>Build the Data Centres, Govern the Models</h1>
+
+<p><strong>ASHVIN PARAMESWARAN</strong>, Sydney, Australia</p>
+<p><strong>Abstract.</strong> Approving a data centre and governing an AI model are separate decisions, and Australia should make them separately. The "sovereign AI" proposal joins them. It holds that if Australia approves very large data centres quickly, the foreign laboratories that use them will repay it with model access, safety cooperation, and strategic weight.</p>
+<p>This note argues that the trade rests on a landlord's mistake. A landlord controls the lease, not the tenant's business. A model answers to its owner's home government wherever its computers sit, and the economic gains from AI come from using it, not from housing it. Australia's say over models has two other sources: the terms it sets on entry to its market, and its ability to change suppliers.</p>
+<p>Australia should act as a seller of land, power, and fast approval, and price them properly. For developers, one rule applies: pay your way, in the place where you land, and be approved quickly. Host communities should share in the gains, and the assets that outlast the boom should serve the public. AI providers should owe safety duties and 72-hour incident reporting as unconditional terms of market entry, and Australian agencies should stay able to switch between them.</p>
+<p><strong>Keywords:</strong> AI governance, data centres, sovereign AI, compute policy, Australian AI Standards, energy and water systems</p>
+<!-- more -->
+
+<hr />
+<h2 id="1-introduction">1. Introduction<a class="headerlink" href="#1-introduction" title="Permanent link">⚓︎</a></h2>
+<p>AI runs on data centres, and Australia is a good place to build them. It has land, sun and wind, stable institutions, and a close alliance with the United States. Investors have noticed. The Australian Energy Market Operator (AEMO) counts 225 data-centre projects in development [3], and Commonwealth Bank describes a $150 billion investment opportunity [9]. Projects that pay their own costs should be built, and approved quickly. The question for policy is what Australia gains from them, what they cost, and who sets the terms.</p>
+<p>That question has become tangled with a second one, because Australia now has two AI policies.</p>
+<p><strong>The first governs AI models.</strong> On 10 November 2026, Prime Minister Anthony Albanese and three cabinet ministers announced a dedicated AI safety regulator under the forthcoming <em>Australian AI Standards</em> legislation [1]. Backed by the Australian AI Safety Institute (AISI) and armed with "significant penalties", it will apply to "all frontier AI companies that wish to operate in Australia" [1]. The test is whether a company serves Australians, not where its computers sit. The law follows a failure of voluntary restraint: in June 2026 an OpenAI evaluation agent accessed a Services Australia statistics portal, and Canberra was not told for nearly three months [14, 21].</p>
+<p><strong>The second governs buildings.</strong> A data centre is a warehouse of computers with the power supply and cooling needed to run them, and the largest are sized by the electricity they draw. In March 2026 the Department of Industry, Science and Resources issued voluntary <em>Expectations</em> for data-centre developers on clean generation, water use, and local jobs. Expectation 5 asks them to offer Australian researchers, start-ups, and small firms favourable access to computing capacity ("compute") [10]. In July the Prime Minister promised "clear, consistent and mandatory" standards requiring large data centres to supply at least as much energy to the grid as they draw and to fund water infrastructure [2].</p>
+<p><strong>A proposal now in circulation joins the two.</strong> Its fullest public airing is Joseph Walker's <em>Compute in Australia</em> series, whose guests included Assistant Minister for Science, Technology and the Digital Economy Andrew Charlton, Center for a New American Security senior fellow Janet Egan, energy economist Tim Nelson, and Bronte Capital founder John Hempton [24–27]. The question before them was whether Australia should host 10 to 15 gigawatts (GW) of data centres, largely to train AI models for foreign laboratories. For scale, all the data centres now operating on the National Electricity Market (NEM) together draw an average of a little over half a gigawatt [3].</p>
+<p>The case for linking the policies runs as a chain. If Australia approves data centres quickly, foreign laboratories will sink tens of billions of dollars here. Having done so, they will have reason to keep Australia supplied with their best models, to cooperate with its safety institute, and to defend its interests in Washington. In this account the buildings are "sovereign AI infrastructure", and helping to build them is a way of governing AI.</p>
+<p>I argue that these are two separate decisions, and that trading one for the other is an error. The trade makes a landlord's mistake: it assumes that whoever owns the building has a say over the business inside it. It therefore asks Australia to pay in things it controls (grid capacity, water, consent over land, copyright law) for something a building cannot deliver. Australia's better position is that of a seller. It should sell land, power, and fast approval at a proper price, and it should deal with AI providers separately: by binding them through the terms on which they serve Australians, and by staying able to leave them.</p>
+<p>The note proceeds in four steps:</p>
+<ul>
+<li><strong>Section 2</strong> shows that hosting a model's computers gives no control over the model.</li>
+<li><strong>Section 3</strong> sets out how to count what Australia gains from a data centre, and what the count shows.</li>
+<li><strong>Section 4</strong> explains why the trade fails.</li>
+<li><strong>Section 5</strong> recommends rules for data centres and for AI services.</li>
+</ul>
+<h2 id="2-hosting-does-not-give-control">2. Hosting Does Not Give Control<a class="headerlink" href="#2-hosting-does-not-give-control" title="Permanent link">⚓︎</a></h2>
+<p>A landlord controls the lease. The landlord can set the rent, the hours, and the condition in which the premises must be left. The landlord cannot tell the tenant what to sell, or keep the shop open when head office orders it closed. The first link in the chain assumes otherwise: that a model running on Australian soil is, in some useful sense, under Australian control.</p>
+<p>June 2026 tested that assumption. On 12 June a US export-control directive restricted foreign nationals' access to Anthropic's newest models, <em>Fable 5</em> and <em>Mythos 5</em> [4]. The notice "did not provide specific details of its national security concern" [4]. Unable to check user nationality in real time, Anthropic suspended both models worldwide, across its own API and third-party cloud regions; <em>Mythos 5</em> returned only for US-approved organisations [4, 5]. Where the computers stood made no difference.</p>
+<p>The reason lies in how AI services are built. Every commercial model is reached through a <strong>control plane</strong>: the management software that checks who a user is, routes each request, and switches models on or off. The control plane belongs to the provider, and the provider answers to its home government. Guidance from the US Bureau of Industry and Security (BIS) on advanced computing items binds corporate headquarters and ultimate parent companies globally [7]. A server on a Sydney floor still answers to its parent company's home government. Hosting it confers no legal right to keep the model switched on.</p>
+<p>"Sovereign AI" runs together two things that are separate in engineering and in law:</p>
+<ul>
+<li>The <strong>facility stack</strong> is the premises: land, buildings, cooling, electricity, and chips.</li>
+<li>The <strong>model stack</strong> is the tenant's business: the control plane, the model itself, and the applications built on top.</li>
+</ul>
+<p>Table 1 sets out the six layers and asks of each whether hosting it in Australia gives Australia control.</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>What it is</th>
+<th>Does hosting it in Australia give Australia control?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Facility stack</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1. Land, buildings &amp; cooling</td>
+<td>Buildings, cooling loops, backup diesel, substations</td>
+<td><strong>Yes.</strong> State planning, water, and land-consent law apply in full. So do the local costs: construction, noise, water draw, land use</td>
+</tr>
+<tr>
+<td>2. Electricity</td>
+<td>Bulk energy, battery storage, backup generation, grid lines</td>
+<td><strong>Yes.</strong> Connection rules and tariffs decide whether the new load funds clean supply or crowds it out</td>
+</tr>
+<tr>
+<td>3. Chips &amp; servers</td>
+<td>AI chips (GPUs/TPUs), memory, networking; about 68% of capital cost [12]</td>
+<td><strong>No.</strong> Imported, subject to the maker's export rules, and obsolete within three to five years</td>
+</tr>
+<tr>
+<td><strong>Model stack</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4. Control plane</td>
+<td>Software for identity, scheduling, and traffic routing</td>
+<td><strong>No.</strong> The vendor holds root access. Traffic stays onshore only where rules require it and audits check it</td>
+</tr>
+<tr>
+<td>5. Model &amp; safety controls</td>
+<td>Trained parameters ("weights"), guardrails, evaluation access</td>
+<td><strong>No.</strong> Follows the maker's home law, unless the weights are held in escrow or the model is self-hosted</td>
+</tr>
+<tr>
+<td>6. Applications &amp; data</td>
+<td>Enterprise workflows, public-sector records, switching tools</td>
+<td><strong>Partly.</strong> Regulated records can be kept onshore. Dependence on a single vendor is unaffected</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 1. The six layers that "sovereign AI" treats as one asset. Australian authority is complete over the premises (Layers 1–2) and weak over the layers the trade is meant to secure (3–5).</em></p>
+<p>Hosting gives Australia authority over land, water, and the grid, which it had already. It gives none over the chips, the control plane, or the model.</p>
+<p>Nor are the data centres proposed for export the ones Australian users depend on. <em>Training</em> (building a new model) packs tens of thousands of chips into a single power-dense campus and can be done anywhere with enough power [25]. <em>Inference</em> (running a trained model to answer requests) divides by how much delay a task can tolerate. Interactive clinical tools, voice systems, and industrial controls need millisecond response times and must run near Australian cities. Long-running coding, research, and administrative agents run just as well over subsea fibre from abroad [24, 27]. Whatever its commercial merits, a training campus built in regional Australia for export gives Australian hospitals, banks, and public agencies no guarantee that their AI services will keep running during an international disruption.</p>
+<p>If the building does not give control, two things do. The first is law: the terms on which a provider may serve Australians (Section 4). The second is the ability to leave. For an organisation that can switch to a second provider, or to an open-weights model it runs itself, a suspension like June's is an inconvenience. For one that cannot, it is a crisis. In practice, control over a supplier is the ability to walk away from it.</p>
+<h2 id="3-what-australia-gains-from-a-data-centre">3. What Australia Gains from a Data Centre<a class="headerlink" href="#3-what-australia-gains-from-a-data-centre" title="Permanent link">⚓︎</a></h2>
+<p>If hosting does not buy control, data centres must be judged as business. On that footing Australia is a seller. It has land, power, and the ability to approve quickly, and foreign firms want all three. Charlton compares the position to iron ore: Australia prospered by exporting a raw material because it produced that material more cheaply than its competitors, and so earned a margin above cost [24]. Whether hosting data centres will earn a margin of that kind is, in his words, an "[i]mportant unanswered question" [24].</p>
+<p>A seller should know what it keeps from a sale. Wood, who chairs the Productivity Commission, expects the sale to happen in any case: there is "pretty strong commercial incentive to build these things", and Australia will "end up with a lot of capacity" [28]. The useful question is how much of the proceeds stay.</p>
+<p>The sale on offer is large, and it is for export. AEMO's 225 projects in development total 67 GW [3]. The record of existing data centres is more modest. Those operating on the NEM consumed roughly 5 terawatt-hours (TWh) in FY2026, or 3% of grid demand [3]. Average use of their grid connections sat near 27%, facilities took five to ten years to reach full load, and 36% of the projects in AEMO's 2025 forecast had already been cancelled [3]. Hosting 10 to 15 GW at 75% utilisation would consume 65.7 to 98.6 TWh a year, four to six times AEMO's Step Change forecast for FY2030 (15.5 TWh) [3, 25, 26]. Capacity on that scale would serve foreign customers, not Australian hospitals, schools, or firms.</p>
+<p><strong>How to count the benefit.</strong> Headline investment is the wrong measure, and so is gross domestic product (GDP). GDP counts everything produced on Australian soil, including profits that belong to foreign owners. The right measure is gross national income (GNI): what Australian residents keep. For a single project, the calculation has three terms:</p>
+<blockquote>
+<p><strong>Net benefit to residents = income residents keep + spillovers − costs left with residents</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>What counts</th>
+<th>What does not count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Income residents keep</strong></td>
+<td>Wages paid to Australian workers; margins earned by Australian suppliers of construction, land, and energy; taxes and charges paid to Australian governments; profits to any Australian owners</td>
+<td>Imported chips and servers, which enter as investment and leave as imports; profits to foreign owners</td>
+</tr>
+<tr>
+<td><strong>Spillovers</strong></td>
+<td>Lower network charges, if the load does not add to the peak; new clean generation the project underwrites; compute and skills passed on to local researchers and firms</td>
+<td>The productivity gain from using AI, which arrives wherever the model is hosted</td>
+</tr>
+<tr>
+<td><strong>Costs left with residents</strong></td>
+<td>Grid upgrades and higher bills the project does not pay for; water drawn from stressed catchments; trades diverted from housing and the energy transition; tax relief and other concessions</td>
+<td>Costs the project pays for itself</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 2. How to count a data centre's benefit to Australian residents.</em></p>
+<p>Five findings fill in these terms, taken in order.</p>
+<p><strong>Income kept: most of the money is imported equipment.</strong> In Epoch AI's cost model for a one-gigawatt AI campus, 68% of capital spending (US$26 billion of US$38 billion) buys chips, servers, and networking hardware [12]. Australia imports virtually all of it, so about two-thirds of every announced dollar is counted as investment and then subtracted again as imports. As Commonwealth Bank economists note, "[t]he business investment pulse is quite large, but that flow through to GDP is far smaller" [9]. The same holds in operation. Charlton estimates that of each dollar spent on AI services, energy takes about 5 to 10 cents and infrastructure less than 10; chips take 20 to 30 cents, and most of the remainder goes to the model's developer [24].</p>
+<p><strong>Income kept: the local share is real and arrives during construction.</strong> The remaining 32%, about US$12 billion per gigawatt in Epoch's model, is spent on buildings, electrical fit-out, cooling, and land [12]. Large campuses bid for the same electricians, civil trades, and high-voltage transformers needed for housing and grid decarbonisation [9]. Once operating, a data centre employs few people: an industry-commissioned report by Mandala Partners counts around 9,450 ongoing direct and supply-chain jobs in 2026, in a workforce of 15.2 million [19]. The profits of foreign-owned operators, though counted in GDP, flow offshore and so drop out of GNI.</p>
+<p><strong>Spillovers: the productivity gain does not depend on hosting.</strong> The Productivity Commission estimates that AI could lift labour productivity by 4.3% over the next decade, or roughly 0.4 percentage points a year, nearly doubling the past decade's pace [28]. Australian firms and agencies earn that gain by redesigning everyday tasks, whether the computation happens in Melbourne or Oregon.</p>
+<p><strong>Spillovers: flow-on effects count once they are contracted.</strong> Three are claimed. The first is cleaner power. Large industrial customers have long anchored new generation, and a data centre that signs long-term contracts can do for wind, solar, and storage what smelters once did for coal [26]. A load that does not add to the peak can also lower network charges for everyone [26]. The second is a local AI industry: Charlton hopes that laboratories which build here will bring research teams, partner with universities, and supply compute to start-ups [24]. The third is follow-on investment by the same firms. The first has a clear mechanism. The second and third are hopes, since a data centre needs few staff and a lease does not oblige the tenant to do research nearby. Each belongs in the count when it is written into a contract.</p>
+<p><strong>Costs left: the builders may fail, and the assets will remain.</strong> Hempton's parallel is the fibre-optic boom: infrastructure that changes the world and bankrupts its builders [27]. Capital-heavy assets with low operating costs and fast-ageing chips are prone to overbuilding and weak returns [27]. Australia should plan for that outcome. The chips will be obsolete in three to five years whatever happens. The substations, transmission lines, storage, and generation built to serve them last for decades. If the project has paid for them, and they are designed to serve the wider grid, a failure leaves the public with useful assets and no bill.</p>
+<p>None of the sources reviewed here puts numbers on all three terms for an Australian project. Governments should calculate that figure and publish it, because approvals should turn on it and not on headline investment.</p>
+<p>The count also yields a simple rule: approve, but do not subsidise. When a project pays its own costs, the third term falls to zero, and whatever income and spillovers it brings are a net gain. On this the proposal's advocates agree. In Egan's version, "[t]he Australian government is not spending money on these" [25].</p>
+<h2 id="4-why-the-trade-fails">4. Why the Trade Fails<a class="headerlink" href="#4-why-the-trade-fails" title="Permanent link">⚓︎</a></h2>
+<p>What remains is the trade in its strongest form: <strong>compute-for-access</strong> [25]. Its advocates state it with care, and it deserves the same care in reply.</p>
+<p>In Egan's account, Australia offers foreign laboratories fast, predictable approvals, abundant renewable land, and aligned Five Eyes security settings for multi-gigawatt training clusters. In return it asks for three kinds of access: frontier models for Australians, a share of compute for public research, and close cooperation between the laboratories and the AISI [25]. Enforcement could include financial penalties, or making a data centre's power supply conditional on the agreement [25]. Egan is clear that this is soft leverage. A US company remains "at the behest of the US government"; the aim is to create "an internal champion" that argues for Australia in Washington [25].</p>
+<p>Two parts of this account are right. Fast, predictable approvals are worth offering for their own sake. And goodwill has value: a laboratory with a large Australian investment is a useful friend. The third part is the error: making model access or safety oversight depend on that goodwill. It fails for three reasons.</p>
+<p><strong>First, Australia already holds a stronger lever, and the trade weakens it.</strong> The November announcement applies mandatory security controls, independent evaluation, and rapid incident reporting to <em>every</em> frontier AI provider operating in Australia [1]. It reaches a model trained and hosted anywhere on earth the moment that model serves Australian users. Canberra timed it deliberately "before a range of major international talks that will cover AI development and investment" [1]. If safety cooperation or research access is instead made conditional on data-centre deals, a statutory duty becomes a negotiated favour, and the companies being regulated gain a bargaining position against their regulator.</p>
+<p><strong>Second, the leverage is weak, as advocates and sceptics both accept.</strong> Hard bargaining is not on offer. Egan observes that if the Netherlands used its hold over chip-making equipment against the United States, a trade war would follow that the United States would probably win, and she rejects hard bargaining for Australia on the same ground [25]. A clause letting Australia cut a data centre's power is real, because the landlord does control the premises. But a dark data centre restores no model access, and using the clause is the escalation Egan warns against.</p>
+<p>The soft version depends on scale and on market conditions. Egan's benchmark is hosting half of a leading laboratory's training compute [25]. Wood calls the leverage case for government-backed data centres "a fairly long bow" [28]. If the world overbuilds, or the leading models stay close together, a laboratory has many substitutes and owes its host little: in May 2026, leading open-weights models trailed the top closed models by roughly four months on capability benchmarks [11]. If instead a crisis makes frontier compute scarce, the provider's home government holds statutory authority over parent companies, replacement chips, and software updates [5, 7]. Allied hosting can earn a seat in diplomatic consultations, as Carnegie's <em>Compute Coalition</em> report argues [23], and that seat is worth having. It is not a legal right.</p>
+<p><strong>Third, the price is paid in permanent rights for revocable promises.</strong> Egan identifies copyright as "the key barrier": laboratories will not pay for Australian licences while they argue fair use in US courts, so the deal requires a change to Australian copyright law [25]. The government has taken the opposite position. The Attorney-General's Department has ruled out a text-and-data-mining exception in favour of licensing certainty [8], and Charlton describes the aim as ensuring that Australian creative work "isn't given away for free" [24]. US courts, for their part, have already separated lawful training copies from retained pirated libraries (<em>Bartz v Anthropic</em> [6]). Weakening creators' rights, compressing environmental and Indigenous land-consent processes [20], or entering a tax-exemption race among the states would each give up a lasting protection for a commercial pledge that binds no one. Virginia's legislative auditor offers a warning: US$4.06 billion in data-centre tax exemptions returned just 22 cents of state revenue per dollar forgone [17].</p>
+<p>The trade also serves developers poorly. An approval won by concession lasts only as long as the political mood that granted it. Wood warns that if data centres push up power or water prices, "you're going to see that social licence degrade pretty quickly" [28]. An approval granted under published rules is far harder to reopen. Singapore shows that strict rules and strong demand can coexist: its latest capacity round, run under tight efficiency limits, was oversubscribed [15].</p>
+<h2 id="5-recommendations">5. Recommendations<a class="headerlink" href="#5-recommendations" title="Permanent link">⚓︎</a></h2>
+<p>The recommendations reduce to three rules. For data centres: <strong>pay your way, in the place where you land.</strong> For AI providers: <strong>the same duties, wherever your computers sit.</strong> For Australian buyers of AI: <strong>stay able to leave.</strong></p>
+<h3 id="51-rules-for-data-centres">5.1 Rules for data centres<a class="headerlink" href="#51-rules-for-data-centres" title="Permanent link">⚓︎</a></h3>
+<p>Table 3 applies the first rule. A project that meets every test should be approved; no test may be traded against another.</p>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>What the project must show</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Its workload mix, separating domestic needs (low delay, data residency) from export training</td>
+</tr>
+<tr>
+<td><strong>Grid connection</strong></td>
+<td>That it funds its own connection, so network costs do not fall on households if forecast loads disappoint [16]</td>
+</tr>
+<tr>
+<td><strong>Peak</strong></td>
+<td>Enough storage or flexibility that it does not raise the network peak; flexible training loads sited in zones with surplus solar and wind [26]</td>
+</tr>
+<tr>
+<td><strong>Clean supply</strong></td>
+<td>Renewable certificates matched to its demand within broad blocks of the day, with existing certificates allowed as a bridge while new generation is built [26]</td>
+</tr>
+<tr>
+<td><strong>Water</strong></td>
+<td>On-site evaporative loss and upstream power-station water use within seasonal limits for the local catchment [18]</td>
+</tr>
+<tr>
+<td><strong>Consent and community</strong></td>
+<td>Free, Prior and Informed Consent (FPIC) on Indigenous land [20], and a benefit agreement with the host community</td>
+</tr>
+<tr>
+<td><strong>Legacy</strong></td>
+<td>Grid, storage, and water assets built to serve the wider network and usable by a later tenant; a remediation bond; conditions that bind successor owners</td>
+</tr>
+<tr>
+<td><strong>Metering</strong></td>
+<td>Public, standardised reporting of power drawn, water used, and research compute delivered</td>
+</tr>
+<tr>
+<td><strong>Public cost</strong></td>
+<td>A published estimate of net benefit to residents (Table 2), and no tax relief, public land, or grid priority</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 3. "Pay your way, in the place where you land": the tests for a data-centre approval.</em></p>
+<p><strong>1. Approve quickly any project that passes.</strong> Developers need speed and certainty more than they need concessions, and on this the debate agrees. Egan's first priority is that Australia "demonstrate that we can build data centres quickly and we can do it well, with certainty" [25]. Wood wants approval processes streamlined without protections being removed [28]. Commonwealth and state governments should publish the tests in Table 3 and commit to a fixed decision time for any project that meets them. National Cabinet should prevent states from bidding against one another with payroll-tax relief, public land, or places in the grid queue [17]. States should compete on how quickly they decide, not on how much they give away.</p>
+<p><strong>2. Fix the terms on the day of approval, for both sides.</strong> A bargain is most at risk after it is signed. Once a data centre is built and a town depends on it, its owner can return to ask for tax relief or looser water limits, and a change of owner is an obvious occasion. Once the capital is sunk, a later government can tighten the rules. Both risks have the same remedy. The conditions of approval should attach to the asset, pass to any new owner, and be closed to renegotiation by either side for a stated term. Developers gain protection from political risk. Communities gain promises that cannot be quietly withdrawn.</p>
+<p><strong>3. Let projects pay to comply, in the same place.</strong> Developers should be free to meet the tests by contract instead of by construction: buying firmed clean power, paying for storage, or funding water recycling. The remedy must arrive where the cost falls. For carbon, a tonne avoided anywhere counts, so a verified credit can do the job. Power and water costs are local. A certificate for solar energy generated at noon in another state does not supply a Sydney substation at 6 pm, and a water offset in another catchment does not refill this one. An instrument should count only if it delivers in the same part of the day and the same region, or the same catchment, as the demand it covers.</p>
+<p><strong>4. Give host communities a say and a share.</strong> The current debate treats communities as something to be protected. They are better treated as a party to the sale, since it is their land, water, and network that is being sold. Each project should negotiate a benefit agreement with its host community, and with Traditional Owners where their land is involved, covering siting, water sources, local hiring, and a share of the gains. Where a data centre lowers network costs [26], local customers should see it on their bills. Consent secured this way is also the developer's best protection against a later reversal [28].</p>
+<p><strong>5. Keep what outlasts the boom.</strong> Approvals should assume that some projects will fail [27]. Connection assets, storage, generation, and water recycling built for a data centre should be sized and sited to serve the wider network, and should remain in service if the data centre closes. Sites and connections should also be usable by a different operator if the first one leaves, so that no region depends on a single tenant. The remediation bond covers the rest. Met well, the Prime Minister's pledge that data centres return at least as much energy as they draw [2] leaves Australia with a stronger grid whatever becomes of the tenants.</p>
+<h3 id="52-rules-for-ai-services">5.2 Rules for AI services<a class="headerlink" href="#52-rules-for-ai-services" title="Permanent link">⚓︎</a></h3>
+<p><strong>6. Make safety duties a condition of market entry (Layer 5).</strong> The <em>Australian AI Standards</em> Bill should impose the same AISI evaluation access, security rules, and incident-reporting duties on every frontier provider serving Australians, whether hosted onshore or offshore [1]. Notification should fall due within 72 hours, matching European breach rules; the reporting delay in 2026 ran to months [14, 21]. Regulatory, copyright, and safety standards should never be offered as inducements in siting deals.</p>
+<p>The duties should stay narrow. Wood cautions that a general AI Act would duplicate existing law [28]; the regulator's remit should be frontier providers and the specific risks they pose. Statute sets the floor. Partnerships with laboratories that build here can add to it, for example through early information on unreleased models and exchanges of researchers, both of which Egan rightly values [25]. They should not replace it.</p>
+<p><strong>7. Stay able to leave (Layers 4–6).</strong> Control over a supplier rests on being able to change it. Within government, the Digital Transformation Agency (DTA) and Australian Signals Directorate (ASD) should require audited domestic routing and the ability to move between vendors, should test that ability regularly, and should avoid "global standard" cloud tiers that process Australian requests offshore. Agencies should keep vetted open-weights models available as a fallback, on cloud infrastructure certified under ASD's Information Security Registered Assessors Program (IRAP). Charlton names the same routes to reducing dependence: using a diversity of models across critical systems, and running open-weights models in Australia under Australian control [24].</p>
+<p>Public compute serves the same end. Canberra should not rely on voluntary Expectation 5 pledges to pass capability down from commercial data centres [10]. It should fund pooled public compute for universities and small firms directly, as Canada's Sovereign AI Compute Strategy and Europe's EuroHPC AI Factories do [13, 22]. Where a developer does receive expedited grid coordination, its Expectation 5 promises should become contracted, audited GPU-hour allocations with clear remedies for non-delivery.</p>
+<h3 id="53-who-gains">5.3 Who gains<a class="headerlink" href="#53-who-gains" title="Permanent link">⚓︎</a></h3>
+<p>Developers gain published conditions, a fixed decision time, and approvals that survive a change of government. Host communities gain a say, a share, and no added cost on their bills. Researchers gain compute that is funded or contracted, not merely promised. AI providers gain one set of duties that does not depend on where they host. Government gains authority over models that rests on no investor's goodwill.</p>
+<h2 id="6-objections-and-limitations">6. Objections and Limitations<a class="headerlink" href="#6-objections-and-limitations" title="Permanent link">⚓︎</a></h2>
+<p><em>“These tests will drive investment to Southeast Asia or the United States.”</em> Capacity serving Australians will stay, because workloads that need Australian data residency or millisecond response times must locate near their users. Singapore's oversubscribed allocations under strict efficiency limits show that firm rules do not deter demand [15]. Some export training campuses may go elsewhere. If one is viable here only when households carry its grid costs or communities waive water limits, the country loses nothing by declining the sale.</p>
+<p><em>“Australia is too small a market for its rules to bind; laboratories cooperate only because they hope to build here.”</em> This is Egan's strongest point: Australia has no "Brussels effect" [25]. There are three answers. The duties proposed are narrow and resemble the testing that providers already accept from the UK and US safety institutes [25], so compliance costs little beside the cost of leaving a wealthy market. Providers have also shown that they respond to Australian pressure: after the 2026 portal incident, OpenAI made public commitments to Australia [21]. And where statute cannot reach, as with unreleased internal models, partnership can add to the floor (Recommendation 6).</p>
+<p><em>“Modern data centres use very little water, so water rules solve a problem that does not exist.”</em> Some designs do use little, and Nelson reports closed-loop cooling systems that use none [26]. Water use varies widely with the cooling system, the climate, and the source of the electricity [18], which is the reason to meter it. A cap costs a low-water project almost nothing and binds only those that would draw heavily on a stressed catchment.</p>
+<p><em>“Without gigawatt training clusters onshore, Australia will be rationed out of frontier AI in a crisis.”</em> The risk is real, but onshore hardware did not prevent the June 2026 suspension [4, 5]. The better protection is the ability to switch suppliers (Recommendation 7). Where allied hosting does strengthen defence or intelligence continuity, Canberra should negotiate binding intergovernmental terms and fund the campus from the defence budget.</p>
+<p><em>“The wholesale market already rewards storage, so time-matching rules duplicate it.”</em> This is Nelson's view, and on energy it has force [26]. Table 3 therefore adopts the broad time-of-day blocks in the Australian Energy Market Commission's advice, not strict hourly matching [26]. The wholesale market does not cover transmission lines and substations, whose costs still fall on households if forecast loads disappoint [16], so upfront connection funding remains necessary.</p>
+<p><strong>Limitations.</strong> Project-level Australian power contracts, cooling designs, and foreign-ownership shares remain largely commercial-in-confidence. The March 2026 <em>Expectations</em> have not yet undergone a public compliance audit [10], and the full text of the <em>Australian AI Standards</em> Bill remained unreleased at the time of writing [1]. No published estimate applies the count in Table 2 to an Australian project. Standardised public metering of facility power draw, water consumption, and contracted research compute would make every link in this argument empirically testable.</p>
+<h2 id="7-conclusion">7. Conclusion<a class="headerlink" href="#7-conclusion" title="Permanent link">⚓︎</a></h2>
+<p>A landlord controls the lease, not the tenant's business. The "sovereign AI" proposal forgets this. It treats a building as though it carried authority over what runs inside it, and asks Australia to pay for that authority with its grid, water, land, and law. Concrete is not control.</p>
+<p>Australia has two better positions, and it should hold each separately. As a seller of land, power, and fast approval, it should approve quickly any data centre that pays its way in the place where it lands, give host communities a share, and make sure the assets that outlast the boom serve the public. As a market, it should hold every AI provider to the same safety duties wherever its computers sit, and stay able to change suppliers. Any laboratory that wants Australian customers is already within Parliament's reach [1].</p>
+<hr />
+<h3 id="acknowledgments-and-disclosure">Acknowledgments and Disclosure<a class="headerlink" href="#acknowledgments-and-disclosure" title="Permanent link">⚓︎</a></h3>
+<p><strong>Acknowledgments.</strong> Claude (Anthropic) and Gemini (Google) assisted with source verification, structural synthesis, and editing; every empirical claim, quotation, and reference was verified against primary documents on file, and the author takes sole responsibility for the analysis and positions expressed.</p>
+<p><strong>Competing interests and funding.</strong> The author works in the Australian enterprise software and AI sector; this note is written solely in a personal capacity and received no external funding.</p>
+<hr />
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">⚓︎</a></h3>
+<p>[1] Anthony Albanese, Richard Marles, Tony Burke, and Tim Ayres. 2026. <em>New Australian AI safety and security protections</em>. Media release, Office of the Prime Minister of Australia, 10 November 2026. <a href="https://www.pm.gov.au/media/new-australian-ai-safety-and-security-protections">https://www.pm.gov.au/media/new-australian-ai-safety-and-security-protections</a></p>
+<p>[2] Anthony Albanese. 2026. <em>AI in Australia's Interests</em>. Speech, Office of the Prime Minister of Australia, 15 July 2026. <a href="https://www.pm.gov.au/media/ai-australias-interests-0">https://www.pm.gov.au/media/ai-australias-interests-0</a></p>
+<p>[3] Australian Energy Market Operator (AEMO). 2026. <em>2026 ESOO Data Centre Forecasting Overview</em>. AEMO, 25 August 2026. <a href="https://www.aemo.com.au/-/media/files/electricity/nem/planning_and_forecasting/nem_esoo/2026/2026-esoo-data-centre-forecasting-overview.pdf">https://www.aemo.com.au/-/media/files/electricity/nem/planning_and_forecasting/nem_esoo/2026/2026-esoo-data-centre-forecasting-overview.pdf</a></p>
+<p>[4] Anthropic. 2026. <em>Statement on the US government directive to suspend access to Fable 5 and Mythos 5</em>. Anthropic, 12 June 2026. <a href="https://www.anthropic.com/news/fable-mythos-access">https://www.anthropic.com/news/fable-mythos-access</a></p>
+<p>[5] Anthropic. 2026. <em>Redeploying Fable 5</em>. Anthropic, 30 June 2026. <a href="https://www.anthropic.com/news/redeploying-fable-5">https://www.anthropic.com/news/redeploying-fable-5</a></p>
+<p>[6] <em>Bartz v Anthropic PBC</em>. 2025. Order on Fair Use, US District Court for the Northern District of California, Case No. 3:24-cv-05417, 23 June 2025. <a href="https://storage.courtlistener.com/recap/gov.uscourts.cand.434709/gov.uscourts.cand.434709.231.0_5.pdf">https://storage.courtlistener.com/recap/gov.uscourts.cand.434709/gov.uscourts.cand.434709.231.0_5.pdf</a></p>
+<p>[7] Bureau of Industry and Security (BIS). 2026. <em>Guidance Regarding Enforcement of License Requirements for Advanced Computing Items for Entities Headquartered in Country Group D:5 and Macau</em>. US Department of Commerce, 31 May 2026. <a href="https://www.bis.gov/media/documents/bis-guidance-may-31-2026.pdf">https://www.bis.gov/media/documents/bis-guidance-may-31-2026.pdf</a></p>
+<p>[8] Commonwealth Attorney-General's Department. 2025. <em>Copyright and Artificial Intelligence Reference Group (CAIRG)</em>. Australian Government, October 2025 update. <a href="https://www.ag.gov.au/rights-and-protections/copyright/copyright-and-artificial-intelligence-reference-group-cairg">https://www.ag.gov.au/rights-and-protections/copyright/copyright-and-artificial-intelligence-reference-group-cairg</a></p>
+<p>[9] Commonwealth Bank of Australia. 2026. <em>Australia's data centre boom: a $150 billion investment opportunity</em>. CommBank Newsroom, 6 August 2026. <a href="https://www.commbank.com.au/articles/newsroom/2026/08/australias-data-centre-boom.html">https://www.commbank.com.au/articles/newsroom/2026/08/australias-data-centre-boom.html</a></p>
+<p>[10] Department of Industry, Science and Resources. 2026. <em>Expectations of data centres and AI infrastructure developers</em>. Australian Government, 23 March 2026. <a href="https://www.industry.gov.au/publications/expectations-data-centres-and-ai-infrastructure-developers">https://www.industry.gov.au/publications/expectations-data-centres-and-ai-infrastructure-developers</a></p>
+<p>[11] Epoch AI. 2026. <em>Open models lag state-of-the-art closed models by 4 months</em>. Epoch AI Data Insights, 29 May 2026. <a href="https://epoch.ai/data-insights/open-closed-eci-gap">https://epoch.ai/data-insights/open-closed-eci-gap</a></p>
+<p>[12] Epoch AI. 2026. <em>Total Cost of Ownership of a One-Gigawatt AI Data Center</em>. Epoch AI Data Insights, May 2026. <a href="https://epoch.ai/data-insights/ai-datacenter-cost-breakdown">https://epoch.ai/data-insights/ai-datacenter-cost-breakdown</a></p>
+<p>[13] EuroHPC Joint Undertaking. 2025. <em>AI Factories Access Modes</em>. European Union, 2025. <a href="https://www.eurohpc-ju.europa.eu/ai-factories/ai-factories-access-modes_en">https://www.eurohpc-ju.europa.eu/ai-factories/ai-factories-access-modes_en</a></p>
+<p>[14] Erin Handley. 2026. <em>OpenAI hacked Medicare portal, Prime Minister Anthony Albanese says</em>. ABC News, 24 September 2026. <a href="https://www.abc.net.au/news/2026-09-24/ai-agent-accessed-australian-government-site-pm-says/107189078">https://www.abc.net.au/news/2026-09-24/ai-agent-accessed-australian-government-site-pm-says/107189078</a></p>
+<p>[15] Infocomm Media Development Authority (IMDA) and Economic Development Board, Singapore. 2026. <em>Four Data Centre Proposals Selected as Part of Second Data Centre Call for Application</em>. Singapore Government, 21 August 2026. <a href="https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches/four-data-centre-proposals-selected-as-part-of-second-data-centre-call-for-application">https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches/four-data-centre-proposals-selected-as-part-of-second-data-centre-call-for-application</a></p>
+<p>[16] Joint Legislative Audit and Review Commission (JLARC). 2024. <em>Data Centers in Virginia</em>. Commonwealth of Virginia, December 2024. <a href="https://jlarc.virginia.gov/landing-2024-data-centers-in-virginia.asp">https://jlarc.virginia.gov/landing-2024-data-centers-in-virginia.asp</a></p>
+<p>[17] Joint Legislative Audit and Review Commission (JLARC). 2026. <em>Economic Development Incentives 2026</em>. Report 623, Commonwealth of Virginia, November 2026. <a href="https://jlarc.virginia.gov/pdfs/reports/Rpt623.pdf">https://jlarc.virginia.gov/pdfs/reports/Rpt623.pdf</a></p>
+<p>[18] Arman Shehabi et al. 2024. <em>2024 United States Data Center Energy Usage Report</em>. Lawrence Berkeley National Laboratory, December 2024. <a href="https://eta.lbl.gov/publications/2024-lbnl-data-center-energy-usage-report">https://eta.lbl.gov/publications/2024-lbnl-data-center-energy-usage-report</a></p>
+<p>[19] Mandala Partners. 2026. <em>The Economic Contribution of the Data Centre Industry in Australia</em>. Commissioned by Data Centres Australia, August 2026. <a href="https://datacentres.org.au/wp-content/uploads/2026/08/2026-08_DCA-Mandala-The-Economic-Contribution-of-the-Data-Centre-Industry-in-Australia-digital.pdf">https://datacentres.org.au/wp-content/uploads/2026/08/2026-08_DCA-Mandala-The-Economic-Contribution-of-the-Data-Centre-Industry-in-Australia-digital.pdf</a></p>
+<p>[20] Northern Land Council. 2026. <em>Submission 207 to the Senate Environment and Communications References Committee Inquiry into Artificial Intelligence and Data Centres</em>. Parliament of Australia, September 2026. <a href="https://www.aph.gov.au/DocumentStore.ashx?id=64091ae6-dec5-47ec-a083-b32aa60fc35b&amp;subId=803365">https://www.aph.gov.au/DocumentStore.ashx?id=64091ae6-dec5-47ec-a083-b32aa60fc35b&amp;subId=803365</a></p>
+<p>[21] OpenAI. 2026. <em>How we will do better for Australia</em>. OpenAI, 28 September 2026 (updated 4 October 2026). <a href="https://openai.com/index/how-we-will-do-better-for-australia/">https://openai.com/index/how-we-will-do-better-for-australia/</a></p>
+<p>[22] OECD. 2026. <em>Securing AI Compute: Government Policy Approaches</em>, 13 October 2026 (<a href="https://www.oecd.org/en/publications/securing-ai-compute_7f96dc99-en/full-report.html">https://www.oecd.org/en/publications/securing-ai-compute_7f96dc99-en/full-report.html</a>); Innovation, Science and Economic Development Canada, <em>Canadian Sovereign AI Compute Strategy</em>, launched December 2024 (updated 4 June 2026) (<a href="https://ised-isde.canada.ca/site/ised/en/canadian-sovereign-ai-compute-strategy">https://ised-isde.canada.ca/site/ised/en/canadian-sovereign-ai-compute-strategy</a>).</p>
+<p>[23] Alasdair Phillips-Robins, Teddy Tawil, and Sam Winter-Levy. 2026. <em>The Compute Coalition: How to Build the Future of AI in the Free World</em>. Carnegie Endowment for International Peace, 8 June 2026. <a href="https://carnegieendowment.org/research/2026/06/the-compute-coalition-how-to-build-the-future-of-ai-in-the-free-world">https://carnegieendowment.org/research/2026/06/the-compute-coalition-how-to-build-the-future-of-ai-in-the-free-world</a></p>
+<p>[24] Joseph Walker. 2026. <em>Australia's Plan to Turn Compute Into Sovereign AI — Dr Andrew Charlton MP</em>. The Joe Walker Podcast, 16 August 2026. <a href="https://josephnoelwalker.com/andrew-charlton/">https://josephnoelwalker.com/andrew-charlton/</a></p>
+<p>[25] Joseph Walker. 2026. <em>The Geostrategic Case for Compute in Australia — Janet Egan</em>. The Joe Walker Podcast, 27 August 2026. <a href="https://josephnoelwalker.com/janet-egan/">https://josephnoelwalker.com/janet-egan/</a></p>
+<p>[26] Joseph Walker. 2026. <em>AI Factories in the Outback — Tim Nelson</em>. The Joe Walker Podcast, 14 October 2026. <a href="https://josephnoelwalker.com/tim-nelson/">https://josephnoelwalker.com/tim-nelson/</a></p>
+<p>[27] Joseph Walker. 2026. <em>"Fibre Optics Mark II": Why Data Centres Will Change the World and Bankrupt Their Builders — John Hempton</em>. The Joe Walker Podcast, 4 November 2026. <a href="https://josephnoelwalker.com/john-hempton/">https://josephnoelwalker.com/john-hempton/</a></p>
+<p>[28] Productivity Commission. 2025. <em>Harnessing data and digital technology</em>. Inquiry Report, Australian Government, 19 December 2025 (<a href="https://www.pc.gov.au/inquiries-and-research/data-digital/">https://www.pc.gov.au/inquiries-and-research/data-digital/</a>); see also Joseph Walker, <em>How Can Australia Get a Piece of the AI Action? — Danielle Wood</em>, The Joe Walker Podcast, 4 June 2026 (<a href="https://josephnoelwalker.com/danielle-wood/">https://josephnoelwalker.com/danielle-wood/</a>).</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../../10/26/the-case-for-open-weights-models/" class="md-footer__link md-footer__link--prev" aria-label="Previous: The case for open-weights models">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                The case for open-weights models
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../how-to-read-the-fight-over-ai-data-centres/" class="md-footer__link md-footer__link--next" aria-label="Next: How to read the fight over AI data centres">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                How to read the fight over AI data centres
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023-2025 Ashvin Parameswaran
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sarantium/ashvin" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/ashvinparameswaran" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="/assets/ashvin_parameswaran_curriculum_vitae_2023.pdf" target="_blank" rel="noopener" title="resume" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M96 0C60.7 0 32 28.7 32 64v384c0 35.3 28.7 64 64 64h80V400c0-35.3 28.7-64 64-64h176V170.5c0-17-6.7-33.3-18.7-45.3L290.7 18.7C278.7 6.7 262.5 0 245.5 0zm261.5 176H264c-13.3 0-24-10.7-24-24V58.5zM240 380c-11 0-20 9-20 20v128c0 11 9 20 20 20s20-9 20-20v-28h12c33.1 0 60-26.9 60-60s-26.9-60-60-60zm32 80h-12v-40h12c11 0 20 9 20 20s-9 20-20 20m96-80c-11 0-20 9-20 20v128c0 11 9 20 20 20h32c28.7 0 52-23.3 52-52v-64c0-28.7-23.3-52-52-52zm20 128v-88h12c6.6 0 12 5.4 12 12v64c0 6.6-5.4 12-12 12zm88-108v128c0 11 9 20 20 20s20-9 20-20v-44h28c11 0 20-9 20-20s-9-20-20-20h-28v-24h28c11 0 20-9 20-20s-9-20-20-20h-48c-11 0-20 9-20 20"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tracking", "navigation.indexes", "search.highlight", "search.share", "content.code.copy", "navigation.footer", "navigation.top"], "search": "../../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>
